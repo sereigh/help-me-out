@@ -5,5 +5,5 @@ exports.toolsSchema = mongoose.Schema({
   tool_name: String,
   tool_photos: [{ type: String }],
   help: Boolean,
-  Favorite: Boolean,
+  favorite: Boolean,
 });
