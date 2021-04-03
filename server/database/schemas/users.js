@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 exports.usersSchema = mongoose.Schema({
-  user_id: { type: Number, index: { unique: true } },
   name: String,
   zip: Number,
   password: String,

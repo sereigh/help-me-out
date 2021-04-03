@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
 
 exports.toolsSchema = mongoose.Schema({
-  tool_id: { type: Number, index: { unique: true } },
   tool_name: String,
   tool_photos: [{ type: String }],
-  help: Boolean,
-  favorite: Boolean,
+  tool_owner: [{
+    type: mongoose.Schema.Types.Number,
+    ref: 'User',
+  }],
+  help: { type: Boolean, default: false },
 });
