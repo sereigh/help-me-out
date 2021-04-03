@@ -14,4 +14,5 @@ exports.usersSchema = mongoose.Schema({
     type: mongoose.Schema.Types.Number,
     ref: 'Project',
   }],
+  favorites: { type: String },
 });
