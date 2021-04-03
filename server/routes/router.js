@@ -2,9 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 
-const {
-  getUser, postUser, putUser, deleteUser,
-} = require('./user');
+const { getUser } = require('./user/getUser.js');
 
 router.route('/')
   .get((req, res) => {
@@ -12,7 +10,7 @@ router.route('/')
   });
 
 router.route('/users')
-  .get(getUser)
-  .post(postUser)
-  .put(putUser)
-  .delete(deleteUser);
+  .get(getUser);
+// .post(postUser)
+// .put(putUser)
+// .delete(deleteUser);
