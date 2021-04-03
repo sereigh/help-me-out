@@ -1,5 +1,5 @@
 {
-  "name": "blue-ocean-atlantic",
+  "name": "help-me-out",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -16,9 +16,9 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/BlueOceanAtlantic/blue-ocean-atlantic/issues"
+    "url": "https://github.com/BlueOceanAtlantic/help-me-out/issues"
   },
-  "homepage": "https://github.com/BlueOceanAtlantic/blue-ocean-atlantic#readme",
+  "homepage": "https://github.com/BlueOceanAtlantic/help-me-out#readme",
   "dependencies": {
     "axios": "^0.21.1",
     "express": "^4.17.1",
