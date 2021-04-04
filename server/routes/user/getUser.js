@@ -1,7 +1,6 @@
 // const { getUserInfo } = require('../../database/queries/getUserInfo.js');
 
 exports.getUser = (req, res) => {
-  // const uId = req.query.user_id;
-  console.log('getUser')
+  // const uId = req.params.user_id;
   res.status(200).send('get got');
 };
