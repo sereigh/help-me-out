@@ -1,7 +1,7 @@
 // const { postUserInfo } = require('../../database/queries/users/postUserInfo.js');
 
 exports.postUser = (req, res) => {
-  // const uId = req.params.user_id;
+  // const user = req.params.user_id;
 
-  res.status(201).send('post got');
+  res.status(201).send('post user info got');
 };
