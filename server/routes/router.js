@@ -14,3 +14,5 @@ router.route('/users')
 // .post(postUser)
 // .put(putUser)
 // .delete(deleteUser);
+
+module.exports = router;
