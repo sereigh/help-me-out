@@ -1,4 +1,4 @@
-// const { postUserInfo } = require('../../database/queries/postUserInfo.js');
+// const { postUserInfo } = require('../../database/queries/users/postUserInfo.js');
 
 exports.postUser = (req, res) => {
   // const uId = req.params.user_id;

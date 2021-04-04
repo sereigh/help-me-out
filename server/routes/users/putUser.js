@@ -1,4 +1,4 @@
-// const { updateUserInfo } = require('../../database/queries/updateUserInfo.js');
+// const { updateUserInfo } = require('../../database/queries/users/updateUserInfo.js');
 
 exports.putUser = (req, res) => {
   // const uId = req.params.user_id;
