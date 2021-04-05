@@ -24,6 +24,12 @@ router.route('/users/:user_id')
   .post(postUser)
   .put(putUser);
 
+router.route('./users/:user_id/vote/down')
+  .put(downvote)
+
+router.route('./users/:user_id/vote/up')
+  .put(upvote)
+
 router.route('/users/:user_id/tools')
   .post(postTools);
 
