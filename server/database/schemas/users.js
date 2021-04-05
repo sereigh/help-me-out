@@ -4,6 +4,7 @@ exports.usersSchema = mongoose.Schema({
   name: String,
   zip: Number,
   password: String,
+  photo: String,
   handy: { type: Number, default: 0 },
   report: { type: Number, default: 0 },
   tools: [{
