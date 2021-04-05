@@ -7,11 +7,11 @@ exports.usersSchema = mongoose.Schema({
   handy: { type: Number, default: 0 },
   report: { type: Number, default: 0 },
   tools: [{
-    type: mongoose.Schema.Types.Number,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'Tool',
   }],
   projects: [{
-    type: mongoose.Schema.Types.Number,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'Project',
   }],
   favorites: { type: String },

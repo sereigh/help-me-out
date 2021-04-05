@@ -1,7 +1,9 @@
-// const { postUserInfo } = require('../../database/queries/users/postUserInfo.js');
+const { addUser } = require('../../database/queries/users/addUser.js');
 
 exports.postUser = (req, res) => {
-  // const user = req.params.user_id;
-
-  res.status(201).send('post user info got');
+  const user = req.body;
+  addUser(user, (err, result) => {
+    if (err) { res.status(404).send(err); }
+    res.status(201).send(result);
+  });
 };

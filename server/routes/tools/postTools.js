@@ -1,8 +1,14 @@
-// const { postTools } = require('../../database/queries/tools/postTools.js');
+const { addTools } = require('../../database/queries/tools/addTools.js');
+const { addToolRef } = require('../../database/queries/middleware/addToolRef.js');
 
 exports.postTools = (req, res) => {
-  // const user = req.params.user_id;
-  // const tool = req.params.tool_id;
+  const tool = req.body;
+  const owner = req.params.user_id;
+  tool.tool_owner = req.params.user_id;
 
-  res.status(201).send('post tools got');
+  addTools(tool, (err, result) => {
+    if (err) { res.status(404).send(err); }
+    addToolRef(owner, result._id);
+    res.status(201).send(result);
+  });
 };
