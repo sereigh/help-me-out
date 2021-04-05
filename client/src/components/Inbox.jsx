@@ -1,16 +1,19 @@
 import React, { Component, Fragment } from 'react';
 import Talk from 'talkjs';
+import ChatButton from './ChatButton.jsx';
+import DummyUser from '../../../server/database/data/sampleUser.json';
 
 class Inbox extends Component {
   constructor(props) {
     super(props);
 
     this.inbox = undefined;
-    let currentUser;
-    const currentTalkjsUser = localStorage.getItem('currentTalkjsUser');
-    if (currentTalkjsUser) {
-      currentUser = JSON.parse(currentTalkjsUser);
-    }
+    DummyUser.id = DummyUser._id;
+    let currentUser = JSON.parse(JSON.stringify(DummyUser));
+    // const currentTalkjsUser = localStorage.getItem('currentTalkjsUser');
+    // if (currentTalkjsUser) {
+    //   currentUser = JSON.parse(currentTalkjsUser);
+    // }
 
     this.state = {
       currentUser,
@@ -40,6 +43,7 @@ class Inbox extends Component {
     return (
       <>
         <div style={{ height: '90vh' }} className="inbox-container" ref={(c) => this.container = c}>Loading...</div>
+        <ChatButton />
       </>
     );
   }
