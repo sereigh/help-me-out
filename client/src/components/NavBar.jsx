@@ -20,6 +20,7 @@ const NavBar = ({
         <span>Help Me Out!</span>
         <div>
           <button type="button" onClick={() => handleNav('mainPage')}>Dashboard</button>
+          <button type="button" onClick={() => handleNav('inbox')}>Inbox</button>
           <button type="button" onClick={() => handleNav('profilePage')}>Account</button>
           <span
             role="button"
