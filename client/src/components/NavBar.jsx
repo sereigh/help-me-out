@@ -21,8 +21,16 @@ const NavBar = ({
         <div>
           <button type="button" onClick={() => handleNav('mainPage')}>Dashboard</button>
           <button type="button" onClick={() => handleNav('profilePage')}>Account</button>
-          <img src={avatar} alt="avatar" />
+          <span
+            role="button"
+            onClick={() => handleNav('profilePage')}
+            onKeyPress={() => handleNav('profilePage')}
+            tabIndex={0}
+          >
+            <img src={avatar} alt="avatar" />
+          </span>
           <span>{`Handy Score: ${score}`}</span>
+          <button type="button" onClick={() => handleNav('landingPage')}>Log Out</button>
         </div>
       </nav>
     )}
