@@ -1,7 +1,7 @@
 const db = require('../../index.js');
 
-exports.grabUser = (user, cb) => {
-  db.User.findById({_id: user}).
+exports.grabAllUsers = (cb) => {
+  db.User.find({}).
   populate('tools').
   populate('projects').
   exec((err, result) => {

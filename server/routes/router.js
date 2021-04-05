@@ -2,6 +2,8 @@ const express = require('express');
 
 const router = express.Router();
 
+const { getAllUsers } = require('./users/getAllUsers.js');
+
 const { getUser } = require('./users/getUser.js');
 const { postUser } = require('./users/postUser.js');
 const { putUser } = require('./users/putUser.js');
@@ -25,6 +27,9 @@ router.route('/')
   .get((req, res) => {
     res.status(200).end();
   });
+
+router.route('/users')
+  .get(getAllUsers)
 
 router.route('/users/:user_id')
   .get(getUser)
