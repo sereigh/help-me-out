@@ -5,8 +5,8 @@ const UserProjects = (props) => {
   const { userProjects } = props;
   return (
     <div>
-      {userProjects.map((index) => (
-        <UserProject key={index} />
+      {userProjects.map((project, index) => (
+        <UserProject key={index} project={project} />
       ))}
     </div>
   );

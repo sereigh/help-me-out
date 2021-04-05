@@ -1,8 +1,8 @@
-import React from 'react';
-import UserProjects from './UserProjects.jsx';
+import React from "react";
+import UserProjects from "./UserProjects.jsx";
 import UserTools from "./UserTools.jsx";
 import UserInfo from "./UserInfo.jsx";
-import sampleData from "../../../../server/database/schemas/sampleData.json";
+import sampleUser from "../../../../server/database/data/sampleUser.json";
 
 class ProfilePage extends React.Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class ProfilePage extends React.Component {
 
   //testing only!
   componentDidMount() {
-    const sampleUserInfo = sampleData[1];
+    const sampleUserInfo = sampleUser;
     this.setState({
       userInfo: {
         name: sampleUserInfo.name,

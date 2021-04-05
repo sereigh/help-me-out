@@ -7,6 +7,7 @@ class LogIn extends React.Component {
     this.state = {};
   }
 
+  //on componentDidMount get user info
   render() {
     return (
       <div>
