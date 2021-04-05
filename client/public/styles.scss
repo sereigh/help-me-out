@@ -6,3 +6,16 @@ body {
   background-color: $main-color;
   color: $accent-color;
 }
+
+.inbox-container {
+  height: 90vh;
+  min-height: 300px;
+}
+
+.chatbox-container {
+  height: 40vh;
+  min-height: 300px;
+  position: fixed;
+  left: 10vw;
+  bottom: 0;
+}

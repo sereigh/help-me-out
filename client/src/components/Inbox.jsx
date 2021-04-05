@@ -1,30 +1,21 @@
 import React, { Component, Fragment } from 'react';
 import Talk from 'talkjs';
-import ChatButton from './ChatButton.jsx';
+import MessageButton from './MessageButton.jsx';
 import DummyUser from '../../../server/database/data/sampleUser.json';
 
 class Inbox extends Component {
   constructor(props) {
     super(props);
-
     this.inbox = undefined;
-    DummyUser.id = DummyUser._id;
-    let currentUser = JSON.parse(JSON.stringify(DummyUser));
-    // const currentTalkjsUser = localStorage.getItem('currentTalkjsUser');
-    // if (currentTalkjsUser) {
-    //   currentUser = JSON.parse(currentTalkjsUser);
-    // }
-
-    this.state = {
-      currentUser,
-    };
   }
 
   componentDidMount() {
-    const { currentUser } = this.state;
+    const { user = DummyUser } = this.props;
     Talk.ready
       .then(() => {
-        const me = new Talk.User(currentUser);
+        user.id = user._id;
+        user.role = 'member';
+        const me = new Talk.User(user);
 
         if (!window.talkSession) {
           window.talkSession = new Talk.Session({
@@ -41,10 +32,7 @@ class Inbox extends Component {
 
   render() {
     return (
-      <>
-        <div style={{ height: '90vh' }} className="inbox-container" ref={(c) => this.container = c}>Loading...</div>
-        <ChatButton />
-      </>
+      <div className="inbox-container" ref={(c) => this.container = c}>Loading...</div>
     );
   }
 }
