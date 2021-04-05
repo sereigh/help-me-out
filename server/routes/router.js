@@ -24,13 +24,17 @@ router.route('/users/:user_id')
   .post(postUser)
   .put(putUser);
 
-router.route('/users/:user_id/tools*')
-  .post(postTools)
+router.route('/users/:user_id/tools')
+  .post(postTools);
+
+router.route('/users/:user_id/tools/:tool_id')
   .put(putTools)
   .delete(deleteTools);
 
-router.route('/users/:user_id/projects*')
-  .post(postProjects)
+router.route('/users/:user_id/projects')
+  .post(postProjects);
+
+router.route('/users/:user_id/projects/:project_id')
   .put(putProjects)
   .delete(deleteProjects);
 

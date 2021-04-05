@@ -7,6 +7,7 @@ exports.projectsSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
   },
+  help: { type: Boolean, default: false },
   project_photos: [{ type: String }],
   help: Boolean,
 });
