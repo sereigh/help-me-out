@@ -28,7 +28,7 @@ class App extends React.Component {
 
   render() {
     const { user, page } = this.state;
-    const isLoggedIn = page === 'mainPage' || page === 'profilePage';
+    const isLoggedIn = page === 'mainPage' || page === 'profilePage' || page === 'inbox';
     const avatar = user.photo || '#';
     const score = user.handy || 0;
 
@@ -41,7 +41,7 @@ class App extends React.Component {
         {page === 'landingPage' && <LandingPage />}
         {page === 'mainPage' && <MainPage user={user} />}
         {page === 'profilePage' && <ProfilePage user={user} />}
-        <Inbox />
+        {page === 'inbox' && <Inbox user={user} />}
       </div>
     );
   }
