@@ -1,9 +1,15 @@
 import React from "react";
+import UserProject from "./UserProject.jsx";
 
 const UserProjects = (props) => {
-  this.props.userProjects.map((userProject, index) => {
-    <div>A userProject</div>;
-  });
+  const { userProjects } = props;
+  return (
+    <div>
+      {userProjects.map((index) => (
+        <UserProject key={index} />
+      ))}
+    </div>
+  );
 };
 
 export default UserProjects;

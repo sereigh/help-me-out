@@ -1,6 +1,7 @@
-import React from 'react';
+import React from "react";
+import ProfilePage from "./ProfilePage/ProfilePage.jsx";
 
-import LandingPage from './LandingPage';
+import LandingPage from "./LandingPage";
 
 class App extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <ProfilePage />
         <LandingPage />
       </div>
     );
