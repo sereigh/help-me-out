@@ -4,7 +4,7 @@ exports.usersSchema = mongoose.Schema({
   name: String,
   zip: Number,
   password: String,
-  photo: String,
+  photo: { type: String, default: "https://tinyurl.com/help-me-out-app" },
   handy: { type: Number, default: 0 },
   report: { type: Number, default: 0 },
   tools: [{
