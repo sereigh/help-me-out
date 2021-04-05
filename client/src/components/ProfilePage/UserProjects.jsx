@@ -1,9 +1,9 @@
 import React from "react";
 
-const MyProjects = (props) => {
+const UserProjects = (props) => {
   this.props.userProjects.map((userProject, index) => {
     <div>A userProject</div>;
   });
 };
 
-export default MyProjects;
+export default UserProjects;

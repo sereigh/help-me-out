@@ -1,9 +1,9 @@
 import React from "react";
 
-const MyTools = (props) => {
+const UserTools = (props) => {
   this.props.myTools.map((myTool) => {
     <div>A Tool</div>;
   });
 };
 
-export default MyTools;
+export default UserTools;

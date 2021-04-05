@@ -1,5 +1,7 @@
 import React from "react";
-import MyProjects from "./MyProjects.jsx";
+import UserProjects from "./UserProjects.jsx";
+import UserTools from "./UserTools.jsx";
+import UserInfo from "./UserInfo.jsx";
 
 class ProfilePage extends React.Component {
   constructor(props) {
@@ -11,7 +13,9 @@ class ProfilePage extends React.Component {
   render() {
     return (
       <div>
-        <MyProjects />
+        <UserInfo />
+        <UserProjects />
+        <UserTools />
       </div>
     );
   }
