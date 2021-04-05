@@ -4,6 +4,8 @@ const router = express.Router();
 
 const { getAllUsers } = require('./users/getAllUsers.js');
 
+const { postReport } = require('./users/postReport.js');
+
 const { getUser } = require('./users/getUser.js');
 const { postUser } = require('./users/postUser.js');
 const { putUser } = require('./users/putUser.js');
@@ -29,7 +31,7 @@ router.route('/')
   });
 
 router.route('/users')
-  .get(getAllUsers)
+  .get(getAllUsers);
 
 router.route('/users/:user_id')
   .get(getUser)
@@ -37,13 +39,16 @@ router.route('/users/:user_id')
   .put(putUser);
 
 router.route('/users/:user_id/photos')
-  .put(putUserPhotos)
+  .put(putUserPhotos);
+
+router.route('/users/:user_id/report')
+  .put(postReport);
 
 router.route('/users/:user_id/handy/down')
-  .put(handyDown)
+  .put(handyDown);
 
 router.route('/users/:user_id/handy/up')
-  .put(handyUp)
+  .put(handyUp);
 
 router.route('/users/:user_id/tools')
   .post(postTools);
@@ -53,7 +58,7 @@ router.route('/users/:user_id/tools/:tool_id')
   .delete(deleteTools);
 
 router.route('/users/:user_id/tools/:tool_id/photos')
-  .put(putToolPhotos)
+  .put(putToolPhotos);
 
 router.route('/users/:user_id/projects')
   .post(postProjects);
@@ -63,6 +68,6 @@ router.route('/users/:user_id/projects/:project_id')
   .delete(deleteProjects);
 
 router.route('/users/:user_id/projects/:project_id/photos')
-  .put(putProjectPhotos)
+  .put(putProjectPhotos);
 
 module.exports = router;

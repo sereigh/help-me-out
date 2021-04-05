@@ -16,4 +16,4 @@ exports.usersSchema = mongoose.Schema({
     ref: 'Project',
   }],
   favorites: { type: String },
-});
+}, { timestamps: true });

@@ -8,4 +8,4 @@ exports.toolsSchema = mongoose.Schema({
     ref: 'User',
   },
   help: { type: Boolean, default: false },
-});
+}, { timestamps: true });
