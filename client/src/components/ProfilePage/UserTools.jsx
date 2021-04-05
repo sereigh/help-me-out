@@ -5,9 +5,9 @@ const UserTools = (props) => {
   const { userTools } = props;
   return (
     <div>
-      {userTools.map((tool, index) => {
-        <UserTool tool={tool} />;
-      })}
+      {userTools.map((tool, index) => (
+        <UserTool key={index} tool={tool} />
+      ))}
     </div>
   );
 };
