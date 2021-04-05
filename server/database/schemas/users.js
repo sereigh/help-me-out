@@ -15,5 +15,8 @@ exports.usersSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Project',
   }],
-  favorites: { type: String },
+  favorites: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Favorite'
+  }],
 }, { timestamps: true });
