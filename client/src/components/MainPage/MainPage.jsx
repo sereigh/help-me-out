@@ -3,7 +3,7 @@ import React from 'react';
 import sampleData from '../../../../server/database/data/sampleFeed.json';
 
 // import ProfileCard from './ProfileCard';
-// import FilterButtons from './FilterButtons';
+import FilterButtons from './FilterButtons';
 // import Messages from './Messages';
 import FeedContainer from './FeedContainer';
 
@@ -71,9 +71,9 @@ class MainPage extends React.Component {
 
     return (
       <div>
-        {/* <ProfileCard user={user} />
-        <FilterButtons />
-        <Messages /> */}
+        {/* <ProfileCard user={user} /> */}
+        <FilterButtons handleFilter={this.handleFilter} />
+        {/* <Messages /> */}
         <FeedContainer data={displayedData} />
       </div>
     );
