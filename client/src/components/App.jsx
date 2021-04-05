@@ -1,10 +1,12 @@
 import React from 'react';
 
+import sampleUser from '../../../server/database/data/sampleUser.json';
+
 import NavBar from './NavBar';
 import SignUp from './SignUp';
 import LogIn from './LogIn';
 import LandingPage from './LandingPage';
-import MainPage from './MainPage';
+import MainPage from './MainPage/MainPage';
 import ProfilePage from './ProfilePage';
 
 class App extends React.Component {
@@ -12,7 +14,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      user: {},
+      user: sampleUser,
       page: 'mainPage',
     };
 
