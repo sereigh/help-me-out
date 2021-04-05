@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+import MyProjects from "./MyProjects.jsx";
 
 class ProfilePage extends React.Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class ProfilePage extends React.Component {
   render() {
     return (
       <div>
-        Profile Page
+        <MyProjects />
       </div>
     );
   }
