@@ -6,6 +6,9 @@ const { getUser } = require('./users/getUser.js');
 const { postUser } = require('./users/postUser.js');
 const { putUser } = require('./users/putUser.js');
 
+const { handyDown } = require('./handy/handyDown.js');
+const { handyUp } = require('./handy/handyUp.js');
+
 const { postTools } = require('./tools/postTools.js');
 const { putTools } = require('./tools/putTools.js');
 const { deleteTools } = require('./tools/deleteTools.js');
@@ -24,11 +27,11 @@ router.route('/users/:user_id')
   .post(postUser)
   .put(putUser);
 
-router.route('./users/:user_id/vote/down')
-  .put(downvote)
+router.route('/users/:user_id/handy/down')
+  .put(handyDown)
 
-router.route('./users/:user_id/vote/up')
-  .put(upvote)
+router.route('/users/:user_id/handy/up')
+  .put(handyUp)
 
 router.route('/users/:user_id/tools')
   .post(postTools);
