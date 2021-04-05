@@ -1,19 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const NavBar = ({ isLoggedIn, avatar, score }) => (
+const NavBar = ({
+  isLoggedIn,
+  avatar,
+  score,
+  handleNav,
+}) => (
   <>
     {!isLoggedIn && (
       <nav>
-        <button type="button">Help Me Out!</button>
-        <button type="button">Sign Up/Log In</button>
+        <span>Help Me Out!</span>
+        <button type="button" onClick={() => handleNav('signUp')}>Sign Up</button>
+        <button type="button" onClick={() => handleNav('logIn')}>Log In</button>
       </nav>
     )}
     {isLoggedIn && (
       <nav>
-        <button type="button">Help Me Out!</button>
+        <span>Help Me Out!</span>
         <div>
-          <button type="button">Account</button>
+          <button type="button" onClick={() => handleNav('mainPage')}>Dashboard</button>
+          <button type="button" onClick={() => handleNav('profilePage')}>Account</button>
           <img src={avatar} alt="avatar" />
           <span>{`Handy Score: ${score}`}</span>
         </div>
@@ -26,6 +33,7 @@ NavBar.propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
   avatar: PropTypes.string.isRequired,
   score: PropTypes.number.isRequired,
+  handleNav: PropTypes.func.isRequired,
 };
 
 export default NavBar;

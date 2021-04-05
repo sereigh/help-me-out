@@ -15,14 +15,25 @@ class App extends React.Component {
       user: {},
       page: 'landingPage',
     };
+
+    this.handleNav = this.handleNav.bind(this);
+  }
+
+  handleNav(page) {
+    this.setState({
+      page,
+    });
   }
 
   render() {
     const { user, page } = this.state;
+    const isLoggedIn = page === 'mainPage' || page === 'profilePage';
+    const avatar = user.photo || '#';
+    const score = user.handy || 0;
 
     return (
       <div>
-        <NavBar isLoggedIn={page === 'mainPage' || page === 'profilePage'} avatar={user.photo || '#'} score={user.handy || 0} />
+        <NavBar isLoggedIn={isLoggedIn} avatar={avatar} score={score} handleNav={this.handleNav} />
         {page === 'signUp' && <SignUp />}
         {page === 'logIn' && <LogIn />}
         {page === 'landingPage' && <LandingPage />}
