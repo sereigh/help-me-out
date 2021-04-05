@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/BlueOceanAtlantic/help-me-out#readme",
   "dependencies": {
+    "auto-load": "^3.0.4",
     "axios": "^0.21.1",
     "express": "^4.17.1",
     "mongoose": "^5.12.3",
