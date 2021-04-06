@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import sampleData from '../../../../server/database/data/sampleFeed.json';
 
-// import ProfileCard from './ProfileCard';
+import ProfileCard from './ProfileCard';
 import FilterButtons from './FilterButtons';
 // import Messages from './Messages';
 import FeedContainer from './FeedContainer';
@@ -88,12 +88,12 @@ class MainPage extends React.Component {
   }
 
   render() {
-    // const { user } = this.props;
+    const { user } = this.props;
     const { currentFilter, displayedData } = this.state;
 
     return (
       <div>
-        {/* <ProfileCard user={user} /> */}
+        <ProfileCard user={user} />
         <FilterButtons handleFilter={this.handleFilter} />
         {/* <Messages /> */}
         <FeedContainer currentFilter={currentFilter} data={displayedData} />
