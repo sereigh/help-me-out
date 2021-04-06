@@ -39,7 +39,9 @@ class MainPage extends React.Component {
 
       this.setState({
         currentFilter: 'home',
-        displayedData: feed,
+        displayedData: feed.sort((a,b) => (
+          new Date(b.updatedAt) - new Date(a.updatedAt)
+        )),
       });
     } else if (filter === 'giveHelp') {
       let feed = [];
