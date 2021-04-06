@@ -37,7 +37,6 @@ class App extends React.Component {
 
     return (
       <div>
-        <ProfilePage user={user} />
         <LandingPage />
         <NavBar
           isLoggedIn={isLoggedIn}
