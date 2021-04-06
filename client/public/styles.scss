@@ -1,4 +1,3 @@
-
 $main-color: rgb(255, 240, 212);
 $accent-color: brown;
 
@@ -26,6 +25,7 @@ nav {
   bottom: 0;
 }
 
+// Main Page SCSS
 .main-page, .main-page-left, .filter-buttons, .profile-card {
   display: flex;
 }
