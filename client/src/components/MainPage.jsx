@@ -1,4 +1,5 @@
 import React from 'react';
+import ProjectsFeedContainer from './MainPage/ProjectsFeedContainer'
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class MainPage extends React.Component {
     return (
       <div>
         Main Page
+        <ProjectsFeedContainer />
       </div>
     );
   }
