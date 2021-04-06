@@ -15,17 +15,44 @@ class ProfilePage extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { userInfo: {}, userTools: {}, userProjects: {} };
+    this.state = {
+      userInfo: {},
+      userTools: {},
+      userProjects: {},
+      showAddProjectForm: false,
+      showAddToolForm: false,
+    };
 
     this.toggleHelp = this.toggleHelp.bind(this);
     this.addProfileItem = this.addProfileItem.bind(this);
     this.deleteProfileItem = this.deleteProfileItem.bind(this);
     this.putProfileItemItem = this.putProfileItem.bind(this);
+    this.toggleAddItemForm = this.toggleAddItemForm.bind(this);
   }
 
+  toggleAddItemForm(type) {
+    const { showAddProjectForm, showAddToolForm } = this.state;
+    if (type === "project") {
+      this.setState({ showAddProjectForm: !showAddProjectForm });
+    }
+    if (type === "tool") {
+      this.setState({ showAddToolForm: !showAddToolForm });
+    } else {
+      return;
+    }
+  }
   toggleHelp() {}
 
-  addProfileItem() {}
+  addProfileItem(type) {
+    if (type === "project") {
+      console.log("project");
+    }
+    if (type === "tool") {
+      console.log("tool");
+    } else {
+      return;
+    }
+  }
 
   deleteProfileItem() {}
 
@@ -44,21 +71,42 @@ class ProfilePage extends React.Component {
       userProjects: sampleUserInfo.projects,
     });
   }
-  //testing only!
+
   render() {
-    const { userInfo, userTools, userProjects } = this.state;
+    const {
+      userInfo,
+      userTools,
+      userProjects,
+      showAddProjectForm,
+      showAddToolForm,
+    } = this.state;
     if (userInfo.name) {
       return (
         <div>
-          <UserInfo userInfo={userInfo} />
+          <UserInfo
+            userInfo={userInfo}
+            userProjects={userProjects}
+            putProfileItem={this.putProfileItem}
+          />
           <UserProjects
             userProjects={userProjects}
+            toggleAddItemForm={this.toggleAddItemForm}
             toggleHelp={this.toggleHelp}
             addProfileItem={this.addProfileItem}
             deleteProfileItem={this.deleteProfileItem}
             putProfileItem={this.putProfileItem}
+            showAddProjectForm={showAddProjectForm}
           />
-          <UserTools userTools={userTools} />
+          <UserTools
+            userTools={userTools}
+            userProjects={userProjects}
+            toggleAddItemForm={this.toggleAddItemForm}
+            toggleHelp={this.toggleHelp}
+            addProfileItem={this.addProfileItem}
+            deleteProfileItem={this.deleteProfileItem}
+            putProfileItem={this.putProfileItem}
+            showAddToolForm={showAddToolForm}
+          />
         </div>
       );
     } else {

@@ -1,12 +1,18 @@
 import React from "react";
 
 const UserProject = ({ project }) => {
+  const formattedDate = (date) => {
+    return new Date(date).toLocaleDateString();
+  };
+
   return (
     <div>
       <div>{project.project_name}</div>
       <div>{project.project_description}</div>
-      <div>{project.createdAt}</div>
-      <button>Ask for Help?</button>
+      <div>{formattedDate(project.createdAt)}</div>
+      <div>
+        Need Help <input type="checkbox" />
+      </div>
     </div>
   );
 };
