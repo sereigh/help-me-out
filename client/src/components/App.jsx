@@ -7,7 +7,7 @@ import SignUp from "./SignUp";
 import LogIn from "./LogIn";
 import LandingPage from "./LandingPage";
 import MainPage from "./MainPage/MainPage";
-import ProfilePage from "./ProfilePage";
+import ProfilePage from "./ProfilePage/ProfilePage";
 import Inbox from "./Inbox";
 
 class App extends React.Component {
