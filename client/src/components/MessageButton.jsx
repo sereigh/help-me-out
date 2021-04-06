@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Talk from 'talkjs';
+
 import DummyUser from '../../../server/database/data/sampleUser.json';
 import DummyFeed from '../../../server/database/data/sampleFeed.json';
 
@@ -10,7 +12,7 @@ class MessageButton extends React.Component {
   }
 
   handleClick() {
-    const { user = DummyUser, otherUser = DummyFeed[3] } = this.props;
+    const { user, otherUser } = this.props;
     Talk.ready
       .then(() => {
         user.id = user._id;
@@ -42,12 +44,22 @@ class MessageButton extends React.Component {
   render() {
     return (
       <>
-        <button onClick={this.handleClick}>Message</button>
+        <button type="button" onClick={this.handleClick}>Message</button>
 
         <div className="chatbox-container" ref={(c) => this.container = c} />
       </>
     );
   }
 }
+
+MessageButton.defaultProps = {
+  user: DummyUser,
+  otherUser: DummyFeed[3],
+};
+
+MessageButton.propTypes = {
+  user: PropTypes.oneOfType([PropTypes.object]),
+  otherUser: PropTypes.oneOfType([PropTypes.object]),
+};
 
 export default MessageButton;
