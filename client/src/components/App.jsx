@@ -3,9 +3,9 @@ import React from "react";
 import sampleUser from "../../../server/database/data/sampleUser.json";
 
 import NavBar from "./NavBar";
-import SignUp from "./SignUp";
-import LogIn from "./LogIn";
-import LandingPage from "./LandingPage";
+import SignUp from "./LandingPage/SignUp";
+import LogIn from "./LandingPage/LogIn";
+import LandingPage from "./LandingPage/LandingPage";
 import MainPage from "./MainPage/MainPage";
 import ProfilePage from "./ProfilePage/ProfilePage";
 import Inbox from "./Inbox";
