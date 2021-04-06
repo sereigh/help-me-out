@@ -32,7 +32,9 @@ class Inbox extends Component {
 
   render() {
     return (
-      <div className="inbox-container" ref={(c) => this.container = c}>Loading...</div>
+      <div className="inbox-container" ref={(c) => this.container = c}>
+        Loading...
+      </div>
     );
   }
 }
