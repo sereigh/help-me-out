@@ -19,6 +19,6 @@ module.exports = {
     'react',
   ],
   rules: {
-    allowFunctionParams: true,
+    allowFunctionParams: 0,
   },
 };
