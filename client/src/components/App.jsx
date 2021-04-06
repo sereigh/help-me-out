@@ -37,7 +37,6 @@ class App extends React.Component {
 
     return (
       <div>
-        <LandingPage />
         <NavBar
           isLoggedIn={isLoggedIn}
           avatar={avatar}
