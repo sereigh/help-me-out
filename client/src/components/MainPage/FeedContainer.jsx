@@ -1,18 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const FeedContainer = ({ data }) => (
-  <div>
-    {data.map((item) => (
-      <>
-        <span>{item.project_name ? `${item.project_name}` : `${item.tool_name}`}</span>
-        <br />
-      </>
-    ))}
-  </div>
-);
+const FeedContainer = ({ currentFilter, data }) => {
+  let title = '';
+
+  if (currentFilter === 'home') {
+    title = 'Home';
+  } else if (currentFilter === 'giveHelp') {
+    title = 'Give Help';
+  } else if (currentFilter === 'getHelp') {
+    title = 'Get Help';
+  } else if (currentFilter === 'favorites') {
+    title = 'Favorites';
+  }
+
+  return (
+    <div>
+      <div>{title}</div>
+      {data.map((item) => (
+        <div>{item.project_name ? `${item.project_name}` : `${item.tool_name}`}</div>
+      ))}
+    </div>
+  );
+};
 
 FeedContainer.propTypes = {
+  currentFilter: PropTypes.string.isRequired,
   data: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.shape({
       tool_name: PropTypes.string,

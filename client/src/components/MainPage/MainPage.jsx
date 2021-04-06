@@ -13,11 +13,16 @@ class MainPage extends React.Component {
     super(props);
 
     this.state = {
+      currentFilter: 'home',
       data: sampleData,
-      displayedData: sampleData,
+      displayedData: [],
     };
 
     this.handleFilter = this.handleFilter.bind(this);
+  }
+
+  componentDidMount() {
+    this.handleFilter('home');
   }
 
   handleFilter(filter) {
@@ -25,8 +30,16 @@ class MainPage extends React.Component {
     const { data } = this.state;
 
     if (filter === 'home') {
+      let feed = [];
+
+      for (let i = 0; i < data.length; i += 1) {
+        feed = feed.concat(data[i].projects);
+        feed = feed.concat(data[i].tools);
+      }
+
       this.setState({
-        displayedData: data,
+        currentFilter: 'home',
+        displayedData: feed,
       });
     } else if (filter === 'giveHelp') {
       let feed = [];
@@ -36,6 +49,7 @@ class MainPage extends React.Component {
       }
 
       this.setState({
+        currentFilter: 'giveHelp',
         displayedData: feed,
       });
     } else if (filter === 'getHelp') {
@@ -46,6 +60,7 @@ class MainPage extends React.Component {
       }
 
       this.setState({
+        currentFilter: 'getHelp',
         displayedData: feed,
       });
     } else if (filter === 'favorites') {
@@ -61,6 +76,7 @@ class MainPage extends React.Component {
       }
 
       this.setState({
+        currentFilter: 'favorites',
         displayedData: feed,
       });
     }
@@ -68,14 +84,14 @@ class MainPage extends React.Component {
 
   render() {
     // const { user } = this.props;
-    const { displayedData } = this.state;
+    const { currentFilter, displayedData } = this.state;
 
     return (
       <div>
         {/* <ProfileCard user={user} /> */}
         <FilterButtons handleFilter={this.handleFilter} />
         {/* <Messages /> */}
-        <FeedContainer data={displayedData} />
+        <FeedContainer currentFilter={currentFilter} data={displayedData} />
       </div>
     );
   }
