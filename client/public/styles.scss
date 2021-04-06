@@ -6,5 +6,21 @@ body {
   color: $accent-color;
 }
 
+<<<<<<< HEAD
 .user-info {
 }
+=======
+.inbox-container {
+  height: 90vh;
+  min-height: 300px;
+  min-width: 270px;
+}
+
+.chatbox-container {
+  height: 40vh;
+  min-height: 300px;
+  position: fixed;
+  left: 10vw;
+  bottom: 0;
+}
+>>>>>>> main
