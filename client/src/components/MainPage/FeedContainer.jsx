@@ -18,7 +18,7 @@ const FeedContainer = ({ currentFilter, data }) => {
     <div>
       <div>{title}</div>
       {data.map((item) => (
-        <div>{item.project_name ? `${item.project_name}` : `${item.tool_name}`}</div>
+        <div key={item._id}>{item.project_name ? `${item.project_name}` : `${item.tool_name}`}</div>
       ))}
     </div>
   );
