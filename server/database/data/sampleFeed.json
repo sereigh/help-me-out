@@ -60,6 +60,7 @@
                 "project_name": "Lavoritory Sign",
                 "project_description": "yarn bid got it",
                 "help": true,
+                "needed_tools": ["shovel"],
                 "project_owner": {
                     "_id": "606b318ca19f475d63ec6754",
                     "name": "Candace Iskowitz",
@@ -79,6 +80,7 @@
                 "project_name": "Window Seat",
                 "project_description": "farm gaunt low",
                 "help": true,
+                "needed_tools": ["axe"],
                 "project_owner": {
                     "_id": "606b3145a19f475d63ec6752",
                     "handy": 0,
@@ -203,6 +205,7 @@
                 "project_name": "Bird House",
                 "project_description": "picturesque quiet no",
                 "project_owner": "606b3038a19f475d63ec6749",
+                "help": false,
                 "createdAt": "2021-04-05T17:15:22.397Z",
                 "updatedAt": "2021-04-05T17:15:22.397Z",
                 "__v": 0
@@ -257,6 +260,7 @@
                 "project_name": "Biker Bar",
                 "project_description": "can have verb",
                 "help": true,
+                "needed_tools": ["hammer"],
                 "project_owner": "606b30a5a19f475d63ec674c",
                 "createdAt": "2021-04-04T17:15:22.397Z",
                 "updatedAt": "2021-04-04T17:15:22.397Z",
@@ -313,6 +317,7 @@
                 "project_name": "Window Seat",
                 "project_description": "farm gaunt low",
                 "help": true,
+                "needed_tools": ["pressure washer"],
                 "project_owner": "606b3145a19f475d63ec6752",
                 "createdAt": "2021-04-01T17:09:22.397Z",
                 "updatedAt": "2021-04-01T17:09:22.397Z",
@@ -339,6 +344,7 @@
                 "project_name": "Lavoritory Sign",
                 "project_description": "yarn bid got it",
                 "help": true,
+                "needed_tools": ["icepick", "wrench"],
                 "project_owner": "606b318ca19f475d63ec6754",
                 "createdAt": "2021-04-01T17:20:22.397Z",
                 "updatedAt": "2021-04-01T17:20:22.397Z",
