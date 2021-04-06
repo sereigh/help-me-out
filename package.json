@@ -44,6 +44,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "fony": "^1.1.0",
     "node-sass": "^5.0.0",
+    "react-google-login": "^5.2.2",
     "sass": "^1.32.8",
     "sass-loader": "^11.0.1",
     "style-loader": "^2.0.0",
