@@ -1,7 +1,7 @@
 const { getHelp } = require('./getHelp.js');
 const { giveHelp } = require('./giveHelp.js');
 
-exports.grabReleventInfo = (filter, cb) => {
+exports.grabRelevantInfo = (filter, cb) => {
 
   const getHelp = getHelp(info, (err, result) => {
     if (err) { return console.error(err) }

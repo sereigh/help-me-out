@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 const { getAllUsers } = require('./users/getAllUsers.js');
-const { getReleventInfo } = require('./relevent/getReleventInfo.js');
+const { getRelevantInfo } = require('./relevant/getRelevantInfo.js');
 
 const { postReport } = require('./users/postReport.js');
 
@@ -35,8 +35,8 @@ router.route('/')
 router.route('/users')
   .get(getAllUsers);
 
-router.route('/users/:user_id/relevent')
-  .get(getAllUsers);
+router.route('/users/:user_id/relevant')
+  .get(getRelevantInfo);
 
 router.route('/users/:user_id')
   .get(getUser)
