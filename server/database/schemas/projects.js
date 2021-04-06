@@ -9,5 +9,5 @@ exports.projectsSchema = mongoose.Schema({
   },
   help: { type: Boolean, default: false },
   project_photos: [{ type: String }],
-  help: Boolean,
+  needed_tools: [{ type: String }]
 }, { timestamps: true });

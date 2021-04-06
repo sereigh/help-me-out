@@ -20,6 +20,7 @@ const { deleteTools } = require('./tools/deleteTools.js');
 const { postProjects } = require('./projects/postProjects.js');
 const { putProjects } = require('./projects/putProjects.js');
 const { deleteProjects } = require('./projects/deleteProjects.js');
+const { putNeeds } = require('./projects/putNeeds.js');
 
 const { putUserPhotos } = require('./photos/putUserPhotos.js');
 const { putToolPhotos } = require('./photos/putToolPhotos.js');
@@ -69,5 +70,8 @@ router.route('/users/:user_id/projects/:project_id')
 
 router.route('/users/:user_id/projects/:project_id/photos')
   .put(putProjectPhotos);
+
+router.route('/users/:user_id/projects/:project_id/needs')
+  .put(putNeeds);
 
 module.exports = router;
