@@ -69,8 +69,11 @@ class MainPage extends React.Component {
       for (let i = 0; i < data.length; i += 1) {
         for (let j = 0; j < data[i].projects.length; j += 1) {
           const project = data[i].projects[j];
-          if (user.favorites[project._id]) {
-            feed.push(data[i].projects[j]);
+          for (let k = 0; k < user.favorites.length; k += 1) {
+            if (user.favorites[k]._id === project._id) {
+              feed.push(data[i].projects[j]);
+              break;
+            }
           }
         }
       }
