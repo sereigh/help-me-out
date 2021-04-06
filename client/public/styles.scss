@@ -6,6 +6,11 @@ body {
   color: $accent-color;
 }
 
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
 .inbox-container {
   height: 90vh;
   min-height: 300px;
@@ -18,4 +23,14 @@ body {
   position: fixed;
   left: 10vw;
   bottom: 0;
+}
+
+// Main Page SCSS
+.main-page, .main-page-left, .filter-buttons, .profile-card {
+  display: flex;
+}
+
+.main-page-left, .filter-buttons, .profile-card {
+  flex-direction: column;
+  align-items: center;
 }
