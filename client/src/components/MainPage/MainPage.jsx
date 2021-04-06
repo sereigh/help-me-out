@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -5,7 +6,6 @@ import sampleData from '../../../../server/database/data/sampleFeed.json';
 
 import ProfileCard from './ProfileCard';
 import FilterButtons from './FilterButtons';
-// import Messages from './Messages';
 import FeedContainer from './FeedContainer';
 
 class MainPage extends React.Component {
@@ -39,7 +39,7 @@ class MainPage extends React.Component {
 
       this.setState({
         currentFilter: 'home',
-        displayedData: feed.sort((a,b) => (
+        displayedData: feed.sort((a, b) => (
           new Date(b.updatedAt) - new Date(a.updatedAt)
         )),
       });
@@ -92,10 +92,11 @@ class MainPage extends React.Component {
     const { currentFilter, displayedData } = this.state;
 
     return (
-      <div>
-        <ProfileCard user={user} />
-        <FilterButtons handleFilter={this.handleFilter} />
-        {/* <Messages /> */}
+      <div className="main-page">
+        <div className="main-page-left">
+          <ProfileCard user={user} />
+          <FilterButtons handleFilter={this.handleFilter} />
+        </div>
         <FeedContainer currentFilter={currentFilter} data={displayedData} />
       </div>
     );
@@ -124,6 +125,7 @@ MainPage.propTypes = {
       project_photos: PropTypes.arrayOf(PropTypes.string),
     })),
     favorites: PropTypes.arrayOf(PropTypes.shape({
+      _id: PropTypes.string,
       favorite_name: PropTypes.string,
       favorite_description: PropTypes.string,
       favorite_owner: PropTypes.string,

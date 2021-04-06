@@ -18,7 +18,7 @@ const NavBar = ({
     {isLoggedIn && (
       <nav>
         <span>Help Me Out!</span>
-        <div>
+        <span className="navbar-right">
           <button type="button" onClick={() => handleNav('mainPage')}>Dashboard</button>
           <button type="button" onClick={() => handleNav('inbox')}>Inbox</button>
           <button type="button" onClick={() => handleNav('profilePage')}>Account</button>
@@ -32,7 +32,7 @@ const NavBar = ({
           </span>
           <span>{`Handy Score: ${score}`}</span>
           <button type="button" onClick={() => handleNav('landingPage')}>Log Out</button>
-        </div>
+        </span>
       </nav>
     )}
   </>

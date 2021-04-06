@@ -18,7 +18,4 @@ module.exports = {
   plugins: [
     'react',
   ],
-  rules: {
-    allowFunctionParams: true,
-  },
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const ProfileCard = ({ user }) => (
-  <div>
+  <div className="profile-card">
     <img src={user.photo} alt="avatar" />
     <div>{user.name}</div>
     <div>{`Current ZIP Code: ${user.zip}`}</div>
