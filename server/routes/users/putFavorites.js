@@ -2,7 +2,7 @@ const { updateFavorites } = require('../../database/queries/users/updateFavorite
 
 exports.putFavorites = (req, res) => {
   const user = req.params.user_id;
-  const update = req.body.favorite;
+  const update = `favorites.${req.body.favorite}`;
 
   updateFavorites(user, update, (err, result) => {
     if (err) { res.status(404).send(err); }
