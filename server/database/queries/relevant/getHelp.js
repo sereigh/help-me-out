@@ -2,7 +2,7 @@ const db = require('../../index');
 
 exports.getHelp = (neededTools, userZip, cb) => {
   db.Tool.find(
-    { tool_name: neededTools, help: true },
+    { tool_name: neededTools },
   )
     .populate({
       path: 'tool_owner',
