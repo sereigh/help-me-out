@@ -1,6 +1,4 @@
-[
-  true,
-  {
+{
     "handy": 15,
     "report": 0,
     "tools": [
@@ -27,7 +25,9 @@
             "_id": "606a64dc118a9bb0232158cc",
             "project_name": "Door Jam",
             "project_description": "by and to for",
-            "needed_tools": [ "hammer" ],
+            "needed_tools": [
+                "hammer"
+            ],
             "help": true,
             "project_owner": "606a63cc6bd5acac70c9f6df",
             "createdAt": "2021-04-02T17:13:20.397Z",
@@ -52,43 +52,10 @@
             "__v": 0
         }
     ],
-    "favorites": [
-      {
-          "project_photos": [],
-          "_id": "606b31c3a19f475d63ec6755",
-          "project_name": "Lavoritory Sign",
-          "project_description": "yarn bid got it",
-          "help": true,
-          "project_owner": {
-              "_id": "606b318ca19f475d63ec6754",
-              "name": "Candace Iskowitz",
-              "handy": 24,
-              "photo": "https://picsum.photos/200"
-          },
-          "createdAt": "2021-04-01T17:20:22.397Z",
-          "updatedAt": "2021-04-01T17:20:22.397Z",
-          "__v": 0
-      },
-      {
-          "project_photos": [
-              "https://picsum.photos/200/300",
-              "https://picsum.photos/200/300"
-          ],
-          "_id": "606b316ba19f475d63ec6753",
-          "project_name": "Window Seat",
-          "project_description": "farm gaunt low",
-          "help": true,
-          "project_owner": {
-              "_id": "606b3145a19f475d63ec6752",
-              "handy": 0,
-              "name": "Marcus Martinez",
-              "photo": "https://picsum.photos/200"
-          },
-          "createdAt": "2021-04-01T17:09:22.397Z",
-          "updatedAt": "2021-04-01T17:09:22.397Z",
-          "__v": 0
-      }
-    ],
+    "favorites": {
+        "606ce192976fe4d9c0288e4d": true,
+        "606ce180976fe4d9c0288e4c": true
+    },
     "_id": "606a63cc6bd5acac70c9f6df",
     "name": "Phillip Waterson",
     "zip": 37112,
@@ -98,5 +65,4 @@
     "createdAt": "2021-04-02T17:12:20.397Z",
     "updatedAt": "2021-04-02T17:15:20.397Z",
     "__v": 0
-  }
-]
+}

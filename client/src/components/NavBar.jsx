@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import HandyIcon from './HandyIcon';
 
 const NavBar = ({
   isLoggedIn,
@@ -31,6 +32,7 @@ const NavBar = ({
             <img src={avatar} alt="avatar" />
           </span>
           <span>{`Handy Score: ${score}`}</span>
+          <HandyIcon score={score} />
           <button type="button" onClick={() => handleNav('landingPage')}>Log Out</button>
         </span>
       </nav>
