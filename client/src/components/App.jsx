@@ -1,14 +1,15 @@
-import React from "react";
+import React from 'react';
+import axios from 'axios';
 
-import sampleUser from "../../../server/database/data/sampleUser.json";
+import sampleUser from '../../../server/database/data/sampleUser.json';
 
-import NavBar from "./NavBar";
-import SignUp from "./SignUp";
-import LogIn from "./LogIn";
-import LandingPage from "./LandingPage";
-import MainPage from "./MainPage/MainPage";
-import ProfilePage from "./ProfilePage/ProfilePage";
-import Inbox from "./Inbox";
+import NavBar from './NavBar';
+import SignUp from './SignUp';
+import LogIn from './LogIn';
+import LandingPage from './LandingPage';
+import MainPage from './MainPage/MainPage';
+import ProfilePage from './ProfilePage/ProfilePage';
+import Inbox from './Inbox';
 
 class App extends React.Component {
   constructor(props) {
@@ -16,10 +17,11 @@ class App extends React.Component {
 
     this.state = {
       user: sampleUser,
-      page: "landingPage",
+      page: 'landingPage',
     };
 
     this.handleNav = this.handleNav.bind(this);
+    this.responseGoogle = this.responseGoogle.bind(this);
   }
 
   handleNav(page) {
@@ -28,11 +30,37 @@ class App extends React.Component {
     });
   }
 
+  responseGoogle(response) {
+    // eslint-disable-next-line no-console
+    console.log(response);
+    const { profileObj } = response;
+
+    axios.post('/authenticate', profileObj)
+      .then((res) => {
+        if (res.exists === true) {
+          this.setState({
+            user: {},
+          }, () => {
+            this.handleNav('mainPage');
+          });
+        } else {
+          this.setState({
+            user: res.newUser,
+          }, () => {
+            this.handleNav('profilePage');
+          });
+        }
+      })
+      .catch((err) => {
+        // eslint-disable-next-line no-console
+        console.error(err);
+      });
+  }
+
   render() {
     const { user, page } = this.state;
-    const isLoggedIn =
-      page === "mainPage" || page === "profilePage" || page === "inbox";
-    const avatar = user.photo || "#";
+    const isLoggedIn = page === 'mainPage' || page === 'profilePage' || page === 'inbox';
+    const avatar = user.photo || '#';
     const score = user.handy || 0;
 
     return (
@@ -42,13 +70,14 @@ class App extends React.Component {
           avatar={avatar}
           score={score}
           handleNav={this.handleNav}
+          responseGoogle={this.responseGoogle}
         />
-        {page === "signUp" && <SignUp />}
-        {page === "logIn" && <LogIn />}
-        {page === "landingPage" && <LandingPage />}
-        {page === "mainPage" && <MainPage user={user} />}
-        {page === "profilePage" && <ProfilePage user={user} />}
-        {page === "inbox" && <Inbox />}
+        {page === 'signUp' && <SignUp />}
+        {page === 'logIn' && <LogIn />}
+        {page === 'landingPage' && <LandingPage />}
+        {page === 'mainPage' && <MainPage user={user} />}
+        {page === 'profilePage' && <ProfilePage user={user} />}
+        {page === 'inbox' && <Inbox />}
       </div>
     );
   }
