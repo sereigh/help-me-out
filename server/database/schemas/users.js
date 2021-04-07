@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 exports.usersSchema = mongoose.Schema({
   name: String,
-  zip: Number,
+  zip: { type: Number, default: 37013 },
   password: String,
   email: String,
   photo: { type: String, default: 'https://tinyurl.com/help-me-out-app' },
