@@ -13,7 +13,7 @@ class AddProjectForm extends React.Component {
     };
     this.handleGetFields = this.handleGetFields.bind(this);
     this.handleToggleNeedHelp = this.handleToggleNeedHelp.bind(this);
-    this.handleAddToProjectToolList = this.handleAddToProjectToolList.bind(
+    this.handleAddToProjectToolList = this.handleAddToolToProjectToolList.bind(
       this
     );
     this.handleDeleteFromProjectToolList = this.handleDeleteFromProjectToolList.bind(
@@ -29,7 +29,7 @@ class AddProjectForm extends React.Component {
     this.setState({ needHelp: !needHelp });
   }
 
-  handleAddToProjectToolList() {
+  handleAddToolToProjectToolList() {
     const { needed_tools, toolsAdded } = this.state;
     if (toolsAdded.indexOf(needed_tools) === -1) {
       const revisedTools = toolsAdded.concat(needed_tools);
@@ -69,7 +69,7 @@ class AddProjectForm extends React.Component {
           <ProjectToolList
             key={toolsAdded.length}
             toolsAdded={toolsAdded}
-            handleAddToProjectToolList={this.handleAddToProjectToolList}
+            handleAddToProjectToolList={this.handleAddToolToProjectToolList}
             handleDeleteFromProjectToolList={
               this.handleDeleteFromProjectToolList
             }
@@ -80,7 +80,7 @@ class AddProjectForm extends React.Component {
           name="needed_tools"
           onChange={this.handleGetFields}
         />
-        <button onClick={this.handleAddToProjectToolList}>Add Tool</button>
+        <button onClick={this.handleAddToolToProjectToolList}>Add Tool</button>
         Need Help?:{" "}
         <input type="checkbox" onChange={this.handleToggleNeedHelp} />
       </div>
