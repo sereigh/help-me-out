@@ -63,7 +63,7 @@ class AddToolForm extends React.Component {
       <div>
         Tool Name:{" "}
         <input type="text" name="tool_name" onChange={this.handleGetFields} />
-        {tool_photos.length && (
+        {tool_photos.length > 0 && (
           <AddToolFormToolPhotos
             key={tool_photos.length}
             tool_photos={tool_photos}
