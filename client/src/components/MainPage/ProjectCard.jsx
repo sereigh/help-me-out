@@ -8,9 +8,12 @@ import MessageButton from '../MessageButton';
 class ProjectCard extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      favorited: props.project.favorited,
+    };
 
     this.handleVote = this.handleVote.bind(this);
+    this.toggleFavorite = this.toggleFavorite.bind(this);
   }
 
   handleVote(vote) {
@@ -30,8 +33,19 @@ class ProjectCard extends React.Component {
     }
   }
 
+  toggleFavorite() {
+    const { favorited } = this.state;
+
+    // Insert axios route to toggle favorite status of this project in the database
+
+    this.setState({
+      favorited: !favorited,
+    });
+  }
+
   render() {
     const { user, project } = this.props;
+    const { favorited } = this.state;
     let projectTools = [];
 
     if (project.needed_tools) {
@@ -61,6 +75,7 @@ class ProjectCard extends React.Component {
             <button type="button" onClick={() => this.handleVote('up')}>Upvote</button>
             <button type="button" onClick={() => this.handleVote('down')}>Downvote</button>
             <button type="button" onClick={() => this.handleVote('report')}>Report</button>
+            <button type="button" onClick={this.toggleFavorite}>{favorited ? 'Favorite' : 'Not favorite'}</button>
           </div>
           <MessageButton user={user} otherUser={project.project_owner} />
         </div>
@@ -110,6 +125,7 @@ ProjectCard.propTypes = {
       photo: PropTypes.string,
     }),
     help: PropTypes.bool,
+    favorited: PropTypes.bool,
     project_photos: PropTypes.arrayOf(PropTypes.string),
     needed_tools: PropTypes.arrayOf(PropTypes.string),
   }).isRequired,
