@@ -15,7 +15,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      user: sampleUser[1],
+      user: sampleUser,
       page: 'mainPage',
     };
 
