@@ -36,6 +36,7 @@ class MainPage extends React.Component {
   filterData(data) {
     const { user } = this.props;
 
+    const home = [];
     const projects = [];
     const tools = [];
     const favorites = [];
@@ -50,7 +51,10 @@ class MainPage extends React.Component {
           photo: data[i].photo,
         };
 
-        projects.push(project);
+        home.push(project);
+        if (project.help) {
+          projects.push(project);
+        }
 
         for (let k = 0; k < user.favorites.length; k += 1) {
           if (user.favorites[k]._id === project._id) {
@@ -68,15 +72,16 @@ class MainPage extends React.Component {
           photo: data[i].photo,
         };
 
+        home.push(tool);
         tools.push(tool);
       }
     }
 
     this.setState({
-      home: projects.concat(tools).sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)),
-      projects,
-      tools,
-      favorites,
+      home: home.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)),
+      projects: projects.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)),
+      tools: tools.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)),
+      favorites: favorites.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)),
     });
   }
 

@@ -17,6 +17,7 @@ function ProjectCard({ project }) {
         </div>
         <div className="project-details">
           <span>{`${project.project_description} just typing all of this out so it can fill more content incase someone typed a whole buncha stuff for content`}</span>
+          <span>{project.help ? 'This project is in need of assistance' : 'This project does not need any assistance'}</span>
           <ul>
             {projectTools}
           </ul>
