@@ -1,16 +1,20 @@
-import React, { Component, Fragment } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Talk from 'talkjs';
-import MessageButton from './MessageButton.jsx';
-import DummyUser from '../../../server/database/data/sampleUser.json';
 
-class Inbox extends Component {
+import DummyUser from '../../../server/database/data/sampleUser.json';
+import DummyFeed from '../../../server/database/data/sampleFeed.json';
+
+import MessageButton from './MessageButton';
+
+class Inbox extends React.Component {
   constructor(props) {
     super(props);
     this.inbox = undefined;
   }
 
   componentDidMount() {
-    const { user = DummyUser } = this.props;
+    const { user } = this.props;
     Talk.ready
       .then(() => {
         user.id = user._id;
@@ -32,11 +36,24 @@ class Inbox extends Component {
 
   render() {
     return (
-      <div className="inbox-container" ref={(c) => this.container = c}>
-        Loading...
-      </div>
+      <>
+        <div className="inbox-loading">Loading Inbox...</div>
+
+        <div className="inbox-container" ref={(c) => this.container = c} />
+        {/* <MessageButton otherUser={DummyFeed[3]} />
+        <MessageButton otherUser={DummyFeed[4]} />
+        <MessageButton otherUser={DummyFeed[5]} /> */}
+      </>
     );
   }
 }
+
+Inbox.defaultProps = {
+  user: DummyUser,
+};
+
+Inbox.propTypes = {
+  user: PropTypes.oneOfType([PropTypes.object]),
+};
 
 export default Inbox;
