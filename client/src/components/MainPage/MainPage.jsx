@@ -1,11 +1,11 @@
+/* eslint-disable no-underscore-dangle */
 import React from 'react';
 import PropTypes from 'prop-types';
 
 import sampleData from '../../../../server/database/data/sampleFeed.json';
 
-// import ProfileCard from './ProfileCard';
+import ProfileCard from './ProfileCard';
 import FilterButtons from './FilterButtons';
-// import Messages from './Messages';
 import FeedContainer from './FeedContainer';
 
 class MainPage extends React.Component {
@@ -39,7 +39,9 @@ class MainPage extends React.Component {
 
       this.setState({
         currentFilter: 'home',
-        displayedData: feed,
+        displayedData: feed.sort((a, b) => (
+          new Date(b.updatedAt) - new Date(a.updatedAt)
+        )),
       });
     } else if (filter === 'giveHelp') {
       let feed = [];
@@ -69,8 +71,11 @@ class MainPage extends React.Component {
       for (let i = 0; i < data.length; i += 1) {
         for (let j = 0; j < data[i].projects.length; j += 1) {
           const project = data[i].projects[j];
-          if (user.favorites[project._id]) {
-            feed.push(data[i].projects[j]);
+          for (let k = 0; k < user.favorites.length; k += 1) {
+            if (user.favorites[k]._id === project._id) {
+              feed.push(data[i].projects[j]);
+              break;
+            }
           }
         }
       }
@@ -83,14 +88,15 @@ class MainPage extends React.Component {
   }
 
   render() {
-    // const { user } = this.props;
+    const { user } = this.props;
     const { currentFilter, displayedData } = this.state;
 
     return (
-      <div>
-        {/* <ProfileCard user={user} /> */}
-        <FilterButtons handleFilter={this.handleFilter} />
-        {/* <Messages /> */}
+      <div className="main-page">
+        <div className="main-page-left">
+          <ProfileCard user={user} />
+          <FilterButtons handleFilter={this.handleFilter} />
+        </div>
         <FeedContainer currentFilter={currentFilter} data={displayedData} />
       </div>
     );
@@ -118,7 +124,15 @@ MainPage.propTypes = {
       help: PropTypes.bool.isRequired,
       project_photos: PropTypes.arrayOf(PropTypes.string),
     })),
-    favorites: PropTypes.arrayOf(PropTypes.string),
+    favorites: PropTypes.arrayOf(PropTypes.shape({
+      _id: PropTypes.string,
+      favorite_name: PropTypes.string,
+      favorite_description: PropTypes.string,
+      favorite_owner: PropTypes.string,
+      favorite_handy: PropTypes.number,
+      favorite_photo: PropTypes.string,
+      favorite_photos: PropTypes.arrayOf(PropTypes.string),
+    })),
   }).isRequired,
 };
 
