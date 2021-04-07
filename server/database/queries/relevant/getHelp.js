@@ -1,21 +1,22 @@
-const db = require('../../index.js');
+const db = require('../../index');
 
-exports.getHelp = (tools_needed, zip, cb) => {
-
+exports.getHelp = (neededTools, userZip, cb) => {
   db.Tool.find(
-    { tool_name: tools_needed, help: true }).
-    populate({
+    { tool_name: neededTools, help: true },
+  )
+    .populate({
       path: 'tool_owner',
-      where: { zip: zip },
+      where: { zip: userZip },
       select: {
         name: 1,
         handy: 1,
         zip: 1,
-        photo: 1
-      }
-    }).
-    exec((err, result) => {
-      if (err) { return cb(err, null) }
-      else { return cb(null, result) }
+        photo: 1,
+      },
     })
-}
+    .sort({ updatedAt: -1 })
+    .exec((err, result) => {
+      if (err) return cb(err, null);
+      return cb(null, result);
+    });
+};
