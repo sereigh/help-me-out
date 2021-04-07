@@ -36,27 +36,28 @@ class MainPage extends React.Component {
   filterData(data) {
     const { user } = this.props;
 
-    const home = data.getHelp.concat(data.giveHelp);
+    let home = [];
     const tools = data.getHelp;
     const projects = [];
     const favorites = [];
 
-    for (let i = 0; i < projects.length; i += 1) {
-      let favorite = false;
-      for (let j = 0; j < user.favorites.length; j += 1) {
-        if (user.favorites[j]._id === projects[i]._id) {
-          favorite = true;
-          const project = Object.create(projects[i]);
-          project.favorited = true;
-          projects.push(project);
-          favorites.push(project);
-          break;
-        }
+    for (let i = 0; i < data.giveHelp.length; i += 1) {
+      let favorited = false;
+      if (user.favorites[data.giveHelp[i]._id]) {
+        favorited = true;
+        let project = Object.create(data.giveHelp[i]);
+        project.favorited = true;
+        home.push(project);
+        favorites.push(project);
+        projects.push(project);
       }
-      if (!favorite) {
-        projects.push(projects[i]);
+      if (!favorited) {
+        home.push(data.giveHelp[i]);
+        projects.push(data.giveHelp[i]);
       }
     }
+
+    home = home.concat(data.getHelp);
 
     this.setState({
       home: home.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)),
