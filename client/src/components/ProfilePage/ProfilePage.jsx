@@ -57,7 +57,7 @@ class ProfilePage extends React.Component {
   deleteProfileItem() {}
 
   putProfileItem() {}
-  //testing only!
+
   componentDidMount() {
     const sampleUserInfo = sampleUser;
     this.setState({
@@ -99,7 +99,6 @@ class ProfilePage extends React.Component {
           />
           <UserTools
             userTools={userTools}
-            userProjects={userProjects}
             toggleAddItemForm={this.toggleAddItemForm}
             toggleHelp={this.toggleHelp}
             addProfileItem={this.addProfileItem}

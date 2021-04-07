@@ -3,14 +3,7 @@ import UserTool from "./UserTool";
 import AddToolForm from "./AddToolForm.jsx";
 
 const UserTools = (props) => {
-  const {
-    userTools,
-    addProfileItem,
-    deleteProfileItem,
-    putProfileItem,
-    toggleAddItemForm,
-    showAddToolForm,
-  } = props;
+  const { userTools, toggleAddItemForm, showAddToolForm } = props;
   return (
     <div>
       {userTools.map((tool, index) => (
