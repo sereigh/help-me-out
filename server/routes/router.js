@@ -11,6 +11,7 @@ const { putFavorites } = require('./users/putFavorites');
 const { getUser } = require('./users/getUser');
 const { postUser } = require('./users/postUser');
 const { putUser } = require('./users/putUser');
+const { getTopExperts } = require('./users/getTopExperts');
 
 const { handyDown } = require('./handy/handyDown');
 const { handyUp } = require('./handy/handyUp');
@@ -23,6 +24,7 @@ const { postProjects } = require('./projects/postProjects');
 const { putProjects } = require('./projects/putProjects');
 const { deleteProjects } = require('./projects/deleteProjects');
 const { putNeeds } = require('./projects/putNeeds');
+const { getRecentProjects } = require('./projects/getRecentProjects');
 
 const { putUserPhotos } = require('./photos/putUserPhotos');
 const { putToolPhotos } = require('./photos/putToolPhotos');
@@ -35,6 +37,9 @@ router.route('/')
 
 router.route('/users')
   .post(postUser);
+
+router.route('/experts')
+  .get(getTopExperts);
 
 router.route('/users/:user_id')
   .get(getUser)
@@ -65,6 +70,9 @@ router.route('/users/:user_id/tools/:tool_id')
 router.route('/users/:user_id/tools/:tool_id/photos')
   .put(putToolPhotos);
 
+router.route('/projects')
+  .get(getRecentProjects);
+
 router.route('/users/:user_id/projects')
   .post(postProjects);
 
@@ -79,6 +87,6 @@ router.route('/users/:user_id/projects/:project_id/needs')
   .put(putNeeds);
 
 router.route('/users/:user_id/favorites')
-  .put(putFavorites);
+  .put(putFavorites)
 
 module.exports = router;
