@@ -36,44 +36,17 @@ class MainPage extends React.Component {
   filterData(data) {
     const { user } = this.props;
 
-    const home = [];
-    const projects = [];
-    const tools = [];
+    const home = data.getHelp.concat(data.giveHelp);
+    const projects = data.giveHelp;
+    const tools = data.getHelp;
     const favorites = [];
 
-    for (let i = 0; i < data.length; i += 1) {
-      for (let j = 0; j < data[i].projects.length; j += 1) {
-        const project = Object.create(data[i].projects[j]);
-
-        project.project_owner = {
-          name: data[i].name,
-          handy: data[i].handy,
-          photo: data[i].photo,
-        };
-
-        home.push(project);
-        if (project.help) {
-          projects.push(project);
+    for (let i = 0; i < projects.length; i += 1) {
+      for (let j = 0; j < user.favorites.length; j += 1) {
+        if (user.favorites[j]._id === projects[i]._id) {
+          favorites.push(projects[i]);
+          break;
         }
-
-        for (let k = 0; k < user.favorites.length; k += 1) {
-          if (user.favorites[k]._id === project._id) {
-            favorites.push(project);
-            break;
-          }
-        }
-      }
-      for (let j = 0; j < data[i].tools.length; j += 1) {
-        const tool = Object.create(data[i].tools[j]);
-
-        tool.tool_owner = {
-          name: data[i].name,
-          handy: data[i].handy,
-          photo: data[i].photo,
-        };
-
-        home.push(tool);
-        tools.push(tool);
       }
     }
 
