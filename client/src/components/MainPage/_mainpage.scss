@@ -1,12 +1,22 @@
-.feed-container {
-  max-width: 600px;
+// .feed-container {
+//   max-width: 600px;
+//   display: grid;
+// }
+
+/* remove margin once proper css has been added to container */
+@mixin feed-card {
+  display:grid;
+  width: 600px;
+  height: 300px;
+  margin: 30px;
+  border-radius: 20px;
 }
 
-.feed-card {
-  display: grid;
+/* PROJECT CARD */
+
+.project-card {
+  @include feed-card;
   grid-template-rows: 30px auto 50px;
-  width: 100%;
-  max-height: 400px;
 }
 
 .project-info {
@@ -15,12 +25,10 @@
 
   .project-photo {
     img {
-      min-width: 100%;
-      min-height: 100%;
       max-width: 100%;
-      max-height: 100%;
+      max-height: 200%;
       border-radius: 20px;
-      object-fit: cover;
+      object-fit: scale-down;
     }
   }
 
@@ -44,4 +52,82 @@
   grid-template-areas:
     "picture name"
     "picture button";
+}
+
+/* TOOL CARD */
+
+.tool-card {
+  @include feed-card;
+  grid-template-columns: 30% 70%;
+  background-color: white;
+  box-shadow: 2px 2px 30px rgba(0,0,0,0.2);
+}
+
+.user-name-and-score-div {
+  display: grid;
+  grid-template-rows: 100px 30px 170px;
+  justify-content: center;
+  grid-template-areas: "avatar"
+    "username"
+    "handy";
+}
+
+.tool-user-avatar-div {
+  background-color: greenyellow;
+  grid-area: avatar;
+  text-align: center;
+  margin: 10px;
+  width: 120px;
+  height: 120px;
+}
+
+.tool-user-name-div {
+  background-color: grey;
+  grid-area: username;
+  text-align: center;
+  margin: auto;
+}
+
+.tool-handy-div {
+  background-color: hotpink;
+  grid-area: handy;
+  text-align: center;
+}
+
+.tool-name-image-and-message-div {
+  display: grid;
+  grid-template-rows: 20px 230px 20px;
+  justify-content: center;
+  grid-template-areas:
+    "tool-name"
+    "tool-image"
+    "message-button";
+}
+
+.tool-name-div {
+  grid-area: tool-name;
+  text-align: center;
+}
+.tool-image-div {
+  grid-area: tool-image;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.message-button-div {
+  grid-area: message-button;
+  text-align: center;
+}
+
+.tool-card-tool-img {
+  width: 100%;
+  // border-radius: 20px;
+  object-fit: scale-down;
+}
+
+.tool-avatar-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: auto;
 }

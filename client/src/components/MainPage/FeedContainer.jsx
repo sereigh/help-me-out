@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import ProjectCard from './ProjectCard';
-import UserCard from './UserCard';
+import ToolCard from './ToolCard';
 
 const FeedContainer = ({ currentFilter, data }) => {
   let title = '';
@@ -20,10 +20,10 @@ const FeedContainer = ({ currentFilter, data }) => {
 
   return (
     <div>
-      <div className="feed-container">{title}</div>
+      <div>{title}</div>
       {data.map((item) => (
         <div key={item._id}>
-          {item.project_name ? <ProjectCard info={item} /> : <UserCard info={item} /> }
+          {item.project_name ? <ProjectCard project={item} /> : <ToolCard tool={item} />}
         </div>
       ))}
     </div>

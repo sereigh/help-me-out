@@ -1,4 +1,4 @@
-const db = require('../../index.js');
+const db = require('../../index');
 
 exports.addProjectRef = (user, project) => {
   db.User.findByIdAndUpdate(
