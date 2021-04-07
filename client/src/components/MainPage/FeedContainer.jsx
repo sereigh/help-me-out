@@ -2,6 +2,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import ProjectCard from './ProjectCard';
+
 const FeedContainer = ({ currentFilter, data }) => {
   let title = '';
 
@@ -19,7 +21,7 @@ const FeedContainer = ({ currentFilter, data }) => {
     <div>
       <div className="feed-container">{title}</div>
       {data.map((item) => (
-        <div key={item._id}>{item.project_name ? `${item.project_name}` : `${item.tool_name}`}</div>
+        <div key={item._id}>{item.project_name ? <ProjectCard info={item}/> : `${item.tool_name}`}</div>
       ))}
     </div>
   );

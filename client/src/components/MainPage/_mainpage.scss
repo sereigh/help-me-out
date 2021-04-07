@@ -1,0 +1,59 @@
+.feed-container {
+  max-width: 600px;
+}
+
+.feed-card {
+  display: grid;
+  grid-template-rows: 30px auto 50px;
+  width: 100%;
+  max-height: 400px;
+  // background-color: aqua;
+}
+
+.project-name {
+  // background-color: blueviolet;
+}
+
+.project-info {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  // background-color: gold;
+
+  .project-photo {
+    // background-color: green;
+    img {
+      min-width: 100%;
+      min-height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 20px;
+      object-fit: cover;
+    }
+  }
+
+  .project-details {
+    display: grid;
+    grid-template-rows: 20% 10px fr;
+    // background-color: goldenrod;
+  }
+}
+
+.project-footer {
+  // background-color: blue;
+}
+
+.project-owner-img {
+  width: 50px;
+  grid-area: picture;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.project-footer {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  grid-template-rows: 25px 25px;
+  grid-template-areas:
+    "picture name"
+    "picture button";
+}
