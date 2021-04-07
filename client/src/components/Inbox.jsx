@@ -49,7 +49,7 @@ class Inbox extends React.Component {
 }
 
 Inbox.defaultProps = {
-  user: DummyUser,
+  user: DummyUser[1],
 };
 
 Inbox.propTypes = {
