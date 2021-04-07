@@ -7,6 +7,7 @@ const { getRelevantInfo } = require('./relevant/getRelevantInfo');
 const { postReport } = require('./users/postReport');
 
 const { putFavorites } = require('./users/putFavorites');
+const { deleteFavorites } = require('./users/deleteFavorites');
 
 const { getUser } = require('./users/getUser');
 const { postUser } = require('./users/postUser');
@@ -88,5 +89,6 @@ router.route('/users/:user_id/projects/:project_id/needs')
 
 router.route('/users/:user_id/favorites')
   .put(putFavorites)
+  .delete(deleteFavorites);
 
 module.exports = router;
