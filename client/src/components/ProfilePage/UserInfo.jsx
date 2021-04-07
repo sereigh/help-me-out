@@ -1,12 +1,25 @@
-import React from 'react';
+import React from "react";
+import EditUserInfo from "./EditUserInfo";
 
 const UserInfo = (props) => {
+  const {
+    name,
+    photo,
+    zip,
+    handy,
+    showEditUserForm,
+    toggleEditUserForm,
+  } = props;
   return (
-    <div className='user-info'>
-      {/* <img src={props.userInfo.photo} /> */}
-      <div>{props.userInfo.name}</div>
-      <div>{props.userInfo.zip}</div>
-      <div>{props.userInfo.handy}</div>
+    <div className="user-info">
+      <img src={photo} alt="profile_photo" />
+      <div>{name}</div>
+      <div>{zip}</div>
+      <div>{handy}</div>
+      {!showEditUserForm && (
+        <button onClick={toggleEditUserForm}>Edit Profile</button>
+      )}
+      {showEditUserForm && <EditUserInfo name={name} zip={zip} photo={photo} />}
     </div>
   );
 };
