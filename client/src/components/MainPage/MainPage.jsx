@@ -14,82 +14,94 @@ class MainPage extends React.Component {
 
     this.state = {
       currentFilter: 'home',
-      data: sampleData,
-      displayedData: [],
+      home: [],
+      projects: [],
+      tools: [],
+      favorites: [],
     };
 
     this.handleFilter = this.handleFilter.bind(this);
   }
 
   componentDidMount() {
-    this.handleFilter('home');
+    this.filterData(sampleData);
   }
 
   handleFilter(filter) {
+    this.setState({
+      currentFilter: filter,
+    });
+  }
+
+  filterData(data) {
     const { user } = this.props;
-    const { data } = this.state;
 
-    if (filter === 'home') {
-      let feed = [];
+    const projects = [];
+    const tools = [];
+    const favorites = [];
 
-      for (let i = 0; i < data.length; i += 1) {
-        feed = feed.concat(data[i].projects);
-        feed = feed.concat(data[i].tools);
-      }
+    for (let i = 0; i < data.length; i += 1) {
+      for (let j = 0; j < data[i].projects.length; j += 1) {
+        const project = Object.create(data[i].projects[j]);
 
-      this.setState({
-        currentFilter: 'home',
-        displayedData: feed.sort((a, b) => (
-          new Date(b.updatedAt) - new Date(a.updatedAt)
-        )),
-      });
-    } else if (filter === 'giveHelp') {
-      let feed = [];
+        project.project_owner = {
+          name: data[i].name,
+          handy: data[i].handy,
+          photo: data[i].photo,
+        };
 
-      for (let i = 0; i < data.length; i += 1) {
-        feed = feed.concat(data[i].projects);
-      }
+        projects.push(project);
 
-      this.setState({
-        currentFilter: 'giveHelp',
-        displayedData: feed,
-      });
-    } else if (filter === 'getHelp') {
-      let feed = [];
-
-      for (let i = 0; i < data.length; i += 1) {
-        feed = feed.concat(data[i].tools);
-      }
-
-      this.setState({
-        currentFilter: 'getHelp',
-        displayedData: feed,
-      });
-    } else if (filter === 'favorites') {
-      const feed = [];
-
-      for (let i = 0; i < data.length; i += 1) {
-        for (let j = 0; j < data[i].projects.length; j += 1) {
-          const project = data[i].projects[j];
-          for (let k = 0; k < user.favorites.length; k += 1) {
-            if (user.favorites[k]._id === project._id) {
-              feed.push(data[i].projects[j]);
-              break;
-            }
+        for (let k = 0; k < user.favorites.length; k += 1) {
+          if (user.favorites[k]._id === project._id) {
+            favorites.push(project);
+            break;
           }
         }
       }
+      for (let j = 0; j < data[i].tools.length; j += 1) {
+        const tool = Object.create(data[i].tools[j]);
 
-      this.setState({
-        currentFilter: 'favorites',
-        displayedData: feed,
-      });
+        tool.tool_owner = {
+          name: data[i].name,
+          handy: data[i].handy,
+          photo: data[i].photo,
+        };
+
+        tools.push(tool);
+      }
     }
+
+    this.setState({
+      home: projects.concat(tools).sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)),
+      projects,
+      tools,
+      favorites,
+    });
   }
 
   render() {
     const { user } = this.props;
-    const { currentFilter, displayedData } = this.state;
+
+    const {
+      currentFilter,
+      home,
+      projects,
+      tools,
+      favorites,
+    } = this.state;
+
+    let displayedData = [];
+
+    if (currentFilter === 'home') {
+      displayedData = home;
+    } else if (currentFilter === 'giveHelp') {
+      displayedData = projects;
+    } else if (currentFilter === 'getHelp') {
+      displayedData = tools;
+    } else if (currentFilter === 'favorites') {
+      displayedData = favorites;
+    }
 
     return (
       <div className="main-page">

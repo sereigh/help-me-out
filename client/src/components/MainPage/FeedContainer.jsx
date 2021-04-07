@@ -19,9 +19,9 @@ const FeedContainer = ({ currentFilter, data }) => {
 
   return (
     <div>
-      <div className="feed-container">{title}</div>
+      <div>{title}</div>
       {data.map((item) => (
-        <div key={item._id}>{item.project_name ? <ProjectCard info={item}/> : `${item.tool_name}`}</div>
+        <div key={item._id}>{item.project_name ? <ProjectCard info={item} /> : `${item.tool_name}`}</div>
       ))}
     </div>
   );
