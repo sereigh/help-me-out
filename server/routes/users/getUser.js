@@ -1,4 +1,4 @@
-const { grabUser } = require('../../database/queries/users/grabUser.js');
+const { grabUser } = require('../../database/queries/users/grabUser');
 
 exports.getUser = (req, res) => {
   const user = req.params.user_id;
