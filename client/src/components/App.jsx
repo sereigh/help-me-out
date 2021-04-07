@@ -35,17 +35,18 @@ class App extends React.Component {
     console.log(response);
     const { profileObj } = response;
 
-    axios.post('/authenticate', profileObj)
+    axios.post('/users', profileObj)
       .then((res) => {
-        if (res.exists === true) {
+        console.log(res);
+        if (res.data[0] === true) {
           this.setState({
-            user: {},
+            user: res.data[1],
           }, () => {
             this.handleNav('mainPage');
           });
         } else {
           this.setState({
-            user: res.newUser,
+            user: res.data[1],
           }, () => {
             this.handleNav('profilePage');
           });

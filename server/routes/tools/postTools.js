@@ -1,5 +1,6 @@
-const { addTools } = require('../../database/queries/tools/addTools.js');
-const { addToolRef } = require('../../database/queries/middleware/addToolRef.js');
+/* eslint-disable no-underscore-dangle */
+const { addTools } = require('../../database/queries/tools/addTools');
+const { addToolRef } = require('../../database/queries/middleware/addToolRef');
 
 exports.postTools = (req, res) => {
   const tool = req.body;

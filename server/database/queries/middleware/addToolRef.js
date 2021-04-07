@@ -1,4 +1,4 @@
-const db = require('../../index.js');
+const db = require('../../index');
 
 exports.addToolRef = (user, tool) => {
   db.User.findByIdAndUpdate(
