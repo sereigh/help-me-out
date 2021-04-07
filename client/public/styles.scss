@@ -15,11 +15,11 @@ nav {
 
 // Inbox SCSS
 .inbox-container {
-  height: 90vh;
-  min-height: 300px;
+  height: 75vh;
+  min-height: 400px;
   min-width: 270px;
   opacity: 0;
-  animation: .1s ease-out .6s 1 forwards loadInbox;
+  animation: .1s ease-out .7s 1 forwards loadInbox;
 }
 
 .inbox-loading {
