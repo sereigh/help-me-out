@@ -1,10 +1,14 @@
-
 $main-color: rgb(255, 240, 212);
 $accent-color: brown;
 
 body {
   background-color: $main-color;
   color: $accent-color;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
 }
 
 .inbox-container {
@@ -19,4 +23,14 @@ body {
   position: fixed;
   left: 10vw;
   bottom: 0;
+}
+
+// Main Page SCSS
+.main-page, .main-page-left, .filter-buttons, .profile-card {
+  display: flex;
+}
+
+.main-page-left, .filter-buttons, .profile-card {
+  flex-direction: column;
+  align-items: center;
 }
