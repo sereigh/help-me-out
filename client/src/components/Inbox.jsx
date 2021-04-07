@@ -40,9 +40,9 @@ class Inbox extends React.Component {
         <div className="inbox-loading">Loading Inbox...</div>
 
         <div className="inbox-container" ref={(c) => this.container = c} />
-        <MessageButton otherUser={DummyFeed.getHelp[3].tool_owner} />
+        {/* <MessageButton otherUser={DummyFeed.getHelp[3].tool_owner} />
         <MessageButton otherUser={DummyFeed.getHelp[1].tool_owner} />
-        <MessageButton otherUser={DummyFeed.getHelp[2].tool_owner} />
+        <MessageButton otherUser={DummyFeed.getHelp[2].tool_owner} /> */}
       </>
     );
   }
