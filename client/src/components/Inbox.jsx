@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import Talk from 'talkjs';
 
 import DummyUser from '../../../server/database/data/sampleUser.json';
+import DummyFeed from '../../../server/database/data/sampleFeed.json';
+
+import MessageButton from './MessageButton';
 
 class Inbox extends React.Component {
   constructor(props) {
@@ -35,7 +38,11 @@ class Inbox extends React.Component {
     return (
       <>
         <div className="inbox-loading">Loading Inbox...</div>
+
         <div className="inbox-container" ref={(c) => this.container = c} />
+        <MessageButton otherUser={DummyFeed[3]} />
+        <MessageButton otherUser={DummyFeed[4]} />
+        <MessageButton otherUser={DummyFeed[5]} />
       </>
     );
   }

@@ -18,7 +18,7 @@ nav {
   min-height: 300px;
   min-width: 270px;
   opacity: 0;
-  animation: fadeIn .1s ease-in .6s 1 forwards;
+  animation: .1s ease-out .6s 1 forwards loadInbox;
 }
 
 .inbox-loading {
@@ -28,19 +28,30 @@ nav {
   font-size: 2vw;
   text-align: center;
   margin-top: 200px;
-  animation: load 0s ease-in .6s 1 forwards;
+  animation: 0s ease-in .6s 1 forwards load;
 }
 
 // Chat SCSS
 .chatbox-container {
-  height: 40vh;
+  height: 45vh;
   min-height: 300px;
   position: fixed;
   left: 10vw;
-  bottom: 0;
+  bottom: -45vh;
+  animation: .5s ease-out .2s 1 forwards loadChat;
+  overflow: hidden;
 }
 
-@keyframes fadeIn {
+@keyframes loadChat {
+  0% {
+    bottom: -45vh;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+@keyframes loadInbox {
   0% {
     opacity: 0;
   }
@@ -52,7 +63,7 @@ nav {
 @keyframes load {
   0% {
     opacity: 1;
-    margin-top: 200px;
+    margin-top: 100px;
   }
   100% {
     opacity: 0;

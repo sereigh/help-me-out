@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import Talk from 'talkjs';
 
@@ -8,10 +9,31 @@ import DummyFeed from '../../../server/database/data/sampleFeed.json';
 class MessageButton extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      chatboxId: '',
+      showChat: false,
+    };
     this.handleClick = this.handleClick.bind(this);
+    this.chat = this.chat.bind(this);
+    this.resetChat = this.resetChat.bind(this);
+    this.renderChat = this.renderChat.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({ chatboxId: String(Math.random()) });
   }
 
   handleClick() {
+    const chatbox = document.getElementsByClassName('chatbox-container');
+    if (chatbox.length > 0) {
+      for (let i = 0; i < chatbox.length; i += 1) {
+        ReactDOM.unmountComponentAtNode(chatbox[i]);
+      }
+    }
+    this.setState({ showChat: false }, this.resetChat);
+  }
+
+  chat() {
     const { user, otherUser } = this.props;
     Talk.ready
       .then(() => {
@@ -34,19 +56,31 @@ class MessageButton extends React.Component {
 
         conversation.setParticipant(me);
         conversation.setParticipant(other);
-
         this.chatbox = window.talkSession.createChatbox(conversation);
         this.chatbox.mount(this.container);
       })
       .catch((e) => console.error(e));
   }
 
+  resetChat() {
+    this.setState({ showChat: true }, this.renderChat);
+  }
+
+  renderChat() {
+    const { chatboxId } = this.state;
+    ReactDOM.render(
+      <div className="chatbox-container" ref={(c) => this.container = c} />,
+      document.getElementById(`${chatboxId}`),
+    );
+    this.chat();
+  }
+
   render() {
+    const { showChat, chatboxId } = this.state;
     return (
       <>
         <button type="button" onClick={this.handleClick}>Message</button>
-
-        <div className="chatbox-container" ref={(c) => this.container = c} />
+        {showChat && <div className="chatbox-container" id={`${chatboxId}`} />}
       </>
     );
   }
