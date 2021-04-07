@@ -3,17 +3,17 @@ const { giveHelp } = require('./giveHelp.js');
 
 exports.grabRelevantInfo = (filter, cb) => {
 
-  const getHelp = getHelp(info, (err, result) => {
+  const get = getHelp(filter.projects, filter.zip, (err, result) => {
     if (err) { return console.error(err) }
     else { return result }
   })
 
-  const giveHelp = giveHelp(info,  (err, result) => {
+  const give = giveHelp(filter.tools, filter.zip, (err, result) => {
     if (err) { return console.error(err) }
     else { return result }
   })
 
   // favorites placeholder
 
-  return { getHelp: getHelp, giveHelp: giveHelp }
+  return cb(null, { getHelp: get, giveHelp: give })
 };

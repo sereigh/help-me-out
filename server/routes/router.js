@@ -2,6 +2,8 @@ const express = require('express');
 
 const router = express.Router();
 
+const { getUserAuth } = require('./users/getUserAuth.js');
+
 const { getAllUsers } = require('./users/getAllUsers.js');
 const { getRelevantInfo } = require('./relevant/getRelevantInfo.js');
 
@@ -32,15 +34,18 @@ router.route('/')
     res.status(200).end();
   });
 
+router.route('/authenticate')
+  .get(getUserAuth)
+
 router.route('/users')
-  .get(getAllUsers);
+  .get(getAllUsers)
+  .post(postUser);
 
 router.route('/users/:user_id/relevant')
   .get(getRelevantInfo);
 
 router.route('/users/:user_id')
   .get(getUser)
-  .post(postUser)
   .put(putUser);
 
 router.route('/users/:user_id/photos')
