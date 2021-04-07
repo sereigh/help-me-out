@@ -3,9 +3,9 @@ import React from 'react';
 import sampleUser from '../../../server/database/data/sampleUser.json';
 
 import NavBar from './NavBar';
-// import SignUp from "./LandingPage/SignUp";
-// import LogIn from "./LandingPage/LogIn";
-import LandingPage from './LandingPage/LandingPage';
+import SignUp from './SignUp';
+import LogIn from './LogIn';
+import LandingPage from './LandingPage';
 import MainPage from './MainPage/MainPage';
 import ProfilePage from './ProfilePage/ProfilePage';
 import Inbox from './Inbox';
@@ -16,7 +16,7 @@ class App extends React.Component {
 
     this.state = {
       user: sampleUser,
-      page: 'landingPage',
+      page: 'mainPage',
     };
 
     this.handleNav = this.handleNav.bind(this);
@@ -43,12 +43,12 @@ class App extends React.Component {
           score={score}
           handleNav={this.handleNav}
         />
-        {/* {page === "signUp" && <SignUp />} */}
-        {/* {page === "logIn" && <LogIn />} */}
+        {page === 'signUp' && <SignUp />}
+        {page === 'logIn' && <LogIn />}
         {page === 'landingPage' && <LandingPage />}
         {page === 'mainPage' && <MainPage user={user} />}
         {page === 'profilePage' && <ProfilePage user={user} />}
-        {page === 'inbox' && <Inbox />}
+        {page === 'inbox' && <Inbox user={user} />}
       </div>
     );
   }

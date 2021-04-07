@@ -2,29 +2,31 @@ const express = require('express');
 
 const router = express.Router();
 
-const { getAllUsers } = require('./users/getAllUsers.js');
+const { getRelevantInfo } = require('./relevant/getRelevantInfo');
 
-const { postReport } = require('./users/postReport.js');
+const { postReport } = require('./users/postReport');
 
-const { getUser } = require('./users/getUser.js');
-const { postUser } = require('./users/postUser.js');
-const { putUser } = require('./users/putUser.js');
+const { putFavorites } = require('./users/putFavorites');
 
-const { handyDown } = require('./handy/handyDown.js');
-const { handyUp } = require('./handy/handyUp.js');
+const { getUser } = require('./users/getUser');
+const { postUser } = require('./users/postUser');
+const { putUser } = require('./users/putUser');
 
-const { postTools } = require('./tools/postTools.js');
-const { putTools } = require('./tools/putTools.js');
-const { deleteTools } = require('./tools/deleteTools.js');
+const { handyDown } = require('./handy/handyDown');
+const { handyUp } = require('./handy/handyUp');
 
-const { postProjects } = require('./projects/postProjects.js');
-const { putProjects } = require('./projects/putProjects.js');
-const { deleteProjects } = require('./projects/deleteProjects.js');
-const { putNeeds } = require('./projects/putNeeds.js');
+const { postTools } = require('./tools/postTools');
+const { putTools } = require('./tools/putTools');
+const { deleteTools } = require('./tools/deleteTools');
 
-const { putUserPhotos } = require('./photos/putUserPhotos.js');
-const { putToolPhotos } = require('./photos/putToolPhotos.js');
-const { putProjectPhotos } = require('./photos/putProjectPhotos.js');
+const { postProjects } = require('./projects/postProjects');
+const { putProjects } = require('./projects/putProjects');
+const { deleteProjects } = require('./projects/deleteProjects');
+const { putNeeds } = require('./projects/putNeeds');
+
+const { putUserPhotos } = require('./photos/putUserPhotos');
+const { putToolPhotos } = require('./photos/putToolPhotos');
+const { putProjectPhotos } = require('./photos/putProjectPhotos');
 
 router.route('/')
   .get((req, res) => {
@@ -32,12 +34,14 @@ router.route('/')
   });
 
 router.route('/users')
-  .get(getAllUsers);
+  .post(postUser);
 
 router.route('/users/:user_id')
   .get(getUser)
-  .post(postUser)
   .put(putUser);
+
+router.route('/users/:user_id/relevant')
+  .get(getRelevantInfo);
 
 router.route('/users/:user_id/photos')
   .put(putUserPhotos);
@@ -73,5 +77,8 @@ router.route('/users/:user_id/projects/:project_id/photos')
 
 router.route('/users/:user_id/projects/:project_id/needs')
   .put(putNeeds);
+
+router.route('/users/:user_id/favorites')
+  .put(putFavorites);
 
 module.exports = router;

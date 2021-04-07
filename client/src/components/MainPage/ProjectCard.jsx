@@ -1,52 +1,134 @@
+/* eslint-disable no-underscore-dangle */
 import React from 'react';
+import PropTypes from 'prop-types';
+import axios from 'axios';
 
-function ProjectCard(props) {
+import MessageButton from '../MessageButton';
 
+class ProjectCard extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      favorited: props.project.favorited,
+    };
 
-  // const { name, photo, handy, projects, tools } = props.info;
-
-  const project = props.info;
-
-  /*placeholders*/
-  const name = 'placeholder';
-  const handy = 1337;
-
-  let projectTools = [];
-
-  if (project.needed_tools) {
-    console.log(true)
-    projectTools = project.needed_tools.map((tool) => <li>{tool}</li>);
+    this.handleVote = this.handleVote.bind(this);
+    this.toggleFavorite = this.toggleFavorite.bind(this);
   }
 
-  /*placeholder used for the project owner img since img does not exist in props*/
-  const projectOwnerImg = 'https://media.zenfs.com/en/Benzinga/fec49aa7467e3735885162a33b8e83d9';
+  handleVote(vote) {
+    const { project } = this.props;
+    if (vote === 'up') {
+      axios.post(`/users/${project.project_owner._id}/handy/up`)
+        // eslint-disable-next-line no-console
+        .catch((err) => console.log(err));
+    } else if (vote === 'down') {
+      axios.post(`/users/${project.project_owner._id}/handy/down`)
+        // eslint-disable-next-line no-console
+        .catch((err) => console.log(err));
+    } else if (vote === 'report') {
+      axios.post(`/users/${project.project_owner._id}/report`)
+        // eslint-disable-next-line no-console
+        .catch((err) => console.log(err));
+    }
+  }
 
+  toggleFavorite() {
+    const { favorited } = this.state;
 
-  /*placeholder used for project photo since the random one is weird*/
-  const project_photos = 'https://images.unsplash.com/photo-1481349518771-20055b2a7b24?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib'
-  return (
+    // Insert axios route to toggle favorite status of this project in the database
 
-    <div className="feed-card" >
-      <div className="project-name">{project.project_name}</div>
-      <div className="project-info">
-        <div className="project-photo">
-          <img src={project_photos}/>
+    this.setState({
+      favorited: !favorited,
+    });
+  }
+
+  render() {
+    const { user, project } = this.props;
+    const { favorited } = this.state;
+    let projectTools = [];
+
+    if (project.needed_tools) {
+      projectTools = project.needed_tools.map((tool) => <li>{tool}</li>);
+    }
+
+    return (
+      <div className="feed-card">
+        <div className="project-name">{project.project_name}</div>
+        <div className="project-info">
+          <div className="project-photo">
+            <img src={project.project_photos[0]} alt="project" />
+          </div>
+          <div className="project-details">
+            <span>{`${project.project_description} just typing all of this out so it can fill more content incase someone typed a whole buncha stuff for content`}</span>
+            <span>{project.help ? 'This project is in need of assistance' : 'This project does not need any assistance'}</span>
+            <ul>
+              {projectTools}
+            </ul>
+          </div>
         </div>
-        <div className="project-details">
-          <span>{project.project_description + 'just typing all of this out so it can fill more content incase someone typed a whole buncha stuff for content'}</span>
-          <span>{project.help ? 'This project is in need of assistance' : 'This project does not need any assistance'}</span>
-          <ul>
-            {projectTools}
-          </ul>
+        <div className="project-footer">
+          <img className="project-owner-img" src={project.project_owner.photo} alt="avatar" />
+          <div>
+            <span>{`${project.project_owner.name}: `}</span>
+            <span>{project.project_owner.handy}</span>
+            <button type="button" onClick={() => this.handleVote('up')}>Upvote</button>
+            <button type="button" onClick={() => this.handleVote('down')}>Downvote</button>
+            <button type="button" onClick={() => this.handleVote('report')}>Report</button>
+            <button type="button" onClick={this.toggleFavorite}>{favorited ? 'Favorite' : 'Not favorite'}</button>
+          </div>
+          <MessageButton user={user} otherUser={project.project_owner} />
         </div>
       </div>
-      <div className="project-footer">
-        <img className="project-owner-img"src={projectOwnerImg}/>
-        <div><span>{name}:</span> <span>{handy}</span></div>
-        <button>message</button>
-      </div>
-    </div>
-  )
+    );
+  }
 }
+
+ProjectCard.propTypes = {
+  user: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    zip: PropTypes.number.isRequired,
+    password: PropTypes.string.isRequired,
+    photo: PropTypes.string,
+    handy: PropTypes.number.isRequired,
+    report: PropTypes.number.isRequired,
+    tools: PropTypes.arrayOf(PropTypes.shape({
+      tool_name: PropTypes.string,
+      tool_photos: PropTypes.arrayOf(PropTypes.string),
+      tool_owner: PropTypes.string,
+      help: PropTypes.bool,
+    })),
+    projects: PropTypes.arrayOf(PropTypes.shape({
+      project_name: PropTypes.string.isRequired,
+      project_description: PropTypes.string,
+      project_owner: PropTypes.string.isRequired,
+      help: PropTypes.bool.isRequired,
+      project_photos: PropTypes.arrayOf(PropTypes.string),
+    })),
+    favorites: PropTypes.arrayOf(PropTypes.shape({
+      _id: PropTypes.string,
+      favorite_name: PropTypes.string,
+      favorite_description: PropTypes.string,
+      favorite_owner: PropTypes.string,
+      favorite_handy: PropTypes.number,
+      favorite_photo: PropTypes.string,
+      favorite_photos: PropTypes.arrayOf(PropTypes.string),
+    })),
+  }).isRequired,
+  project: PropTypes.shape({
+    project_name: PropTypes.string,
+    project_description: PropTypes.string,
+    project_owner: PropTypes.shape({
+      _id: PropTypes.string,
+      name: PropTypes.string,
+      handy: PropTypes.number,
+      photo: PropTypes.string,
+    }),
+    help: PropTypes.bool,
+    favorited: PropTypes.bool,
+    project_photos: PropTypes.arrayOf(PropTypes.string),
+    needed_tools: PropTypes.arrayOf(PropTypes.string),
+  }).isRequired,
+};
 
 export default ProjectCard;

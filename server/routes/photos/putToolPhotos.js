@@ -1,4 +1,4 @@
-const { addToolPhotos } = require('../../database/queries/photos/addToolPhotos.js');
+const { addToolPhotos } = require('../../database/queries/photos/addToolPhotos');
 
 exports.putToolPhotos = (req, res) => {
   const user = req.params.user_id;
@@ -6,8 +6,6 @@ exports.putToolPhotos = (req, res) => {
   const update = req.body.tool_photos;
 
   addToolPhotos(tool, user, update, (err, result) => {
-    if (err) { res.status(404).send(err) }
-    else
-    res.status(200).send(result);
+    if (err) { res.status(404).send(err); } else res.status(200).send(result);
   });
 };

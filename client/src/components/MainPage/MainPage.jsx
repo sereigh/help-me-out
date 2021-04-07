@@ -14,82 +14,80 @@ class MainPage extends React.Component {
 
     this.state = {
       currentFilter: 'home',
-      data: sampleData,
-      displayedData: [],
+      home: [],
+      projects: [],
+      tools: [],
+      favorites: [],
     };
 
     this.handleFilter = this.handleFilter.bind(this);
   }
 
   componentDidMount() {
-    this.handleFilter('home');
+    this.filterData(sampleData);
   }
 
   handleFilter(filter) {
+    this.setState({
+      currentFilter: filter,
+    });
+  }
+
+  filterData(data) {
     const { user } = this.props;
-    const { data } = this.state;
 
-    if (filter === 'home') {
-      let feed = [];
+    const home = data.getHelp.concat(data.giveHelp);
+    const tools = data.getHelp;
+    const projects = [];
+    const favorites = [];
 
-      for (let i = 0; i < data.length; i += 1) {
-        feed = feed.concat(data[i].projects);
-        feed = feed.concat(data[i].tools);
-      }
-
-      this.setState({
-        currentFilter: 'home',
-        displayedData: feed.sort((a, b) => (
-          new Date(b.updatedAt) - new Date(a.updatedAt)
-        )),
-      });
-    } else if (filter === 'giveHelp') {
-      let feed = [];
-
-      for (let i = 0; i < data.length; i += 1) {
-        feed = feed.concat(data[i].projects);
-      }
-
-      this.setState({
-        currentFilter: 'giveHelp',
-        displayedData: feed,
-      });
-    } else if (filter === 'getHelp') {
-      let feed = [];
-
-      for (let i = 0; i < data.length; i += 1) {
-        feed = feed.concat(data[i].tools);
-      }
-
-      this.setState({
-        currentFilter: 'getHelp',
-        displayedData: feed,
-      });
-    } else if (filter === 'favorites') {
-      const feed = [];
-
-      for (let i = 0; i < data.length; i += 1) {
-        for (let j = 0; j < data[i].projects.length; j += 1) {
-          const project = data[i].projects[j];
-          for (let k = 0; k < user.favorites.length; k += 1) {
-            if (user.favorites[k]._id === project._id) {
-              feed.push(data[i].projects[j]);
-              break;
-            }
-          }
+    for (let i = 0; i < projects.length; i += 1) {
+      let favorite = false;
+      for (let j = 0; j < user.favorites.length; j += 1) {
+        if (user.favorites[j]._id === projects[i]._id) {
+          favorite = true;
+          const project = Object.create(projects[i]);
+          project.favorited = true;
+          projects.push(project);
+          favorites.push(project);
+          break;
         }
       }
-
-      this.setState({
-        currentFilter: 'favorites',
-        displayedData: feed,
-      });
+      if (!favorite) {
+        projects.push(projects[i]);
+      }
     }
+
+    this.setState({
+      home: home.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)),
+      projects: projects.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)),
+      tools: tools.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)),
+      favorites: favorites.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)),
+    });
   }
 
   render() {
     const { user } = this.props;
-    const { currentFilter, displayedData } = this.state;
+
+    const {
+      currentFilter,
+      home,
+      projects,
+      tools,
+      favorites,
+    } = this.state;
+
+    let displayedData = [];
+
+    if (currentFilter === 'home') {
+      displayedData = home;
+    } else if (currentFilter === 'giveHelp') {
+      displayedData = projects;
+    } else if (currentFilter === 'getHelp') {
+      displayedData = tools;
+    } else if (currentFilter === 'favorites') {
+      displayedData = favorites;
+    }
 
     return (
       <div className="main-page">
@@ -97,7 +95,7 @@ class MainPage extends React.Component {
           <ProfileCard user={user} />
           <FilterButtons handleFilter={this.handleFilter} />
         </div>
-        <FeedContainer currentFilter={currentFilter} data={displayedData} />
+        <FeedContainer user={user} currentFilter={currentFilter} data={displayedData} />
       </div>
     );
   }
