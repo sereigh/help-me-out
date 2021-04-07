@@ -1,6 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 import PropTypes from 'prop-types';
+// import axios from 'axios';
 
 import sampleData from '../../../../server/database/data/sampleFeed.json';
 
@@ -20,17 +21,29 @@ class MainPage extends React.Component {
       favorites: [],
     };
 
+    this.getRelevantInfo = this.getRelevantInfo.bind(this);
     this.handleFilter = this.handleFilter.bind(this);
   }
 
   componentDidMount() {
-    this.filterData(sampleData);
+    this.getRelevantInfo();
+    // setInterval(this.getRelevantInfo, 20000);
   }
 
   handleFilter(filter) {
     this.setState({
       currentFilter: filter,
     });
+  }
+
+  getRelevantInfo() {
+    this.filterData(sampleData);
+    // const { user } = this.props;
+
+    // axios.get(`/users/${user._id}/relevant`)
+    //   .then((results) => this.filterData(results))
+    //   // eslint-disable-next-line no-console
+    //   .catch((err) => console.log(err));
   }
 
   filterData(data) {
@@ -45,7 +58,7 @@ class MainPage extends React.Component {
       let favorited = false;
       if (user.favorites[data.giveHelp[i]._id]) {
         favorited = true;
-        let project = Object.create(data.giveHelp[i]);
+        const project = Object.create(data.giveHelp[i]);
         project.favorited = true;
         home.push(project);
         favorites.push(project);
@@ -104,6 +117,7 @@ class MainPage extends React.Component {
 
 MainPage.propTypes = {
   user: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     zip: PropTypes.number.isRequired,
     password: PropTypes.string.isRequired,
