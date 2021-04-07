@@ -18,5 +18,6 @@ exports.usersSchema = mongoose.Schema({
   }],
   favorites: {
     type: String,
+    default: {},
   },
 }, { timestamps: true });
