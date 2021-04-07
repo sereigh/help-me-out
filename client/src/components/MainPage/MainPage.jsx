@@ -7,6 +7,7 @@ import sampleData from '../../../../server/database/data/sampleFeed.json';
 import ProfileCard from './ProfileCard';
 import FilterButtons from './FilterButtons';
 import FeedContainer from './FeedContainer';
+import MiniMap from './MiniMap';
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -86,6 +87,7 @@ class MainPage extends React.Component {
         <div className="main-page-left">
           <ProfileCard user={user} />
           <FilterButtons handleFilter={this.handleFilter} />
+          <MiniMap zipcode={user.zip} />
         </div>
         <FeedContainer currentFilter={currentFilter} data={displayedData} />
       </div>
