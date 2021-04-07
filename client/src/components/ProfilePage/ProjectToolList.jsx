@@ -1,11 +1,11 @@
 import React from "react";
 
 const ProjectToolList = (props) => {
-  const { toolsAdded, handleDeleteFromProjectToolList } = props;
+  const { needed_tools, handleDeleteFromProjectToolList } = props;
   return (
     <ul>
       Tools Needed:
-      {toolsAdded.map((tool, index) => {
+      {needed_tools.map((tool, index) => {
         return (
           <li key={index}>
             {tool}
