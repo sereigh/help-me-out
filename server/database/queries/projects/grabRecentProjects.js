@@ -1,7 +1,7 @@
 const db = require('../../index');
 
 exports.grabRecentProjects = (cb) => {
-  db.User.find({})
+  db.Project.find({})
     .sort({ updatedAt: -1 })
     .exec((err, result) => {
       if (err) return cb(err, null);
