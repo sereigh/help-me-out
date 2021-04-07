@@ -21,7 +21,8 @@ class App extends React.Component {
     };
 
     this.handleNav = this.handleNav.bind(this);
-    this.responseGoogle = this.responseGoogle.bind(this);
+    this.responseGoogleSuccess = this.responseGoogleSuccess.bind(this);
+    this.responseGoogleFailure = this.responseGoogleFailure.bind(this);
   }
 
   handleNav(page) {
@@ -30,7 +31,7 @@ class App extends React.Component {
     });
   }
 
-  responseGoogle(response) {
+  responseGoogleSuccess(response) {
     // eslint-disable-next-line no-console
     console.log(response);
     const { profileObj } = response;
@@ -58,6 +59,11 @@ class App extends React.Component {
       });
   }
 
+  responseGoogleFailure(response) {
+    // eslint-disable-next-line no-console
+    console.log('Log in failed, please try again');
+  }
+
   render() {
     const { user, page } = this.state;
     const isLoggedIn = page === 'mainPage' || page === 'profilePage' || page === 'inbox';
@@ -71,14 +77,15 @@ class App extends React.Component {
           avatar={avatar}
           score={score}
           handleNav={this.handleNav}
-          responseGoogle={this.responseGoogle}
+          responseGoogleSuccess={this.responseGoogleSuccess}
+          responseGoogleFailure={this.responseGoogleFailure}
         />
         {page === 'signUp' && <SignUp />}
         {page === 'logIn' && <LogIn />}
         {page === 'landingPage' && <LandingPage />}
         {page === 'mainPage' && <MainPage user={user} />}
         {page === 'profilePage' && <ProfilePage user={user} />}
-        {page === 'inbox' && <Inbox />}
+        {page === 'inbox' && <Inbox user={user} />}
       </div>
     );
   }

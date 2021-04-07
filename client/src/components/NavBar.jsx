@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import GoogleLogin from 'react-google-login';
+import HandyIcon from './HandyIcon';
 
 const NavBar = ({
   isLoggedIn,
   avatar,
   score,
   handleNav,
-  responseGoogle,
+  responseGoogleSuccess,
+  responseGoogleFailure,
 }) => (
   <>
     {!isLoggedIn && (
@@ -16,8 +18,8 @@ const NavBar = ({
         <GoogleLogin
           clientId="212175657739-70o4dkki5481hs0hdlkmkor20ugn7sh0.apps.googleusercontent.com"
           buttonText="Continue with Google"
-          onSuccess={responseGoogle}
-          onFailure={responseGoogle}
+          onSuccess={responseGoogleSuccess}
+          onFailure={responseGoogleFailure}
           cookiePolicy="single_host_origin"
         />
       </nav>
@@ -38,6 +40,7 @@ const NavBar = ({
             <img src={avatar} alt="avatar" />
           </span>
           <span>{`Handy Score: ${score}`}</span>
+          <HandyIcon score={score} />
           <button type="button" onClick={() => handleNav('landingPage')}>Log Out</button>
         </span>
       </nav>
