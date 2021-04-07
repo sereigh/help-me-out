@@ -16,30 +16,30 @@ class ProfilePage extends React.Component {
     super(props);
 
     this.state = {
-      userInfo: {},
-      userTools: {},
-      userProjects: {},
+      showEditUserForm: false,
       showAddProjectForm: false,
       showAddToolForm: false,
     };
 
     this.toggleHelp = this.toggleHelp.bind(this);
     this.addProfileItem = this.addProfileItem.bind(this);
-    this.deleteProfileItem = this.deleteProfileItem.bind(this);
-    this.putProfileItemItem = this.putProfileItem.bind(this);
-    this.toggleAddItemForm = this.toggleAddItemForm.bind(this);
+    this.toggleEditUserForm = this.toggleEditUserForm.bind(this);
+    this.toggleAddProjectForm = this.toggleAddProjectForm.bind(this);
+    this.toggleAddToolForm = this.toggleAddToolForm.bind(this);
   }
 
-  toggleAddItemForm(type) {
-    const { showAddProjectForm, showAddToolForm } = this.state;
-    if (type === "project") {
-      this.setState({ showAddProjectForm: !showAddProjectForm });
-    }
-    if (type === "tool") {
-      this.setState({ showAddToolForm: !showAddToolForm });
-    } else {
-      return;
-    }
+  toggleEditUserForm() {
+    const { showEditUserForm } = this.state;
+    this.setState({ showEditUserForm: !showEditUserForm });
+  }
+
+  toggleAddProjectForm() {
+    const { showAddProjectForm } = this.state;
+    this.setState({ showAddProjectForm: !showAddProjectForm });
+  }
+  toggleAddToolForm() {
+    const { showAddToolForm } = this.state;
+    this.setState({ showAddToolForm: !showAddToolForm });
   }
   toggleHelp() {}
 
@@ -53,65 +53,35 @@ class ProfilePage extends React.Component {
       return;
     }
   }
-
-  deleteProfileItem() {}
-
-  putProfileItem() {}
-  //testing only!
-  componentDidMount() {
-    const sampleUserInfo = sampleUser;
-    this.setState({
-      userInfo: {
-        name: sampleUserInfo.name,
-        zip: sampleUserInfo.zip,
-        handy: sampleUserInfo.handy,
-        photo: sampleUserInfo.photo || null,
-      },
-      userTools: sampleUserInfo.tools,
-      userProjects: sampleUserInfo.projects,
-    });
-  }
-
   render() {
+    const { name, photo, zip, handy, tools, projects } = this.props.user;
     const {
-      userInfo,
-      userTools,
-      userProjects,
       showAddProjectForm,
       showAddToolForm,
+      showEditUserForm,
     } = this.state;
-    if (userInfo.name) {
-      return (
-        <div>
-          <UserInfo
-            userInfo={userInfo}
-            userProjects={userProjects}
-            putProfileItem={this.putProfileItem}
-          />
-          <UserProjects
-            userProjects={userProjects}
-            toggleAddItemForm={this.toggleAddItemForm}
-            toggleHelp={this.toggleHelp}
-            addProfileItem={this.addProfileItem}
-            deleteProfileItem={this.deleteProfileItem}
-            putProfileItem={this.putProfileItem}
-            showAddProjectForm={showAddProjectForm}
-          />
-          <UserTools
-            userTools={userTools}
-            userProjects={userProjects}
-            toggleAddItemForm={this.toggleAddItemForm}
-            toggleHelp={this.toggleHelp}
-            addProfileItem={this.addProfileItem}
-            deleteProfileItem={this.deleteProfileItem}
-            putProfileItem={this.putProfileItem}
-            showAddToolForm={showAddToolForm}
-          />
-        </div>
-      );
-    } else {
-      return null;
-    }
+    return (
+      <div>
+        <UserInfo
+          name={name}
+          photo={photo}
+          zip={zip}
+          handy={handy}
+          showEditUserForm={showEditUserForm}
+          toggleEditUserForm={this.toggleEditUserForm}
+        />
+        <UserProjects
+          projects={projects}
+          showAddProjectForm={showAddProjectForm}
+          toggleAddProjectForm={this.toggleAddProjectForm}
+        />
+        <UserTools
+          tools={tools}
+          toggleAddToolForm={this.toggleAddToolForm}
+          showAddToolForm={showAddToolForm}
+        />
+      </div>
+    );
   }
 }
 
