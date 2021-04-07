@@ -88,7 +88,7 @@ class MessageButton extends React.Component {
 
 MessageButton.defaultProps = {
   user: DummyUser[1],
-  otherUser: DummyFeed[3][1],
+  otherUser: DummyFeed.getHelp[3].tool_owner,
 };
 
 MessageButton.propTypes = {
