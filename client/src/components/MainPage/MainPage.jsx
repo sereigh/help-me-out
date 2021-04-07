@@ -37,16 +37,24 @@ class MainPage extends React.Component {
     const { user } = this.props;
 
     const home = data.getHelp.concat(data.giveHelp);
-    const projects = data.giveHelp;
     const tools = data.getHelp;
+    const projects = [];
     const favorites = [];
 
     for (let i = 0; i < projects.length; i += 1) {
+      let favorite = false;
       for (let j = 0; j < user.favorites.length; j += 1) {
         if (user.favorites[j]._id === projects[i]._id) {
-          favorites.push(projects[i]);
+          favorite = true;
+          const project = Object.create(projects[i]);
+          project.favorited = true;
+          projects.push(project);
+          favorites.push(project);
           break;
         }
+      }
+      if (!favorite) {
+        projects.push(projects[i]);
       }
     }
 
@@ -87,7 +95,7 @@ class MainPage extends React.Component {
           <ProfileCard user={user} />
           <FilterButtons handleFilter={this.handleFilter} />
         </div>
-        <FeedContainer currentFilter={currentFilter} data={displayedData} />
+        <FeedContainer user={user} currentFilter={currentFilter} data={displayedData} />
       </div>
     );
   }

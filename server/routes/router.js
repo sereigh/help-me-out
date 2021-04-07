@@ -6,6 +6,8 @@ const { getRelevantInfo } = require('./relevant/getRelevantInfo');
 
 const { postReport } = require('./users/postReport');
 
+const { putFavorites } = require('./users/putFavorites');
+
 const { getUser } = require('./users/getUser');
 const { postUser } = require('./users/postUser');
 const { putUser } = require('./users/putUser');
@@ -75,5 +77,8 @@ router.route('/users/:user_id/projects/:project_id/photos')
 
 router.route('/users/:user_id/projects/:project_id/needs')
   .put(putNeeds);
+
+router.route('/users/:user_id/favorites')
+  .put(putFavorites);
 
 module.exports = router;
