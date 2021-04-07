@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-const { usersSchema } = require('./schemas/users.js');
-const { toolsSchema } = require('./schemas/tools.js');
-const { projectsSchema } = require('./schemas/projects.js');
+const { usersSchema } = require('./schemas/users');
+const { toolsSchema } = require('./schemas/tools');
+const { projectsSchema } = require('./schemas/projects');
 
 mongoose.connect('mongodb://localhost:27017/help-me-out', {
   useNewUrlParser: true,
