@@ -1,4 +1,4 @@
-const db = require('../../index.js');
+const db = require('../../index');
 
 exports.increaseHandy = (user, update, cb) => {
   db.User.findByIdAndUpdate({ _id: user }, update, { new: true }, (err, result) => {
