@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react';
 
-import sampleUser from "../../../server/database/data/sampleUser.json";
+import sampleUser from '../../../server/database/data/sampleUser.json';
 
-import NavBar from "./NavBar";
-import SignUp from "./LandingPage/SignUp";
-import LogIn from "./LandingPage/LogIn";
-import LandingPage from "./LandingPage/LandingPage";
-import MainPage from "./MainPage/MainPage";
-import ProfilePage from "./ProfilePage/ProfilePage";
-import Inbox from "./Inbox";
+import NavBar from './NavBar';
+// import SignUp from "./LandingPage/SignUp";
+// import LogIn from "./LandingPage/LogIn";
+import LandingPage from './LandingPage/LandingPage';
+import MainPage from './MainPage/MainPage';
+import ProfilePage from './ProfilePage/ProfilePage';
+import Inbox from './Inbox';
 
 class App extends React.Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class App extends React.Component {
 
     this.state = {
       user: sampleUser,
-      page: "mainPage",
+      page: 'landingPage',
     };
 
     this.handleNav = this.handleNav.bind(this);
@@ -31,8 +31,8 @@ class App extends React.Component {
   render() {
     const { user, page } = this.state;
     const isLoggedIn =
-      page === "mainPage" || page === "profilePage" || page === "inbox";
-    const avatar = user.photo || "#";
+      page === 'mainPage' || page === 'profilePage' || page === 'inbox';
+    const avatar = user.photo || '#';
     const score = user.handy || 0;
 
     return (
@@ -43,12 +43,12 @@ class App extends React.Component {
           score={score}
           handleNav={this.handleNav}
         />
-        {page === "signUp" && <SignUp />}
-        {page === "logIn" && <LogIn />}
-        {page === "landingPage" && <LandingPage />}
-        {page === "mainPage" && <MainPage user={user} />}
-        {page === "profilePage" && <ProfilePage user={user} />}
-        {page === "inbox" && <Inbox />}
+        {/* {page === "signUp" && <SignUp />} */}
+        {/* {page === "logIn" && <LogIn />} */}
+        {page === 'landingPage' && <LandingPage />}
+        {page === 'mainPage' && <MainPage user={user} />}
+        {page === 'profilePage' && <ProfilePage user={user} />}
+        {page === 'inbox' && <Inbox />}
       </div>
     );
   }
