@@ -87,7 +87,7 @@ class MainPage extends React.Component {
           <ProfileCard user={user} />
           <FilterButtons handleFilter={this.handleFilter} />
         </div>
-        <FeedContainer currentFilter={currentFilter} data={displayedData} />
+        <FeedContainer user={user} currentFilter={currentFilter} data={displayedData} />
       </div>
     );
   }

@@ -1,45 +1,110 @@
+/* eslint-disable no-underscore-dangle */
 import React from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
-function ProjectCard({ project }) {
-  let projectTools = [];
+import MessageButton from '../MessageButton';
 
-  if (project.needed_tools) {
-    projectTools = project.needed_tools.map((tool) => <li>{tool}</li>);
+class ProjectCard extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+
+    this.handleVote = this.handleVote.bind(this);
   }
 
-  return (
-    <div className="feed-card">
-      <div className="project-name">{project.project_name}</div>
-      <div className="project-info">
-        <div className="project-photo">
-          <img src={project.project_photos[0]} alt="project" />
+  handleVote(vote) {
+    const { project } = this.props;
+    if (vote === 'up') {
+      axios.post(`/users/${project.project_owner._id}/handy/up`)
+        // eslint-disable-next-line no-console
+        .catch((err) => console.log(err));
+    } else if (vote === 'down') {
+      axios.post(`/users/${project.project_owner._id}/handy/down`)
+        // eslint-disable-next-line no-console
+        .catch((err) => console.log(err));
+    } else if (vote === 'report') {
+      axios.post(`/users/${project.project_owner._id}/report`)
+        // eslint-disable-next-line no-console
+        .catch((err) => console.log(err));
+    }
+  }
+
+  render() {
+    const { user, project } = this.props;
+    let projectTools = [];
+
+    if (project.needed_tools) {
+      projectTools = project.needed_tools.map((tool) => <li>{tool}</li>);
+    }
+
+    return (
+      <div className="feed-card">
+        <div className="project-name">{project.project_name}</div>
+        <div className="project-info">
+          <div className="project-photo">
+            <img src={project.project_photos[0]} alt="project" />
+          </div>
+          <div className="project-details">
+            <span>{`${project.project_description} just typing all of this out so it can fill more content incase someone typed a whole buncha stuff for content`}</span>
+            <span>{project.help ? 'This project is in need of assistance' : 'This project does not need any assistance'}</span>
+            <ul>
+              {projectTools}
+            </ul>
+          </div>
         </div>
-        <div className="project-details">
-          <span>{`${project.project_description} just typing all of this out so it can fill more content incase someone typed a whole buncha stuff for content`}</span>
-          <span>{project.help ? 'This project is in need of assistance' : 'This project does not need any assistance'}</span>
-          <ul>
-            {projectTools}
-          </ul>
+        <div className="project-footer">
+          <img className="project-owner-img" src={project.project_owner.photo} alt="avatar" />
+          <div>
+            <span>{`${project.project_owner.name}: `}</span>
+            <span>{project.project_owner.handy}</span>
+            <button type="button" onClick={() => this.handleVote('up')}>Upvote</button>
+            <button type="button" onClick={() => this.handleVote('down')}>Downvote</button>
+            <button type="button" onClick={() => this.handleVote('report')}>Report</button>
+          </div>
+          <MessageButton user={user} otherUser={project.project_owner} />
         </div>
       </div>
-      <div className="project-footer">
-        <img className="project-owner-img" src={project.project_owner.photo} alt="avatar" />
-        <div>
-          <span>{`${project.project_owner.name}: `}</span>
-          <span>{project.project_owner.handy}</span>
-        </div>
-        <button type="button">message</button>
-      </div>
-    </div>
-  );
+    );
+  }
 }
 
 ProjectCard.propTypes = {
+  user: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    zip: PropTypes.number.isRequired,
+    password: PropTypes.string.isRequired,
+    photo: PropTypes.string,
+    handy: PropTypes.number.isRequired,
+    report: PropTypes.number.isRequired,
+    tools: PropTypes.arrayOf(PropTypes.shape({
+      tool_name: PropTypes.string,
+      tool_photos: PropTypes.arrayOf(PropTypes.string),
+      tool_owner: PropTypes.string,
+      help: PropTypes.bool,
+    })),
+    projects: PropTypes.arrayOf(PropTypes.shape({
+      project_name: PropTypes.string.isRequired,
+      project_description: PropTypes.string,
+      project_owner: PropTypes.string.isRequired,
+      help: PropTypes.bool.isRequired,
+      project_photos: PropTypes.arrayOf(PropTypes.string),
+    })),
+    favorites: PropTypes.arrayOf(PropTypes.shape({
+      _id: PropTypes.string,
+      favorite_name: PropTypes.string,
+      favorite_description: PropTypes.string,
+      favorite_owner: PropTypes.string,
+      favorite_handy: PropTypes.number,
+      favorite_photo: PropTypes.string,
+      favorite_photos: PropTypes.arrayOf(PropTypes.string),
+    })),
+  }).isRequired,
   project: PropTypes.shape({
     project_name: PropTypes.string,
     project_description: PropTypes.string,
     project_owner: PropTypes.shape({
+      _id: PropTypes.string,
       name: PropTypes.string,
       handy: PropTypes.number,
       photo: PropTypes.string,
