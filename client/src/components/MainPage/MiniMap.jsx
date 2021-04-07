@@ -10,7 +10,7 @@ class MiniMap extends React.Component {
 
   renderMap() {
     const { zipcode } = this.props;
-    const loader = new Loader('AIzaSyCUfFi078Ot-eUR4zdxhIHrqoAyHZIJa4A');
+    const loader = new Loader('');
     loader.load()
       .then((google) => {
         const zip = Zipcodes.lookup(zipcode) || Zipcodes.lookup(80004);
