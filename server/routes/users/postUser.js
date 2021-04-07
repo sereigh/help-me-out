@@ -1,4 +1,4 @@
-const { validateUser } = require('../../database/querires/middleware/validateUser.js');
+const { validateUser } = require('../../database/queries/middleware/validateUser.js');
 
 exports.postUser = (req, res) => {
   validateUser(req.body, req.body.email, (err, result) => {

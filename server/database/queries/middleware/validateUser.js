@@ -4,7 +4,6 @@ const { validateEmail } = require('./validateEmail.js');
 
 exports.validateUser = (user, email, cb) => {
   validateEmail(email, (err, result) => {
-    console.log(err === true)
     if (err) {
       addUser(user, (error, results) => {
         if (error) { return cb(error, null); }
