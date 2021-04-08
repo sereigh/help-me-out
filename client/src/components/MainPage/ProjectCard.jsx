@@ -2,9 +2,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import { GoThumbsup, GoThumbsdown } from 'react-icons/go';
+import { FaRegThumbsUp, FaRegThumbsDown} from 'react-icons/fa';
 
 import MessageButton from '../MessageButton';
-// import HandyIcon from '../HandyIcon';
+import HandyIcon from '../HandyIcon';
 
 class ProjectCard extends React.Component {
   constructor(props) {
@@ -65,15 +67,19 @@ class ProjectCard extends React.Component {
           </div>
         </div>
         <div className="project-footer">
-          {/* <HandyIcon score={project.project_owner.handy} /> */}
           <img className="project-owner-img" src={project.project_owner.photo} alt="avatar" />
-          <div>
-            <span>{`${project.project_owner.name}: ${project.project_owner.handy}`}</span>
+          <div className="project-footer-name-div">
+            <HandyIcon score={project.project_owner.handy} usedIn="-project-footer" />
+            <div className="project-footer-name-div"><span>{`${project.project_owner.name}: ${project.project_owner.handy}`}</span></div>
+          </div>
+          <div className="project-footer-buttons-div">
             <button type="button" onClick={() => this.handleVote('up')}>Upvote</button>
             <button type="button" onClick={() => this.handleVote('down')}>Downvote</button>
             <button type="button" onClick={() => this.handleVote('report')}>Report</button>
+            {/* <FaRegThumbsUp size={28} onClick={() => console.log('clicked')}/> */}
             <button type="button" onClick={this.toggleFavorite}>{favorited ? 'Favorite' : 'Not favorite'}</button>
             <MessageButton user={user} otherUser={project.project_owner} />
+
           </div>
         </div>
       </div>

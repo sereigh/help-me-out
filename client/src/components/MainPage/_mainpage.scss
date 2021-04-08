@@ -51,7 +51,17 @@
   grid-template-rows: 25px 25px;
   grid-template-areas:
     "picture name"
-    "picture button";
+    "picture buttons";
+}
+
+.project-footer-name-div {
+  grid-area: name;
+  background-color: antiquewhite;
+}
+
+.project-footer-buttons-div {
+  grid-area: buttons;
+  background-color: aqua;
 }
 
 /* TOOL CARD */
