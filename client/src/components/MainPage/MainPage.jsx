@@ -8,6 +8,7 @@ import sampleData from '../../../../server/database/data/sampleFeed.json';
 import ProfileCard from './ProfileCard';
 import FilterButtons from './FilterButtons';
 import FeedContainer from './FeedContainer';
+import MiniMap from './MiniMap';
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -56,7 +57,7 @@ class MainPage extends React.Component {
 
     for (let i = 0; i < data.giveHelp.length; i += 1) {
       let favorited = false;
-      if (user.favorites[data.giveHelp[i]._id]) {
+      if (user.favorites && user.favorites[data.giveHelp[i]._id]) {
         favorited = true;
         const project = Object.create(data.giveHelp[i]);
         project.favorited = true;
@@ -108,6 +109,7 @@ class MainPage extends React.Component {
         <div className="main-page-left">
           <ProfileCard user={user} />
           <FilterButtons handleFilter={this.handleFilter} />
+          <MiniMap zipcode={user.zip} />
         </div>
         <FeedContainer user={user} currentFilter={currentFilter} data={displayedData} />
       </div>
