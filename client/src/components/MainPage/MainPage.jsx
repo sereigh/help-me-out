@@ -137,15 +137,7 @@ MainPage.propTypes = {
       help: PropTypes.bool.isRequired,
       project_photos: PropTypes.arrayOf(PropTypes.string),
     })),
-    favorites: PropTypes.arrayOf(PropTypes.shape({
-      _id: PropTypes.string,
-      favorite_name: PropTypes.string,
-      favorite_description: PropTypes.string,
-      favorite_owner: PropTypes.string,
-      favorite_handy: PropTypes.number,
-      favorite_photo: PropTypes.string,
-      favorite_photos: PropTypes.arrayOf(PropTypes.string),
-    })),
+    favorites: PropTypes.objectOf(PropTypes.bool),
   }).isRequired,
 };
 
