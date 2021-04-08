@@ -1,13 +1,42 @@
 import React from "react";
+import EditDeleteUserTool from "./EditDeleteUserTool";
 
-const UserTool = ({ tool }) => {
-  return (
-    <div>
-      <div>{tool.tool_name}</div>
-      <img src={tool.tool_photos[0]} />
-      <div>Need Help: {tool.help}</div>
-    </div>
-  );
-};
+class UserTool extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { showToolEditDelete: false };
+
+    this.toggleToolEditDelete = this.toggleToolEditDelete.bind(this);
+  }
+
+  toggleToolEditDelete() {
+    const { showToolEditDelete } = this.state;
+    this.setState({ showToolEditDelete: !showToolEditDelete });
+  }
+  render() {
+    const { tool } = this.props;
+    const { showToolEditDelete } = this.state;
+    return (
+      <div>
+        {!showToolEditDelete && (
+          <div>
+            <div>{tool.tool_name}</div>
+            <img src={tool.tool_photos[0]} />
+            <div>Need Help: {tool.help}</div>
+            <button onClick={this.toggleToolEditDelete}>
+              Edit/Delete Tool
+            </button>
+          </div>
+        )}
+        {showToolEditDelete && (
+          <EditDeleteUserTool
+            tool={tool}
+            toggleToolEditDelete={this.toggleToolEditDelete}
+          />
+        )}
+      </div>
+    );
+  }
+}
 
 export default UserTool;
