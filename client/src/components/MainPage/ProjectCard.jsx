@@ -58,7 +58,7 @@ class ProjectCard extends React.Component {
 
     return (
       <div className="project-card">
-        <div className="project-name">{project.project_name}</div>
+        <div className="project-name-div">{project.project_name}</div>
         <div className="project-info">
           <div className="project-photo-div">
             {faveStarStyle}
