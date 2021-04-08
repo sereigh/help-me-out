@@ -19,17 +19,18 @@ const LPProjects = ({ projects, onClick }) => (
           naturalSlideWidth={8}
           naturalSlideHeight={12}
           totalSlides={3}
-          style={{ width: '250px' }}
         >
-          <Slider>
-            {proj.project_photos.map((photo, i) => (
-              <Slide index={i}>
-                <Image hasMasterSpinner={true} src={photo} />
-              </Slide>
-            ))}
-          </Slider>
-          <ButtonBack>Back</ButtonBack>
-          <ButtonNext>Next</ButtonNext>
+          <div style={{ width: '250px' }}>
+            <Slider>
+              {proj.project_photos.map((photo, i) => (
+                <Slide index={i}>
+                  <Image hasMasterSpinner={true} src={photo} />
+                </Slide>
+              ))}
+            </Slider>
+            <ButtonBack>Back</ButtonBack>
+            <ButtonNext>Next</ButtonNext>
+          </div>
         </CarouselProvider>
 
         <div>{proj.project_description}</div>
