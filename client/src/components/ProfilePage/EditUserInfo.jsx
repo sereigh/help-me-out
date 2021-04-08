@@ -20,6 +20,7 @@ class EditUserInfo extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   }
   handleSubmitUserInfo() {
+    const { user_id } = this.props;
     const { name, zip, photo, email, password } = this.state;
     if (name.length > 1 && zip.toString().length === 5) {
       const newUserInfo = {
@@ -30,6 +31,14 @@ class EditUserInfo extends React.Component {
         password: password,
       };
       console.log(newUserInfo);
+      axios
+        .put(`/users/${user_id}`, newUserInfo)
+        .then((response) => {
+          console.log("user put");
+        })
+        .catch((err) => {
+          throw err;
+        });
     }
   }
 

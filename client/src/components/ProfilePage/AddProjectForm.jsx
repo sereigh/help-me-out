@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import ProjectToolList from "./ProjectToolList";
 import AddProjectFormPhotos from "./AddProjectFormPhotos";
 
@@ -95,12 +96,14 @@ class AddProjectForm extends React.Component {
       project_description,
       help,
       needed_tools,
+      project_photos,
     } = this.state;
     let newUserProjectObj = {
       project_name: project_name,
       project_description: project_description,
       help: help,
-      tools_needed: needed_tools,
+      project_photos: project_photos,
+      needed_tools: needed_tools,
     };
     console.log(newUserProjectObj);
     axios

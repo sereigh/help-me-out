@@ -22,7 +22,7 @@ class UserProject extends React.Component {
   }
 
   render() {
-    const { project } = this.props;
+    const { project, user_id } = this.props;
     const { showProjectEditDelete } = this.state;
     const formattedDate = this.formattedDate(project.createdAt);
     return (
@@ -33,6 +33,7 @@ class UserProject extends React.Component {
             <div>{project.project_description}</div>
             <ProjectPhotos project_photos={project.project_photos} />
             {project.help ? <div>Need Help!</div> : <div>No help</div>}
+            <div>{project.needed_tools}</div>
             <div>{formattedDate}</div>
             <div>
               Need Help: <input type="checkbox" onChange={this.toggleHelp} />
@@ -45,6 +46,7 @@ class UserProject extends React.Component {
         {showProjectEditDelete && (
           <EditDeleteUserProject
             project={project}
+            user_id={user_id}
             formattedDate={formattedDate}
             toggleProjectEditDelete={this.toggleProjectEditDelete}
           />

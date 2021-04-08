@@ -14,7 +14,7 @@ class UserTool extends React.Component {
     this.setState({ showToolEditDelete: !showToolEditDelete });
   }
   render() {
-    const { tool } = this.props;
+    const { tool, user_id } = this.props;
     const { showToolEditDelete } = this.state;
     return (
       <div>
@@ -30,6 +30,7 @@ class UserTool extends React.Component {
         )}
         {showToolEditDelete && (
           <EditDeleteUserTool
+            user_id={user_id}
             tool={tool}
             toggleToolEditDelete={this.toggleToolEditDelete}
           />

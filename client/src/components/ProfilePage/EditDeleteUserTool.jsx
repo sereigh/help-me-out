@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import EditDeleteToolPhotoList from "./EditDeleteToolPhotoList";
 
 class EditDeleteUserTool extends React.Component {
@@ -18,9 +19,12 @@ class EditDeleteUserTool extends React.Component {
       this
     );
     this.handleToggleHelp = this.handleToggleHelp.bind(this);
+    this.saveChanges = this.saveChanges.bind(this);
+    this.deleteTool = this.deleteTool.bind(this);
   }
 
   handleGetFields(e) {
+    const { tool_name, tool_photos, help } = this.state;
     this.setState({ [e.target.name]: e.target.value });
   }
 
@@ -51,13 +55,36 @@ class EditDeleteUserTool extends React.Component {
     this.setState({ help: !help });
   }
   saveChanges() {
+    const { user_id } = this.props;
+    const { _id } = this.props.tool;
     const { tool_name, tool_photos, help } = this.state;
     let editToolObj = {
       tool_name: tool_name,
       tool_photos: tool_photos,
       help: help,
     };
-    console.log(editToolObj);
+    console.log(editToolObj, user_id, _id);
+    axios
+      .put(`/users/${user_id}/tools/${_id}`)
+      .then((response) => {
+        console.log("tool put");
+      })
+      .catch((err) => {
+        throw err;
+      });
+  }
+
+  deleteTool() {
+    const { user_id } = this.props;
+    const { _id } = this.props.tool;
+    axios
+      .delete(`/users/${user_id}/tools/${id}`)
+      .then(() => {
+        console.log("tool deleted");
+      })
+      .catch((err) => {
+        throw err;
+      });
   }
 
   render() {

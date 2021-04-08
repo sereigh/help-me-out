@@ -58,6 +58,7 @@ class AddToolForm extends React.Component {
       tool_photos: tool_photos,
       help: help,
     };
+    console.log(newUserToolObj);
     axios
       .post(`/users/${user_id}/tools`, newUserToolObj)
       .then((response) => {

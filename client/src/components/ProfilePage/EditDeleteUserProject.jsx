@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import EditDeleteProjectPhotos from "./EditDeleteProjectPhotos";
 
 class EditDeleteUserProject extends React.Component {
@@ -8,6 +9,7 @@ class EditDeleteUserProject extends React.Component {
       project_name: this.props.project.project_name,
       project_description: this.props.project.project_description,
       project_photos: this.props.project.project_photos,
+      needed_tools: this.props.project.needed_tools,
       help: this.props.project.help,
     };
 
@@ -18,6 +20,7 @@ class EditDeleteUserProject extends React.Component {
     );
     this.handleToggleHelp = this.handleToggleHelp.bind(this);
     this.saveChanges = this.saveChanges.bind(this);
+    this.deleteProject = this.deleteProject.bind(this);
   }
 
   handleGetFields(e) {
@@ -56,19 +59,45 @@ class EditDeleteUserProject extends React.Component {
   }
 
   saveChanges() {
+    const { user_id } = this.props;
+    const { _id } = this.props.project;
     const {
       project_name,
       project_description,
       project_photos,
       help,
+      needed_tools,
     } = this.state;
     let editProjectObj = {
       project_name: project_name,
       project_description: project_description,
       project_photos: project_photos,
+      needed_tools: needed_tools || [],
       help: help,
     };
-    console.log(editProjectObj);
+    console.log(editProjectObj, _id, user_id);
+    axios
+      .put(`/users/${user_id}/projects/${_id}`, editProjectObj)
+      .then((response) => {
+        console.log("project put");
+      })
+      .catch((err) => {
+        throw err;
+      });
+  }
+
+  deleteProject() {
+    const { user_id } = this.props;
+    const { _id } = this.props.project;
+    axios
+      .delete(`/users/${user_id}/projects/${_id}`)
+      .then(() => {
+        console.log("project deleted");
+      })
+      .catch((err) => {
+        throw err;
+      });
+    console.log("delete");
   }
 
   render() {
@@ -119,6 +148,7 @@ class EditDeleteUserProject extends React.Component {
         <div>
           <button onClick={this.saveChanges}>Save Changes</button>
           <button onClick={toggleProjectEditDelete}>Cancel</button>
+          <button onClick={this.deleteProject}>Delete Project</button>
         </div>
       </div>
     );
