@@ -120,7 +120,7 @@ MainPage.propTypes = {
     _id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     zip: PropTypes.number.isRequired,
-    password: PropTypes.string.isRequired,
+    password: PropTypes.string,
     photo: PropTypes.string,
     handy: PropTypes.number.isRequired,
     report: PropTypes.number.isRequired,

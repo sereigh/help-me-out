@@ -34,7 +34,7 @@ FeedContainer.propTypes = {
   user: PropTypes.shape({
     name: PropTypes.string.isRequired,
     zip: PropTypes.number.isRequired,
-    password: PropTypes.string.isRequired,
+    password: PropTypes.string,
     photo: PropTypes.string,
     handy: PropTypes.number.isRequired,
     report: PropTypes.number.isRequired,
