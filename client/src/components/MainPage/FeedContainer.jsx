@@ -23,7 +23,7 @@ const FeedContainer = ({ user, currentFilter, data }) => {
       <div>{title}</div>
       {data.map((item) => (
         <div key={item._id}>
-          {item.project_name ? <ProjectCard user={user} project={item} /> : <ToolCard tool={item} />}
+          {item.tool_name ? <ToolCard tool={item} /> : <ProjectCard user={user} project={item} />}
         </div>
       ))}
     </div>

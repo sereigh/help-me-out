@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 
 import MessageButton from '../MessageButton';
-import HandyIcon from '../HandyIcon';
+// import HandyIcon from '../HandyIcon';
 
 class ProjectCard extends React.Component {
   constructor(props) {
@@ -48,7 +48,6 @@ class ProjectCard extends React.Component {
     const { user, project } = this.props;
     const { favorited } = this.state;
     const tools = project.needed_tools;
-    let key = 0;
 
     return (
       <div className="feed-card">
@@ -122,4 +121,3 @@ ProjectCard.propTypes = {
 };
 
 export default ProjectCard;
-
