@@ -24,10 +24,11 @@ class MessageButton extends React.Component {
   }
 
   handleClick() {
-    const chatbox = document.getElementsByClassName('chatbox-container');
-    if (chatbox.length > 0) {
-      for (let i = 0; i < chatbox.length; i += 1) {
-        ReactDOM.unmountComponentAtNode(chatbox[i]);
+    const chatNode = document.getElementsByClassName('chatbox-container');
+    if (chatNode.length > 0) {
+      for (let i = 0; i < chatNode.length; i += 1) {
+        this.chatbox && this.chatbox.destroy();
+        ReactDOM.unmountComponentAtNode(chatNode[i]);
       }
     }
     this.setState({ showChat: false }, this.resetChat);
