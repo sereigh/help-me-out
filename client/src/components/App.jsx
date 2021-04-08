@@ -43,6 +43,7 @@ class App extends React.Component {
           this.setState({
             user: res.data[1],
           }, () => {
+            debugger;
             this.handleNav('mainPage');
           });
         } else {

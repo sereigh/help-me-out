@@ -1,4 +1,5 @@
-@use '../src/components/MainPage/mainpage';
+@use '../components/MainPage/mainpage';
+@use '../components/ProfilePage/profilepage';
 
 $main-color: rgb(255, 240, 212);
 $accent-color: brown;
@@ -26,11 +27,24 @@ button {
   align-items: flex-end;
 }
 
+// Google log in button
+.google-login {
+  // div {
+  //   padding: 4px !important;
+  //   margin-right: 0 !important;
+  // }
+
+  // span {
+  //   padding: 5px !important;
+  // }
+  height: auto;
+}
+
 // Handy Status Icon
 .handy-none, .handy-bronze, .handy-silver, .handy-gold, .handy-platinum {
   width: 44px;
   height: 44px;
-  background-image: url('./img/handy.png');
+  background-image: url('./images/handy.png');
   background-repeat: no-repeat;
   background-size: 80px;
 }
