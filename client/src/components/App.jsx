@@ -17,7 +17,7 @@ class App extends React.Component {
 
     this.state = {
       user: sampleUser,
-      page: 'landingPage',
+      page: 'mainPage',
     };
 
     this.handleNav = this.handleNav.bind(this);
@@ -36,21 +36,28 @@ class App extends React.Component {
     console.log(response);
     const { profileObj } = response;
 
-    axios.post('/users', profileObj)
+    axios
+      .post('/users', profileObj)
       .then((res) => {
         console.log(res);
         if (res.data[0] === true) {
-          this.setState({
-            user: res.data[1],
-          }, () => {
-            this.handleNav('mainPage');
-          });
+          this.setState(
+            {
+              user: res.data[1],
+            },
+            () => {
+              this.handleNav('mainPage');
+            }
+          );
         } else {
-          this.setState({
-            user: res.data[1],
-          }, () => {
-            this.handleNav('profilePage');
-          });
+          this.setState(
+            {
+              user: res.data[1],
+            },
+            () => {
+              this.handleNav('profilePage');
+            }
+          );
         }
       })
       .catch((err) => {
