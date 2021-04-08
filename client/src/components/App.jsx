@@ -6,7 +6,7 @@ import sampleUser from '../../../server/database/data/sampleUser.json';
 import NavBar from './NavBar';
 import SignUp from './SignUp';
 import LogIn from './LogIn';
-import LandingPage from './LandingPage';
+import LandingPage from './LandingPage/LandingPage';
 import MainPage from './MainPage/MainPage';
 import ProfilePage from './ProfilePage/ProfilePage';
 import Inbox from './Inbox';
@@ -17,7 +17,7 @@ class App extends React.Component {
 
     this.state = {
       user: sampleUser,
-      page: 'landingPage',
+      page: 'mainPage',
     };
 
     this.handleNav = this.handleNav.bind(this);
@@ -36,21 +36,28 @@ class App extends React.Component {
     console.log(response);
     const { profileObj } = response;
 
-    axios.post('/users', profileObj)
+    axios
+      .post('/users', profileObj)
       .then((res) => {
         console.log(res);
         if (res.data[0] === true) {
-          this.setState({
-            user: res.data[1],
-          }, () => {
-            this.handleNav('mainPage');
-          });
+          this.setState(
+            {
+              user: res.data[1],
+            },
+            () => {
+              this.handleNav('mainPage');
+            }
+          );
         } else {
-          this.setState({
-            user: res.data[1],
-          }, () => {
-            this.handleNav('profilePage');
-          });
+          this.setState(
+            {
+              user: res.data[1],
+            },
+            () => {
+              this.handleNav('profilePage');
+            }
+          );
         }
       })
       .catch((err) => {
@@ -66,7 +73,8 @@ class App extends React.Component {
 
   render() {
     const { user, page } = this.state;
-    const isLoggedIn = page === 'mainPage' || page === 'profilePage' || page === 'inbox';
+    const isLoggedIn =
+      page === 'mainPage' || page === 'profilePage' || page === 'inbox';
     const avatar = user.photo || '#';
     const score = user.handy || 0;
 

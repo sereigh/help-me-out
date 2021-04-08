@@ -32,9 +32,15 @@ const NavBar = ({
       <nav>
         <span>Help Me Out!</span>
         <span className="navbar-right">
-          <button type="button" onClick={() => handleNav('mainPage')}>Dashboard</button>
-          <button type="button" onClick={() => handleNav('inbox')}>Inbox</button>
-          <button type="button" onClick={() => handleNav('profilePage')}>Account</button>
+          <button type="button" onClick={() => handleNav('mainPage')}>
+            Dashboard
+          </button>
+          <button type="button" onClick={() => handleNav('inbox')}>
+            Inbox
+          </button>
+          <button type="button" onClick={() => handleNav('profilePage')}>
+            Account
+          </button>
           <span
             role="button"
             onClick={() => handleNav('profilePage')}
@@ -45,7 +51,9 @@ const NavBar = ({
           </span>
           <span>{`Handy Score: ${score}`}</span>
           <HandyIcon score={score} />
-          <button type="button" onClick={() => handleNav('landingPage')}>Log Out</button>
+          <button type="button" onClick={() => handleNav('landingPage')}>
+            Log Out
+          </button>
         </span>
       </nav>
     )}
