@@ -42,7 +42,7 @@ class MainPage extends React.Component {
     // const { user } = this.props;
 
     // axios.get(`/users/${user._id}/relevant`)
-    //   .then((results) => this.filterData(results))
+    //   .then((results) => this.filterData(results.data))
     //   // eslint-disable-next-line no-console
     //   .catch((err) => console.log(err));
   }
