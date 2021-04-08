@@ -3,13 +3,56 @@
 //   display: grid;
 // }
 
+// Main Page SCSS
+.main-page, .main-page-left, .filter-buttons, .profile-card {
+  display: flex;
+}
+
+.main-page-left, .filter-buttons, .profile-card {
+  flex-direction: column;
+  align-items: center;
+}
+
 /* remove margin once proper css has been added to container */
 @mixin feed-card {
   display:grid;
   width: 600px;
   height: 300px;
-  margin: 30px;
   border-radius: 20px;
+}
+
+.main-page-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid gray;
+  width: 25%;
+}
+
+.feed-container {
+  height: 88vh;
+  overflow: scroll;
+  margin-left: 30px;
+}
+
+.feed-title {
+  text-align: center;
+  height: 20px;
+  line-height: 20px;
+}
+
+/* PROFILE CARD */
+.avatar {
+  max-width: 75%;
+  max-height: 75%;
+  object-fit: scale-down;
+  border-radius: 20px;
+}
+
+/* FILTER BUTTONS */
+.filter-buttons button {
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 /* PROJECT CARD */
@@ -130,4 +173,12 @@
   height: 100px;
   border-radius: 50%;
   margin: auto;
+}
+
+.handy-none-tools, .handy-bronze-tools, .handy-silver-tools, .handy-gold-tools, .handy-platinum-tools {
+  width: 150px;
+  height: 150px;
+  background-image: url('./images/handy.png');
+  background-repeat: no-repeat;
+  background-size: 300px;
 }

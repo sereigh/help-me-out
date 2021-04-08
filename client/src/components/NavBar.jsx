@@ -16,7 +16,11 @@ const NavBar = ({
       <nav>
         <span>Help Me Out!</span>
         <GoogleLogin
+          className="google-login"
           clientId="212175657739-70o4dkki5481hs0hdlkmkor20ugn7sh0.apps.googleusercontent.com"
+          // render={renderProps => (
+          //   <button onClick={renderProps.onClick} disabled={renderProps.disabled} class="google-login">Continue with Google</button>
+          // )}
           buttonText="Continue with Google"
           onSuccess={responseGoogleSuccess}
           onFailure={responseGoogleFailure}
@@ -37,7 +41,7 @@ const NavBar = ({
             onKeyPress={() => handleNav('profilePage')}
             tabIndex={0}
           >
-            <img src={avatar} alt="avatar" />
+            <img className="nav-avatar" src={avatar} alt="avatar" />
           </span>
           <span>{`Handy Score: ${score}`}</span>
           <HandyIcon score={score} />

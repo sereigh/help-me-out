@@ -1,0 +1,143 @@
+@use '../components/MainPage/mainpage';
+@use '../components/ProfilePage/profilepage';
+
+$main-color: rgb(255, 240, 212);
+$accent-color: brown;
+
+body {
+  background-color: $main-color;
+  color: $accent-color;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+span {
+  display: flex;
+}
+
+button {
+  height: 30px;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: flex-end;
+}
+
+.navbar-right button, .navbar-right span, .navbar-right div {
+  margin-left: 15px;
+}
+
+.nav-avatar {
+  width: 37px;
+  height: 37px;
+  object-fit: scale-down;
+  border-radius: 50%;
+}
+
+// Google log in button
+.google-login {
+  // div {
+  //   padding: 4px !important;
+  //   margin-right: 0 !important;
+  // }
+
+  // span {
+  //   padding: 5px !important;
+  // }
+  height: auto;
+}
+
+// Handy Status Icon
+.handy-none, .handy-bronze, .handy-silver, .handy-gold, .handy-platinum {
+  width: 44px;
+  height: 44px;
+  background-image: url('./images/handy.png');
+  background-repeat: no-repeat;
+  background-size: 80px;
+}
+
+.handy-bronze {
+  background-position: 4px 4px;
+}
+
+.handy-silver {
+  background-position: -38px 4px;
+}
+
+.handy-gold {
+  background-position: 4px -38px;
+}
+
+.handy-platinum {
+  background-position: -38px -38px;
+}
+
+// Inbox Page
+.inbox-container {
+  height: 75vh;
+  min-height: 400px;
+  min-width: 270px;
+  opacity: 0;
+  animation: .1s ease-out .7s 1 forwards loadInbox;
+}
+
+.inbox-loading {
+  width: 100%;
+  height: 0;
+  margin: 0 auto;
+  font-size: 1vw;
+  text-align: center;
+  margin-top: 200px;
+  animation: 0s ease-in .6s 1 forwards load;
+}
+
+// Chat Box
+.chatbox-container {
+  height: 400px;
+  position: fixed;
+  left: 10vw;
+  bottom: -45vh;
+  animation: .5s ease-out .2s 1 forwards loadChat;
+  overflow: hidden;
+}
+
+@keyframes loadChat {
+  0% {
+    bottom: -45vh;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+@keyframes loadInbox {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes load {
+  0% {
+    opacity: 1;
+    margin-top: 100px;
+  }
+  100% {
+    opacity: 0;
+    margin-top: 0;
+  }
+}
+
+// Map
+#map {
+  width: 80%;
+  height: 300px;
+  border-radius: 20px;
+}
