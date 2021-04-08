@@ -31,10 +31,44 @@ button {
   height: 30px;
 }
 
+
+body button {
+  border: 1px solid $accent-color;
+  border-radius: 5px;
+  background-color: $main-color;
+  color: $accent-color;
+  transition: color 200ms;
+}
+
+body button:hover {
+  border: 1px solid $main-color;
+  background-color: $accent-color;
+  color: $main-color;
+  cursor: pointer;
+}
+
 nav button {
   border: none;
   background-color: $accent-color;
   color: $main-color;
+  transition: color 200ms;
+}
+
+nav button:hover {
+  border: none;
+  color: $main-hover-color;
+  cursor: pointer;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $accent-color;
+  border-radius: 10px;
 }
 
 // Navbar
@@ -51,15 +85,6 @@ nav button {
 
 .navbar-right button, .navbar-right span, .navbar-right div {
   margin-left: 15px;
-}
-
-.navbar-right button {
-  transition: color 200ms;
-}
-
-.navbar-right button:hover {
-  color: $main-hover-color;
-  cursor: pointer;
 }
 
 .handy-score {
