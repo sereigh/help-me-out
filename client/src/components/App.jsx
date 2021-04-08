@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import sampleUser from '../../../server/database/data/sampleUser.json';
 
@@ -18,6 +19,7 @@ class App extends React.Component {
     this.state = {
       user: sampleUser,
       page: 'landingPage',
+      auth: false,
     };
 
     this.handleNav = this.handleNav.bind(this);
@@ -34,6 +36,7 @@ class App extends React.Component {
   responseGoogleSuccess(response) {
     // eslint-disable-next-line no-console
     console.log(response);
+    const { history } = this.props;
     const { profileObj } = response;
 
     axios.post('/users', profileObj)
@@ -42,14 +45,16 @@ class App extends React.Component {
         if (res.data[0] === true) {
           this.setState({
             user: res.data[1],
+            auth: true,
           }, () => {
-            this.handleNav('mainPage');
+            history.push('/main');
           });
         } else {
           this.setState({
             user: res.data[1],
+            auth: true,
           }, () => {
-            this.handleNav('profilePage');
+            history.push('/profile');
           });
         }
       })
@@ -65,29 +70,48 @@ class App extends React.Component {
   }
 
   render() {
-    const { user, page } = this.state;
-    const isLoggedIn = page === 'mainPage' || page === 'profilePage' || page === 'inbox';
-    const avatar = user.photo || '#';
-    const score = user.handy || 0;
+    const { history } = this.props;
+    const { user, page, auth } = this.state;
+    // const isLoggedIn = page === 'mainPage' || page === 'profilePage' || page === 'inbox';
+    // const avatar = user.photo || '#';
+    // const score = user.handy || 0;
 
     return (
-      <div>
+      <Router>
+        <div>
         <NavBar
-          isLoggedIn={isLoggedIn}
-          avatar={avatar}
-          score={score}
-          handleNav={this.handleNav}
+          history={history}
+          auth={auth}
           responseGoogleSuccess={this.responseGoogleSuccess}
           responseGoogleFailure={this.responseGoogleFailure}
         />
-        {page === 'signUp' && <SignUp />}
-        {page === 'logIn' && <LogIn />}
-        {page === 'landingPage' && <LandingPage />}
-        {page === 'mainPage' && <MainPage user={user} />}
-        {page === 'profilePage' && <ProfilePage user={user} />}
-        {page === 'inbox' && <Inbox user={user} />}
-      </div>
+        <Switch>
+          <Route path="/" exact render={(props) => (<LandingPage {...props} />)} />
+          <Route path="/main" exact render={(props) => (<MainPage {...props} />)} />
+          <Route path="/profile" exact render={(props) => (<ProfilePage {...props} />)} />
+        </Switch>
+        </div>
+      </Router>
     );
+
+    // return (
+    //   <div>
+    //     <NavBar
+    //       isLoggedIn={isLoggedIn}
+    //       avatar={avatar}
+    //       score={score}
+    //       handleNav={this.handleNav}
+    //       responseGoogleSuccess={this.responseGoogleSuccess}
+    //       responseGoogleFailure={this.responseGoogleFailure}
+    //     />
+    //     {page === 'signUp' && <SignUp />}
+    //     {page === 'logIn' && <LogIn />}
+    //     {page === 'landingPage' && <LandingPage />}
+    //     {page === 'mainPage' && <MainPage user={user} />}
+    //     {page === 'profilePage' && <ProfilePage user={user} />}
+    //     {page === 'inbox' && <Inbox user={user} />}
+    //   </div>
+    // );
   }
 }
 
