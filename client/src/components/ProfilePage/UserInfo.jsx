@@ -7,6 +7,8 @@ const UserInfo = (props) => {
     photo,
     zip,
     handy,
+    password,
+    email,
     showEditUserForm,
     toggleEditUserForm,
   } = props;
@@ -16,10 +18,19 @@ const UserInfo = (props) => {
       <div>{name}</div>
       <div>{zip}</div>
       <div>{handy}</div>
+      <div>{email}</div>
       {!showEditUserForm && (
         <button onClick={toggleEditUserForm}>Edit Profile</button>
       )}
-      {showEditUserForm && <EditUserInfo name={name} zip={zip} photo={photo} />}
+      {showEditUserForm && (
+        <EditUserInfo
+          name={name}
+          zip={zip}
+          photo={photo}
+          email={email}
+          password={password}
+        />
+      )}
     </div>
   );
 };

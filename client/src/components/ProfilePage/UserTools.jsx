@@ -12,7 +12,9 @@ const UserTools = (props) => {
       {!showAddToolForm && (
         <button onClick={toggleAddToolForm}>Add Tool</button>
       )}
-      {showAddToolForm && <AddToolForm user_id={user_id} />}
+      {showAddToolForm && (
+        <AddToolForm user_id={user_id} toggleAddToolForm={toggleAddToolForm} />
+      )}
     </div>
   );
 };

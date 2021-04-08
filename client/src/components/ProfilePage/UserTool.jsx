@@ -22,7 +22,7 @@ class UserTool extends React.Component {
           <div>
             <div>{tool.tool_name}</div>
             <img src={tool.tool_photos[0]} />
-            <div>Need Help: {tool.help}</div>
+            {tool.help ? <div>Need Help!</div> : <div>No Help</div>}
             <button onClick={this.toggleToolEditDelete}>
               Edit/Delete Tool
             </button>

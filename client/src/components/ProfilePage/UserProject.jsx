@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import EditDeleteUserProject from "./EditDeleteUserProject";
+import ProjectPhotos from "./ProjectPhotos";
 
 class UserProject extends React.Component {
   constructor(props) {
@@ -10,14 +11,9 @@ class UserProject extends React.Component {
 
     this.formattedDate = this.formattedDate.bind(this);
     this.toggleProjectEditDelete = this.toggleProjectEditDelete.bind(this);
-    this.toggleHelp = this.toggleHelp.bind(this);
   }
   formattedDate(date) {
     return new Date(date).toLocaleDateString();
-  }
-
-  toggleHelp() {
-    console.log("toggleHelp");
   }
 
   toggleProjectEditDelete() {
@@ -35,6 +31,8 @@ class UserProject extends React.Component {
           <div>
             <div>{project.project_name}</div>
             <div>{project.project_description}</div>
+            <ProjectPhotos project_photos={project.project_photos} />
+            {project.help ? <div>Need Help!</div> : <div>No help</div>}
             <div>{formattedDate}</div>
             <div>
               Need Help: <input type="checkbox" onChange={this.toggleHelp} />
