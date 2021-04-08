@@ -41,7 +41,7 @@ const NavBar = ({
             onKeyPress={() => handleNav('profilePage')}
             tabIndex={0}
           >
-            <img src={avatar} alt="avatar" />
+            <img className="nav-avatar" src={avatar} alt="avatar" />
           </span>
           <span>{`Handy Score: ${score}`}</span>
           <HandyIcon score={score} />
