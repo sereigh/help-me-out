@@ -1,4 +1,5 @@
 import React from 'react';
+import HandyIcon from '../HandyIcon'
 
 function ToolCard({ tool }) {
 
@@ -12,7 +13,9 @@ function ToolCard({ tool }) {
         <div className="tool-user-avatar-div"><img className="tool-avatar-img" src={photo} alt={name} /></div>
         <div className="tool-user-name-div">{name}</div>
         <div className="tool-handy-div">
-          <div className="tool-handy-emblem">EMBLEM</div>
+          <div className="tool-handy-emblem">
+            <HandyIcon score={handy} usedIn={'-tools'} />
+          </div>
           <div>{handy}</div>
         </div>
       </div>
