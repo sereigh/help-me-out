@@ -14,7 +14,7 @@ const NavBar = ({
   <>
     {!isLoggedIn && (
       <nav>
-        <span>Help Me Out!</span>
+        <div className="page-title">Help Me Out!</div>
         <GoogleLogin
           className="google-login"
           clientId="212175657739-70o4dkki5481hs0hdlkmkor20ugn7sh0.apps.googleusercontent.com"
@@ -30,7 +30,7 @@ const NavBar = ({
     )}
     {isLoggedIn && (
       <nav>
-        <span>Help Me Out!</span>
+        <div className="page-title">Help Me Out!</div>
         <span className="navbar-right">
           <button type="button" onClick={() => handleNav('mainPage')}>Dashboard</button>
           <button type="button" onClick={() => handleNav('inbox')}>Inbox</button>
@@ -43,7 +43,7 @@ const NavBar = ({
           >
             <img className="nav-avatar" src={avatar} alt="avatar" />
           </span>
-          <span>{`Handy Score: ${score}`}</span>
+          <span className="handy-score">{`Handy Score: ${score}`}</span>
           <HandyIcon score={score} />
           <button type="button" onClick={() => handleNav('landingPage')}>Log Out</button>
         </span>

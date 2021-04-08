@@ -2,6 +2,7 @@
 @use '../components/ProfilePage/profilepage';
 
 $main-color: rgb(255, 240, 212);
+$main-hover-color: rgba(255, 240, 212, 0.747);
 $accent-color: brown;
 
 body {
@@ -10,9 +11,16 @@ body {
 }
 
 nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 45px;
+  background-color: $accent-color;
+  color: $main-color;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 span {
@@ -23,13 +31,47 @@ button {
   height: 30px;
 }
 
+nav button {
+  border: none;
+  background-color: $accent-color;
+  color: $main-color;
+}
+
+// Navbar
+.page-title {
+  line-height: 55px;
+  padding-left: 10px;
+}
+
 .navbar-right {
   display: flex;
   align-items: flex-end;
+  padding-right: 10px;
 }
 
 .navbar-right button, .navbar-right span, .navbar-right div {
   margin-left: 15px;
+}
+
+.navbar-right button {
+  transition: color 200ms;
+}
+
+.navbar-right button:hover {
+  color: $main-hover-color;
+  cursor: pointer;
+}
+
+.handy-score {
+  transform: translateY(-7px);
+}
+
+.navbar-right div {
+  transform: translateY(2px);
+}
+
+.navbar-right span img:hover, .page-title:hover {
+  cursor: pointer;
 }
 
 .nav-avatar {
@@ -79,6 +121,7 @@ button {
 
 // Inbox Page
 .inbox-container {
+  transform: translateY(60px);
   height: 75vh;
   min-height: 400px;
   min-width: 270px;
