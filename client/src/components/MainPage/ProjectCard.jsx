@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 
 import MessageButton from '../MessageButton';
+// import HandyIcon from '../HandyIcon';
 
 class ProjectCard extends React.Component {
   constructor(props) {
@@ -46,11 +47,7 @@ class ProjectCard extends React.Component {
   render() {
     const { user, project } = this.props;
     const { favorited } = this.state;
-    let projectTools = [];
-
-    if (project.needed_tools) {
-      projectTools = project.needed_tools.map((tool) => <li>{tool}</li>);
-    }
+    const tools = project.needed_tools;
 
     return (
       <div className="feed-card">
@@ -63,21 +60,21 @@ class ProjectCard extends React.Component {
             <span>{`${project.project_description} just typing all of this out so it can fill more content incase someone typed a whole buncha stuff for content`}</span>
             <span>{project.help ? 'This project is in need of assistance' : 'This project does not need any assistance'}</span>
             <ul>
-              {projectTools}
+              {tools ? tools.map((tool) => <li key={tools.indexOf(tool)}>{tool}</li>) : []}
             </ul>
           </div>
         </div>
         <div className="project-footer">
+          {/* <HandyIcon score={project.project_owner.handy} /> */}
           <img className="project-owner-img" src={project.project_owner.photo} alt="avatar" />
           <div>
-            <span>{`${project.project_owner.name}: `}</span>
-            <span>{project.project_owner.handy}</span>
+            <span>{`${project.project_owner.name}: ${project.project_owner.handy}`}</span>
             <button type="button" onClick={() => this.handleVote('up')}>Upvote</button>
             <button type="button" onClick={() => this.handleVote('down')}>Downvote</button>
             <button type="button" onClick={() => this.handleVote('report')}>Report</button>
             <button type="button" onClick={this.toggleFavorite}>{favorited ? 'Favorite' : 'Not favorite'}</button>
+            <MessageButton user={user} otherUser={project.project_owner} />
           </div>
-          <MessageButton user={user} otherUser={project.project_owner} />
         </div>
       </div>
     );
@@ -88,7 +85,7 @@ ProjectCard.propTypes = {
   user: PropTypes.shape({
     name: PropTypes.string.isRequired,
     zip: PropTypes.number.isRequired,
-    password: PropTypes.string.isRequired,
+    password: PropTypes.string,
     photo: PropTypes.string,
     handy: PropTypes.number.isRequired,
     report: PropTypes.number.isRequired,
@@ -105,15 +102,7 @@ ProjectCard.propTypes = {
       help: PropTypes.bool.isRequired,
       project_photos: PropTypes.arrayOf(PropTypes.string),
     })),
-    favorites: PropTypes.arrayOf(PropTypes.shape({
-      _id: PropTypes.string,
-      favorite_name: PropTypes.string,
-      favorite_description: PropTypes.string,
-      favorite_owner: PropTypes.string,
-      favorite_handy: PropTypes.number,
-      favorite_photo: PropTypes.string,
-      favorite_photos: PropTypes.arrayOf(PropTypes.string),
-    })),
+    favorites: PropTypes.objectOf(PropTypes.bool),
   }).isRequired,
   project: PropTypes.shape({
     project_name: PropTypes.string,

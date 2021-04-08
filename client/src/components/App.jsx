@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 import sampleUser from '../../../server/database/data/sampleUser.json';
 
@@ -16,16 +17,51 @@ class App extends React.Component {
 
     this.state = {
       user: sampleUser,
-      page: 'mainPage',
+      page: 'landingPage',
     };
 
     this.handleNav = this.handleNav.bind(this);
+    this.responseGoogleSuccess = this.responseGoogleSuccess.bind(this);
+    this.responseGoogleFailure = this.responseGoogleFailure.bind(this);
   }
 
   handleNav(page) {
     this.setState({
       page,
     });
+  }
+
+  responseGoogleSuccess(response) {
+    // eslint-disable-next-line no-console
+    console.log(response);
+    const { profileObj } = response;
+
+    axios.post('/users', profileObj)
+      .then((res) => {
+        console.log(res);
+        if (res.data[0] === true) {
+          this.setState({
+            user: res.data[1],
+          }, () => {
+            this.handleNav('mainPage');
+          });
+        } else {
+          this.setState({
+            user: res.data[1],
+          }, () => {
+            this.handleNav('profilePage');
+          });
+        }
+      })
+      .catch((err) => {
+        // eslint-disable-next-line no-console
+        console.error(err);
+      });
+  }
+
+  responseGoogleFailure(response) {
+    // eslint-disable-next-line no-console
+    console.log('Log in failed, please try again');
   }
 
   render() {
@@ -42,6 +78,8 @@ class App extends React.Component {
           avatar={avatar}
           score={score}
           handleNav={this.handleNav}
+          responseGoogleSuccess={this.responseGoogleSuccess}
+          responseGoogleFailure={this.responseGoogleFailure}
         />
         {page === 'signUp' && <SignUp />}
         {page === 'logIn' && <LogIn />}

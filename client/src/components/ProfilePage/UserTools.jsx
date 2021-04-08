@@ -3,23 +3,16 @@ import UserTool from "./UserTool";
 import AddToolForm from "./AddToolForm.jsx";
 
 const UserTools = (props) => {
-  const {
-    userTools,
-    addProfileItem,
-    deleteProfileItem,
-    putProfileItem,
-    toggleAddItemForm,
-    showAddToolForm,
-  } = props;
+  const { user_id, tools, toggleAddToolForm, showAddToolForm } = props;
   return (
     <div>
-      {userTools.map((tool, index) => (
-        <UserTool key={index} tool={tool} />
+      {tools.map((tool, index) => (
+        <UserTool key={index} tool={tool} user_id={user_id} />
       ))}
       {!showAddToolForm && (
-        <button onClick={() => toggleAddItemForm("tool")}>Add Tool</button>
+        <button onClick={toggleAddToolForm}>Add Tool</button>
       )}
-      {showAddToolForm && <AddToolForm />}
+      {showAddToolForm && <AddToolForm user_id={user_id} />}
     </div>
   );
 };

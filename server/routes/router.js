@@ -7,10 +7,12 @@ const { getRelevantInfo } = require('./relevant/getRelevantInfo');
 const { postReport } = require('./users/postReport');
 
 const { putFavorites } = require('./users/putFavorites');
+const { deleteFavorites } = require('./users/deleteFavorites');
 
 const { getUser } = require('./users/getUser');
 const { postUser } = require('./users/postUser');
 const { putUser } = require('./users/putUser');
+const { getTopExperts } = require('./users/getTopExperts');
 
 const { handyDown } = require('./handy/handyDown');
 const { handyUp } = require('./handy/handyUp');
@@ -23,10 +25,13 @@ const { postProjects } = require('./projects/postProjects');
 const { putProjects } = require('./projects/putProjects');
 const { deleteProjects } = require('./projects/deleteProjects');
 const { putNeeds } = require('./projects/putNeeds');
+const { getRecentProjects } = require('./projects/getRecentProjects');
 
 const { putUserPhotos } = require('./photos/putUserPhotos');
 const { putToolPhotos } = require('./photos/putToolPhotos');
 const { putProjectPhotos } = require('./photos/putProjectPhotos');
+
+const { getGoogleMapsAPI } = require('./api/google/maps');
 
 router.route('/')
   .get((req, res) => {
@@ -35,6 +40,9 @@ router.route('/')
 
 router.route('/users')
   .post(postUser);
+
+router.route('/experts')
+  .get(getTopExperts);
 
 router.route('/users/:user_id')
   .get(getUser)
@@ -65,6 +73,9 @@ router.route('/users/:user_id/tools/:tool_id')
 router.route('/users/:user_id/tools/:tool_id/photos')
   .put(putToolPhotos);
 
+router.route('/projects')
+  .get(getRecentProjects);
+
 router.route('/users/:user_id/projects')
   .post(postProjects);
 
@@ -79,6 +90,10 @@ router.route('/users/:user_id/projects/:project_id/needs')
   .put(putNeeds);
 
 router.route('/users/:user_id/favorites')
-  .put(putFavorites);
+  .put(putFavorites)
+  .delete(deleteFavorites);
+
+router.route('/api/google/maps')
+  .get(getGoogleMapsAPI);
 
 module.exports = router;

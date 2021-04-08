@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import ProjectCard from './ProjectCard';
+import ToolCard from './ToolCard';
 
 const FeedContainer = ({ user, currentFilter, data }) => {
   let title = '';
@@ -21,7 +22,9 @@ const FeedContainer = ({ user, currentFilter, data }) => {
     <div>
       <div>{title}</div>
       {data.map((item) => (
-        <div key={item._id}>{item.project_name ? <ProjectCard user={user} project={item} /> : `${item.tool_name}`}</div>
+        <div key={item._id}>
+          {item.tool_name ? <ToolCard tool={item} /> : <ProjectCard user={user} project={item} />}
+        </div>
       ))}
     </div>
   );
@@ -31,7 +34,7 @@ FeedContainer.propTypes = {
   user: PropTypes.shape({
     name: PropTypes.string.isRequired,
     zip: PropTypes.number.isRequired,
-    password: PropTypes.string.isRequired,
+    password: PropTypes.string,
     photo: PropTypes.string,
     handy: PropTypes.number.isRequired,
     report: PropTypes.number.isRequired,
@@ -48,28 +51,32 @@ FeedContainer.propTypes = {
       help: PropTypes.bool.isRequired,
       project_photos: PropTypes.arrayOf(PropTypes.string),
     })),
-    favorites: PropTypes.arrayOf(PropTypes.shape({
-      _id: PropTypes.string,
-      favorite_name: PropTypes.string,
-      favorite_description: PropTypes.string,
-      favorite_owner: PropTypes.string,
-      favorite_handy: PropTypes.number,
-      favorite_photo: PropTypes.string,
-      favorite_photos: PropTypes.arrayOf(PropTypes.string),
-    })),
+    favorites: PropTypes.objectOf(PropTypes.bool),
   }).isRequired,
   currentFilter: PropTypes.string.isRequired,
   data: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.shape({
       tool_name: PropTypes.string,
       tool_photos: PropTypes.arrayOf(PropTypes.string),
-      tool_owner: PropTypes.string,
+      tool_owner: PropTypes.shape({
+        photo: PropTypes.string,
+        handy: PropTypes.number,
+        _id: PropTypes.string,
+        name: PropTypes.string,
+        zip: PropTypes.number,
+      }),
       help: PropTypes.bool,
     })),
     PropTypes.arrayOf(PropTypes.shape({
       project_name: PropTypes.string.isRequired,
       project_description: PropTypes.string,
-      project_owner: PropTypes.string.isRequired,
+      projectowner: PropTypes.shape({
+        photo: PropTypes.string,
+        handy: PropTypes.number,
+        _id: PropTypes.string,
+        name: PropTypes.string,
+        zip: PropTypes.number,
+      }),
       help: PropTypes.bool.isRequired,
       project_photos: PropTypes.arrayOf(PropTypes.string),
     })),
