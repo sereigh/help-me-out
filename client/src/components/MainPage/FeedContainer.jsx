@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import ProjectCard from './ProjectCard';
+import ToolCard from './ToolCard';
 
 const FeedContainer = ({ user, currentFilter, data }) => {
   let title = '';
@@ -21,7 +22,9 @@ const FeedContainer = ({ user, currentFilter, data }) => {
     <div>
       <div>{title}</div>
       {data.map((item) => (
-        <div key={item._id}>{item.project_name ? <ProjectCard user={user} project={item} /> : `${item.tool_name}`}</div>
+        <div key={item._id}>
+          {item.project_name ? <ProjectCard user={user} project={item} /> : <ToolCard tool={item} />}
+        </div>
       ))}
     </div>
   );

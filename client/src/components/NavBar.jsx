@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import GoogleLogin from 'react-google-login';
 import HandyIcon from './HandyIcon';
 
 const NavBar = ({
@@ -7,13 +8,20 @@ const NavBar = ({
   avatar,
   score,
   handleNav,
+  responseGoogleSuccess,
+  responseGoogleFailure,
 }) => (
   <>
     {!isLoggedIn && (
       <nav>
         <span>Help Me Out!</span>
-        <button type="button" onClick={() => handleNav('signUp')}>Sign Up</button>
-        <button type="button" onClick={() => handleNav('logIn')}>Log In</button>
+        <GoogleLogin
+          clientId="212175657739-70o4dkki5481hs0hdlkmkor20ugn7sh0.apps.googleusercontent.com"
+          buttonText="Continue with Google"
+          onSuccess={responseGoogleSuccess}
+          onFailure={responseGoogleFailure}
+          cookiePolicy="single_host_origin"
+        />
       </nav>
     )}
     {isLoggedIn && (
@@ -45,6 +53,7 @@ NavBar.propTypes = {
   avatar: PropTypes.string.isRequired,
   score: PropTypes.number.isRequired,
   handleNav: PropTypes.func.isRequired,
+  responseGoogle: PropTypes.func.isRequired,
 };
 
 export default NavBar;

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 
 import MessageButton from '../MessageButton';
+import HandyIcon from '../HandyIcon';
 
 class ProjectCard extends React.Component {
   constructor(props) {
@@ -68,16 +69,16 @@ class ProjectCard extends React.Component {
           </div>
         </div>
         <div className="project-footer">
+          {/* <HandyIcon score={project.project_owner.handy} /> */}
           <img className="project-owner-img" src={project.project_owner.photo} alt="avatar" />
           <div>
-            <span>{`${project.project_owner.name}: `}</span>
-            <span>{project.project_owner.handy}</span>
+            <span>{`${project.project_owner.name}: ${project.project_owner.handy}`}</span>
             <button type="button" onClick={() => this.handleVote('up')}>Upvote</button>
             <button type="button" onClick={() => this.handleVote('down')}>Downvote</button>
             <button type="button" onClick={() => this.handleVote('report')}>Report</button>
             <button type="button" onClick={this.toggleFavorite}>{favorited ? 'Favorite' : 'Not favorite'}</button>
+            <MessageButton user={user} otherUser={project.project_owner} />
           </div>
-          <MessageButton user={user} otherUser={project.project_owner} />
         </div>
       </div>
     );
@@ -132,3 +133,4 @@ ProjectCard.propTypes = {
 };
 
 export default ProjectCard;
+

@@ -1,9 +1,9 @@
 const db = require('../../index');
 
-exports.updateFavorites = (user, favorite, cb) => {
+exports.removeFavorites = (user, favorite, cb) => {
   db.User.findByIdAndUpdate(
     { _id: user },
-    { $set: { [`${favorite}`]: true } },
+    { $unset: { [`${favorite}`]: 1 }},
     { new: true },
     (err, result) => {
       if (err) return cb(err, null);
