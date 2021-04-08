@@ -53,7 +53,8 @@ NavBar.propTypes = {
   avatar: PropTypes.string.isRequired,
   score: PropTypes.number.isRequired,
   handleNav: PropTypes.func.isRequired,
-  responseGoogle: PropTypes.func.isRequired,
+  responseGoogleSuccess: PropTypes.func.isRequired,
+  responseGoogleFailure: PropTypes.func.isRequired,
 };
 
 export default NavBar;
