@@ -3,16 +3,16 @@ import UserTool from "./UserTool";
 import AddToolForm from "./AddToolForm.jsx";
 
 const UserTools = (props) => {
-  const { tools, toggleAddToolForm, showAddToolForm } = props;
+  const { user_id, tools, toggleAddToolForm, showAddToolForm } = props;
   return (
     <div>
       {tools.map((tool, index) => (
-        <UserTool key={index} tool={tool} />
+        <UserTool key={index} tool={tool} user_id={user_id} />
       ))}
       {!showAddToolForm && (
         <button onClick={toggleAddToolForm}>Add Tool</button>
       )}
-      {showAddToolForm && <AddToolForm />}
+      {showAddToolForm && <AddToolForm user_id={user_id} />}
     </div>
   );
 };

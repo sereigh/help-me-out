@@ -54,7 +54,7 @@ class ProfilePage extends React.Component {
     }
   }
   render() {
-    const { name, photo, zip, handy, tools, projects } = this.props.user;
+    const { _id, name, photo, zip, handy, tools, projects } = this.props.user;
     const {
       showAddProjectForm,
       showAddToolForm,
@@ -63,6 +63,7 @@ class ProfilePage extends React.Component {
     return (
       <div>
         <UserInfo
+          user_id={_id}
           name={name}
           photo={photo}
           zip={zip}
@@ -71,14 +72,16 @@ class ProfilePage extends React.Component {
           toggleEditUserForm={this.toggleEditUserForm}
         />
         <UserProjects
+          user_id={_id}
           projects={projects}
           showAddProjectForm={showAddProjectForm}
           toggleAddProjectForm={this.toggleAddProjectForm}
         />
         <UserTools
+          user_id={_id}
           tools={tools}
-          toggleAddToolForm={this.toggleAddToolForm}
           showAddToolForm={showAddToolForm}
+          toggleAddToolForm={this.toggleAddToolForm}
         />
       </div>
     );
