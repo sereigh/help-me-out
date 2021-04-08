@@ -9,7 +9,9 @@ module.exports = {
   output: {
     path: OUT_DIR,
     filename: 'bundle.js',
+    sourceMapFilename: '[name].js.map',
   },
+  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -32,8 +34,8 @@ module.exports = {
         test: /\.s[ac]ss$/i,
       },
       {
-        test: /\.(png|ttf|svg)$/,
-        use: 'url-loader?limit=100000&name=img/[name].[ext]',
+        test: /\.(png|ttf|jp(e*)g|svg)$/,
+        use: 'url-loader?limit=100000&name=images/[name].[ext]',
       },
     ],
   },

@@ -31,6 +31,8 @@ const { putUserPhotos } = require('./photos/putUserPhotos');
 const { putToolPhotos } = require('./photos/putToolPhotos');
 const { putProjectPhotos } = require('./photos/putProjectPhotos');
 
+const { getGoogleMapsAPI } = require('./api/google/maps');
+
 router.route('/')
   .get((req, res) => {
     res.status(200).end();
@@ -90,5 +92,8 @@ router.route('/users/:user_id/projects/:project_id/needs')
 router.route('/users/:user_id/favorites')
   .put(putFavorites)
   .delete(deleteFavorites);
+
+router.route('/api/google/maps')
+  .get(getGoogleMapsAPI);
 
 module.exports = router;
