@@ -20,9 +20,10 @@
   },
   "homepage": "https://github.com/BlueOceanAtlantic/help-me-out#readme",
   "dependencies": {
+    "@googlemaps/js-api-loader": "^1.11.3",
     "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "google-maps": "^4.3.3",
     "mongoose": "^5.12.3",
     "nodemon": "^2.0.7",
     "prop-types": "^15.7.2",

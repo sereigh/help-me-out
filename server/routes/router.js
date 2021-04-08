@@ -26,6 +26,8 @@ const { putUserPhotos } = require('./photos/putUserPhotos');
 const { putToolPhotos } = require('./photos/putToolPhotos');
 const { putProjectPhotos } = require('./photos/putProjectPhotos');
 
+const { getGoogleMapsAPI } = require('./api/google/maps');
+
 router.route('/')
   .get((req, res) => {
     res.status(200).end();
@@ -75,5 +77,8 @@ router.route('/users/:user_id/projects/:project_id/photos')
 
 router.route('/users/:user_id/projects/:project_id/needs')
   .put(putNeeds);
+
+router.route('/api/google/maps')
+  .get(getGoogleMapsAPI);
 
 module.exports = router;
