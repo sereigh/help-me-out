@@ -19,13 +19,15 @@ const FeedContainer = ({ user, currentFilter, data }) => {
   }
 
   return (
-    <div className="feed-container">
+    <div className="feed">
       <div className="feed-title">{title}</div>
-      {data.map((item) => (
-        <div key={item._id}>
-          {item.tool_name ? <ToolCard tool={item} /> : <ProjectCard user={user} project={item} />}
-        </div>
-      ))}
+      <div className="feed-container">
+        {data.map((item) => (
+          <div key={item._id}>
+            {item.tool_name ? <ToolCard tool={item} /> : <ProjectCard user={user} project={item} />}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

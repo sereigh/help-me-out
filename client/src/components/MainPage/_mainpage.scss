@@ -1,9 +1,12 @@
-// .feed-container {
-//   max-width: 600px;
-//   display: grid;
-// }
+$main-color: rgb(255, 240, 212);
+$main-hover-color: rgba(255, 240, 212, 0.747);
+$accent-color: brown;
 
 // Main Page SCSS
+.main-page {
+  transform: translateY(60px);
+}
+
 .main-page, .main-page-left, .filter-buttons, .profile-card {
   display: flex;
 }
@@ -25,20 +28,25 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-right: 1px solid gray;
+  border-right: 3px solid $accent-color;
   width: 25%;
 }
 
+.feed {
+  display: flex;
+  flex-direction: column;
+}
+
 .feed-container {
-  height: 88vh;
+  height: 80vh;
   overflow: scroll;
   margin-left: 30px;
 }
 
 .feed-title {
   text-align: center;
-  height: 20px;
-  line-height: 20px;
+  height: 50px;
+  line-height: 50px;
 }
 
 /* PROFILE CARD */
@@ -46,6 +54,7 @@
   max-width: 75%;
   max-height: 75%;
   object-fit: scale-down;
+  border: 1px solid $accent-color;
   border-radius: 20px;
 }
 
