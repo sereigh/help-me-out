@@ -24,7 +24,8 @@
 .main-page-left {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 5px;
   border-right: 1px solid gray;
   width: 25%;
 }
@@ -60,24 +61,40 @@
 .project-card {
   @include feed-card;
   grid-template-rows: 30px auto 50px;
+  box-shadow: 2px 2px 30px rgba(0,0,0,0.2);
 }
 
 .project-info {
   display: grid;
   grid-template-columns: 40% 60%;
+  max-height: 220px;
+  overflow: hidden;
 
-  .project-photo {
+  .project-photo-div {
+    position: relative;
+    max-width: 240px;
+    max-height: 220px;
+    // overflow: hidden;
     img {
-      max-width: 100%;
-      max-height: 200%;
-      border-radius: 20px;
-      object-fit: scale-down;
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      object-fit: fill;
+    }
+    .project-img-star {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
+    .project-img-star:hover {
+      cursor: pointer;
     }
   }
 
   .project-details {
     display: grid;
-    grid-template-rows: 20% 10px fr;
+    grid-template-rows: 20% 10px 1fr;
   }
 }
 
@@ -99,12 +116,27 @@
 
 .project-footer-name-div {
   grid-area: name;
-  background-color: antiquewhite;
+  display: flex;
 }
 
 .project-footer-buttons-div {
   grid-area: buttons;
-  background-color: aqua;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.project-footer-button {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100px;
+  height: 25px;
+  border-radius: 3px;
+  // text-align: center;
+}
+
+.project-footer-button:hover {
+  cursor: pointer;
+  background-color: orange;
 }
 
 /* TOOL CARD */
@@ -191,4 +223,12 @@
   background-image: url('./images/handy.png');
   background-repeat: no-repeat;
   background-size: 300px;
+}
+
+.handy-none-project-footer, .handy-bronze-project-footer, .handy-silver-project-footer, .handy-gold-project-footer, .handy-platinum-project-footer {
+  width: 25px;
+  height: 25px;
+  background-image: url('./images/handy.png');
+  background-repeat: no-repeat;
+  background-size: 50px;
 }
