@@ -9,7 +9,7 @@ class AddProjectForm extends React.Component {
       project_description: "",
       needed_tool: "",
       help: false,
-      needed_tools: []
+      needed_tools: [],
     };
     this.handleGetFields = this.handleGetFields.bind(this);
     this.handleToggleNeedHelp = this.handleToggleNeedHelp.bind(this);
@@ -31,7 +31,7 @@ class AddProjectForm extends React.Component {
   }
 
   handleAddToolToProjectToolList() {
-    const {needed_tool, needed_tools} = this.state;
+    const { needed_tool, needed_tools } = this.state;
     if (needed_tools.indexOf(needed_tool) === -1) {
       const revisedTools = needed_tools.concat(needed_tool);
       this.setState({
@@ -41,7 +41,7 @@ class AddProjectForm extends React.Component {
   }
 
   handleDeleteFromProjectToolList(e) {
-    const {needed_tools } = this.state;
+    const { needed_tools } = this.state;
     let v = e.target.name;
     let updatedTools = [];
     needed_tools.forEach((tool) => {
@@ -52,10 +52,28 @@ class AddProjectForm extends React.Component {
     this.setState({ needed_tools: updatedTools });
   }
 
-  handleSubmitNewProject(){
-    const {project_name, project_description, help, needed_tools} = this.state;
-    let requestObj = {project_name: project_name, project_description: project_description, help: help, tools_needed: needed_tools};
-    console.log(requestObj);
+  handleSubmitNewProject() {
+    const {
+      user_id,
+      project_name,
+      project_description,
+      help,
+      needed_tools,
+    } = this.state;
+    let newUserProjectObj = {
+      project_name: project_name,
+      project_description: project_description,
+      help: help,
+      tools_needed: needed_tools,
+    };
+    axios
+      .post(`/users/${user_id}/projects`, newUserProjectObj)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => {
+        throw err;
+      });
   }
 
   render() {
@@ -83,11 +101,7 @@ class AddProjectForm extends React.Component {
           />
         )}
         Needed Tools:
-        <input
-          type="text"
-          name="needed_tool"
-          onChange={this.handleGetFields}
-        />
+        <input type="text" name="needed_tool" onChange={this.handleGetFields} />
         <button onClick={this.handleAddToolToProjectToolList}>Add Tool</button>
         Project Pictures: <div>Project Pictures Here</div>
         Need Help?:{" "}
