@@ -13,6 +13,7 @@ const NavBar = ({
   inboxNotifier,
   avatar,
   score,
+  logout,
 }) => (
   <>
     {!auth && (
@@ -71,7 +72,7 @@ const NavBar = ({
           <button
             type="button"
             onClick={() => {
-              history.push('/');
+              logout();
             }}
           >
             Log Out

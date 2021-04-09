@@ -23,6 +23,7 @@ class App extends React.Component {
 
     this.responseGoogleSuccess = this.responseGoogleSuccess.bind(this);
     this.responseGoogleFailure = this.responseGoogleFailure.bind(this);
+    this.logout = this.logout.bind(this);
     this.inboxNotifier = this.inboxNotifier.bind(this);
   }
 
@@ -64,6 +65,16 @@ class App extends React.Component {
 
     // eslint-disable-next-line no-alert
     alert('An unexpected error occured during the login process');
+  }
+
+  logout() {
+    const { history } = this.props;
+
+    this.setState({
+      auth: false,
+    }, () => {
+      history.push('/');
+    });
   }
 
   inboxNotifier() {
@@ -115,6 +126,7 @@ class App extends React.Component {
           inboxNotifier={this.inboxNotifier}
           avatar={avatar}
           score={score}
+          logout={this.logout}
         />
         <Switch>
           <Route
