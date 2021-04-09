@@ -128,7 +128,7 @@ class App extends React.Component {
         {page === 'landingPage' && <LandingPage />}
         {page === 'mainPage' && <MainPage user={user} />}
         {page === 'profilePage' && <ProfilePage user={user} />}
-        {page === 'inbox' && <Inbox />}
+        {page === 'inbox' && <Inbox user={user} />}
       </div>
     );
   }
