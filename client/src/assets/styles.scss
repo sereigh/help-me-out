@@ -1,5 +1,6 @@
 @use '../components/MainPage/mainpage';
 @use '../components/ProfilePage/profilepage';
+@use '../components/LandingPage/landingpage';
 
 $main-color: rgb(255, 240, 212);
 $main-hover-color: rgba(255, 240, 212, 0.747);
@@ -32,7 +33,6 @@ button {
   height: 30px;
   width: auto;
 }
-
 
 body button {
   border: 1px solid $accent-color;
@@ -87,7 +87,9 @@ nav button:hover {
   padding-right: 10px;
 }
 
-.navbar-right button, .navbar-right span, .navbar-right div {
+.navbar-right button,
+.navbar-right span,
+.navbar-right div {
   margin-left: 15px;
 }
 
@@ -99,7 +101,8 @@ nav button:hover {
   transform: translateY(2px);
 }
 
-.navbar-right span img:hover, .page-title:hover {
+.navbar-right span img:hover,
+.page-title:hover {
   cursor: pointer;
 }
 
@@ -124,7 +127,11 @@ nav button:hover {
 }
 
 // Handy Status Icon
-.handy-none, .handy-bronze, .handy-silver, .handy-gold, .handy-platinum {
+.handy-none,
+.handy-bronze,
+.handy-silver,
+.handy-gold,
+.handy-platinum {
   width: 44px;
   height: 44px;
   background-image: url('./images/handy.png');
@@ -155,7 +162,7 @@ nav button:hover {
   min-height: 400px;
   min-width: 270px;
   opacity: 0;
-  animation: .1s ease-out .7s 1 forwards loadInbox;
+  animation: 0.1s ease-out 0.7s 1 forwards loadInbox;
 }
 
 .inbox-loading {
@@ -165,7 +172,7 @@ nav button:hover {
   font-size: 1vw;
   text-align: center;
   margin-top: 200px;
-  animation: 0s ease-in .6s 1 forwards load;
+  animation: 0s ease-in 0.6s 1 forwards load;
 }
 
 // Chat Box
@@ -174,9 +181,9 @@ nav button:hover {
   position: fixed;
   right: 5vw;
   bottom: 0vh;
-  animation: .5s ease-out .2s 1 forwards loadChat;
+  animation: 0.5s ease-out 0.2s 1 forwards loadChat;
   overflow: hidden;
-  transition: all .4s;
+  transition: all 0.4s;
   z-index: 100;
 }
 
@@ -215,5 +222,5 @@ nav button:hover {
   height: 300px;
   border-radius: 20px;
   opacity: 0;
-  animation: .1s ease-out .1s 1 forwards loadInbox;
+  animation: 0.1s ease-out 0.1s 1 forwards loadInbox;
 }
