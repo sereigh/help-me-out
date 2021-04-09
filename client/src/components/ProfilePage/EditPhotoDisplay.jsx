@@ -3,7 +3,7 @@ import hf from './helperFunctions';
 
 const EditPhotoDisplay = ({ photos, deleteFunction}) => {
   return (
-    <container>
+    <div>
       {photos.map((photo, index) => {
         return (
           <div key={index}>
@@ -20,7 +20,7 @@ const EditPhotoDisplay = ({ photos, deleteFunction}) => {
           </div>
         );
       })}
-    </container>
+    </div>
   );
 };
 

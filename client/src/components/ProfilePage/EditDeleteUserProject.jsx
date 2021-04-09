@@ -25,13 +25,11 @@ class EditDeleteUserProject extends React.Component {
   }
 
   handleGetFields(e) {
-    const { project_name, project_description, project_photos } = this.state;
     this.setState({ [e.target.name]: e.target.value });
   }
 
   handleAddToPhotoList() {
     const { project_photo, project_photos } = this.state;
-    debugger;
     this.setState({
       project_photos: hf.handleAddItem(project_photo, project_photos),
     });
@@ -95,10 +93,7 @@ class EditDeleteUserProject extends React.Component {
 
   render() {
     const {
-      project,
-      formattedDate,
       toggleProjectEditDelete,
-      handleGetTargetName,
     } = this.props;
     const {
       project_name,
@@ -112,17 +107,18 @@ class EditDeleteUserProject extends React.Component {
         <input
           type="text"
           name={project_name}
-          value={project.project_name}
+          value={project_name}
           onChange={this.handleGetFields}
         />
         Project Description:{" "}
         <input
           type="text"
-          value={project.project_description}
+          value={project_description}
           onChange={this.handleGetFields}
         />
-        {project_photos.length > 0 && (
+        {project_photos !== [] && (
           <EditPhotoDisplay
+            key={project_photos}
             photos={project_photos}
             deleteFunction={this.handleDeleteFromProjectPhotos}
           />

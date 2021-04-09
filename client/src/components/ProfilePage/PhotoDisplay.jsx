@@ -2,7 +2,7 @@ import React from "react";
 
 const PhotoDisplay = ({ photos }) => {
   return (
-    <container className="photo-container">
+    <div className="photo-container">
       {photos.map((photo, index) => {
         return (
           <div key={index}>
@@ -10,7 +10,7 @@ const PhotoDisplay = ({ photos }) => {
           </div>
         );
       })}
-    </container>
+    </div>
   );
 };
 

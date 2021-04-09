@@ -32,26 +32,15 @@ class AddToolForm extends React.Component {
   }
 
   handleAddToolPhoto() {
-    // const { tool_photo, tool_photos } = this.state;
-    // if (tool_photos.indexOf(tool_photo) === -1 && tool_photo.length > 4) {
-    //   const revisedToolPhotos = tool_photos.concat(tool_photo);
-    //   this.setState({ tool_photos: revisedToolPhotos });
-    // }
-    hf.handleAddItem(tool_photo, tool_photos);
+    const { tool_photo, tool_photos } = this.state;
+    this.setState({tool_photos: hf.handleAddItem(tool_photo, tool_photos)})
     let inputField = document.querySelector('input[name="tool_photo"]');
     inputField.value = "";
   }
 
-  handleDeleteToolPhoto(e) {
+  handleDeleteToolPhoto(itemToDelete) {
     const { tool_photos } = this.state;
-    let v = e.target.name;
-    // let updatedToolPhotos = [];
-    // tool_photos.forEach((photo) => {
-    //   if (photo !== v) {
-    //     updatedToolPhotos.push(photo);
-    //   }
-    // });
-    let updatedToolPhotos = hf.handleDeleteItem(v, tool_photos);
+    let updatedToolPhotos = hf.handleDeleteItem(itemToDelete, tool_photos);
     this.setState({ tool_photos: updatedToolPhotos });
   }
 
@@ -80,12 +69,7 @@ class AddToolForm extends React.Component {
         Tool Name:{" "}
         <input type="text" name="tool_name" onChange={this.handleGetFields} />
         {tool_photos.length > 0 && (
-          // <AddToolFormToolPhotos
-          //   key={tool_photos.length}
-          //   tool_photos={tool_photos}
-          //   handleDeleteToolPhoto={this.handleDeleteToolPhoto}
-          // />
-          <EditPhotoDisplay photos={tool_photos}/>
+          <EditPhotoDisplay photos={tool_photos} deleteFunction={this.handleDeleteToolPhoto}/>
         )}
         Tool Photo:{" "}
         <input type="text" name="tool_photo" onChange={this.handleGetFields} />

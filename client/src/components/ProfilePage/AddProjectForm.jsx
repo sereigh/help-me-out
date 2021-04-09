@@ -141,13 +141,8 @@ class AddProjectForm extends React.Component {
         Needed Tools:
         <input type="text" name="needed_tool" onChange={this.handleGetFields} />
         <button onClick={this.handleAddToolToProjectToolList}>Add Tool</button>
-        {project_photos.length > 0 && (
-          // <AddProjectFormPhotos
-          //   project_photos={project_photos}
-          //   handleGetTargetName={handleGetTargetName}
-          //   handleDeleteFromProjectPhotos={this.handleDeleteFromProjectPhotos}
-          // />
-          <EditPhotoDisplay photos={project_photos} deleteFunction={this.handleDeleteFromProjectPhotos}/>
+        {project_photos !== [] > 0 && (
+          <EditPhotoDisplay key={project_photos} photos={project_photos} deleteFunction={this.handleDeleteFromProjectPhotos}/>
         )}
         Project Photos:{" "}
         <input
