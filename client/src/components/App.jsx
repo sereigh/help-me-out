@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Router, Switch, Route, Main } from 'react-router-dom';
+import { Router, Switch, Route } from 'react-router-dom';
 import Talk from 'talkjs';
 
 import sampleUser from '../../../server/database/data/sampleUser.json';
@@ -120,7 +120,7 @@ class App extends React.Component {
         />
         <Switch>
           <Route path="/" exact render={() => (
-            <LandingPage />
+            <div>heyy</div>
           )} />
           <Route path="/main" render={() => (
             <MainPage user={user} />
