@@ -2,7 +2,7 @@ import React from "react";
 
 const PhotoDisplay = ({ photos }) => {
   return (
-    <container>
+    <container className="photo-container">
       {photos.map((photo, index) => {
         return (
           <div key={index}>

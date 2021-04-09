@@ -1,0 +1,129 @@
+{
+  "hammer": {
+    "img": [
+      "https://loremflickr.com/320/240/claw-hammer,tool",
+      "https://loremflickr.com/320/240/craftsman,hammer,tool"
+    ]
+  },
+  "pliers": {
+    "img": [
+      "https://loremflickr.com/320/240/pliers,tool"
+    ]
+  },
+  "file": {
+    "img": [
+      "https://loremflickr.com/320/240/metal,file,tool"
+    ]
+  },
+  "saw": {
+    "img": [
+      "https://loremflickr.com/320/240/table-saw,tool",
+      "https://loremflickr.com/320/240/hand-saw,tool",
+      "https://loremflickr.com/320/240/circular,tool",
+      "https://loremflickr.com/320/240/chain-saw,tool"
+    ]
+  },
+  "screwdriver": {
+    "img": [
+      "https://loremflickr.com/320/240/flathead,screwdriver,tool",
+      "https://loremflickr.com/320/240/phillipshead,screwdriver,tool",
+      "https://loremflickr.com/320/240/phillips,screwdriver,tool",
+      "https://loremflickr.com/320/240/hex-key,tool",
+      "https://loremflickr.com/320/240/torx,tool"
+    ]
+  },
+  "multitester": {
+    "img": [
+      "https://loremflickr.com/320/240/multi-tester,tool"
+    ]
+  },
+  "wire": {
+    "img": [
+      "https://loremflickr.com/320/240/copper-wire,tool",
+      "https://loremflickr.com/320/240/twisted-pair,wire"
+    ]
+  },
+  "lawnmower": {
+    "img": [
+      "https://loremflickr.com/320/240/push-mower",
+      "https://loremflickr.com/320/240/riding-mower"
+    ]
+  },
+  "weedeater": {
+    "img": [
+      "https://loremflickr.com/320/240/weedeater,power-tool"
+    ]
+  },
+  "shears": {
+    "img": [
+      "https://loremflickr.com/320/240/shears,tool"
+    ]
+  },
+  "trowel": {
+    "img": [
+      "https://loremflickr.com/320/240/trowel,tool",
+      "https://loremflickr.com/320/240/garden,trowel,tool"
+    ]
+  },
+  "shovel": {
+    "img": [
+      "https://loremflickr.com/320/240/shovel,tool"
+    ]
+  },
+  "hoe": {
+    "img": [
+      "https://loremflickr.com/320/240/hoe,tool"
+    ]
+  },
+  "voltmeter": {
+    "img": [
+      "https://loremflickr.com/320/240/voltmeter,tool"
+    ]
+  },
+  "wrench": {
+    "img": [
+      "https://loremflickr.com/320/240/wrench,tool"
+    ]
+  },
+  "grinder": {
+    "img": [
+      "https://loremflickr.com/320/240/grinder,tool"
+    ]
+  },
+  "jack": {
+    "img": [
+      "https://loremflickr.com/320/240/car,jack,tool"
+    ]
+  },
+  "drill": {
+    "img": [
+      "https://loremflickr.com/320/240/drill,power-tool"
+    ]
+  },
+  "ladder": {
+    "img": [
+      "https://loremflickr.com/320/240/extension-ladder",
+      "https://loremflickr.com/320/240/ladder,tool"
+    ]
+  },
+  "framingsquare": {
+    "img": [
+      "https://loremflickr.com/320/240/square,ruler,metal"
+    ]
+  },
+  "axe": {
+    "img": [
+      "https://loremflickr.com/320/240/axe,metal,tool"
+    ]
+  },
+  "clamps": {
+    "img": [
+      "https://loremflickr.com/320/240/clamp,metal,tool"
+    ]
+  },
+  "ducttape": {
+    "img": [
+      "https://loremflickr.com/320/240/gorilla,tape"
+    ]
+  }
+}
