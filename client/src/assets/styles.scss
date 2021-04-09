@@ -4,6 +4,7 @@
 $main-color: rgb(255, 240, 212);
 $main-hover-color: rgba(255, 240, 212, 0.747);
 $accent-color: brown;
+$accent-hover-color: rgb(94, 11, 11);
 
 body {
   background-color: $main-color;
@@ -60,12 +61,14 @@ nav button:hover {
   cursor: pointer;
 }
 
-/* width */
 ::-webkit-scrollbar {
   width: 5px;
 }
 
-/* Handle */
+::-webkit-scrollbar-corner {
+  color: $main-color;
+}
+
 ::-webkit-scrollbar-thumb {
   background: $accent-color;
   border-radius: 10px;
