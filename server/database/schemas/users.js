@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 
 exports.usersSchema = mongoose.Schema({
   name: String,
-  zip: { type: Number, default: 37013 },
+  zip: { type: Number, default: 80301 },
   password: String,
   email: String,
-  photo: { type: String, default: 'https://tinyurl.com/help-me-out-app' },
+  photo: { type: String, default: 'http://via.placeholder.com/320x240' },
   handy: { type: Number, default: 0 },
   report: { type: Number, default: 0 },
   tools: [{
@@ -17,4 +17,7 @@ exports.usersSchema = mongoose.Schema({
     ref: 'Project',
   }],
   favorites: {},
+  reported: {},
+  upvoted: {},
+  downvoted: {},
 }, { timestamps: true });

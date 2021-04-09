@@ -9,8 +9,6 @@ $accent-hover-color: rgb(94, 11, 11);
 body {
   background-color: $main-color;
   color: $accent-color;
-  overscroll-behavior: none;
-  // overflow: hidden;
 }
 
 nav {
@@ -127,27 +125,27 @@ nav button:hover {
 
 // Handy Status Icon
 .handy-none, .handy-bronze, .handy-silver, .handy-gold, .handy-platinum {
-  width: 44px;
-  height: 44px;
-  background-image: url('./images/handy.png');
-  background-repeat: no-repeat;
-  background-size: 80px;
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  background-image: radial-gradient(rgba(255, 255, 255, 1) 55%, rgba(255, 255, 255, 0) 45%);
+  font-size: 30px;
 }
 
-.handy-bronze {
-  background-position: 4px 4px;
+.handy-none, .handy-bronze {
+  color: rgb(132, 88, 27);
 }
 
 .handy-silver {
-  background-position: -38px 4px;
+  color: rgb(164, 164, 164);
 }
 
 .handy-gold {
-  background-position: 4px -38px;
+  color: gold;
 }
 
 .handy-platinum {
-  background-position: -38px -38px;
+  color: rgb(148, 193, 193);
 }
 
 // Inbox Page
@@ -216,7 +214,6 @@ nav button:hover {
   width: 80%;
   height: 300px;
   border-radius: 20px;
-  margin-bottom: 120px;
   opacity: 0;
   animation: .1s ease-out .1s 1 forwards loadInbox;
 }

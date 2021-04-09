@@ -106,7 +106,7 @@ class MessageButton extends React.Component {
     const { showChat, chatboxId } = this.state;
     const chatButton = this.props.usedIn
       ? (
-        <div className="project-footer-button" onClick={this.handleClick}>
+        <div className="card-footer-button" onClick={this.handleClick}>
           <AiOutlineMessage />
           Message
         </div>

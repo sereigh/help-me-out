@@ -9,11 +9,7 @@ class LogIn extends React.Component {
 
   //on componentDidMount get user info
   render() {
-    return (
-      <div>
-        Log In Page
-      </div>
-    );
+    return <div>Log In Page</div>;
   }
 }
 
