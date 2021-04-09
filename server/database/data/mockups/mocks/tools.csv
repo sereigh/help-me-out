@@ -1,4 +1,4 @@
-cols, tool_name, help, tool_photos, data,
+tool_name, help, tool_photos,
 hammer, true, https://loremflickr.com/320/240/claw-hammer, tool,
 hammer, true, https://loremflickr.com/320/240/craftsman, hammer, tool,
 pliers, true, https://loremflickr.com/320/240/pliers, tool,
