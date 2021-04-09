@@ -19,7 +19,7 @@ const FeedContainer = ({ user, currentFilter, data }) => {
   }
 
   return (
-    <div className="feed-container">
+    <div className="feed">
       <div className="feed-title">{title}</div>
       {data.map((item) => (
         <div key={item._id}>
