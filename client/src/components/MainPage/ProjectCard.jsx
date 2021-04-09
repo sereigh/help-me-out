@@ -65,9 +65,9 @@ class ProjectCard extends React.Component {
             <img src={project.project_photos[0]} alt="project" />
           </div>
           <div className="project-details">
-            <span>{`${project.project_description} just typing all of this out so it can fill more content incase someone typed a whole buncha stuff for content`}</span>
+            <span className="project-description">{`${project.project_description} just typing all of this out so it can fill more content incase someone typed a whole buncha stuff for content`}</span>
             <span>{project.help ? 'This project is in need of assistance' : 'This project does not need any assistance'}</span>
-            <ul>
+            <ul className="needed-tools">
               {tools ? tools.map((tool) => <li key={tools.indexOf(tool)}>{tool}</li>) : []}
             </ul>
           </div>
@@ -82,8 +82,7 @@ class ProjectCard extends React.Component {
             <div className="project-footer-button" onClick={() => this.handleVote('up')}><FaRegThumbsUp />Upvote</div>
             <div className="project-footer-button" onClick={() => this.handleVote('down')}><FaRegThumbsDown />Downvote</div>
             <div className="project-footer-button" onClick={() => this.handleVote('report')}><VscReport />Report</div>
-            <FaRegThumbsUp />
-            <div type="button" onClick={this.toggleFavorite}>{favorited ? 'Favorite' : 'Not favorite'}</div>
+            <div className="project-footer-button" onClick={this.toggleFavorite}><FaRegThumbsUp />{favorited ? 'Favorite' : 'Not favorite'}</div>
             <MessageButton user={user} otherUser={project.project_owner} usedIn="-card-footer" />
 
           </div>
