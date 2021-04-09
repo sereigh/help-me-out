@@ -1,9 +1,12 @@
-// .feed-container {
-//   max-width: 600px;
-//   display: grid;
-// }
+$main-color: rgb(255, 240, 212);
+$main-hover-color: rgba(255, 240, 212, 0.747);
+$accent-color: brown;
 
 // Main Page SCSS
+.main-page {
+  transform: translateY(60px);
+}
+
 .main-page, .main-page-left, .filter-buttons, .profile-card {
   display: flex;
 }
@@ -25,20 +28,26 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-right: 1px solid gray;
+  border-right: 3px solid $accent-color;
   width: 25%;
 }
 
+.feed {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
 .feed-container {
-  height: 88vh;
+  height: 80vh;
   overflow: scroll;
   margin-left: 30px;
 }
 
 .feed-title {
   text-align: center;
-  height: 20px;
-  line-height: 20px;
+  height: 50px;
+  line-height: 50px;
 }
 
 /* PROFILE CARD */
@@ -46,6 +55,7 @@
   max-width: 75%;
   max-height: 75%;
   object-fit: scale-down;
+  border: 1px solid $accent-color;
   border-radius: 20px;
 }
 
@@ -60,24 +70,42 @@
 .project-card {
   @include feed-card;
   grid-template-rows: 30px auto 50px;
+  box-shadow: 2px 2px 30px rgba(0,0,0,0.2);
 }
-
+.project-name-div {
+  color: red;
+}
 .project-info {
   display: grid;
   grid-template-columns: 40% 60%;
+  max-height: 220px;
+  overflow: hidden;
 
-  .project-photo {
+  .project-photo-div {
+    position: relative;
+    max-width: 240px;
+    max-height: 220px;
+    // overflow: hidden;
     img {
-      max-width: 100%;
-      max-height: 200%;
-      border-radius: 20px;
-      object-fit: scale-down;
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      object-fit: fill;
+    }
+    .project-img-star {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
+    .project-img-star:hover {
+      cursor: pointer;
     }
   }
 
   .project-details {
     display: grid;
-    grid-template-rows: 20% 10px fr;
+    grid-template-rows: 20% 10px 1fr;
   }
 }
 
@@ -94,7 +122,32 @@
   grid-template-rows: 25px 25px;
   grid-template-areas:
     "picture name"
-    "picture button";
+    "picture buttons";
+}
+
+.project-footer-name-div {
+  grid-area: name;
+  display: flex;
+}
+
+.project-footer-buttons-div {
+  grid-area: buttons;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.project-footer-button {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100px;
+  height: 25px;
+  border-radius: 3px;
+  // text-align: center;
+}
+
+.project-footer-button:hover {
+  cursor: pointer;
+  background-color: orange;
 }
 
 /* TOOL CARD */
@@ -181,4 +234,12 @@
   background-image: url('./images/handy.png');
   background-repeat: no-repeat;
   background-size: 300px;
+}
+
+.handy-none-project-footer, .handy-bronze-project-footer, .handy-silver-project-footer, .handy-gold-project-footer, .handy-platinum-project-footer {
+  width: 25px;
+  height: 25px;
+  background-image: url('./images/handy.png');
+  background-repeat: no-repeat;
+  background-size: 50px;
 }
