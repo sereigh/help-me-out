@@ -84,7 +84,7 @@ class MessageButton extends React.Component {
         this.chatbox.mount(this.container);
         this.chatbox.on('blur', this.minimizeChat);
         this.chatbox.on('focus', this.focusChat);
-        document.getElementById(`${chatboxId + 1}`).focus();
+        document.getElementById(`${chatboxId}`).focus();
       })
       .catch((e) => console.error(e));
   }
