@@ -143,13 +143,13 @@ $accent-hover-color: rgb(94, 11, 11);
   display: flex;
 }
 
-.project-footer-buttons-div {
+.card-footer-buttons-div {
   grid-area: buttons;
   display: flex;
   justify-content: space-evenly;
 }
 
-.project-footer-button {
+.card-footer-button {
   display: flex;
   justify-content: space-evenly;
   width: 100px;
@@ -159,7 +159,7 @@ $accent-hover-color: rgb(94, 11, 11);
   // text-align: center;
 }
 
-.project-footer-button:hover {
+.card-footer-button:hover {
   cursor: pointer;
   color: $accent-hover-color;
 }
@@ -211,7 +211,7 @@ $accent-hover-color: rgb(94, 11, 11);
   grid-template-areas:
     "tool-name"
     "tool-image"
-    "message-button";
+    "buttons";
 }
 
 .tool-name-div {
