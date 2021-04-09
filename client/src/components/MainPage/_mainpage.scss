@@ -6,6 +6,7 @@ $accent-hover-color: rgb(94, 11, 11);
 // Main Page SCSS
 .main-page {
   transform: translateY(60px);
+  height: calc(95vh - 60px);
 }
 
 .main-page, .main-page-left, .filter-buttons, .profile-card {
@@ -39,12 +40,12 @@ $accent-hover-color: rgb(94, 11, 11);
   display: flex;
   flex-direction: column;
   gap: 15px;
-  height: calc(100vh - 60px);
   overflow: scroll;
 }
 
 .feed-container {
   margin-left: 30px;
+  overflow: scroll;
 }
 
 .feed-title {
