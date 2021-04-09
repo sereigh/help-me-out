@@ -68,7 +68,6 @@ class App extends React.Component {
 
   inboxNotifier() {
     const { user } = this.state;
-    console.log('wownow')
     Talk.ready
       .then(() => {
         user.id = user._id;
