@@ -7,19 +7,30 @@ const UserInfo = (props) => {
     photo,
     zip,
     handy,
+    password,
+    email,
     showEditUserForm,
     toggleEditUserForm,
   } = props;
   return (
-    <div className="user-info">
-      <img src={photo} alt="profile_photo" />
+    <div id="user-info">
+      <img className="user-photo" src={photo} alt="profile_photo" />
       <div>{name}</div>
-      <div>{zip}</div>
-      <div>{handy}</div>
+      <div>{`Current ZIP Code: ${zip}`}</div>
+      <div>{`Handy Score: ${handy}`}</div>
+      <div>{email}</div>
       {!showEditUserForm && (
-        <button onClick={toggleEditUserForm}>Edit Profile</button>
+        <button className="edit-user-info-button" onClick={toggleEditUserForm}>Edit Profile</button>
       )}
-      {showEditUserForm && <EditUserInfo name={name} zip={zip} photo={photo} />}
+      {showEditUserForm && (
+        <EditUserInfo
+          name={name}
+          zip={zip}
+          photo={photo}
+          email={email}
+          password={password}
+        />
+      )}
     </div>
   );
 };

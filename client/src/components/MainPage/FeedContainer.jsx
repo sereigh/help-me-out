@@ -1,33 +1,61 @@
+/* eslint-disable react/prefer-stateless-function */
 /* eslint-disable no-underscore-dangle */
-import React from 'react';
+import React, { Component } from 'react';
+import axios from 'axios';
 import PropTypes from 'prop-types';
 
 import ProjectCard from './ProjectCard';
 import ToolCard from './ToolCard';
 
-const FeedContainer = ({ user, currentFilter, data }) => {
-  let title = '';
+class FeedContainer extends Component {
+  constructor(props) {
+    super(props);
 
-  if (currentFilter === 'home') {
-    title = 'Home';
-  } else if (currentFilter === 'giveHelp') {
-    title = 'Give Help';
-  } else if (currentFilter === 'getHelp') {
-    title = 'Get Help';
-  } else if (currentFilter === 'favorites') {
-    title = 'Favorites';
   }
 
-  return (
-    <div className="feed">
-      <div className="feed-title">{title}</div>
-      {data.map((item) => (
-        <div key={item._id}>
-          {item.tool_name ? <ToolCard user={user} tool={item} /> : <ProjectCard user={user} project={item} />}
+  render() {
+    const handleVote = (vote, userID) => {
+      if (vote === 'up') {
+        axios.post(`/users/${userID}/handy/up`)
+          // eslint-disable-next-line no-console
+          .catch((err) => console.log(err));
+      } else if (vote === 'down') {
+        axios.post(`/users/${userID}/handy/down`)
+          // eslint-disable-next-line no-console
+          .catch((err) => console.log(err));
+      } else if (vote === 'report') {
+        axios.post(`/users/${userID}/report`)
+          // eslint-disable-next-line no-console
+          .catch((err) => console.log(err));
+      }
+    };
+
+    const { user, currentFilter, data } = this.props;
+    let title = '';
+
+    if (currentFilter === 'home') {
+      title = 'Home';
+    } else if (currentFilter === 'giveHelp') {
+      title = 'Give Help';
+    } else if (currentFilter === 'getHelp') {
+      title = 'Get Help';
+    } else if (currentFilter === 'favorites') {
+      title = 'Favorites';
+    }
+
+    return (
+      <div className="feed">
+        <div className="feed-title">{title}</div>
+        <div className="feed-container">
+          {data.map((item) => (
+            <div key={item._id}>
+              {item.tool_name ? <ToolCard user={user} tool={item} handleVote={handleVote}/> : <ProjectCard user={user} project={item} handleVote={handleVote} />}
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
-  );
+      </div>
+    );
+  }
 };
 
 FeedContainer.propTypes = {

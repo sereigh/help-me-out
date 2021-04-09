@@ -1,10 +1,12 @@
 $main-color: rgb(255, 240, 212);
 $main-hover-color: rgba(255, 240, 212, 0.747);
 $accent-color: brown;
+$accent-hover-color: rgb(94, 11, 11);
 
 // Main Page SCSS
 .main-page {
   transform: translateY(60px);
+  height: calc(95vh - 60px);
 }
 
 .main-page, .main-page-left, .filter-buttons, .profile-card {
@@ -19,9 +21,11 @@ $accent-color: brown;
 /* remove margin once proper css has been added to container */
 @mixin feed-card {
   display:grid;
-  width: 600px;
+  width: 85%;
   height: 300px;
   border-radius: 20px;
+  margin: 20px;
+  padding: 20px;
 }
 
 .main-page-left {
@@ -36,12 +40,12 @@ $accent-color: brown;
   display: flex;
   flex-direction: column;
   gap: 15px;
+  overflow: scroll;
 }
 
 .feed-container {
-  height: 80vh;
-  overflow: scroll;
   margin-left: 30px;
+  overflow: scroll;
 }
 
 .feed-title {
@@ -71,13 +75,14 @@ $accent-color: brown;
   @include feed-card;
   grid-template-rows: 30px auto 50px;
   box-shadow: 2px 2px 30px rgba(0,0,0,0.2);
+  padding-bottom: 40px;
 }
 .project-name-div {
-  color: red;
+  color: $accent-color;
 }
 .project-info {
   display: grid;
-  grid-template-columns: 40% 60%;
+  grid-template-columns: 220px 1fr;
   max-height: 220px;
   overflow: hidden;
 
@@ -97,15 +102,22 @@ $accent-color: brown;
       position: absolute;
       top: 5px;
       right: 5px;
+      transition: color 200ms;
     }
     .project-img-star:hover {
       cursor: pointer;
+      color: $accent-hover-color;
     }
   }
 
   .project-details {
     display: grid;
-    grid-template-rows: 20% 10px 1fr;
+    grid-template-rows: 60% 10px 1fr;
+    margin-left: 20px;
+
+    .project-description, .needed-tools {
+      overflow: scroll;
+    }
   }
 }
 
@@ -117,6 +129,7 @@ $accent-color: brown;
 }
 
 .project-footer {
+  margin-top: 20px;
   display: grid;
   grid-template-columns: 50px 1fr;
   grid-template-rows: 25px 25px;
@@ -130,24 +143,25 @@ $accent-color: brown;
   display: flex;
 }
 
-.project-footer-buttons-div {
+.card-footer-buttons-div {
   grid-area: buttons;
   display: flex;
   justify-content: space-evenly;
 }
 
-.project-footer-button {
+.card-footer-button {
   display: flex;
   justify-content: space-evenly;
   width: 100px;
   height: 25px;
   border-radius: 3px;
+  transition: color 200ms;
   // text-align: center;
 }
 
-.project-footer-button:hover {
+.card-footer-button:hover {
   cursor: pointer;
-  background-color: orange;
+  color: $accent-hover-color;
 }
 
 /* TOOL CARD */
@@ -197,7 +211,7 @@ $accent-color: brown;
   grid-template-areas:
     "tool-name"
     "tool-image"
-    "message-button";
+    "buttons";
 }
 
 .tool-name-div {
