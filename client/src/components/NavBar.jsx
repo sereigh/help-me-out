@@ -10,6 +10,7 @@ const NavBar = ({
   handleNav,
   responseGoogleSuccess,
   responseGoogleFailure,
+  inboxNotifier,
 }) => (
   <>
     {!isLoggedIn && (
@@ -33,7 +34,8 @@ const NavBar = ({
         <div className="page-title">Help Me Out!</div>
         <span className="navbar-right">
           <button type="button" onClick={() => handleNav('mainPage')}>Dashboard</button>
-          <button type="button" onClick={() => handleNav('inbox')}>Inbox</button>
+          <button type="button" id="inbox-notifier" onClick={() => handleNav('inbox')}>Inbox (0)</button>
+          {inboxNotifier()}
           <button type="button" onClick={() => handleNav('profilePage')}>Account</button>
           <span
             role="button"
@@ -45,7 +47,9 @@ const NavBar = ({
           </span>
           <span className="handy-score">{`Handy Score: ${score}`}</span>
           <HandyIcon score={score} />
-          <button type="button" onClick={() => handleNav('landingPage')}>Log Out</button>
+          <button type="button" onClick={() => handleNav('landingPage')}>
+            Log Out
+          </button>
         </span>
       </nav>
     )}
@@ -59,6 +63,7 @@ NavBar.propTypes = {
   handleNav: PropTypes.func.isRequired,
   responseGoogleSuccess: PropTypes.func.isRequired,
   responseGoogleFailure: PropTypes.func.isRequired,
+  inboxNotifier: PropTypes.func.isRequired,
 };
 
 export default NavBar;

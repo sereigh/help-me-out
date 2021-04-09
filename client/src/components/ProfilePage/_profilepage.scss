@@ -1,28 +1,60 @@
+$main-color: rgb(255, 240, 212);
+$main-hover-color: rgba(255, 240, 212, 0.747);
+$accent-color: brown;
+$accent-hover-color: rgb(94, 11, 11);
+
 #user-profile {
   margin: auto;
   display: grid;
   width: 100%;
-  grid-template-columns: 25% 40%;
-  background-color: aliceblue;
+  grid-template-columns: 24.4% 1fr;
+  background-color: $main-color;
+  transform: translateY(60px);
+  height: calc(95vh - 60px);
 }
 
 .user-info-pane {
-  background-color: red;
+  border-right: 3px solid $accent-color;
 }
 
 .user-feed {
   padding-left: 5%;
   padding-top: 5%;
-  background-color: green;
+  background-color: $main-color;
+  overflow: scroll;
 }
 
 #user-info {
-  padding-left: 35%;
-  padding-top: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-photo {
+  max-width: 38.8%;
+  max-height: 38.8%;
+  object-fit: scale-down;
+  border: 1px solid $accent-color;
+  border-radius: 20px;
+}
+
+.edit-user-info-button {
+  margin-top: 10px;
+}
+
+.edit-user-info-form {
+  margin-top: 10px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 #user-projects {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
 }
 
 #user-tools {
@@ -30,7 +62,13 @@
 
 .user-project {
   display: flex;
+  overflow: scroll;
 }
 
 .user-project {
+}
+
+.photo-container {
+  display: flex;
+  overflow: scroll;
 }
