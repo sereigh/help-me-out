@@ -217,4 +217,6 @@ nav button:hover {
   height: 300px;
   border-radius: 20px;
   margin-bottom: 120px;
+  opacity: 0;
+  animation: .1s ease-out .1s 1 forwards loadInbox;
 }
