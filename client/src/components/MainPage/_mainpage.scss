@@ -36,11 +36,11 @@ $accent-color: brown;
   display: flex;
   flex-direction: column;
   gap: 15px;
+  height: calc(100vh - 60px);
+  overflow: scroll;
 }
 
 .feed-container {
-  height: 80vh;
-  overflow: scroll;
   margin-left: 30px;
 }
 

@@ -104,11 +104,14 @@ class MessageButton extends React.Component {
 
   render() {
     const { showChat, chatboxId } = this.state;
-    const chatButton = this.props.usedIn ?
-    <div className="project-footer-button" onClick={this.handleClick}>
-      <AiOutlineMessage />Message
-    </div>
-    : <button type="button" onClick={this.handleClick}>Message</button>;
+    const chatButton = this.props.usedIn
+      ? (
+        <div className="project-footer-button" onClick={this.handleClick}>
+          <AiOutlineMessage />
+          Message
+        </div>
+      )
+      : <button type="button" onClick={this.handleClick}>Message</button>;
 
     return (
       <>
