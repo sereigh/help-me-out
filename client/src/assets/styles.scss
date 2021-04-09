@@ -12,6 +12,11 @@ body {
   font-family: Helvetica, Arial, sans-serif;
 }
 
+p {
+  padding: none;
+  margin: 0;
+}
+
 nav {
   position: absolute;
   top: 0;
@@ -174,9 +179,9 @@ nav button:hover {
 // Chat Box
 .chatbox-container {
   height: 400px;
-  position: fixed;
-  left: 2.5vw;
-  bottom: 0vh;
+  position: relative;
+  // left: 2.5vw;
+  // bottom: 0vh;
   animation: .5s ease-out .2s 1 forwards loadChat;
   overflow: hidden;
   transition: all .4s;
@@ -219,4 +224,5 @@ nav button:hover {
   border-radius: 20px;
   opacity: 0;
   animation: .1s ease-out .1s 1 forwards loadInbox;
+  margin-top: 40px;
 }

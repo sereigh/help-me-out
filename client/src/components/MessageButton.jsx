@@ -43,7 +43,7 @@ class MessageButton extends React.Component {
   minimizeChat() {
     const { showChat, chatboxId, isFocus } = this.state;
     if (showChat && isFocus) {
-      document.getElementById(`${chatboxId + 1}`).style.height = '60px';
+      document.getElementById(`${chatboxId}`).style.height = '60px';
     }
     this.setState({ isFocus: false });
   }
@@ -51,7 +51,7 @@ class MessageButton extends React.Component {
   focusChat() {
     const { showChat, chatboxId } = this.state;
     if (showChat) {
-      document.getElementById(`${chatboxId + 1}`).style.height = '400px';
+      document.getElementById(`${chatboxId}`).style.height = '400px';
     }
     this.setState({ isFocus: true });
   }
@@ -96,8 +96,8 @@ class MessageButton extends React.Component {
   renderChat() {
     const { chatboxId } = this.state;
     ReactDOM.render(
-      <div className="chatbox-container" id={`${chatboxId + 1}`} onBlur={this.minimizeChat} onFocus={this.focusChat} ref={(c) => this.container = c} />,
-      document.getElementById(`${chatboxId}`),
+      <div className="chatbox-container" id={`${chatboxId}`} onBlur={this.minimizeChat} onFocus={this.focusChat} ref={(c) => this.container = c} />,
+      document.getElementById('chatbox-mount'),
     );
     this.chat();
   }
@@ -116,7 +116,8 @@ class MessageButton extends React.Component {
     return (
       <>
         {chatButton}
-        {showChat && <div className="chatbox-container" id={`${chatboxId}`} />}
+        {/* {showChat
+        && <div className="chatbox-container" id={`${chatboxId}`} />} */}
       </>
     );
   }
