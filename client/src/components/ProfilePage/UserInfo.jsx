@@ -13,7 +13,7 @@ const UserInfo = (props) => {
     toggleEditUserForm,
   } = props;
   return (
-    <div className="user-info">
+    <div id="user-info">
       <img src={photo} alt="profile_photo" />
       <div>{name}</div>
       <div>{zip}</div>

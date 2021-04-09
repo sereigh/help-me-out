@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import EditDeleteProjectPhotos from "./EditDeleteProjectPhotos";
+import EditPhotoDisplay from "./EditPhotoDisplay";
 
 class EditDeleteUserProject extends React.Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class EditDeleteUserProject extends React.Component {
 
     this.handleGetFields = this.handleGetFields.bind(this);
     this.handleAddToPhotoList = this.handleAddToPhotoList.bind(this);
-    this.handleDeleteFromProjectPhotoList = this.handleDeleteFromProjectPhotoList.bind(
+    this.handleDeleteFromProjectPhotos = this.handleDeleteFromProjectPhotos.bind(
       this
     );
     this.handleToggleHelp = this.handleToggleHelp.bind(this);
@@ -30,27 +30,20 @@ class EditDeleteUserProject extends React.Component {
 
   handleAddToPhotoList() {
     const { project_photo, project_photos } = this.state;
-    if (
-      project_photos.indexOf(project_photo) === -1 &&
-      project_photo.length > 3
-    ) {
-      const revisedPhotos = project_photos.concat(project_photo);
-      this.setState({ project_photos: revisedPhotos });
-      let inputField = document.querySelector('input[name="project_photo"]');
-      inputField.value = "";
-    }
+    this.setState({
+      project_photos: handleAddItem(project_photo, project_photos),
+    });
+    let inputField = document.querySelector('input[name="project_photo"]');
+    inputField.value = "";
   }
 
-  handleDeleteFromProjectPhotoList(e) {
+  handleDeleteFromProjectPhotos(itemToDelete) {
+    debugger;
+    const { handleDeleteItem } = this.props;
     const { project_photos } = this.state;
-    let v = e.target.name;
-    let updatedPhotos = [];
-    project_photos.forEach((photo) => {
-      if (photo !== v) {
-        updatedPhotos.push(photo);
-      }
+    this.setState({
+      project_photos: handleDeleteItem(itemToDelete, project_photos),
     });
-    this.setState({ project_photos: updatedPhotos });
   }
 
   handleToggleHelp() {
@@ -101,7 +94,12 @@ class EditDeleteUserProject extends React.Component {
   }
 
   render() {
-    const { project, formattedDate, toggleProjectEditDelete } = this.props;
+    const {
+      project,
+      formattedDate,
+      toggleProjectEditDelete,
+      handleGetTargetName,
+    } = this.props;
     const {
       project_name,
       project_description,
@@ -124,12 +122,10 @@ class EditDeleteUserProject extends React.Component {
           onChange={this.handleGetFields}
         />
         {project_photos.length > 0 && (
-          <EditDeleteProjectPhotos
-            key={project_photos.length}
-            project_photos={project_photos}
-            handleDeleteFromProjectPhotoList={
-              this.handleDeleteFromProjectPhotoList
-            }
+          <EditPhotoDisplay
+            photos={project_photos}
+            handleGetTargetName={handleGetTargetName}
+            deleteFunction={this.handleDeleteFromProjectPhotos}
           />
         )}
         Project Photos:{" "}

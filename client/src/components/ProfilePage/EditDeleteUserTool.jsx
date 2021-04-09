@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import EditDeleteToolPhotoList from "./EditDeleteToolPhotoList";
+import EditPhotoDisplay from "./EditPhotoDisplay";
 
 class EditDeleteUserTool extends React.Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class EditDeleteUserTool extends React.Component {
 
     this.handleGetFields = this.handleGetFields.bind(this);
     this.handleAddToToolPhotoList = this.handleAddToToolPhotoList.bind(this);
-    this.handleDeleteFromToolPhotoList = this.handleDeleteFromToolPhotoList.bind(
+    this.handleDeleteFromToolPhotos = this.handleDeleteFromToolPhotos.bind(
       this
     );
     this.handleToggleHelp = this.handleToggleHelp.bind(this);
@@ -29,25 +29,15 @@ class EditDeleteUserTool extends React.Component {
   }
 
   handleAddToToolPhotoList() {
+    const { handleAddItem } = this.props;
     const { tool_photo, tool_photos } = this.state;
-    if (tool_photos.indexOf(tool_photo) === -1 && tool_photo.length > 3) {
-      const revisedPhotos = tool_photos.concat(tool_photo);
-      this.setState({ tool_photos: revisedPhotos });
-      let inputField = document.querySelector('input[name="tool_photo"]');
-      inputField.value = "";
-    }
+    this.setState({ tool_photos: handleAddItem(tool_photo, tool_photos) });
   }
 
-  handleDeleteFromToolPhotoList(e) {
+  handleDeleteFromToolPhotos(target) {
+    const { handleDeleteItem } = this.props;
     const { tool_photos } = this.state;
-    let v = e.target.name;
-    let updatedPhotos = [];
-    tool_photos.forEach((photo) => {
-      if (photo !== v) {
-        updatedPhotos.push(photo);
-      }
-    });
-    this.setState({ tool_photos: updatedPhotos });
+    this.setState({ tool_photos: handleDeleteItem(target, tool_photos) });
   }
 
   handleToggleHelp() {
@@ -88,7 +78,7 @@ class EditDeleteUserTool extends React.Component {
   }
 
   render() {
-    const { tool, toggleToolEditDelete } = this.props;
+    const { tool, toggleToolEditDelete, handleGetTargetName } = this.props;
     const { tool_photos, tool_name, help } = this.state;
     return (
       <div>
@@ -100,9 +90,10 @@ class EditDeleteUserTool extends React.Component {
           onChange={this.handleGetFields}
         />
         {tool_photos.length > 0 && (
-          <EditDeleteToolPhotoList
-            tool_photos={tool_photos}
-            handleDeleteFromToolPhotoList={this.handleDeleteFromToolPhotoList}
+          <EditPhotoDisplay
+            photos={tool_photos}
+            handleGetTargetName={handleGetTargetName}
+            deleteFunction={this.handleDeleteFromToolPhotos}
           />
         )}
         <input type="text" name="tool_photo" onChange={this.handleGetFields} />

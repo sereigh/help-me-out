@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import EditDeleteUserProject from "./EditDeleteUserProject";
-import ProjectPhotos from "./ProjectPhotos";
+import PhotoDisplay from "./PhotoDisplay";
 
 class UserProject extends React.Component {
   constructor(props) {
@@ -22,16 +22,25 @@ class UserProject extends React.Component {
   }
 
   render() {
-    const { project, user_id } = this.props;
+    const {
+      project,
+      user_id,
+      handleGetTargetName,
+      handleDeleteItem,
+      handleAddItem,
+    } = this.props;
     const { showProjectEditDelete } = this.state;
     const formattedDate = this.formattedDate(project.createdAt);
     return (
-      <div>
+      <div className="user-project">
         {!showProjectEditDelete && (
           <div>
             <div>{project.project_name}</div>
             <div>{project.project_description}</div>
-            <ProjectPhotos project_photos={project.project_photos} />
+            <PhotoDisplay
+              photos={project.project_photos}
+              handleGetTargetName={handleGetTargetName}
+            />
             {project.help ? <div>Need Help!</div> : <div>No help</div>}
             <div>{project.needed_tools}</div>
             <div>{formattedDate}</div>
@@ -48,6 +57,9 @@ class UserProject extends React.Component {
             project={project}
             user_id={user_id}
             formattedDate={formattedDate}
+            handleGetTargetName={handleGetTargetName}
+            handleDeleteItem={handleDeleteItem}
+            handleAddItem={handleAddItem}
             toggleProjectEditDelete={this.toggleProjectEditDelete}
           />
         )}

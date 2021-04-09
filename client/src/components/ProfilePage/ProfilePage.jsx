@@ -70,31 +70,61 @@ class ProfilePage extends React.Component {
       showAddToolForm,
       showEditUserForm,
     } = this.state;
+    const handleGetTargetName = (e) => e.target.name;
+    const handleDeleteItem = (itemToDelete, itemArray) => {
+      let updatedArray = [];
+      itemArray.forEach((item) => {
+        if (item !== itemToDelete) {
+          updatedArray.push(item);
+        }
+      });
+      return updatedArray;
+    };
+    const handleAddItem = (itemToAdd, itemArray) => {
+      if (itemArray.indexOf(itemToAdd) === -1 && itemToAdd.length > 3) {
+        const revisedArray = itemArray.concat(itemToAdd);
+        return revisedArray;
+      }
+    };
+
     return (
-      <div>
-        <UserInfo
-          user_id={_id}
-          name={name}
-          photo={photo}
-          zip={zip}
-          password={password}
-          email={email}
-          handy={handy}
-          showEditUserForm={showEditUserForm}
-          toggleEditUserForm={this.toggleEditUserForm}
-        />
-        <UserProjects
-          user_id={_id}
-          projects={projects}
-          showAddProjectForm={showAddProjectForm}
-          toggleAddProjectForm={this.toggleAddProjectForm}
-        />
-        <UserTools
-          user_id={_id}
-          tools={tools}
-          showAddToolForm={showAddToolForm}
-          toggleAddToolForm={this.toggleAddToolForm}
-        />
+      <div id="user-profile">
+        <div className="user-info-pane">
+          <UserInfo
+            user_id={_id}
+            name={name}
+            photo={photo}
+            zip={zip}
+            password={password}
+            email={email}
+            handy={handy}
+            showEditUserForm={showEditUserForm}
+            toggleEditUserForm={this.toggleEditUserForm}
+            handleGetTargetName={handleGetTargetName}
+            handleDeleteItem={handleDeleteItem}
+            handleAddItem={handleAddItem}
+          />
+        </div>
+        <div className="user-feed">
+          <UserProjects
+            user_id={_id}
+            projects={projects}
+            showAddProjectForm={showAddProjectForm}
+            toggleAddProjectForm={this.toggleAddProjectForm}
+            handleGetTargetName={handleGetTargetName}
+            handleDeleteItem={handleDeleteItem}
+            handleAddItem={handleAddItem}
+          />
+          <UserTools
+            user_id={_id}
+            tools={tools}
+            showAddToolForm={showAddToolForm}
+            toggleAddToolForm={this.toggleAddToolForm}
+            handleGetTargetName={handleGetTargetName}
+            handleDeleteItem={handleDeleteItem}
+            handleAddItem={handleAddItem}
+          />
+        </div>
       </div>
     );
   }

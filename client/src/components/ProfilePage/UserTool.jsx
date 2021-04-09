@@ -1,5 +1,6 @@
 import React from "react";
 import EditDeleteUserTool from "./EditDeleteUserTool";
+import PhotoDisplay from "./PhotoDisplay";
 
 class UserTool extends React.Component {
   constructor(props) {
@@ -14,14 +15,20 @@ class UserTool extends React.Component {
     this.setState({ showToolEditDelete: !showToolEditDelete });
   }
   render() {
-    const { tool, user_id } = this.props;
+    const {
+      tool,
+      user_id,
+      handleGetTargetName,
+      handleDeleteItem,
+      handleAddItem,
+    } = this.props;
     const { showToolEditDelete } = this.state;
     return (
-      <div>
+      <div className="user-tool">
         {!showToolEditDelete && (
           <div>
             <div>{tool.tool_name}</div>
-            <img src={tool.tool_photos[0]} />
+            <PhotoDisplay photos={tool.tool_photos} />
             {tool.help ? <div>Need Help!</div> : <div>No Help</div>}
             <button onClick={this.toggleToolEditDelete}>
               Edit/Delete Tool
@@ -33,6 +40,9 @@ class UserTool extends React.Component {
             user_id={user_id}
             tool={tool}
             toggleToolEditDelete={this.toggleToolEditDelete}
+            handleGetTargetName={handleGetTargetName}
+            handleDeleteItem={handleDeleteItem}
+            handleAddItem={handleAddItem}
           />
         )}
       </div>

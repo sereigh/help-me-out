@@ -26,7 +26,7 @@ class AddProjectForm extends React.Component {
     this.handleDeleteFromProjectToolList = this.handleDeleteFromProjectToolList.bind(
       this
     );
-    this.handleDeleteFromProjectPhotoList = this.handleDeleteFromProjectPhotoList.bind(
+    this.handleDeleteFromProjectPhotos = this.handleDeleteFromProjectPhotos.bind(
       this
     );
     this.handleSubmitNewProject = this.handleSubmitNewProject.bind(this);
@@ -77,16 +77,11 @@ class AddProjectForm extends React.Component {
     this.setState({ needed_tools: updatedTools });
   }
 
-  handleDeleteFromProjectPhotoList() {
+  handleDeleteFromProjectPhotos(photoToDelete) {
     const { project_photos } = this.state;
-    let v = e.target.name;
-    let updatedPhotos = [];
-    project_photos.forEach((photo) => {
-      if (photo !== v) {
-        updatedPhotos.push(photo);
-      }
-    });
-    this.setState({ project_photos: updatedPhotos });
+    debugger;
+    const alteredPhotoList = handleDeletePhoto(photoToDelete, project_photos);
+    this.setState({ project_photos: alteredPhotoList });
   }
 
   handleSubmitNewProject() {
@@ -117,7 +112,7 @@ class AddProjectForm extends React.Component {
   }
 
   render() {
-    const { toggleAddProjectForm } = this.props;
+    const { toggleAddProjectForm, handleGetTargetName } = this.props;
     const { needed_tools, project_photos } = this.state;
     return (
       <div>
@@ -147,9 +142,8 @@ class AddProjectForm extends React.Component {
         {project_photos.length > 0 && (
           <AddProjectFormPhotos
             project_photos={project_photos}
-            handleDeleteFromProjectPhotoList={
-              this.handleDeleteFromProjectPhotoList
-            }
+            handleGetTargetName={handleGetTargetName}
+            handleDeleteFromProjectPhotos={this.handleDeleteFromProjectPhotos}
           />
         )}
         Project Photos:{" "}
