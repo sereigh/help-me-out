@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import EditPhotoDisplay from "./EditPhotoDisplay";
+import hf from './helperFunctions';
 
 class EditDeleteUserProject extends React.Component {
   constructor(props) {
@@ -30,19 +31,18 @@ class EditDeleteUserProject extends React.Component {
 
   handleAddToPhotoList() {
     const { project_photo, project_photos } = this.state;
+    debugger;
     this.setState({
-      project_photos: handleAddItem(project_photo, project_photos),
+      project_photos: hf.handleAddItem(project_photo, project_photos),
     });
     let inputField = document.querySelector('input[name="project_photo"]');
     inputField.value = "";
   }
 
   handleDeleteFromProjectPhotos(itemToDelete) {
-    debugger;
-    const { handleDeleteItem } = this.props;
     const { project_photos } = this.state;
     this.setState({
-      project_photos: handleDeleteItem(itemToDelete, project_photos),
+      project_photos: hf.handleDeleteItem(itemToDelete, project_photos),
     });
   }
 
@@ -124,7 +124,6 @@ class EditDeleteUserProject extends React.Component {
         {project_photos.length > 0 && (
           <EditPhotoDisplay
             photos={project_photos}
-            handleGetTargetName={handleGetTargetName}
             deleteFunction={this.handleDeleteFromProjectPhotos}
           />
         )}

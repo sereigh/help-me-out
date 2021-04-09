@@ -22,7 +22,6 @@ class ProfilePage extends React.Component {
     };
 
     this.toggleHelp = this.toggleHelp.bind(this);
-    this.addProfileItem = this.addProfileItem.bind(this);
     this.toggleEditUserForm = this.toggleEditUserForm.bind(this);
     this.toggleAddProjectForm = this.toggleAddProjectForm.bind(this);
     this.toggleAddToolForm = this.toggleAddToolForm.bind(this);
@@ -43,16 +42,6 @@ class ProfilePage extends React.Component {
   }
   toggleHelp() {}
 
-  addProfileItem(type) {
-    if (type === "project") {
-      console.log("project");
-    }
-    if (type === "tool") {
-      console.log("tool");
-    } else {
-      return;
-    }
-  }
   render() {
     const {
       _id,
@@ -70,16 +59,7 @@ class ProfilePage extends React.Component {
       showAddToolForm,
       showEditUserForm,
     } = this.state;
-    const handleGetTargetName = (e) => e.target.name;
-    const handleDeleteItem = (itemToDelete, itemArray) => {
-      let updatedArray = [];
-      itemArray.forEach((item) => {
-        if (item !== itemToDelete) {
-          updatedArray.push(item);
-        }
-      });
-      return updatedArray;
-    };
+    const handleGetTargetName = (e) => {debugger; e.target.name};
     const handleAddItem = (itemToAdd, itemArray) => {
       if (itemArray.indexOf(itemToAdd) === -1 && itemToAdd.length > 3) {
         const revisedArray = itemArray.concat(itemToAdd);
@@ -101,7 +81,6 @@ class ProfilePage extends React.Component {
             showEditUserForm={showEditUserForm}
             toggleEditUserForm={this.toggleEditUserForm}
             handleGetTargetName={handleGetTargetName}
-            handleDeleteItem={handleDeleteItem}
             handleAddItem={handleAddItem}
           />
         </div>
@@ -112,7 +91,6 @@ class ProfilePage extends React.Component {
             showAddProjectForm={showAddProjectForm}
             toggleAddProjectForm={this.toggleAddProjectForm}
             handleGetTargetName={handleGetTargetName}
-            handleDeleteItem={handleDeleteItem}
             handleAddItem={handleAddItem}
           />
           <UserTools
@@ -121,7 +99,6 @@ class ProfilePage extends React.Component {
             showAddToolForm={showAddToolForm}
             toggleAddToolForm={this.toggleAddToolForm}
             handleGetTargetName={handleGetTargetName}
-            handleDeleteItem={handleDeleteItem}
             handleAddItem={handleAddItem}
           />
         </div>
