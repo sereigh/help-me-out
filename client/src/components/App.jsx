@@ -3,13 +3,10 @@ import React from 'react';
 import axios from 'axios';
 import { Router, Switch, Route } from 'react-router-dom';
 import Talk from 'talkjs';
-import PropTypes from 'prop-types';
 
 import sampleUser from '../../../server/database/data/sampleUser.json';
 
 import NavBar from './NavBar';
-import SignUp from './SignUp';
-import LogIn from './LogIn';
 import LandingPage from './LandingPage/LandingPage';
 import MainPage from './MainPage/MainPage';
 import ProfilePage from './ProfilePage/ProfilePage';
@@ -38,8 +35,6 @@ class App extends React.Component {
     axios
       .post('/users', profileObj)
       .then((res) => {
-        console.log(res);
-        console.log(history);
         if (res.data[0] === true) {
           this.setState({
             user: res.data[1],
@@ -67,6 +62,7 @@ class App extends React.Component {
       auth: false,
     });
 
+    // eslint-disable-next-line no-alert
     alert('An unexpected error occured during the login process');
   }
 
@@ -74,6 +70,7 @@ class App extends React.Component {
     const { user } = this.state;
     Talk.ready
       .then(() => {
+        // eslint-disable-next-line no-underscore-dangle
         user.id = user._id;
         user.role = 'member';
         const me = new Talk.User(user);
@@ -99,6 +96,7 @@ class App extends React.Component {
           }
         });
       })
+      // eslint-disable-next-line no-console
       .catch((e) => console.error(e));
   }
 
@@ -109,7 +107,7 @@ class App extends React.Component {
     const score = user.handy || 0;
 
     return (
-      <Router history={history} forceRefresh={true}>
+      <Router history={history}>
         <NavBar
           auth={auth}
           responseGoogleSuccess={this.responseGoogleSuccess}

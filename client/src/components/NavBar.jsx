@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -31,10 +32,32 @@ const NavBar = ({
       <nav>
         <div className="page-title">Help Me Out!</div>
         <span className="navbar-right">
-          <button type="button" onClick={() => { history.push('/main') }}>Dashboard</button>
-          <button type="button" id="inbox-notifier" onClick={() => { history.push('/inbox') }}>Inbox</button>
+          <button
+            type="button"
+            onClick={() => {
+              history.push('/main');
+            }}
+          >
+            Dashboard
+          </button>
+          <button
+            type="button"
+            id="inbox-notifier"
+            onClick={() => {
+              history.push('/inbox');
+            }}
+          >
+            Inbox
+          </button>
           {inboxNotifier()}
-          <button type="button" onClick={() => { history.push('/profile') }}>Account</button>
+          <button
+            type="button"
+            onClick={() => {
+              history.push('/profile');
+            }}
+          >
+            Account
+          </button>
           <span
             role="button"
             onClick={() => history.push('/profile')}
@@ -45,7 +68,14 @@ const NavBar = ({
           </span>
           <span className="handy-score">{`Handy Score: ${score}`}</span>
           <HandyIcon score={score} />
-          <button type="button" onClick={() => history.push('/')}>Log Out</button>
+          <button
+            type="button"
+            onClick={() => {
+              history.push('/');
+            }}
+          >
+            Log Out
+          </button>
         </span>
       </nav>
     )}
