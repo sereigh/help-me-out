@@ -8,7 +8,7 @@ const NavBar = ({
   auth,
   responseGoogleSuccess,
   responseGoogleFailure,
-  history
+  history,
   inboxNotifier,
 }) => (
   <>
@@ -90,7 +90,6 @@ const NavBar = ({
   </>
 );
 
-<<<<<<< HEAD
 // NavBar.propTypes = {
 //   isLoggedIn: PropTypes.bool.isRequired,
 //   avatar: PropTypes.string.isRequired,
@@ -98,17 +97,7 @@ const NavBar = ({
 //   handleNav: PropTypes.func.isRequired,
 //   responseGoogleSuccess: PropTypes.func.isRequired,
 //   responseGoogleFailure: PropTypes.func.isRequired,
+//   inboxNotifier: PropTypes.func.isRequired,
 // };
-=======
-NavBar.propTypes = {
-  isLoggedIn: PropTypes.bool.isRequired,
-  avatar: PropTypes.string.isRequired,
-  score: PropTypes.number.isRequired,
-  handleNav: PropTypes.func.isRequired,
-  responseGoogleSuccess: PropTypes.func.isRequired,
-  responseGoogleFailure: PropTypes.func.isRequired,
-  inboxNotifier: PropTypes.func.isRequired,
-};
->>>>>>> e35004b23a9830089d6243a8f744628a24b4fe46
 
 export default withRouter(NavBar);
