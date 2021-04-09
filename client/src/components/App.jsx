@@ -1,7 +1,9 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import axios from 'axios';
 import { Router, Switch, Route } from 'react-router-dom';
 import Talk from 'talkjs';
+import PropTypes from 'prop-types';
 
 import sampleUser from '../../../server/database/data/sampleUser.json';
 
@@ -37,6 +39,7 @@ class App extends React.Component {
       .post('/users', profileObj)
       .then((res) => {
         console.log(res);
+        console.log(history);
         if (res.data[0] === true) {
           this.setState({
             user: res.data[1],
@@ -59,9 +62,12 @@ class App extends React.Component {
       });
   }
 
-  responseGoogleFailure(response) {
-    // eslint-disable-next-line no-console
-    console.log('Log in failed, please try again');
+  responseGoogleFailure() {
+    this.setState({
+      auth: false,
+    });
+
+    alert('An unexpected error occured during the login process');
   }
 
   inboxNotifier() {
@@ -98,8 +104,7 @@ class App extends React.Component {
 
   render() {
     const { history } = this.props;
-    const { user, page, auth } = this.state;
-    // const isLoggedIn = page === 'mainPage' || page === 'profilePage' || page === 'inbox';
+    const { user, auth } = this.state;
     const avatar = user.photo || '#';
     const score = user.handy || 0;
 
@@ -114,37 +119,34 @@ class App extends React.Component {
           score={score}
         />
         <Switch>
-          <Route path="/" exact render={() => (
-            <div>heyy</div>
-          )} />
-          <Route path="/main" render={() => (
-            <MainPage user={user} />
-          )} />
-          <Route path="/profile" render={() => (
-            <ProfilePage user={user} />
-          )} />
+          <Route
+            path="/"
+            exact
+            render={() => (
+              <LandingPage />
+            )}
+          />
+          <Route
+            path="/main"
+            render={() => (
+              <MainPage user={user} />
+            )}
+          />
+          <Route
+            path="/inbox"
+            render={() => (
+              <Inbox user={user} />
+            )}
+          />
+          <Route
+            path="/profile"
+            render={() => (
+              <ProfilePage user={user} />
+            )}
+          />
         </Switch>
       </Router>
     );
-
-    // return (
-    //   <div>
-    //     <NavBar
-    //       isLoggedIn={isLoggedIn}
-    //       avatar={avatar}
-    //       score={score}
-    //       handleNav={this.handleNav}
-    //       responseGoogleSuccess={this.responseGoogleSuccess}
-    //       responseGoogleFailure={this.responseGoogleFailure}
-    //     />
-    //     {page === 'signUp' && <SignUp />}
-    //     {page === 'logIn' && <LogIn />}
-    //     {page === 'landingPage' && <LandingPage />}
-    //     {page === 'mainPage' && <MainPage user={user} />}
-    //     {page === 'profilePage' && <ProfilePage user={user} />}
-    //     {page === 'inbox' && <Inbox user={user} />}
-    //   </div>
-    // );
   }
 }
 
