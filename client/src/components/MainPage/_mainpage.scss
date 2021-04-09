@@ -97,13 +97,13 @@ $accent-hover-color: rgb(94, 11, 11);
       border-radius: 10px;
       object-fit: fill;
     }
-    .project-img-star {
+    .project-img-heart {
       position: absolute;
       top: 5px;
       right: 5px;
       transition: color 200ms;
     }
-    .project-img-star:hover {
+    .project-img-heart:hover {
       cursor: pointer;
       color: $accent-hover-color;
     }

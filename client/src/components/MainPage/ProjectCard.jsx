@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FaRegThumbsUp, FaRegThumbsDown} from 'react-icons/fa';
-import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
+import { BsHeart, BsHeartFill } from 'react-icons/bs';
 import { VscReport } from 'react-icons/vsc';
 
 import MessageButton from '../MessageButton';
@@ -33,7 +33,10 @@ class ProjectCard extends React.Component {
     const { favorited } = this.state;
     const tools = project.needed_tools;
 
-    const faveStarStyle = this.state.favorited ? <AiFillStar onClick={this.toggleFavorite} size={28} className="project-img-star" /> : <AiOutlineStar onClick={this.toggleFavorite} size={28} className="project-img-star" />;
+    const faveHeartStyle = favorited ? <BsHeartFill onClick={this.toggleFavorite} size={28} className="project-img-heart" /> : <BsHeart onClick={this.toggleFavorite} size={28} className="project-img-heart" />;
+
+    const faveButton = favorited ? <div className="card-footer-button" onClick={this.toggleFavorite}><BsHeartFill /> Favorite </div> :
+    <div className="card-footer-button" onClick={this.toggleFavorite}><BsHeartFill /> Not favorite</div>
     // const favorited = this.state.favorited ? <div className="project-footer-button">Unfavorite
 
     return (
@@ -41,7 +44,7 @@ class ProjectCard extends React.Component {
         <div className="project-name-div">{project.project_name}</div>
         <div className="project-info">
           <div className="project-photo-div">
-            {faveStarStyle}
+            {faveHeartStyle}
             <img src={project.project_photos[0]} alt="project" />
           </div>
           <div className="project-details">
@@ -62,7 +65,7 @@ class ProjectCard extends React.Component {
             <div className="card-footer-button" onClick={() => handleVote('up', project.project_owner._id)}><FaRegThumbsUp />Upvote</div>
             <div className="card-footer-button" onClick={() => handleVote('down', project.project_owner._id)}><FaRegThumbsDown />Downvote</div>
             <div className="card-footer-button" onClick={() => handleVote('report', project.project_owner._id)}><VscReport />Report</div>
-            <div className="card-footer-button" onClick={this.toggleFavorite}><FaRegThumbsUp />{favorited ? 'Favorite' : 'Not favorite'}</div>
+            {faveButton}
             <MessageButton user={user} otherUser={project.project_owner} usedIn="card-footer-button" />
 
           </div>
