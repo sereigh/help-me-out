@@ -15,5 +15,5 @@ module.exports = {
   plugins: [
     'react',
   ],
-  rules: { allowTemplateLiterals: false },
+  // rules: { allowTemplateLiterals: false },
 };

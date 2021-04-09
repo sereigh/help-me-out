@@ -31,7 +31,11 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-google-login": "^5.2.2",
+<<<<<<< HEAD
     "react-router-dom": "^5.2.0",
+=======
+    "react-icons": "^4.2.0",
+>>>>>>> e35004b23a9830089d6243a8f744628a24b4fe46
     "socket.io": "^4.0.1",
     "talkjs": "^0.14.3",
     "zipcodes": "^8.0.0"

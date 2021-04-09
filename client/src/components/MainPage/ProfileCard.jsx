@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const ProfileCard = ({ user }) => (
   <div className="profile-card">
-    <img src={user.photo} alt="avatar" />
+    <img className="avatar" src={user.photo} alt="avatar" />
     <div>{user.name}</div>
     <div>{`Current ZIP Code: ${user.zip}`}</div>
   </div>

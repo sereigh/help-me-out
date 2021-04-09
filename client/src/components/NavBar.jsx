@@ -9,6 +9,7 @@ const NavBar = ({
   responseGoogleSuccess,
   responseGoogleFailure,
   history
+  inboxNotifier,
 }) => (
   <>
   {!auth && (
@@ -50,7 +51,7 @@ const NavBar = ({
     )}
     {/* {!isLoggedIn && (
       <nav>
-        <span>Help Me Out!</span>
+        <div className="page-title">Help Me Out!</div>
         <GoogleLogin
           className="google-login"
           clientId="212175657739-70o4dkki5481hs0hdlkmkor20ugn7sh0.apps.googleusercontent.com"
@@ -66,10 +67,11 @@ const NavBar = ({
     )}
     {isLoggedIn && (
       <nav>
-        <span>Help Me Out!</span>
+        <div className="page-title">Help Me Out!</div>
         <span className="navbar-right">
           <button type="button" onClick={() => handleNav('mainPage')}>Dashboard</button>
-          <button type="button" onClick={() => handleNav('inbox')}>Inbox</button>
+          <button type="button" id="inbox-notifier" onClick={() => handleNav('inbox')}>Inbox (0)</button>
+          {inboxNotifier()}
           <button type="button" onClick={() => handleNav('profilePage')}>Account</button>
           <span
             role="button"
@@ -77,9 +79,9 @@ const NavBar = ({
             onKeyPress={() => handleNav('profilePage')}
             tabIndex={0}
           >
-            <img src={avatar} alt="avatar" />
+            <img className="nav-avatar" src={avatar} alt="avatar" />
           </span>
-          <span>{`Handy Score: ${score}`}</span>
+          <span className="handy-score">{`Handy Score: ${score}`}</span>
           <HandyIcon score={score} />
           <button type="button" onClick={() => handleNav('landingPage')}>Log Out</button>
         </span>
@@ -88,6 +90,7 @@ const NavBar = ({
   </>
 );
 
+<<<<<<< HEAD
 // NavBar.propTypes = {
 //   isLoggedIn: PropTypes.bool.isRequired,
 //   avatar: PropTypes.string.isRequired,
@@ -96,5 +99,16 @@ const NavBar = ({
 //   responseGoogleSuccess: PropTypes.func.isRequired,
 //   responseGoogleFailure: PropTypes.func.isRequired,
 // };
+=======
+NavBar.propTypes = {
+  isLoggedIn: PropTypes.bool.isRequired,
+  avatar: PropTypes.string.isRequired,
+  score: PropTypes.number.isRequired,
+  handleNav: PropTypes.func.isRequired,
+  responseGoogleSuccess: PropTypes.func.isRequired,
+  responseGoogleFailure: PropTypes.func.isRequired,
+  inboxNotifier: PropTypes.func.isRequired,
+};
+>>>>>>> e35004b23a9830089d6243a8f744628a24b4fe46
 
 export default withRouter(NavBar);

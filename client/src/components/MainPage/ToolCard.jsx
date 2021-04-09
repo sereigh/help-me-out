@@ -1,6 +1,9 @@
 import React from 'react';
 
-function ToolCard({ tool }) {
+import HandyIcon from '../HandyIcon';
+import MessageButton from '../MessageButton';
+
+function ToolCard({ tool, user }) {
 
 
 
@@ -12,14 +15,16 @@ function ToolCard({ tool }) {
         <div className="tool-user-avatar-div"><img className="tool-avatar-img" src={photo} alt={name} /></div>
         <div className="tool-user-name-div">{name}</div>
         <div className="tool-handy-div">
-          <div className="tool-handy-emblem">EMBLEM</div>
+          <div className="tool-handy-emblem">
+            <HandyIcon score={handy} usedIn={'-tools'} />
+          </div>
           <div>{handy}</div>
         </div>
       </div>
       <div className="tool-name-image-and-message-div">
         <div className="tool-name-div">{tool_name}</div>
         <div className="tool-image-div"><img className="tool-card-tool-img" src={tool_photos[0]} alt={tool_name} /></div>
-        <div className="message-button-div"><button type="button">message</button></div>
+        <MessageButton user={user} otherUser={tool.tool_owner} usedIn="-card-footer" />
       </div>
     </div>
   );
