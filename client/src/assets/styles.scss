@@ -65,6 +65,10 @@ nav button:hover {
   width: 5px;
 }
 
+::-webkit-scrollbar-corner {
+  color: $main-color;
+}
+
 ::-webkit-scrollbar-thumb {
   background: $accent-color;
   border-radius: 10px;
