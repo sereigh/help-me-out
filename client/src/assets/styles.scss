@@ -126,27 +126,27 @@ nav button:hover {
 
 // Handy Status Icon
 .handy-none, .handy-bronze, .handy-silver, .handy-gold, .handy-platinum {
-  width: 44px;
-  height: 44px;
-  background-image: url('./images/handy.png');
-  background-repeat: no-repeat;
-  background-size: 80px;
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  background-image: radial-gradient(rgba(255, 255, 255, 1) 55%, rgba(255, 255, 255, 0) 45%);
+  font-size: 30px;
 }
 
 .handy-bronze {
-  background-position: 4px 4px;
+  color: brown;
 }
 
 .handy-silver {
-  background-position: -38px 4px;
+  color: silver;
 }
 
 .handy-gold {
-  background-position: 4px -38px;
+  color: gold;
 }
 
 .handy-platinum {
-  background-position: -38px -38px;
+  color: paleturquoise;
 }
 
 // Inbox Page
