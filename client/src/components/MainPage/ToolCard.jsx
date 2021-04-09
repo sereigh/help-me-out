@@ -1,7 +1,9 @@
 import React from 'react';
-import HandyIcon from '../HandyIcon'
 
-function ToolCard({ tool }) {
+import HandyIcon from '../HandyIcon';
+import MessageButton from '../MessageButton';
+
+function ToolCard({ tool, user }) {
 
 
 
@@ -22,7 +24,7 @@ function ToolCard({ tool }) {
       <div className="tool-name-image-and-message-div">
         <div className="tool-name-div">{tool_name}</div>
         <div className="tool-image-div"><img className="tool-card-tool-img" src={tool_photos[0]} alt={tool_name} /></div>
-        <div className="message-button-div"><button type="button">message</button></div>
+        <MessageButton user={user} otherUser={tool.tool_owner} usedIn="-card-footer" />
       </div>
     </div>
   );

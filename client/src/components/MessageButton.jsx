@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import Talk from 'talkjs';
+import { AiOutlineMessage } from 'react-icons/ai';
 
 import DummyUser from '../../../server/database/data/sampleUser.json';
 import DummyFeed from '../../../server/database/data/sampleFeed.json';
@@ -103,9 +104,15 @@ class MessageButton extends React.Component {
 
   render() {
     const { showChat, chatboxId } = this.state;
+    const chatButton = this.props.usedIn ?
+    <div className="project-footer-button" onClick={this.handleClick}>
+      <AiOutlineMessage />Message
+    </div>
+    : <button type="button" onClick={this.handleClick}>Message</button>;
+
     return (
       <>
-        <button type="button" onClick={this.handleClick}>Message</button>
+        {chatButton}
         {showChat && <div className="chatbox-container" id={`${chatboxId}`} />}
       </>
     );

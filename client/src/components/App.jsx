@@ -18,7 +18,7 @@ class App extends React.Component {
 
     this.state = {
       user: sampleUser,
-      page: 'landingPage',
+      page: 'mainPage',
     };
 
     this.handleNav = this.handleNav.bind(this);
