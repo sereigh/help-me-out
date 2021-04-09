@@ -1,0 +1,36 @@
+#user-profile {
+  margin: auto;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 25% 40%;
+  background-color: aliceblue;
+}
+
+.user-info-pane {
+  background-color: red;
+}
+
+.user-feed {
+  padding-left: 5%;
+  padding-top: 5%;
+  background-color: green;
+}
+
+#user-info {
+  padding-left: 35%;
+  padding-top: 10%;
+}
+
+#user-projects {
+  display: block;
+}
+
+#user-tools {
+}
+
+.user-project {
+  display: flex;
+}
+
+.user-project {
+}

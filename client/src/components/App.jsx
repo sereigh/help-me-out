@@ -36,21 +36,28 @@ class App extends React.Component {
     console.log(response);
     const { profileObj } = response;
 
-    axios.post('/users', profileObj)
+    axios
+      .post('/users', profileObj)
       .then((res) => {
         console.log(res);
         if (res.data[0] === true) {
-          this.setState({
-            user: res.data[1],
-          }, () => {
-            this.handleNav('mainPage');
-          });
+          this.setState(
+            {
+              user: res.data[1],
+            },
+            () => {
+              this.handleNav('mainPage');
+            }
+          );
         } else {
-          this.setState({
-            user: res.data[1],
-          }, () => {
-            this.handleNav('profilePage');
-          });
+          this.setState(
+            {
+              user: res.data[1],
+            },
+            () => {
+              this.handleNav('profilePage');
+            }
+          );
         }
       })
       .catch((err) => {
@@ -66,7 +73,8 @@ class App extends React.Component {
 
   render() {
     const { user, page } = this.state;
-    const isLoggedIn = page === 'mainPage' || page === 'profilePage' || page === 'inbox';
+    const isLoggedIn =
+      page === 'mainPage' || page === 'profilePage' || page === 'inbox';
     const avatar = user.photo || '#';
     const score = user.handy || 0;
 
