@@ -19,20 +19,12 @@ class App extends React.Component {
 
     this.state = {
       user: sampleUser,
-      page: 'landingPage',
       auth: false,
     };
 
-    this.handleNav = this.handleNav.bind(this);
     this.responseGoogleSuccess = this.responseGoogleSuccess.bind(this);
     this.responseGoogleFailure = this.responseGoogleFailure.bind(this);
     this.inboxNotifier = this.inboxNotifier.bind(this);
-  }
-
-  handleNav(page) {
-    this.setState({
-      page,
-    });
   }
 
   responseGoogleSuccess(response) {
@@ -108,8 +100,8 @@ class App extends React.Component {
     const { history } = this.props;
     const { user, page, auth } = this.state;
     // const isLoggedIn = page === 'mainPage' || page === 'profilePage' || page === 'inbox';
-    // const avatar = user.photo || '#';
-    // const score = user.handy || 0;
+    const avatar = user.photo || '#';
+    const score = user.handy || 0;
 
     return (
       <Router history={history} forceRefresh={true}>
@@ -118,6 +110,8 @@ class App extends React.Component {
           responseGoogleSuccess={this.responseGoogleSuccess}
           responseGoogleFailure={this.responseGoogleFailure}
           inboxNotifier={this.inboxNotifier}
+          avatar={avatar}
+          score={score}
         />
         <Switch>
           <Route path="/" exact render={() => (
