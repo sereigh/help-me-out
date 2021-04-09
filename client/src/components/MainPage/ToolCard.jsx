@@ -1,9 +1,11 @@
 import React from 'react';
+import { FaRegThumbsUp, FaRegThumbsDown} from 'react-icons/fa';
+import { VscReport } from 'react-icons/vsc';
 
 import HandyIcon from '../HandyIcon';
 import MessageButton from '../MessageButton';
 
-function ToolCard({ tool, user }) {
+function ToolCard({ tool, user, handleVote }) {
 
 
 
@@ -24,11 +26,17 @@ function ToolCard({ tool, user }) {
       <div className="tool-name-image-and-message-div">
         <div className="tool-name-div">{tool_name}</div>
         <div className="tool-image-div"><img className="tool-card-tool-img" src={tool_photos[0]} alt={tool_name} /></div>
-        <MessageButton user={user} otherUser={tool.tool_owner} usedIn="-card-footer" />
+        <div className="card-footer-buttons-div">
+          <MessageButton user={user} otherUser={tool.tool_owner} usedIn="card-footer-button" />
+          <div className="card-footer-button" onClick={() => handleVote('report', tool.tool_name._id)} ><FaRegThumbsUp />Upvote</div>
+          <div className="card-footer-button" onClick={() => handleVote('report', tool.tool_name._id)} ><FaRegThumbsDown />Downvote</div>
+          <div className="card-footer-button" onClick={() => handleVote('report', tool.tool_name._id)} ><VscReport />Report</div>
+        </div>
       </div>
     </div>
   );
 }
+// onClick={() => handleVote('report', project.project_owner._id)}
 
 
 export default ToolCard;
