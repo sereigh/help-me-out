@@ -41,7 +41,8 @@ class App extends React.Component {
     const { history } = this.props;
     const { profileObj } = response;
 
-    axios.post('/users', profileObj)
+    axios
+      .post('/users', profileObj)
       .then((res) => {
         console.log(res);
         if (res.data[0] === true) {
