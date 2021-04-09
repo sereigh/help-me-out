@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import GoogleLogin from 'react-google-login';
 import HandyIcon from './HandyIcon';
@@ -7,6 +8,7 @@ const NavBar = ({
   auth,
   responseGoogleSuccess,
   responseGoogleFailure,
+  history
 }) => (
   <>
   {!auth && (
@@ -42,7 +44,7 @@ const NavBar = ({
           </span>
           <span>{`Handy Score: ${score}`}</span>
           <HandyIcon score={score} />*/}
-          <button type="button">Log Out</button>
+          <button type="button" onClick={() => history.push('/profile')}>Log Out</button>
         </span>
       </nav>
     )}
@@ -95,4 +97,4 @@ const NavBar = ({
 //   responseGoogleFailure: PropTypes.func.isRequired,
 // };
 
-export default NavBar;
+export default withRouter(NavBar);

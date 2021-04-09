@@ -4,6 +4,6 @@ import { createBrowserHistory } from 'history';
 import App from './components/App';
 import './assets/styles.scss';
 
-const history = createBrowserHistory();
+const originalHistory = createBrowserHistory();
 
-ReactDOM.render(<App history={history} />, document.getElementById('root'));
+ReactDOM.render(<App history={originalHistory} />, document.getElementById('root'));

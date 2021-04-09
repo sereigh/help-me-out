@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Router, Switch, Route, Main } from 'react-router-dom';
 
 import sampleUser from '../../../server/database/data/sampleUser.json';
 
@@ -77,20 +77,23 @@ class App extends React.Component {
     // const score = user.handy || 0;
 
     return (
-      <Router>
-        <div>
+      <Router history={history} forceRefresh={true}>
         <NavBar
-          history={history}
           auth={auth}
           responseGoogleSuccess={this.responseGoogleSuccess}
           responseGoogleFailure={this.responseGoogleFailure}
         />
         <Switch>
-          <Route path="/" exact render={(props) => (<LandingPage {...props} />)} />
-          <Route path="/main" exact render={(props) => (<MainPage {...props} />)} />
-          <Route path="/profile" exact render={(props) => (<ProfilePage {...props} />)} />
+          <Route path="/" exact render={() => (
+            <LandingPage />
+          )} />
+          <Route path="/main" render={() => (
+            <MainPage user={user} />
+          )} />
+          <Route path="/profile" render={() => (
+            <ProfilePage user={user} />
+          )} />
         </Switch>
-        </div>
       </Router>
     );
 
