@@ -29,7 +29,7 @@ span {
 }
 
 button {
-  height: 30px;
+  height: 20px;
   width: auto;
 }
 
@@ -77,8 +77,9 @@ nav button:hover {
 
 // Navbar
 .page-title {
-  line-height: 55px;
-  padding-left: 10px;
+  margin: 15px 0 15px 10px;
+  font-size: 20px;
+  height: auto;
 }
 
 .navbar-right {
@@ -112,15 +113,17 @@ nav button:hover {
 
 // Google log in button
 .google-login {
-  // div {
-  //   padding: 4px !important;
-  //   margin-right: 0 !important;
-  // }
+  div {
+    padding: 4px !important;
+    margin-right: 0 !important;
+  }
 
-  // span {
-  //   padding: 5px !important;
-  // }
-  height: auto;
+  span {
+    padding: 5px !important;
+  }
+
+  height: 30px;
+  margin: 12px;
 }
 
 // Handy Status Icon

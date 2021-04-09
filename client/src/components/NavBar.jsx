@@ -18,7 +18,15 @@ const NavBar = ({
   <>
     {!auth && (
       <nav>
-        <span>Help Me Out!</span>
+        <button
+          type="button"
+          className="page-title"
+          onClick={() => {
+            history.push('/');
+          }}
+        >
+          Help Me Out!
+        </button>
         <GoogleLogin
           className="google-login"
           clientId="212175657739-70o4dkki5481hs0hdlkmkor20ugn7sh0.apps.googleusercontent.com"
@@ -31,24 +39,20 @@ const NavBar = ({
     )}
     {auth && (
       <nav>
-        <div
+        <button
+          type="button"
           className="page-title"
           onClick={() => {
             history.push('/');
           }}
-          onKeyPress={() => {
-            history.push('/');
-          }}
-          role="button"
-          tabIndex={0}
         >
           Help Me Out!
-        </div>
+        </button>
         <span className="navbar-right">
           <button
             type="button"
             onClick={() => {
-              history.push('/main');
+              history.push('/dashboard');
             }}
           >
             Dashboard
@@ -66,15 +70,15 @@ const NavBar = ({
           <button
             type="button"
             onClick={() => {
-              history.push('/profile');
+              history.push('/account');
             }}
           >
             Account
           </button>
           <span
             role="button"
-            onClick={() => history.push('/profile')}
-            onKeyPress={() => history.push('/profile')}
+            onClick={() => history.push('/account')}
+            onKeyPress={() => history.push('/account')}
             tabIndex={0}
           >
             <img className="nav-avatar" src={avatar} alt="avatar" />
