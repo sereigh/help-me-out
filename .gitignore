@@ -3,4 +3,4 @@ client/public/bundle.js
 config.js
 .dropboxignore
 .env
-.map
+client/public/main.js.map
