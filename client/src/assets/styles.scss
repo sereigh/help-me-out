@@ -132,12 +132,12 @@ nav button:hover {
   font-size: 30px;
 }
 
-.handy-bronze {
-  color: brown;
+.handy-none, .handy-bronze {
+  color: rgb(132, 88, 27);
 }
 
 .handy-silver {
-  color: silver;
+  color: rgb(164, 164, 164);
 }
 
 .handy-gold {
@@ -145,7 +145,7 @@ nav button:hover {
 }
 
 .handy-platinum {
-  color: paleturquoise;
+  color: rgb(148, 193, 193);
 }
 
 // Inbox Page
