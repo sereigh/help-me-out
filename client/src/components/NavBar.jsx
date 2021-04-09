@@ -47,7 +47,9 @@ const NavBar = ({
           </span>
           <span className="handy-score">{`Handy Score: ${score}`}</span>
           <HandyIcon score={score} />
-          <button type="button" onClick={() => handleNav('landingPage')}>Log Out</button>
+          <button type="button" onClick={() => handleNav('landingPage')}>
+            Log Out
+          </button>
         </span>
       </nav>
     )}
