@@ -1,5 +1,7 @@
 import React from "react";
-import ProjectToolList from "./ProjectToolList.jsx";
+import axios from "axios";
+import ProjectToolList from "./ProjectToolList";
+import AddProjectFormPhotos from "./AddProjectFormPhotos";
 
 class AddProjectForm extends React.Component {
   constructor(props) {
@@ -8,15 +10,23 @@ class AddProjectForm extends React.Component {
       project_name: "",
       project_description: "",
       needed_tool: "",
+      project_photo: "",
       help: false,
       needed_tools: [],
+      project_photos: [],
     };
     this.handleGetFields = this.handleGetFields.bind(this);
     this.handleToggleNeedHelp = this.handleToggleNeedHelp.bind(this);
     this.handleAddToolToProjectToolList = this.handleAddToolToProjectToolList.bind(
       this
     );
+    this.handleAddPhotoToProjectPhotoList = this.handleAddPhotoToProjectPhotoList.bind(
+      this
+    );
     this.handleDeleteFromProjectToolList = this.handleDeleteFromProjectToolList.bind(
+      this
+    );
+    this.handleDeleteFromProjectPhotos = this.handleDeleteFromProjectPhotos.bind(
       this
     );
     this.handleSubmitNewProject = this.handleSubmitNewProject.bind(this);
@@ -32,11 +42,26 @@ class AddProjectForm extends React.Component {
 
   handleAddToolToProjectToolList() {
     const { needed_tool, needed_tools } = this.state;
-    if (needed_tools.indexOf(needed_tool) === -1) {
+    if (needed_tools.indexOf(needed_tool) === -1 && needed_tool.length > 1) {
       const revisedTools = needed_tools.concat(needed_tool);
       this.setState({
         needed_tools: revisedTools,
       });
+    }
+    let inputField = document.querySelector('input[name="needed_tool"]');
+    inputField.value = "";
+  }
+
+  handleAddPhotoToProjectPhotoList() {
+    const { project_photo, project_photos } = this.state;
+    if (
+      project_photos.indexOf(project_photo) === -1 &&
+      project_photo.length > 3
+    ) {
+      const revisedPhotos = project_photos.concat(project_photo);
+      this.setState({ project_photos: revisedPhotos });
+      let inputField = document.querySelector('input[name="project_photo"]');
+      inputField.value = "";
     }
   }
 
@@ -52,6 +77,13 @@ class AddProjectForm extends React.Component {
     this.setState({ needed_tools: updatedTools });
   }
 
+  handleDeleteFromProjectPhotos(photoToDelete) {
+    const { project_photos } = this.state;
+    debugger;
+    const alteredPhotoList = handleDeletePhoto(photoToDelete, project_photos);
+    this.setState({ project_photos: alteredPhotoList });
+  }
+
   handleSubmitNewProject() {
     const {
       user_id,
@@ -59,13 +91,16 @@ class AddProjectForm extends React.Component {
       project_description,
       help,
       needed_tools,
+      project_photos,
     } = this.state;
     let newUserProjectObj = {
       project_name: project_name,
       project_description: project_description,
       help: help,
-      tools_needed: needed_tools,
+      project_photos: project_photos,
+      needed_tools: needed_tools,
     };
+    console.log(newUserProjectObj);
     axios
       .post(`/users/${user_id}/projects`, newUserProjectObj)
       .then((response) => {
@@ -77,7 +112,8 @@ class AddProjectForm extends React.Component {
   }
 
   render() {
-    const { needed_tools } = this.state;
+    const { toggleAddProjectForm, handleGetTargetName } = this.props;
+    const { needed_tools, project_photos } = this.state;
     return (
       <div>
         Project Name:{" "}
@@ -103,10 +139,26 @@ class AddProjectForm extends React.Component {
         Needed Tools:
         <input type="text" name="needed_tool" onChange={this.handleGetFields} />
         <button onClick={this.handleAddToolToProjectToolList}>Add Tool</button>
-        Project Pictures: <div>Project Pictures Here</div>
+        {project_photos.length > 0 && (
+          <AddProjectFormPhotos
+            project_photos={project_photos}
+            handleGetTargetName={handleGetTargetName}
+            handleDeleteFromProjectPhotos={this.handleDeleteFromProjectPhotos}
+          />
+        )}
+        Project Photos:{" "}
+        <input
+          type="text"
+          name="project_photo"
+          onChange={this.handleGetFields}
+        />
+        <button onClick={this.handleAddPhotoToProjectPhotoList}>
+          Add Photo
+        </button>
         Need Help?:{" "}
         <input type="checkbox" onChange={this.handleToggleNeedHelp} />
         <button onClick={this.handleSubmitNewProject}>Add Project</button>
+        <button onClick={toggleAddProjectForm}>Cancel</button>
       </div>
     );
   }
