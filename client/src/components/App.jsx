@@ -1,12 +1,12 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import axios from 'axios';
+import { Router, Switch, Route } from 'react-router-dom';
 import Talk from 'talkjs';
 
 import sampleUser from '../../../server/database/data/sampleUser.json';
 
 import NavBar from './NavBar';
-import SignUp from './SignUp';
-import LogIn from './LogIn';
 import LandingPage from './LandingPage/LandingPage';
 import MainPage from './MainPage/MainPage';
 import ProfilePage from './ProfilePage/ProfilePage';
@@ -18,48 +18,38 @@ class App extends React.Component {
 
     this.state = {
       user: sampleUser,
-      page: 'mainPage',
+      auth: false,
     };
 
-    this.handleNav = this.handleNav.bind(this);
     this.responseGoogleSuccess = this.responseGoogleSuccess.bind(this);
     this.responseGoogleFailure = this.responseGoogleFailure.bind(this);
+    this.logout = this.logout.bind(this);
     this.inboxNotifier = this.inboxNotifier.bind(this);
-  }
-
-  handleNav(page) {
-    this.setState({
-      page,
-    });
   }
 
   responseGoogleSuccess(response) {
     // eslint-disable-next-line no-console
     console.log(response);
+    const { history } = this.props;
     const { profileObj } = response;
 
     axios
       .post('/users', profileObj)
       .then((res) => {
-        console.log(res);
         if (res.data[0] === true) {
-          this.setState(
-            {
-              user: res.data[1],
-            },
-            () => {
-              this.handleNav('mainPage');
-            }
-          );
+          this.setState({
+            user: res.data[1],
+            auth: true,
+          }, () => {
+            history.push('/main');
+          });
         } else {
-          this.setState(
-            {
-              user: res.data[1],
-            },
-            () => {
-              this.handleNav('profilePage');
-            }
-          );
+          this.setState({
+            user: res.data[1],
+            auth: true,
+          }, () => {
+            history.push('/profile');
+          });
         }
       })
       .catch((err) => {
@@ -68,15 +58,30 @@ class App extends React.Component {
       });
   }
 
-  responseGoogleFailure(response) {
-    // eslint-disable-next-line no-console
-    console.log('Log in failed, please try again');
+  responseGoogleFailure() {
+    this.setState({
+      auth: false,
+    });
+
+    // eslint-disable-next-line no-alert
+    alert('An unexpected error occured during the login process');
+  }
+
+  logout() {
+    const { history } = this.props;
+
+    this.setState({
+      auth: false,
+    }, () => {
+      history.push('/');
+    });
   }
 
   inboxNotifier() {
     const { user } = this.state;
     Talk.ready
       .then(() => {
+        // eslint-disable-next-line no-underscore-dangle
         user.id = user._id;
         user.role = 'member';
         const me = new Talk.User(user);
@@ -102,34 +107,55 @@ class App extends React.Component {
           }
         });
       })
+      // eslint-disable-next-line no-console
       .catch((e) => console.error(e));
   }
 
   render() {
-    const { user, page } = this.state;
-    const isLoggedIn =
-      page === 'mainPage' || page === 'profilePage' || page === 'inbox';
+    const { history } = this.props;
+    const { user, auth } = this.state;
     const avatar = user.photo || '#';
     const score = user.handy || 0;
 
     return (
-      <div>
+      <Router history={history}>
         <NavBar
-          isLoggedIn={isLoggedIn}
-          avatar={avatar}
-          score={score}
-          handleNav={this.handleNav}
+          auth={auth}
           responseGoogleSuccess={this.responseGoogleSuccess}
           responseGoogleFailure={this.responseGoogleFailure}
           inboxNotifier={this.inboxNotifier}
+          avatar={avatar}
+          score={score}
+          logout={this.logout}
         />
-        {page === 'signUp' && <SignUp />}
-        {page === 'logIn' && <LogIn />}
-        {page === 'landingPage' && <LandingPage />}
-        {page === 'mainPage' && <MainPage user={user} />}
-        {page === 'profilePage' && <ProfilePage user={user} />}
-        {page === 'inbox' && <Inbox />}
-      </div>
+        <Switch>
+          <Route
+            path="/"
+            exact
+            render={() => (
+              <LandingPage />
+            )}
+          />
+          <Route
+            path="/main"
+            render={() => (
+              <MainPage user={user} />
+            )}
+          />
+          <Route
+            path="/inbox"
+            render={() => (
+              <Inbox user={user} />
+            )}
+          />
+          <Route
+            path="/profile"
+            render={() => (
+              <ProfilePage user={user} />
+            )}
+          />
+        </Switch>
+      </Router>
     );
   }
 }
