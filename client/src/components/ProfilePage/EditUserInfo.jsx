@@ -45,7 +45,7 @@ class EditUserInfo extends React.Component {
   render() {
     const { name, zip, photo, email, password } = this.state;
     return (
-      <div>
+      <div className="edit-user-info-form">
         Full Name:{" "}
         <input
           type="text"
