@@ -9,6 +9,8 @@ $accent-hover-color: rgb(94, 11, 11);
 body {
   background-color: $main-color;
   color: $accent-color;
+  overscroll-behavior: none;
+  overflow: hidden;
 }
 
 nav {
@@ -30,6 +32,7 @@ span {
 
 button {
   height: 30px;
+  width: auto;
 }
 
 
@@ -171,18 +174,20 @@ nav button:hover {
 .chatbox-container {
   height: 400px;
   position: fixed;
-  left: 10vw;
-  bottom: -45vh;
+  right: 5vw;
+  bottom: 0vh;
   animation: .5s ease-out .2s 1 forwards loadChat;
   overflow: hidden;
+  transition: all .4s;
+  z-index: 100;
 }
 
 @keyframes loadChat {
   0% {
-    bottom: -45vh;
+    bottom: -400px;
   }
   100% {
-    bottom: 0;
+    bottom: 0vh;
   }
 }
 
@@ -211,4 +216,7 @@ nav button:hover {
   width: 80%;
   height: 300px;
   border-radius: 20px;
+  margin-bottom: 120px;
+  opacity: 0;
+  animation: .1s ease-out .1s 1 forwards loadInbox;
 }

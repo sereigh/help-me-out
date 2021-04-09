@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Talk from 'talkjs';
 
 import sampleUser from '../../../server/database/data/sampleUser.json';
 
@@ -23,6 +24,7 @@ class App extends React.Component {
     this.handleNav = this.handleNav.bind(this);
     this.responseGoogleSuccess = this.responseGoogleSuccess.bind(this);
     this.responseGoogleFailure = this.responseGoogleFailure.bind(this);
+    this.inboxNotifier = this.inboxNotifier.bind(this);
   }
 
   handleNav(page) {
@@ -64,6 +66,38 @@ class App extends React.Component {
     console.log('Log in failed, please try again');
   }
 
+  inboxNotifier() {
+    const { user } = this.state;
+    Talk.ready
+      .then(() => {
+        user.id = user._id;
+        user.role = 'member';
+        const me = new Talk.User(user);
+
+        if (!window.talkSession) {
+          window.talkSession = new Talk.Session({
+            appId: 'tsdPQIUx',
+            me,
+          });
+        }
+        window.talkSession.unreads.on('change', (unreadConversations) => {
+          const amountOfUnreads = unreadConversations.length;
+          const notifier = document.getElementById('inbox-notifier');
+          notifier.innerHTML = `Inbox (${amountOfUnreads})`;
+          if (amountOfUnreads > 0) {
+            notifier.style.backgroundColor = 'red';
+          }
+
+          if (amountOfUnreads > 0) {
+            document.title = `( ${amountOfUnreads} ) New Messages`;
+          } else {
+            document.title = 'Help Me Out!';
+          }
+        });
+      })
+      .catch((e) => console.error(e));
+  }
+
   render() {
     const { user, page } = this.state;
     const isLoggedIn = page === 'mainPage' || page === 'profilePage' || page === 'inbox';
@@ -79,13 +113,14 @@ class App extends React.Component {
           handleNav={this.handleNav}
           responseGoogleSuccess={this.responseGoogleSuccess}
           responseGoogleFailure={this.responseGoogleFailure}
+          inboxNotifier={this.inboxNotifier}
         />
         {page === 'signUp' && <SignUp />}
         {page === 'logIn' && <LogIn />}
         {page === 'landingPage' && <LandingPage />}
         {page === 'mainPage' && <MainPage user={user} />}
         {page === 'profilePage' && <ProfilePage user={user} />}
-        {page === 'inbox' && <Inbox user={user} />}
+        {page === 'inbox' && <Inbox />}
       </div>
     );
   }
