@@ -31,10 +31,12 @@ class AddToolForm extends React.Component {
 
   handleAddToolPhoto() {
     const { tool_photo, tool_photos } = this.state;
-    if (tool_photos.indexOf(tool_photos) === -1) {
+    if (tool_photos.indexOf(tool_photo) === -1 && tool_photo.length > 4) {
       const revisedToolPhotos = tool_photos.concat(tool_photo);
-      this.setState({ tool_photo: "", tool_photos: revisedToolPhotos });
+      this.setState({ tool_photos: revisedToolPhotos });
     }
+    let inputField = document.querySelector('input[name="tool_photo"]');
+    inputField.value = "";
   }
 
   handleDeleteToolPhoto(e) {
@@ -56,6 +58,7 @@ class AddToolForm extends React.Component {
       tool_photos: tool_photos,
       help: help,
     };
+    console.log(newUserToolObj);
     axios
       .post(`/users/${user_id}/tools`, newUserToolObj)
       .then((response) => {
@@ -66,6 +69,7 @@ class AddToolForm extends React.Component {
       });
   }
   render() {
+    const { toggleAddToolForm } = this.props;
     const { tool_photos } = this.state;
     return (
       <div>
@@ -83,6 +87,7 @@ class AddToolForm extends React.Component {
         <button onClick={this.handleAddToolPhoto}>Add Tool Photo</button>
         Need Help: <input type="checkbox" onChange={this.handleToggleHelp} />
         <button onClick={this.handleAddToolToToolList}>Add Tool(s)</button>
+        <button onClick={toggleAddToolForm}>Cancel</button>
       </div>
     );
   }
