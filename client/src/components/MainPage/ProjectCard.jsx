@@ -1,8 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
-import { GoThumbsup, GoThumbsdown } from 'react-icons/go';
 import { FaRegThumbsUp, FaRegThumbsDown} from 'react-icons/fa';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import { VscReport } from 'react-icons/vsc';
@@ -17,25 +15,7 @@ class ProjectCard extends React.Component {
       favorited: props.project.favorited,
     };
 
-    this.handleVote = this.handleVote.bind(this);
     this.toggleFavorite = this.toggleFavorite.bind(this);
-  }
-
-  handleVote(vote) {
-    const { project } = this.props;
-    if (vote === 'up') {
-      axios.post(`/users/${project.project_owner._id}/handy/up`)
-        // eslint-disable-next-line no-console
-        .catch((err) => console.log(err));
-    } else if (vote === 'down') {
-      axios.post(`/users/${project.project_owner._id}/handy/down`)
-        // eslint-disable-next-line no-console
-        .catch((err) => console.log(err));
-    } else if (vote === 'report') {
-      axios.post(`/users/${project.project_owner._id}/report`)
-        // eslint-disable-next-line no-console
-        .catch((err) => console.log(err));
-    }
   }
 
   toggleFavorite() {
@@ -49,7 +29,7 @@ class ProjectCard extends React.Component {
   }
 
   render() {
-    const { user, project } = this.props;
+    const { user, project, handleVote } = this.props;
     const { favorited } = this.state;
     const tools = project.needed_tools;
 
@@ -78,12 +58,12 @@ class ProjectCard extends React.Component {
             <HandyIcon score={project.project_owner.handy} usedIn="-project-footer" />
             <div className="project-footer-name-div"><span>{`${project.project_owner.name}: ${project.project_owner.handy}`}</span></div>
           </div>
-          <div className="project-footer-buttons-div">
-            <div className="project-footer-button" onClick={() => this.handleVote('up')}><FaRegThumbsUp />Upvote</div>
-            <div className="project-footer-button" onClick={() => this.handleVote('down')}><FaRegThumbsDown />Downvote</div>
-            <div className="project-footer-button" onClick={() => this.handleVote('report')}><VscReport />Report</div>
-            <div className="project-footer-button" onClick={this.toggleFavorite}><FaRegThumbsUp />{favorited ? 'Favorite' : 'Not favorite'}</div>
-            <MessageButton user={user} otherUser={project.project_owner} usedIn="-card-footer" />
+          <div className="card-footer-buttons-div">
+            <div className="card-footer-button" onClick={() => handleVote('up', project.project_owner._id)}><FaRegThumbsUp />Upvote</div>
+            <div className="card-footer-button" onClick={() => handleVote('down', project.project_owner._id)}><FaRegThumbsDown />Downvote</div>
+            <div className="card-footer-button" onClick={() => handleVote('report', project.project_owner._id)}><VscReport />Report</div>
+            <div className="card-footer-button" onClick={this.toggleFavorite}><FaRegThumbsUp />{favorited ? 'Favorite' : 'Not favorite'}</div>
+            <MessageButton user={user} otherUser={project.project_owner} usedIn="card-footer-button" />
 
           </div>
         </div>
