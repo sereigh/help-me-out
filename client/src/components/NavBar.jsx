@@ -31,7 +31,19 @@ const NavBar = ({
     )}
     {auth && (
       <nav>
-        <div className="page-title">Help Me Out!</div>
+        <div
+          className="page-title"
+          onClick={() => {
+            history.push('/');
+          }}
+          onKeyPress={() => {
+            history.push('/');
+          }}
+          role="button"
+          tabIndex={0}
+        >
+          Help Me Out!
+        </div>
         <span className="navbar-right">
           <button
             type="button"
