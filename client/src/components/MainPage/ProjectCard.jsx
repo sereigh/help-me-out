@@ -111,7 +111,7 @@ class ProjectCard extends React.Component {
 
     return (
       <div className="project-card">
-        <div className="project-name-div">{project.project_name}</div>
+        <div className="project-name-div">{`Project: ${project.project_name}`}</div>
         <div className="project-info">
           <div className="project-photo-div">
             {faveHeartStyle}
@@ -128,8 +128,8 @@ class ProjectCard extends React.Component {
         <div className="project-footer">
           <img className="project-owner-img" src={project.project_owner.photo} alt="avatar" />
           <div className="project-footer-name-div">
+            <div className="project-footer-name-div"><span>{`${project.project_owner.name}(${score})`}</span></div>
             <HandyIcon score={project.project_owner.handy} usedIn="-project-footer" />
-            <div className="project-footer-name-div"><span>{`${project.project_owner.name}: ${score}`}</span></div>
           </div>
           <div className="card-footer-buttons-div">
             <div className={`card-footer-button ${vote === 'up' ? 'up' : ''}`} onClick={() => this.handleProjectVote('up')}><FaRegThumbsUp />Upvote</div>

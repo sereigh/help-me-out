@@ -68,13 +68,16 @@ class AddToolForm extends React.Component {
       <div>
         Tool Name:{" "}
         <input type="text" name="tool_name" onChange={this.handleGetFields} />
-        {tool_photos.length > 0 && (
-          <EditPhotoDisplay photos={tool_photos} deleteFunction={this.handleDeleteToolPhoto}/>
-        )}
+        <br />
         Tool Photo:{" "}
         <input type="text" name="tool_photo" onChange={this.handleGetFields} />
         <button onClick={this.handleAddToolPhoto}>Add Tool Photo</button>
+        <br />
+        {tool_photos.length > 0 && (
+          <EditPhotoDisplay photos={tool_photos} deleteFunction={this.handleDeleteToolPhoto}/>
+        )}
         Need Help: <input type="checkbox" onChange={this.handleToggleHelp} />
+        <br />
         <button onClick={this.handleAddToolToToolList}>Add Tool(s)</button>
         <button onClick={toggleAddToolForm}>Cancel</button>
       </div>
