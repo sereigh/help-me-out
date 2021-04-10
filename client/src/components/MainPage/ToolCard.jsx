@@ -81,16 +81,15 @@ class ToolCard extends React.Component {
       <div className="tool-card">
         <div className="user-name-and-score-div">
           <div className="tool-user-avatar-div"><img className="tool-avatar-img" src={photo} alt={name} /></div>
-          <div className="tool-user-name-div">{name}</div>
+          <div className="tool-user-name-div">{`${name}(${score})`}</div>
           <div className="tool-handy-div">
             {/* <div className="tool-handy-emblem"> */}
               <HandyIcon score={handy} usedIn={'-tools'} />
             {/* </div> */}
-            <div>{score}</div>
           </div>
         </div>
         <div className="tool-name-image-and-message-div">
-          <div className="tool-name-div">{tool_name}</div>
+          <div className="tool-name-div">{`Tool: ${tool_name}`}</div>
           <div className="tool-image-div"><img className="tool-card-tool-img" src={tool_photos[0]} alt={tool_name} /></div>
           <div className="card-footer-buttons-div">
             <div className={`card-footer-button ${vote === 'up' ? 'up' : ''}`} onClick={() => this.handleToolVote('up')} ><FaRegThumbsUp />Upvote</div>

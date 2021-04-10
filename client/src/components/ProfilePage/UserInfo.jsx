@@ -14,8 +14,8 @@ const UserInfo = (props) => {
     toggleEditUserForm,
   } = props;
   return (
-    <div id="user-info">
-      <img className="user-photo" src={photo} alt="profile_photo" />
+    <div className="profile-card">
+      <img className="avatar" src={photo} alt="profile_photo" />
       <div>
         <span>
           {name}
@@ -35,6 +35,7 @@ const UserInfo = (props) => {
           photo={photo}
           email={email}
           password={password}
+          toggleEditUserForm={toggleEditUserForm}
         />
       )}
     </div>
