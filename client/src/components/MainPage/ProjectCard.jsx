@@ -1,9 +1,11 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import { FaRegThumbsUp, FaRegThumbsDown} from 'react-icons/fa';
-import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
+import { BsHeart, BsHeartFill } from 'react-icons/bs';
 import { VscReport } from 'react-icons/vsc';
 
 import MessageButton from '../MessageButton';
@@ -101,15 +103,18 @@ class ProjectCard extends React.Component {
       score = project.project_owner.handy - 1;
     }
 
-    const faveStarStyle = this.state.favorited ? <AiFillStar onClick={this.toggleFavorite} size={28} className="project-img-star" /> : <AiOutlineStar onClick={this.toggleFavorite} size={28} className="project-img-star" />;
+    const faveHeartStyle = favorited ? <BsHeartFill onClick={this.toggleFavorite} size={28} className="project-img-heart" /> : <BsHeart onClick={this.toggleFavorite} size={28} className="project-img-heart" />;
+
+    const faveButton = favorited ? <div className="card-footer-button" onClick={this.toggleFavorite}><BsHeartFill /> Favorite </div> :
+    <div className="card-footer-button" onClick={this.toggleFavorite}><BsHeart /> Not favorite</div>
     // const favorited = this.state.favorited ? <div className="project-footer-button">Unfavorite
 
     return (
       <div className="project-card">
-        <div className="project-name-div">{project.project_name}</div>
+        <div className="project-name-div">{`Project: ${project.project_name}`}</div>
         <div className="project-info">
           <div className="project-photo-div">
-            {faveStarStyle}
+            {faveHeartStyle}
             <img src={project.project_photos[0]} alt="project" />
           </div>
           <div className="project-details">
@@ -123,16 +128,15 @@ class ProjectCard extends React.Component {
         <div className="project-footer">
           <img className="project-owner-img" src={project.project_owner.photo} alt="avatar" />
           <div className="project-footer-name-div">
+            <div className="project-footer-name-div"><span>{`${project.project_owner.name}(${score})`}</span></div>
             <HandyIcon score={project.project_owner.handy} usedIn="-project-footer" />
-            <div className="project-footer-name-div"><span>{`${project.project_owner.name}: ${score}`}</span></div>
           </div>
           <div className="card-footer-buttons-div">
             <div className={`card-footer-button ${vote === 'up' ? 'up' : ''}`} onClick={() => this.handleProjectVote('up')}><FaRegThumbsUp />Upvote</div>
             <div className={`card-footer-button ${vote === 'down' ? 'down' : ''}`} onClick={() => this.handleProjectVote('down')}><FaRegThumbsDown />Downvote</div>
-            <div className={`card-footer-button ${vote === 'report' ? 'report' : ''}`} onClick={() => this.handleProjectVote('report')}><VscReport />Report</div>
             <div className="card-footer-button" onClick={this.toggleFavorite}><FaRegThumbsUp />{favorited ? 'Favorite' : 'Not favorite'}</div>
             <MessageButton user={user} otherUser={project.project_owner} usedIn="card-footer-button" />
-
+            <div className={`card-footer-button ${report ? 'report' : ''}`} onClick={() => this.handleProjectVote('report')}><VscReport />Report</div>
           </div>
         </div>
       </div>

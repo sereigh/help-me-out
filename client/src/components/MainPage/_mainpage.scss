@@ -1,7 +1,12 @@
+@use "sass:color";
+
 $main-color: rgb(255, 240, 212);
 $main-hover-color: rgba(255, 240, 212, 0.747);
 $accent-color: brown;
 $accent-hover-color: rgb(94, 11, 11);
+
+$footer-hover-buttons: color.scale($accent-color, $lightness: 40%);
+
 
 // Main Page SCSS
 .main-page {
@@ -18,14 +23,21 @@ $accent-hover-color: rgb(94, 11, 11);
   align-items: center;
 }
 
+.profile-card {
+  div {
+    margin-top: 10px;
+  }
+}
+
 /* remove margin once proper css has been added to container */
 @mixin feed-card {
   display:grid;
-  width: 85%;
-  height: 300px;
-  border-radius: 20px;
-  margin: 20px;
-  padding: 20px;
+  max-width: 800px;
+  height: 320px;
+  border-bottom: 2px solid $accent-color;
+  // background-color: white;
+  // box-shadow: 2px 2px 30px rgba(0,0,0,0.2);
+  // border-radius: 10px;
 }
 
 .main-page-left {
@@ -41,6 +53,7 @@ $accent-hover-color: rgb(94, 11, 11);
   flex-direction: column;
   gap: 15px;
   overflow: scroll;
+  padding-right: 20px;
 }
 
 .feed-container {
@@ -56,8 +69,8 @@ $accent-hover-color: rgb(94, 11, 11);
 
 /* PROFILE CARD */
 .avatar {
-  max-width: 75%;
-  max-height: 75%;
+  max-width: 80%;
+  max-height: 80%;
   object-fit: scale-down;
   border: 1px solid $accent-color;
   border-radius: 20px;
@@ -79,51 +92,61 @@ $accent-hover-color: rgb(94, 11, 11);
 
 .project-card {
   @include feed-card;
-  grid-template-rows: 30px auto 50px;
-  box-shadow: 2px 2px 30px rgba(0,0,0,0.2);
-  padding-bottom: 40px;
+  grid-template-rows: 7% 60% 50px;
+  align-content: space-evenly;
 }
 .project-name-div {
+  justify-self: center;
   color: $accent-color;
+  font-size: 20px;
+  font-weight: bold;
 }
+
 .project-info {
   display: grid;
-  grid-template-columns: 220px 1fr;
-  max-height: 220px;
+  grid-template-columns: 200px 70%;
+  justify-content: space-evenly;
+  max-height: 200px;
   overflow: hidden;
 
   .project-photo-div {
     position: relative;
     max-width: 240px;
-    max-height: 220px;
+    max-height: 200px;
+    height: 60%
     // overflow: hidden;
     img {
       display: block;
       width: 100%;
       height: 100%;
       border-radius: 10px;
-      object-fit: fill;
+      object-fit: cover;
     }
-    .project-img-star {
+    .project-img-heart {
       position: absolute;
       top: 5px;
       right: 5px;
-      transition: color 200ms;
     }
-    .project-img-star:hover {
+    .project-img-heart:hover {
       cursor: pointer;
-      color: $accent-hover-color;
+      animation: heart-hover .3s infinite alternate;
     }
+
+    @keyframes heart-hover {
+      from {
+        font-size: ms(3);
+      }
+      80% {
+        font-size: ms(2);
+      }
+    }
+
   }
 
   .project-details {
     display: grid;
     grid-template-rows: 60% 10px 1fr;
-    margin-left: 20px;
 
-    .project-description, .needed-tools {
-      overflow: scroll;
-    }
   }
 }
 
@@ -132,12 +155,13 @@ $accent-hover-color: rgb(94, 11, 11);
   grid-area: picture;
   height: 50px;
   border-radius: 50%;
+  border: 1px solid $accent-color;
 }
 
 .project-footer {
-  margin-top: 20px;
   display: grid;
-  grid-template-columns: 50px 1fr;
+  grid-template-columns: 50px 90%;
+  justify-content: space-evenly;
   grid-template-rows: 25px 25px;
   grid-template-areas:
     "picture name"
@@ -152,7 +176,7 @@ $accent-hover-color: rgb(94, 11, 11);
 .card-footer-buttons-div {
   grid-area: buttons;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .card-footer-button {
@@ -162,6 +186,8 @@ $accent-hover-color: rgb(94, 11, 11);
   height: 25px;
   border-radius: 3px;
   transition: color 200ms;
+  align-items: center;
+  transition: 0.3s ease-out;
   // text-align: center;
 }
 
@@ -180,44 +206,48 @@ $accent-hover-color: rgb(94, 11, 11);
 .card-footer-button:hover {
   cursor: pointer;
   color: $accent-hover-color;
+  background-color: $footer-hover-buttons;
+  transition: 0.3s ease-out;
 }
 
 /* TOOL CARD */
 
 .tool-card {
   @include feed-card;
-  grid-template-columns: 30% 70%;
-  background-color: white;
-  box-shadow: 2px 2px 30px rgba(0,0,0,0.2);
+  grid-template-columns: 25% 65%;
+  justify-content: space-evenly;
+  // background-color: white;
 }
 
 .user-name-and-score-div {
   display: grid;
-  grid-template-rows: 100px 30px 170px;
+  grid-template-rows: 32% 10px 52%;
   justify-content: center;
+  align-content: space-evenly;
   grid-template-areas: "avatar"
     "username"
     "handy";
 }
 
 .tool-user-avatar-div {
-  background-color: greenyellow;
+  // background-color: greenyellow;
   grid-area: avatar;
   text-align: center;
-  margin: 10px;
+  justify-self: center;
   width: 120px;
   height: 120px;
 }
 
 .tool-user-name-div {
-  background-color: grey;
+  // background-color: grey;
+  justify-self: center;
+  align-self: center;
   grid-area: username;
   text-align: center;
-  margin: auto;
 }
 
 .tool-handy-div {
-  background-color: hotpink;
+  // background-color: hotpink;
   grid-area: handy;
   text-align: center;
 }
@@ -226,6 +256,7 @@ $accent-hover-color: rgb(94, 11, 11);
   display: grid;
   grid-template-rows: 20px 230px 20px;
   justify-content: center;
+  align-content: space-evenly;
   grid-template-areas:
     "tool-name"
     "tool-image"
@@ -235,6 +266,8 @@ $accent-hover-color: rgb(94, 11, 11);
 .tool-name-div {
   grid-area: tool-name;
   text-align: center;
+  font-size: 20px;
+  font-weight: bold;
 }
 .tool-image-div {
   grid-area: tool-image;
@@ -249,7 +282,10 @@ $accent-hover-color: rgb(94, 11, 11);
 
 .tool-card-tool-img {
   width: 100%;
-  // border-radius: 20px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
   object-fit: scale-down;
 }
 
@@ -257,7 +293,6 @@ $accent-hover-color: rgb(94, 11, 11);
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  margin: auto;
 }
 
 .handy-none-tools, .handy-bronze-tools, .handy-silver-tools, .handy-gold-tools, .handy-platinum-tools {
@@ -269,11 +304,12 @@ $accent-hover-color: rgb(94, 11, 11);
 }
 
 .handy-none-project-footer, .handy-bronze-project-footer, .handy-silver-project-footer, .handy-gold-project-footer, .handy-platinum-project-footer {
-  width: 25px;
-  height: 25px;
-  border-radius: 25px;
+  width: 18px;
+  height: 18px;
+  border-radius: 30px;
   background-image: radial-gradient(rgba(255, 255, 255, 1) 55%, rgba(255, 255, 255, 0) 45%);
-  font-size: 25px;
+  font-size: 18px;
+  margin: 0 3px;
 }
 
 .handy-none-tools, .handy-none-project-footer, .handy-bronze-tools, .handy-bronze-project-footer {
@@ -291,3 +327,4 @@ $accent-hover-color: rgb(94, 11, 11);
 .handy-platinum-tools, .handy-platinum-project-footer {
   color: rgb(148, 193, 193);
 }
+

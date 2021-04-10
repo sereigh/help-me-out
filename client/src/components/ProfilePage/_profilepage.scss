@@ -35,8 +35,8 @@ $accent-hover-color: rgb(94, 11, 11);
 }
 
 .user-photo {
-  max-width: 38.8%;
-  max-height: 38.8%;
+  max-width: 70%;
+  max-height: 70%;
   object-fit: scale-down;
   border: 1px solid $accent-color;
   border-radius: 20px;
@@ -61,6 +61,9 @@ $accent-hover-color: rgb(94, 11, 11);
 }
 
 #user-tools {
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
 }
 
 .user-project {
