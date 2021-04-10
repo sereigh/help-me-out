@@ -87,6 +87,7 @@ class EditUserInfo extends React.Component {
         <button onClick={() => {
           toggleEditUserForm();
         }}>Cancel</button>
+        </form>
       </div>
     );
   }
