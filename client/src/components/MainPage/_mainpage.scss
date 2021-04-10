@@ -11,7 +11,7 @@ $footer-hover-buttons: color.scale($accent-color, $lightness: 40%);
 // Main Page SCSS
 .main-page {
   transform: translateY(60px);
-  height: calc(95vh - 60px);
+  height: calc(100vh - 60px);
 }
 
 .main-page, .main-page-left, .filter-buttons, .profile-card {
@@ -23,10 +23,13 @@ $footer-hover-buttons: color.scale($accent-color, $lightness: 40%);
   align-items: center;
 }
 
+.filter {
+  height: 50px;
+}
+
 .profile-card {
-  div {
-    margin-top: 10px;
-  }
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 /* remove margin once proper css has been added to container */
@@ -43,7 +46,7 @@ $footer-hover-buttons: color.scale($accent-color, $lightness: 40%);
 .main-page-left {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  // justify-content: space-between;
   border-right: 3px solid $accent-color;
   width: 25%;
 }
@@ -74,6 +77,7 @@ $footer-hover-buttons: color.scale($accent-color, $lightness: 40%);
   object-fit: scale-down;
   border: 1px solid $accent-color;
   border-radius: 20px;
+  margin-bottom: 10px;
 }
 
 /* FILTER BUTTONS */
