@@ -165,7 +165,7 @@ nav button:hover {
 
 // Inbox Page
 .inbox-container {
-  transform: translateY(60px);
+  // transform: translateY(60px);
   height: 75vh;
   width: auto;
   min-height: 400px;
@@ -178,7 +178,7 @@ nav button:hover {
 
 .inbox-loading {
   height: 0;
-  margin: 0 auto;
+  margin: 0;
   font-size: 1vw;
   text-align: center;
   margin-top: 200px;
@@ -187,22 +187,36 @@ nav button:hover {
 
 // Chat Box
 .chatbox-container {
-  height: 400px;
-  position: relative;
+  // height: 400px;
+  // position: relative;
   // left: 2.5vw;
   // bottom: 0vh;
-  animation: 0.5s ease-out 0.2s 1 forwards loadChat;
+  animation: .4s ease-out .4s 1 forwards loadChat;
   overflow: hidden;
   transition: all 0.4s;
   z-index: 100;
 }
 
+// #chatbox-mount {
+//   transition: all .4s;
+//   animation: 1s ease-out .2s 1 forwards loadChat;
+// }
+
 @keyframes loadChat {
   0% {
-    bottom: -400px;
+    transform: translateY(400px);
   }
   100% {
-    bottom: 0vh;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hideChat {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(400px);
   }
 }
 
