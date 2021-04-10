@@ -12,13 +12,20 @@ const NavBar = ({
   history,
   inboxNotifier,
   avatar,
-  score,
   logout,
 }) => (
   <>
     {!auth && (
       <nav>
-        <span>Help Me Out!</span>
+        <button
+          type="button"
+          className="page-title"
+          onClick={() => {
+            history.push('/');
+          }}
+        >
+          Help Me Out!
+        </button>
         <GoogleLogin
           className="google-login"
           clientId="212175657739-70o4dkki5481hs0hdlkmkor20ugn7sh0.apps.googleusercontent.com"
@@ -31,12 +38,20 @@ const NavBar = ({
     )}
     {auth && (
       <nav>
-        <div className="page-title">Help Me Out!</div>
+        <button
+          type="button"
+          className="page-title"
+          onClick={() => {
+            history.push('/');
+          }}
+        >
+          Help Me Out!
+        </button>
         <span className="navbar-right">
           <button
             type="button"
             onClick={() => {
-              history.push('/main');
+              history.push('/dashboard');
             }}
           >
             Dashboard
@@ -54,21 +69,19 @@ const NavBar = ({
           <button
             type="button"
             onClick={() => {
-              history.push('/profile');
+              history.push('/account');
             }}
           >
             Account
           </button>
           <span
             role="button"
-            onClick={() => history.push('/profile')}
-            onKeyPress={() => history.push('/profile')}
+            onClick={() => history.push('/account')}
+            onKeyPress={() => history.push('/account')}
             tabIndex={0}
           >
             <img className="nav-avatar" src={avatar} alt="avatar" />
           </span>
-          <span className="handy-score">{`Handy Score: ${score}`}</span>
-          <HandyIcon score={score} />
           <button
             type="button"
             onClick={() => {
@@ -86,7 +99,6 @@ const NavBar = ({
 NavBar.propTypes = {
   auth: PropTypes.bool.isRequired,
   avatar: PropTypes.string.isRequired,
-  score: PropTypes.number.isRequired,
   responseGoogleSuccess: PropTypes.func.isRequired,
   responseGoogleFailure: PropTypes.func.isRequired,
   inboxNotifier: PropTypes.func.isRequired,
