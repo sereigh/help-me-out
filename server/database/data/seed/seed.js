@@ -1,19 +1,27 @@
+/* eslint-disable consistent-return */
+/* eslint-disable no-console */
+/* eslint-disable no-plusplus */
 /* eslint-disable max-len */
+const { exec } = require('child_process');
 const { getAllIds } = require('./getAllIds');
 const { addRefs } = require('./addRefs');
+const { importUsers, importProjects, importTools } = require('./utility/imports');
 /*
 1) start mongod
-2) open terminal
-3) enter import commands via command line one at a time
-
-  mongoimport --db=help-me-out --headerline --type=csv --ignoreBlanks --file ./server/database/data/mockups/mocks/users.csv
-
-  mongoimport --db=help-me-out --headerline --type=csv --ignoreBlanks --file=./server/database/data/mockups/mocks/projects.csv
-
-  mongoimport --db=help-me-out --headerline --type=csv --ignoreBlanks --file=./server/database/data/mockups/mocks/tools.csv
+2) npm run seed
 */
 
 // import all
+(function load() {
+  const imports = [importUsers, importProjects, importTools];
+
+  for (let i = 0; i < imports.length; i++) {
+    exec(imports[i], (error, stdout, stderr) => {
+      if (error) return console.log(`Error running file: ${error.message}`);
+      if (stderr) return console.log(`Error running command: ${stderr}`);
+    });
+  }
+}());
 
 // get all _ids
 getAllIds((e, r) => {

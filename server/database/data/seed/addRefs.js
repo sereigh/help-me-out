@@ -4,26 +4,49 @@
 /* eslint-disable no-param-reassign */
 const { addToolRef } = require('../../queries/middleware/addToolRef');
 const { addProjectRef } = require('../../queries/middleware/addProjectRef');
+const { addNeeds } = require('../../queries/projects/addNeeds');
 // const { distributeTools } = require('./utility/distributeTools');
 const { indexOf } = require('./utility/indexOf');
 
 exports.addRefs = (users, projects, tools, cb) => {
-  let max = users.length * 2;
-
-  (function exec(max) {
+  for (let i = 0; i < users.length; i++) {
     addProjectRef(users[indexOf(users)], projects[indexOf(projects)]);
-    if (!max) return;
-    exec(--max);
-  }());
-
-  max = users.length * 3;
-
-  (function exec(max) {
+  }
+  for (let i = 0; i < users.length; i++) {
+    addProjectRef(users[indexOf(users)], projects[indexOf(projects)]);
+  }
+  for (let i = 0; i < users.length; i++) {
+    addProjectRef(users[indexOf(users)], projects[indexOf(projects)]);
+  }
+  for (let i = 0; i < users.length; i++) {
     addToolRef(users[indexOf(users)], tools[indexOf(tools)]);
-    if (!max) return;
-    exec(--max);
-  }());
-
+  }
+  for (let i = 0; i < users.length; i++) {
+    addToolRef(users[indexOf(users)], tools[indexOf(tools)]);
+  }
+  for (let i = 0; i < users.length; i++) {
+    addToolRef(users[indexOf(users)], tools[indexOf(tools)]);
+  }
+  for (let i = 0; i < users.length; i++) {
+    addToolRef(users[indexOf(users)], tools[indexOf(tools)]);
+  }
+  for (let i = 0; i < users.length; i++) {
+    addToolRef(users[indexOf(users)], tools[indexOf(tools)]);
+  }
+  for (let i = 0; i < users.length; i++) {
+    addNeeds(users[indexOf(users)], tools[indexOf(tools)]);
+  }
+  for (let i = 0; i < users.length; i++) {
+    addNeeds(users[indexOf(users)], tools[indexOf(tools)]);
+  }
+  for (let i = 0; i < users.length; i++) {
+    addNeeds(users[indexOf(users)], tools[indexOf(tools)]);
+  }
+  for (let i = 0; i < users.length; i++) {
+    addNeeds(users[indexOf(users)], tools[indexOf(tools)]);
+  }
+  for (let i = 0; i < users.length; i++) {
+    addNeeds(users[indexOf(users)], tools[indexOf(tools)]);
+  }
   return cb(null, 'fin');
-  // exec(addProjectRef(user, project), 300);
 };
