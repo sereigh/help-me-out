@@ -1,9 +1,9 @@
 import React from 'react';
 import LPProjects from './LPProjects';
 import LPExperts from './LPExperts';
-import sampleExp from '../../../../server/database/data/samples/sampleTopExperts.json';
-import sampleProj from '../../../../server/database/data/samples/sampleRecentProjects.json';
-import sampleUser from '../../../../server/database/data/samples/sampleUser.json';
+import sampleExp from '../../../../server/database/data/sampleTopExperts.json';
+import sampleProj from '../../../../server/database/data/sampleRecentProjects.json';
+import sampleUser from '../../../../server/database/data/sampleUser.json';
 
 class LandingPage extends React.Component {
   constructor(props) {
