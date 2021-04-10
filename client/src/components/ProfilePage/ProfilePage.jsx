@@ -1,15 +1,17 @@
-import React from 'react';
-import UserProjects from './UserProjects.jsx';
-import UserTools from './UserTools.jsx';
-import UserInfo from './UserInfo.jsx';
-import sampleUser from '../../../../server/database/data/sampleUser.json';
-// import postProjects from '../../../../server/routes/projects/postProjects';
-// import deleteProjects from '../../../../server/routes/projects/deleteProjects';
-// import putProjects from '../../../../server/routes/projects/putProjects';
-// import postTools from '../../../../server/routes/tools/postTools';
-// import deleteTools from '../../../../server/routes/tools/postTools';
-// import putTools from '../../../../server/routes/tools/putTools';
-// import putUsers from '../../../../server/routes/users/putUser';
+import React from "react";
+import UserProjects from "./UserProjects.jsx";
+import UserTools from "./UserTools.jsx";
+import UserInfo from "./UserInfo.jsx";
+import MiniMap from './MiniMap';
+import Inbox from '../Inbox';
+import sampleUser from "../../../../server/database/data/sampleUser.json";
+// import postProjects from "../../../../server/routes/projects/postProjects";
+// import deleteProjects from "../../../../server/routes/projects/deleteProjects";
+// import putProjects from "../../../../server/routes/projects/putProjects";
+// import postTools from "../../../../server/routes/tools/postTools";
+// import deleteTools from "../../../../server/routes/tools/postTools";
+// import putTools from "../../../../server/routes/tools/putTools";
+// import putUsers from "../../../../server/routes/users/putUser";
 
 class ProfilePage extends React.Component {
   constructor(props) {
@@ -58,6 +60,23 @@ class ProfilePage extends React.Component {
       showAddToolForm,
       showEditUserForm,
     } = this.state;
+    const { showInbox } = this.props;
+    const handleGetTargetName = (e) => e.target.name;
+    const handleDeleteItem = (itemToDelete, itemArray) => {
+      let updatedArray = [];
+      itemArray.forEach((item) => {
+        if (item !== itemToDelete) {
+          updatedArray.push(item);
+        }
+      });
+      return updatedArray;
+    };
+    const handleAddItem = (itemToAdd, itemArray) => {
+      if (itemArray.indexOf(itemToAdd) === -1 && itemToAdd.length > 3) {
+        const revisedArray = itemArray.concat(itemToAdd);
+        return revisedArray;
+      }
+    };
 
     return (
       <div id='user-profile'>
@@ -75,24 +94,31 @@ class ProfilePage extends React.Component {
             handleGetTargetName={handleGetTargetName}
             handleAddItem={handleAddItem}
           />
+          <MiniMap zipcode={zip} />
         </div>
-        <div className='user-feed'>
-          <UserProjects
-            user_id={_id}
-            projects={projects}
-            showAddProjectForm={showAddProjectForm}
-            toggleAddProjectForm={this.toggleAddProjectForm}
-            handleGetTargetName={handleGetTargetName}
-            handleAddItem={handleAddItem}
-          />
-          <UserTools
-            user_id={_id}
-            tools={tools}
-            showAddToolForm={showAddToolForm}
-            toggleAddToolForm={this.toggleAddToolForm}
-            handleGetTargetName={handleGetTargetName}
-            handleAddItem={handleAddItem}
-          />
+        <div className="user-feed">
+          {showInbox
+            ? <Inbox />
+            : <>
+              <UserProjects
+                user_id={_id}
+                projects={projects}
+                showAddProjectForm={showAddProjectForm}
+                toggleAddProjectForm={this.toggleAddProjectForm}
+                handleGetTargetName={handleGetTargetName}
+                handleDeleteItem={handleDeleteItem}
+                handleAddItem={handleAddItem}
+              />
+              <UserTools
+                user_id={_id}
+                tools={tools}
+                showAddToolForm={showAddToolForm}
+                toggleAddToolForm={this.toggleAddToolForm}
+                handleGetTargetName={handleGetTargetName}
+                handleDeleteItem={handleDeleteItem}
+                handleAddItem={handleAddItem}
+              />
+            </>}
         </div>
       </div>
     );
