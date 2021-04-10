@@ -5,13 +5,6 @@ import UserInfo from "./UserInfo.jsx";
 import MiniMap from './MiniMap';
 import Inbox from '../Inbox';
 import sampleUser from "../../../../server/database/data/sampleUser.json";
-// import postProjects from "../../../../server/routes/projects/postProjects";
-// import deleteProjects from "../../../../server/routes/projects/deleteProjects";
-// import putProjects from "../../../../server/routes/projects/putProjects";
-// import postTools from "../../../../server/routes/tools/postTools";
-// import deleteTools from "../../../../server/routes/tools/postTools";
-// import putTools from "../../../../server/routes/tools/putTools";
-// import putUsers from "../../../../server/routes/users/putUser";
 
 class ProfilePage extends React.Component {
   constructor(props) {
@@ -62,7 +55,7 @@ class ProfilePage extends React.Component {
       showEditUserForm,
     } = this.state;
     const { showInbox } = this.props;
-    const handleGetTargetName = (e) => {debugger; e.target.name};
+    const handleGetTargetName = (e) => e.target.name;
     const handleAddItem = (itemToAdd, itemArray) => {
       if (itemArray.indexOf(itemToAdd) === -1 && itemToAdd.length > 3) {
         const revisedArray = itemArray.concat(itemToAdd);

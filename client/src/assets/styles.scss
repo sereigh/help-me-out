@@ -11,6 +11,8 @@ body {
   background-color: $main-color;
   color: $accent-color;
   font-family: Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 p {
@@ -83,9 +85,9 @@ nav button:hover {
 
 // Navbar
 .page-title {
-  margin: 15px 0 15px 10px;
+  margin: 15px;
   font-size: 20px;
-  height: auto;
+  height: 25px;
 }
 
 .navbar-right {
@@ -135,11 +137,12 @@ nav button:hover {
 .handy-silver,
 .handy-gold,
 .handy-platinum {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   border-radius: 30px;
   background-image: radial-gradient(rgba(255, 255, 255, 1) 55%, rgba(255, 255, 255, 0) 45%);
-  font-size: 20px;
+  font-size: 18px;
+  margin: 0 3px;
 }
 
 .handy-none,
