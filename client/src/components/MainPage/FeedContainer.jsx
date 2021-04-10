@@ -10,21 +10,20 @@ import ToolCard from './ToolCard';
 class FeedContainer extends Component {
   constructor(props) {
     super(props);
-
   }
 
   render() {
     const handleVote = (vote, userID) => {
       if (vote === 'up') {
-        axios.post(`/users/${userID}/handy/up`)
+        axios.put(`/users/${userID}/handy/up`)
           // eslint-disable-next-line no-console
           .catch((err) => console.log(err));
       } else if (vote === 'down') {
-        axios.post(`/users/${userID}/handy/down`)
+        axios.put(`/users/${userID}/handy/down`)
           // eslint-disable-next-line no-console
           .catch((err) => console.log(err));
       } else if (vote === 'report') {
-        axios.post(`/users/${userID}/report`)
+        axios.put(`/users/${userID}/report`)
           // eslint-disable-next-line no-console
           .catch((err) => console.log(err));
       }
