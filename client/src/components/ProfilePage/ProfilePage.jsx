@@ -4,7 +4,7 @@ import UserTools from "./UserTools.jsx";
 import UserInfo from "./UserInfo.jsx";
 import MiniMap from './MiniMap';
 import Inbox from '../Inbox';
-import sampleUser from "../../../../server/database/data/sampleUser.json";
+import sampleUser from "../../../../server/database/data/samples/sampleUser.json";
 
 class ProfilePage extends React.Component {
   constructor(props) {
