@@ -1,0 +1,26 @@
+$main-color: rgb(255, 240, 212);
+$main-hover-color: rgba(255, 240, 212, 0.747);
+$accent-color: brown;
+$accent-hover-color: rgb(94, 11, 11);
+
+.landing-page {
+  transform: translateY(60px);
+  height: calc(95vh - 60px);
+  display: grid;
+  grid-template: 100px 1fr/1fr 35vw 35vw 1fr;
+}
+.lpProjectsContainer {
+  grid-row-start: 2;
+  grid-column-start: 2;
+  overflow: scroll;
+  height: 80vh;
+}
+.lpExpertsContainer {
+  height: 80vh;
+  grid-row-start: 2;
+  grid-column-start: 3;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow: scroll;
+}

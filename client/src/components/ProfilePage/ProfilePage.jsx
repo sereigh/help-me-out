@@ -2,14 +2,9 @@ import React from "react";
 import UserProjects from "./UserProjects.jsx";
 import UserTools from "./UserTools.jsx";
 import UserInfo from "./UserInfo.jsx";
+import MiniMap from './MiniMap';
+import Inbox from '../Inbox';
 import sampleUser from "../../../../server/database/data/sampleUser.json";
-// import postProjects from "../../../../server/routes/projects/postProjects";
-// import deleteProjects from "../../../../server/routes/projects/deleteProjects";
-// import putProjects from "../../../../server/routes/projects/putProjects";
-// import postTools from "../../../../server/routes/tools/postTools";
-// import deleteTools from "../../../../server/routes/tools/postTools";
-// import putTools from "../../../../server/routes/tools/putTools";
-// import putUsers from "../../../../server/routes/users/putUser";
 
 class ProfilePage extends React.Component {
   constructor(props) {
@@ -22,7 +17,6 @@ class ProfilePage extends React.Component {
     };
 
     this.toggleHelp = this.toggleHelp.bind(this);
-    this.addProfileItem = this.addProfileItem.bind(this);
     this.toggleEditUserForm = this.toggleEditUserForm.bind(this);
     this.toggleAddProjectForm = this.toggleAddProjectForm.bind(this);
     this.toggleAddToolForm = this.toggleAddToolForm.bind(this);
@@ -43,16 +37,6 @@ class ProfilePage extends React.Component {
   }
   toggleHelp() {}
 
-  addProfileItem(type) {
-    if (type === "project") {
-      console.log("project");
-    }
-    if (type === "tool") {
-      console.log("tool");
-    } else {
-      return;
-    }
-  }
   render() {
     const {
       _id,
@@ -70,16 +54,8 @@ class ProfilePage extends React.Component {
       showAddToolForm,
       showEditUserForm,
     } = this.state;
+    const { showInbox } = this.props;
     const handleGetTargetName = (e) => e.target.name;
-    const handleDeleteItem = (itemToDelete, itemArray) => {
-      let updatedArray = [];
-      itemArray.forEach((item) => {
-        if (item !== itemToDelete) {
-          updatedArray.push(item);
-        }
-      });
-      return updatedArray;
-    };
     const handleAddItem = (itemToAdd, itemArray) => {
       if (itemArray.indexOf(itemToAdd) === -1 && itemToAdd.length > 3) {
         const revisedArray = itemArray.concat(itemToAdd);
@@ -101,29 +77,31 @@ class ProfilePage extends React.Component {
             showEditUserForm={showEditUserForm}
             toggleEditUserForm={this.toggleEditUserForm}
             handleGetTargetName={handleGetTargetName}
-            handleDeleteItem={handleDeleteItem}
             handleAddItem={handleAddItem}
           />
+          <MiniMap zipcode={zip} />
         </div>
         <div className="user-feed">
-          <UserProjects
-            user_id={_id}
-            projects={projects}
-            showAddProjectForm={showAddProjectForm}
-            toggleAddProjectForm={this.toggleAddProjectForm}
-            handleGetTargetName={handleGetTargetName}
-            handleDeleteItem={handleDeleteItem}
-            handleAddItem={handleAddItem}
-          />
-          <UserTools
-            user_id={_id}
-            tools={tools}
-            showAddToolForm={showAddToolForm}
-            toggleAddToolForm={this.toggleAddToolForm}
-            handleGetTargetName={handleGetTargetName}
-            handleDeleteItem={handleDeleteItem}
-            handleAddItem={handleAddItem}
-          />
+          {showInbox
+            ? <Inbox />
+            : <>
+              <UserProjects
+                user_id={_id}
+                projects={projects}
+                showAddProjectForm={showAddProjectForm}
+                toggleAddProjectForm={this.toggleAddProjectForm}
+                handleGetTargetName={handleGetTargetName}
+                handleAddItem={handleAddItem}
+              />
+              <UserTools
+                user_id={_id}
+                tools={tools}
+                showAddToolForm={showAddToolForm}
+                toggleAddToolForm={this.toggleAddToolForm}
+                handleGetTargetName={handleGetTargetName}
+                handleAddItem={handleAddItem}
+              />
+            </>}
         </div>
       </div>
     );

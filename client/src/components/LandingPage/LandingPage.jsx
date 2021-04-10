@@ -12,23 +12,27 @@ class LandingPage extends React.Component {
     this.state = { experts: sampleExp, projects: sampleProj, loginText: '' };
     this.onClick = this.onClick.bind(this);
   }
+
   onClick() {
     this.setState({ loginText: 'Sign Up or Login to see more' });
   }
+
   render() {
     const { projects, experts, loginText } = this.state;
     return (
-      <>
+      <div className="landing-page">
         <div>{loginText}</div>
-        <h2>Connect with your community(or something like that)</h2>
-        <div className="lpFeedContainer">
-          <h4 className="lpFeedHeaders">Check out these recent projects</h4>
+        <h2>Community Projects</h2>
+        <div className="lpProjectsContainer">
+          {/* <h4 className="lpFeedHeaders">Check out these recent projects</h4> */}
           <LPProjects projects={projects} onClick={this.onClick} />
-          <br />
-          <h4 className="lpFeedHeaders">Experts in your area</h4>
+        </div>
+        <h2>Community Experts</h2>
+        <div className="lpExpertsContainer">
+          {/* <h4 className="lpFeedHeaders">Experts in your area</h4> */}
           <LPExperts experts={experts} onClick={this.onClick} />
         </div>
-      </>
+      </div>
     );
   }
 }

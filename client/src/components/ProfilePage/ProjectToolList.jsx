@@ -4,7 +4,6 @@ const ProjectToolList = (props) => {
   const { needed_tools, handleDeleteFromProjectToolList } = props;
   return (
     <ul>
-      Tools Needed:
       {needed_tools.map((tool, index) => {
         return (
           <li key={index}>

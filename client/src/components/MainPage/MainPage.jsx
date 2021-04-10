@@ -1,14 +1,13 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 import PropTypes from 'prop-types';
-// import axios from 'axios';
+import axios from 'axios';
 
 import sampleData from '../../../../server/database/data/sampleFeed.json';
 
 import ProfileCard from './ProfileCard';
 import FilterButtons from './FilterButtons';
 import FeedContainer from './FeedContainer';
-import MiniMap from './MiniMap';
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -38,13 +37,12 @@ class MainPage extends React.Component {
   }
 
   getRelevantInfo() {
-    this.filterData(sampleData);
-    // const { user } = this.props;
+    const { user } = this.props;
 
-    // axios.get(`/users/${user._id}/relevant`)
-    //   .then((results) => this.filterData(results.data))
-    //   // eslint-disable-next-line no-console
-    //   .catch((err) => console.log(err));
+    axios.get(`/users/${user._id}/relevant`)
+      .then((results) => this.filterData(sampleData))
+      // eslint-disable-next-line no-console
+      .catch((err) => console.log(err));
   }
 
   filterData(data) {
@@ -108,10 +106,10 @@ class MainPage extends React.Component {
       <div className="main-page">
         <div className="main-page-left">
           <ProfileCard user={user} />
-          <FilterButtons handleFilter={this.handleFilter} />
-          <MiniMap zipcode={user.zip} />
+          <FilterButtons currentFilter={currentFilter} handleFilter={this.handleFilter} />
+          <div className="chatbox-container" id="chatbox-mount" />
         </div>
-        <FeedContainer user={user} currentFilter={currentFilter} data={displayedData} />
+        <FeedContainer user={user} data={displayedData} />
       </div>
     );
   }

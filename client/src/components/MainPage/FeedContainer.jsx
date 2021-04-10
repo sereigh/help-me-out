@@ -10,42 +10,29 @@ import ToolCard from './ToolCard';
 class FeedContainer extends Component {
   constructor(props) {
     super(props);
-
   }
 
   render() {
     const handleVote = (vote, userID) => {
       if (vote === 'up') {
-        axios.post(`/users/${userID}/handy/up`)
+        axios.put(`/users/${userID}/handy/up`)
           // eslint-disable-next-line no-console
           .catch((err) => console.log(err));
       } else if (vote === 'down') {
-        axios.post(`/users/${userID}/handy/down`)
+        axios.put(`/users/${userID}/handy/down`)
           // eslint-disable-next-line no-console
           .catch((err) => console.log(err));
       } else if (vote === 'report') {
-        axios.post(`/users/${userID}/report`)
+        axios.put(`/users/${userID}/report`)
           // eslint-disable-next-line no-console
           .catch((err) => console.log(err));
       }
     };
 
-    const { user, currentFilter, data } = this.props;
-    let title = '';
-
-    if (currentFilter === 'home') {
-      title = 'Home';
-    } else if (currentFilter === 'giveHelp') {
-      title = 'Give Help';
-    } else if (currentFilter === 'getHelp') {
-      title = 'Get Help';
-    } else if (currentFilter === 'favorites') {
-      title = 'Favorites';
-    }
+    const { user, data } = this.props;
 
     return (
       <div className="feed">
-        <div className="feed-title">{title}</div>
         <div className="feed-container">
           {data.map((item) => (
             <div key={item._id}>
@@ -81,7 +68,6 @@ FeedContainer.propTypes = {
     })),
     favorites: PropTypes.objectOf(PropTypes.bool),
   }).isRequired,
-  currentFilter: PropTypes.string.isRequired,
   data: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.shape({
       tool_name: PropTypes.string,

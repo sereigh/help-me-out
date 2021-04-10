@@ -9,7 +9,6 @@ const UserTools = (props) => {
     toggleAddToolForm,
     showAddToolForm,
     handleGetTargetName,
-    handleDeleteItem,
     handleAddItem,
   } = props;
   return (
@@ -20,7 +19,6 @@ const UserTools = (props) => {
           tool={tool}
           user_id={user_id}
           handleGetTargetName={handleGetTargetName}
-          handleDeleteItem={handleDeleteItem}
           handleAddItem={handleAddItem}
         />
       ))}
@@ -32,7 +30,6 @@ const UserTools = (props) => {
           user_id={user_id}
           toggleAddToolForm={toggleAddToolForm}
           handleGetTargetName={handleGetTargetName}
-          handleDeleteItem={handleDeleteItem}
           handleAddItem={handleAddItem}
         />
       )}

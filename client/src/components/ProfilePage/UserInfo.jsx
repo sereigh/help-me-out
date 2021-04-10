@@ -1,5 +1,6 @@
 import React from "react";
 import EditUserInfo from "./EditUserInfo";
+import HandyIcon from "../HandyIcon";
 
 const UserInfo = (props) => {
   const {
@@ -13,14 +14,19 @@ const UserInfo = (props) => {
     toggleEditUserForm,
   } = props;
   return (
-    <div id="user-info">
-      <img src={photo} alt="profile_photo" />
-      <div>{name}</div>
-      <div>{zip}</div>
-      <div>{handy}</div>
+    <div className="profile-card">
+      <img className="avatar" src={photo} alt="profile_photo" />
+      <div>
+        <span>
+          {name}
+          <HandyIcon score={handy} />
+        </span>
+      </div>
+      <div>{`Handy Score: ${handy}`}</div>
+      <div>{`ZIP Code: ${zip}`}</div>
       <div>{email}</div>
       {!showEditUserForm && (
-        <button onClick={toggleEditUserForm}>Edit Profile</button>
+        <button className="edit-user-info-button" onClick={toggleEditUserForm}>Edit Profile</button>
       )}
       {showEditUserForm && (
         <EditUserInfo
@@ -29,6 +35,7 @@ const UserInfo = (props) => {
           photo={photo}
           email={email}
           password={password}
+          toggleEditUserForm={toggleEditUserForm}
         />
       )}
     </div>
