@@ -12,7 +12,7 @@ const UserTools = (props) => {
     handleAddItem,
   } = props;
   return (
-    <div id="user-tools">
+    <div id="feed-container">
       {tools.map((tool, index) => (
         <UserTool
           key={index}

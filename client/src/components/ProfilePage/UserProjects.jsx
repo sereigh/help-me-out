@@ -12,7 +12,7 @@ const UserProjects = (props) => {
     handleAddItem,
   } = props;
   return (
-    <div id="user-projects">
+    <div id="feed-container">
       {projects.map((project) => (
         <UserProject
           key={project._id}

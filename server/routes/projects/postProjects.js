@@ -3,6 +3,7 @@ const { addProjects } = require('../../database/queries/projects/addProjects');
 const { addProjectRef } = require('../../database/queries/middleware/addProjectRef');
 
 exports.postProjects = (req, res) => {
+  debugger;
   const project = req.body;
   const owner = req.params.user_id;
   project.project_owner = owner;

@@ -47,7 +47,8 @@ class EditUserInfo extends React.Component {
     const { name, zip, photo, email, password } = this.state;
     return (
       <div className="edit-user-info-form">
-        Full Name:{" "}
+        <form>
+          Full Name:{" "}
         <input
           type="text"
           name="name"
@@ -86,6 +87,7 @@ class EditUserInfo extends React.Component {
         <button onClick={() => {
           toggleEditUserForm();
         }}>Cancel</button>
+        </form>
       </div>
     );
   }

@@ -3,11 +3,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
-import sampleData from '../../../../server/database/data/sampleFeed.json';
+import sampleData from '../../../../server/database/data/samples/sampleFeed.json';
 
 import ProfileCard from './ProfileCard';
 import FilterButtons from './FilterButtons';
 import FeedContainer from './FeedContainer';
+import MiniMap from '../ProfilePage/MiniMap';
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -40,7 +41,7 @@ class MainPage extends React.Component {
     const { user } = this.props;
 
     axios.get(`/users/${user._id}/relevant`)
-      .then((results) => this.filterData(sampleData))
+      .then((results) => this.filterData(results.data))
       // eslint-disable-next-line no-console
       .catch((err) => console.log(err));
   }
@@ -107,7 +108,7 @@ class MainPage extends React.Component {
         <div className="main-page-left">
           <ProfileCard user={user} />
           <FilterButtons currentFilter={currentFilter} handleFilter={this.handleFilter} />
-          <div className="chatbox-container" id="chatbox-mount" />
+          <MiniMap zipcode={user.zip} />
         </div>
         <FeedContainer user={user} data={displayedData} />
       </div>
