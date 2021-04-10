@@ -16,7 +16,6 @@ class ProfilePage extends React.Component {
       showAddToolForm: false,
     };
 
-    this.toggleHelp = this.toggleHelp.bind(this);
     this.toggleEditUserForm = this.toggleEditUserForm.bind(this);
     this.toggleAddProjectForm = this.toggleAddProjectForm.bind(this);
     this.toggleAddToolForm = this.toggleAddToolForm.bind(this);
@@ -35,7 +34,6 @@ class ProfilePage extends React.Component {
     const { showAddToolForm } = this.state;
     this.setState({ showAddToolForm: !showAddToolForm });
   }
-  toggleHelp() {}
 
   render() {
     const {
@@ -64,8 +62,8 @@ class ProfilePage extends React.Component {
     };
 
     return (
-      <div id="user-profile">
-        <div className="user-info-pane">
+      <div id='user-profile'>
+        <div className='user-info-pane'>
           <UserInfo
             user_id={_id}
             name={name}
