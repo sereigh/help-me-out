@@ -1,15 +1,16 @@
 import React from "react";
+import hf from './helperFunctions';
 
-const EditPhotoDisplay = ({ photos, deleteFunction, handleGetTargetName }) => {
+const EditPhotoDisplay = ({ photos, deleteFunction}) => {
   return (
-    <container>
+    <div>
       {photos.map((photo, index) => {
         return (
           <div key={index}>
             <img src={photo} />
             <button
               onClick={(e) => {
-                let target = handleGetTargetName(e);
+                let target = hf.handleGetTargetName(e);
                 deleteFunction(target);
               }}
               name={photo}
@@ -19,7 +20,7 @@ const EditPhotoDisplay = ({ photos, deleteFunction, handleGetTargetName }) => {
           </div>
         );
       })}
-    </container>
+    </div>
   );
 };
 
