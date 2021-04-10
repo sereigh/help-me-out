@@ -1,4 +1,6 @@
 /* eslint-disable max-len */
+const { getAllIds } = require('./getAllIds');
+const { addRefs } = require('./addRefs');
 /*
 1) start mongod
 2) open terminal
@@ -12,5 +14,14 @@
 */
 
 // import all
-// get user ids, get tool ids, get project ids
-// assign refs
+
+// get all _ids
+getAllIds((e, r) => {
+  if (e) return console.error(e);
+  // assign refs
+  addRefs(r.users, r.projects, r.tools, (err, res) => {
+    if (err) return console.error(err);
+    return console.log(res);
+  });
+  return console.log('done');
+});

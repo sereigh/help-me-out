@@ -5,7 +5,7 @@ const { getIds } = require('./getUserIds');
 
 const filterIds = (docs) => docs.map((doc) => doc._id);
 
-const getAllIds = (cb) => {
+exports.getAllIds = (cb) => {
   const allIds = {};
 
   getIds(db.User, (error, result) => {
@@ -22,8 +22,3 @@ const getAllIds = (cb) => {
     });
   });
 };
-
-getAllIds((err, result) => {
-  if (err) return console.error(err);
-  return console.log(result);
-});
