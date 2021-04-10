@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /*
 1) start mongod
 2) open terminal
@@ -9,3 +10,7 @@
 
   mongoimport --db=help-me-out --headerline --type=csv --ignoreBlanks --file=./server/database/data/mockups/mocks/tools.csv
 */
+
+// import all
+// get user ids, get tool ids, get project ids
+// assign refs
