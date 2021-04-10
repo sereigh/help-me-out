@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import Talk from 'talkjs';
 import { AiOutlineMessage } from 'react-icons/ai';
 
-import DummyUser from '../../../server/database/data/sampleUser.json';
-import DummyFeed from '../../../server/database/data/sampleFeed.json';
+import DummyUser from '../../../server/database/data/samples/sampleUser.json';
+import DummyFeed from '../../../server/database/data/samples/sampleFeed.json';
 
 class MessageButton extends React.Component {
   constructor(props) {

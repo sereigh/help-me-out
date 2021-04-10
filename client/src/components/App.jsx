@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Router, Switch, Route } from 'react-router-dom';
 import Talk from 'talkjs';
 
-import sampleUser from '../../../server/database/data/sampleUser.json';
+import sampleUser from '../../../server/database/data/samples/sampleUser.json';
 
 import NavBar from './NavBar';
 import LandingPage from './LandingPage/LandingPage';
@@ -46,7 +46,6 @@ class App extends React.Component {
         } else {
           this.setState({
             user: res.data[1],
-            auth: true,
           }, () => {
             history.push('/account');
           });
