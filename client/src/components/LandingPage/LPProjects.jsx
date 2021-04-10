@@ -35,7 +35,7 @@ const LPProjects = ({ projects, onClick }) => (
                 {proj.project_description}
               </span>
               {proj.help && <span>This project is in need of assistance</span>}
-              <ul className="needed-tools">
+              <ul className="lp-tools">
                 {proj.needed_tools.map((tool) => (
                   <li>{tool}</li>
                 ))}
