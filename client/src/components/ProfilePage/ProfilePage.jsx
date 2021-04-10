@@ -16,7 +16,6 @@ class ProfilePage extends React.Component {
       showAddToolForm: false,
     };
 
-    this.toggleHelp = this.toggleHelp.bind(this);
     this.toggleEditUserForm = this.toggleEditUserForm.bind(this);
     this.toggleAddProjectForm = this.toggleAddProjectForm.bind(this);
     this.toggleAddToolForm = this.toggleAddToolForm.bind(this);
