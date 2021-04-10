@@ -145,13 +145,13 @@ class App extends React.Component {
           <Route
             path="/inbox"
             render={() => (
-              <Inbox user={user} />
+              <ProfilePage user={user} showInbox />
             )}
           />
           <Route
             path="/account"
             render={() => (
-              <ProfilePage user={user} />
+              <ProfilePage user={user} showInbox={false} />
             )}
           />
         </Switch>

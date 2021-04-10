@@ -99,7 +99,6 @@ const NavBar = ({
 NavBar.propTypes = {
   auth: PropTypes.bool.isRequired,
   avatar: PropTypes.string.isRequired,
-  score: PropTypes.number.isRequired,
   responseGoogleSuccess: PropTypes.func.isRequired,
   responseGoogleFailure: PropTypes.func.isRequired,
   inboxNotifier: PropTypes.func.isRequired,
