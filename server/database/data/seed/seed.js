@@ -6,9 +6,10 @@ const { exec } = require('child_process');
 const { getAllIds } = require('./getAllIds');
 const { addRefs } = require('./addRefs');
 const { importUsers, importProjects, importTools } = require('./utility/imports');
+
 /*
 1) start mongod
-2) npm run seed
+2) node ./server/database/data/seed/seed.js
 */
 
 // import all
