@@ -159,6 +159,18 @@ $accent-hover-color: rgb(94, 11, 11);
   // text-align: center;
 }
 
+.up {
+  color: orange;
+}
+
+.down {
+  color: blue;
+}
+
+.report {
+  color: red;
+}
+
 .card-footer-button:hover {
   cursor: pointer;
   color: $accent-hover-color;
