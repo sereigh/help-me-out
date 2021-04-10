@@ -23,7 +23,7 @@ class UserTool extends React.Component {
     } = this.props;
     const { showToolEditDelete } = this.state;
     return (
-      <div className="user-tool">
+      <div className="tool-card">
         {!showToolEditDelete && (
           <div>
             <div>{tool.tool_name}</div>

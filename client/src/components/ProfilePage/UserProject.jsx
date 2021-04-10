@@ -31,7 +31,7 @@ class UserProject extends React.Component {
     const { showProjectEditDelete } = this.state;
     const formattedDate = this.formattedDate(project.createdAt);
     return (
-      <div className="user-project">
+      <div className="project-card user-project">
         {!showProjectEditDelete && (
           <div>
             <div>{project.project_name}</div>
