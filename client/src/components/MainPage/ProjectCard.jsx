@@ -136,7 +136,7 @@ class ProjectCard extends React.Component {
             <div className={`card-footer-button ${vote === 'down' ? 'down' : ''}`} onClick={() => this.handleProjectVote('down')}><FaRegThumbsDown />Downvote</div>
             <div className="card-footer-button" onClick={this.toggleFavorite}><FaRegThumbsUp />{favorited ? 'Favorite' : 'Not favorite'}</div>
             <MessageButton user={user} otherUser={project.project_owner} usedIn="card-footer-button" />
-            <div className={`card-footer-button ${vote === 'report' ? 'report' : ''}`} onClick={() => this.handleProjectVote('report')}><VscReport />Report</div>
+            <div className={`card-footer-button ${report ? 'report' : ''}`} onClick={() => this.handleProjectVote('report')}><VscReport />Report</div>
           </div>
         </div>
       </div>
