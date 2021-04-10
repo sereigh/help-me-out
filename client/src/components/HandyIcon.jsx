@@ -10,7 +10,7 @@ const HandyIcon = ({ score, usedIn }) => {
   else if (score < 50) handyStatus = 'handy-gold' + usedIn;
   else handyStatus = 'handy-platinum' + usedIn;
   return (
-    <div className={handyStatus}><text><GiGearHammer /></text></div>
+    <span className={handyStatus}><GiGearHammer /></span>
   );
 };
 

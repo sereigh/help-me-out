@@ -1,7 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
-import DummyUser from '../../../server/database/data/sampleUser.json';
 
 class Inbox extends React.Component {
   constructor(props) {

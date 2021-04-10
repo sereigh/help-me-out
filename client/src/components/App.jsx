@@ -41,14 +41,14 @@ class App extends React.Component {
             user: res.data[1],
             auth: true,
           }, () => {
-            history.push('/main');
+            history.push('/dashboard');
           });
         } else {
           this.setState({
             user: res.data[1],
             auth: true,
           }, () => {
-            history.push('/profile');
+            history.push('/account');
           });
         }
       })
@@ -137,7 +137,7 @@ class App extends React.Component {
             )}
           />
           <Route
-            path="/main"
+            path="/dashboard"
             render={() => (
               <MainPage user={user} />
             )}
@@ -145,13 +145,13 @@ class App extends React.Component {
           <Route
             path="/inbox"
             render={() => (
-              <Inbox user={user} />
+              <ProfilePage user={user} showInbox />
             )}
           />
           <Route
-            path="/profile"
+            path="/account"
             render={() => (
-              <ProfilePage user={user} />
+              <ProfilePage user={user} showInbox={false} />
             )}
           />
         </Switch>

@@ -67,9 +67,15 @@ $footer-hover-buttons: color.scale($accent-color, $lightness: 40%);
 }
 
 /* FILTER BUTTONS */
-.filter-buttons button {
-  width: 100%;
-  margin-bottom: 10px;
+.filter{
+  border: none;
+  border-radius: 0;
+  width: 100.5%;
+}
+
+.selected {
+  color: $main-color;
+  background-color: $accent-color;
 }
 
 /* PROJECT CARD */
@@ -171,6 +177,18 @@ $footer-hover-buttons: color.scale($accent-color, $lightness: 40%);
   align-items: center;
   transition: 0.3s ease-out;
   // text-align: center;
+}
+
+.up {
+  color: orange;
+}
+
+.down {
+  color: blue;
+}
+
+.report {
+  color: red;
 }
 
 .card-footer-button:hover {
