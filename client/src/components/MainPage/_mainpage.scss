@@ -257,15 +257,31 @@ $accent-hover-color: rgb(94, 11, 11);
 .handy-none-tools, .handy-bronze-tools, .handy-silver-tools, .handy-gold-tools, .handy-platinum-tools {
   width: 150px;
   height: 150px;
-  background-image: url('./images/handy.png');
-  background-repeat: no-repeat;
-  background-size: 300px;
+  border-radius: 150px;
+  background-image: radial-gradient(rgba(255, 255, 255, 1) 55%, rgba(255, 255, 255, 0) 45%);
+  font-size: 150px;
 }
 
 .handy-none-project-footer, .handy-bronze-project-footer, .handy-silver-project-footer, .handy-gold-project-footer, .handy-platinum-project-footer {
   width: 25px;
   height: 25px;
-  background-image: url('./images/handy.png');
-  background-repeat: no-repeat;
-  background-size: 50px;
+  border-radius: 25px;
+  background-image: radial-gradient(rgba(255, 255, 255, 1) 55%, rgba(255, 255, 255, 0) 45%);
+  font-size: 25px;
+}
+
+.handy-none-tools, .handy-none-project-footer, .handy-bronze-tools, .handy-bronze-project-footer {
+  color:rgb(132, 88, 27);
+}
+
+.handy-silver-tools, .handy-silver-project-footer {
+  color: rgb(164, 164, 164);
+}
+
+.handy-gold-tools, .handy-gold-project-footer {
+  color: gold;
+}
+
+.handy-platinum-tools, .handy-platinum-project-footer {
+  color: rgb(148, 193, 193);
 }

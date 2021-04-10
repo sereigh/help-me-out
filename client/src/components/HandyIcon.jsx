@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { GiGearHammer } from 'react-icons/gi';
 
 const HandyIcon = ({ score, usedIn }) => {
   usedIn = usedIn || '';
@@ -9,7 +10,7 @@ const HandyIcon = ({ score, usedIn }) => {
   else if (score < 50) handyStatus = 'handy-gold' + usedIn;
   else handyStatus = 'handy-platinum' + usedIn;
   return (
-    <div className={handyStatus} />
+    <div className={handyStatus}><p><GiGearHammer /></p></div>
   );
 };
 

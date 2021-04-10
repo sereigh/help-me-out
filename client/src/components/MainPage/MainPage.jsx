@@ -8,7 +8,6 @@ import axios from 'axios';
 import ProfileCard from './ProfileCard';
 import FilterButtons from './FilterButtons';
 import FeedContainer from './FeedContainer';
-import MiniMap from './MiniMap';
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -108,7 +107,7 @@ class MainPage extends React.Component {
         <div className="main-page-left">
           <ProfileCard user={user} />
           <FilterButtons handleFilter={this.handleFilter} />
-          <MiniMap zipcode={user.zip} />
+          <div className="chatbox-container" id="chatbox-mount" />
         </div>
         <FeedContainer user={user} currentFilter={currentFilter} data={displayedData} />
       </div>
