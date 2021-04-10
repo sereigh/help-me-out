@@ -36,7 +36,7 @@ class ProjectCard extends React.Component {
     const faveHeartStyle = favorited ? <BsHeartFill onClick={this.toggleFavorite} size={28} className="project-img-heart" /> : <BsHeart onClick={this.toggleFavorite} size={28} className="project-img-heart" />;
 
     const faveButton = favorited ? <div className="card-footer-button" onClick={this.toggleFavorite}><BsHeartFill /> Favorite </div> :
-    <div className="card-footer-button" onClick={this.toggleFavorite}><BsHeartFill /> Not favorite</div>
+    <div className="card-footer-button" onClick={this.toggleFavorite}><BsHeart /> Not favorite</div>
     // const favorited = this.state.favorited ? <div className="project-footer-button">Unfavorite
 
     return (
@@ -64,9 +64,9 @@ class ProjectCard extends React.Component {
           <div className="card-footer-buttons-div">
             <div className="card-footer-button" onClick={() => handleVote('up', project.project_owner._id)}><FaRegThumbsUp />Upvote</div>
             <div className="card-footer-button" onClick={() => handleVote('down', project.project_owner._id)}><FaRegThumbsDown />Downvote</div>
-            <div className="card-footer-button" onClick={() => handleVote('report', project.project_owner._id)}><VscReport />Report</div>
             {faveButton}
             <MessageButton user={user} otherUser={project.project_owner} usedIn="card-footer-button" />
+            <div className="card-footer-button" onClick={() => handleVote('report', project.project_owner._id)}><VscReport />Report</div>
 
           </div>
         </div>

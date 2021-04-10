@@ -17,9 +17,9 @@ function ToolCard({ tool, user, handleVote }) {
         <div className="tool-user-avatar-div"><img className="tool-avatar-img" src={photo} alt={name} /></div>
         <div className="tool-user-name-div">{name}</div>
         <div className="tool-handy-div">
-          <div className="tool-handy-emblem">
+          {/* <div className="tool-handy-emblem"> */}
             <HandyIcon score={handy} usedIn={'-tools'} />
-          </div>
+          {/* </div> */}
           <div>{handy}</div>
         </div>
       </div>
@@ -27,9 +27,9 @@ function ToolCard({ tool, user, handleVote }) {
         <div className="tool-name-div">{tool_name}</div>
         <div className="tool-image-div"><img className="tool-card-tool-img" src={tool_photos[0]} alt={tool_name} /></div>
         <div className="card-footer-buttons-div">
-          <MessageButton user={user} otherUser={tool.tool_owner} usedIn="card-footer-button" />
           <div className="card-footer-button" onClick={() => handleVote('report', tool.tool_name._id)} ><FaRegThumbsUp />Upvote</div>
           <div className="card-footer-button" onClick={() => handleVote('report', tool.tool_name._id)} ><FaRegThumbsDown />Downvote</div>
+          <MessageButton user={user} otherUser={tool.tool_owner} usedIn="card-footer-button" />
           <div className="card-footer-button" onClick={() => handleVote('report', tool.tool_name._id)} ><VscReport />Report</div>
         </div>
       </div>
