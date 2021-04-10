@@ -34,19 +34,19 @@ exports.addRefs = (users, projects, tools, cb) => {
     addToolRef(users[indexOf(users)], tools[indexOf(tools)]);
   }
   for (let i = 0; i < users.length; i++) {
-    addNeeds(users[indexOf(users)], tools[indexOf(tools)]);
+    addNeeds(projects[indexOf(projects)], tools[indexOf(tools)]);
   }
   for (let i = 0; i < users.length; i++) {
-    addNeeds(users[indexOf(users)], tools[indexOf(tools)]);
+    addNeeds(projects[indexOf(projects)], tools[indexOf(tools)]);
   }
   for (let i = 0; i < users.length; i++) {
-    addNeeds(users[indexOf(users)], tools[indexOf(tools)]);
+    addNeeds(projects[indexOf(projects)], tools[indexOf(tools)]);
   }
   for (let i = 0; i < users.length; i++) {
-    addNeeds(users[indexOf(users)], tools[indexOf(tools)]);
+    addNeeds(projects[indexOf(projects)], tools[indexOf(tools)]);
   }
   for (let i = 0; i < users.length; i++) {
-    addNeeds(users[indexOf(users)], tools[indexOf(tools)]);
+    addNeeds(projects[indexOf(projects)], tools[indexOf(tools)]);
   }
   return cb(null, 'fin');
 };
