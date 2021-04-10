@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
-import sampleData from '../../../../server/database/data/sampleFeed.json';
+import sampleData from '../../../../server/database/data/samples/sampleFeed.json';
 
 import ProfileCard from './ProfileCard';
 import FilterButtons from './FilterButtons';
