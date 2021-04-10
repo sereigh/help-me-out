@@ -2,6 +2,8 @@ import React from "react";
 import UserProjects from "./UserProjects.jsx";
 import UserTools from "./UserTools.jsx";
 import UserInfo from "./UserInfo.jsx";
+import MiniMap from './MiniMap';
+import Inbox from '../Inbox';
 import sampleUser from "../../../../server/database/data/sampleUser.json";
 // import postProjects from "../../../../server/routes/projects/postProjects";
 // import deleteProjects from "../../../../server/routes/projects/deleteProjects";
@@ -59,6 +61,7 @@ class ProfilePage extends React.Component {
       showAddToolForm,
       showEditUserForm,
     } = this.state;
+    const { showInbox } = this.props;
     const handleGetTargetName = (e) => {debugger; e.target.name};
     const handleAddItem = (itemToAdd, itemArray) => {
       if (itemArray.indexOf(itemToAdd) === -1 && itemToAdd.length > 3) {
@@ -83,24 +86,29 @@ class ProfilePage extends React.Component {
             handleGetTargetName={handleGetTargetName}
             handleAddItem={handleAddItem}
           />
+          <MiniMap zipcode={zip} />
         </div>
         <div className="user-feed">
-          <UserProjects
-            user_id={_id}
-            projects={projects}
-            showAddProjectForm={showAddProjectForm}
-            toggleAddProjectForm={this.toggleAddProjectForm}
-            handleGetTargetName={handleGetTargetName}
-            handleAddItem={handleAddItem}
-          />
-          <UserTools
-            user_id={_id}
-            tools={tools}
-            showAddToolForm={showAddToolForm}
-            toggleAddToolForm={this.toggleAddToolForm}
-            handleGetTargetName={handleGetTargetName}
-            handleAddItem={handleAddItem}
-          />
+          {showInbox
+            ? <Inbox />
+            : <>
+              <UserProjects
+                user_id={_id}
+                projects={projects}
+                showAddProjectForm={showAddProjectForm}
+                toggleAddProjectForm={this.toggleAddProjectForm}
+                handleGetTargetName={handleGetTargetName}
+                handleAddItem={handleAddItem}
+              />
+              <UserTools
+                user_id={_id}
+                tools={tools}
+                showAddToolForm={showAddToolForm}
+                toggleAddToolForm={this.toggleAddToolForm}
+                handleGetTargetName={handleGetTargetName}
+                handleAddItem={handleAddItem}
+              />
+            </>}
         </div>
       </div>
     );

@@ -8,7 +8,7 @@
                 "https://picsum.photos/200/300",
                 "https://picsum.photos/200/300"
             ],
-            "help": false,
+            "help": true,
             "_id": "606a68e9753c36beebe3fc53",
             "tool_name": "crowbar",
             "tool_owner": "606a63cc6bd5acac70c9f6df",
@@ -58,7 +58,7 @@
     },
     "_id": "606a63cc6bd5acac70c9f6df",
     "name": "Phillip Waterson",
-    "zip": 37112,
+    "zip": 37130,
     "email": "1234abc@gmail.com",
     "password": "326b94d4530d405",
     "photo": "https://picsum.photos/200",
