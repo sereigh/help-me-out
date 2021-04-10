@@ -11,6 +11,8 @@ body {
   background-color: $main-color;
   color: $accent-color;
   font-family: Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 p {
@@ -23,12 +25,12 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
-  height: 45px;
+  height: 40px;
   background-color: $accent-color;
   color: $main-color;
   display: flex;
   justify-content: space-between;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
 }
 
 span {
@@ -36,7 +38,7 @@ span {
 }
 
 button {
-  height: 30px;
+  height: 20px;
   width: auto;
 }
 
@@ -83,8 +85,9 @@ nav button:hover {
 
 // Navbar
 .page-title {
-  line-height: 55px;
-  padding-left: 10px;
+  margin: 15px;
+  font-size: 20px;
+  height: 25px;
 }
 
 .navbar-right {
@@ -99,37 +102,33 @@ nav button:hover {
   margin-left: 15px;
 }
 
-.handy-score {
-  transform: translateY(-7px);
-}
-
-.navbar-right div {
-  transform: translateY(2px);
-}
-
 .navbar-right span img:hover,
 .page-title:hover {
   cursor: pointer;
 }
 
 .nav-avatar {
-  width: 37px;
-  height: 37px;
-  object-fit: scale-down;
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  background-position: center;
   border-radius: 50%;
+  transform: translateY(6px);
 }
 
 // Google log in button
 .google-login {
-  // div {
-  //   padding: 4px !important;
-  //   margin-right: 0 !important;
-  // }
+  div {
+    padding: 4px !important;
+    margin-right: 0 !important;
+  }
 
-  // span {
-  //   padding: 5px !important;
-  // }
-  height: auto;
+  span {
+    padding: 5px !important;
+  }
+
+  height: 30px;
+  margin: 12px;
 }
 
 // Handy Status Icon
@@ -138,14 +137,12 @@ nav button:hover {
 .handy-silver,
 .handy-gold,
 .handy-platinum {
-  width: 30px;
-  height: 30px;
+  width: 18px;
+  height: 18px;
   border-radius: 30px;
-  background-image: radial-gradient(
-    rgba(255, 255, 255, 1) 55%,
-    rgba(255, 255, 255, 0) 45%
-  );
-  font-size: 30px;
+  background-image: radial-gradient(rgba(255, 255, 255, 1) 55%, rgba(255, 255, 255, 0) 45%);
+  font-size: 18px;
+  margin: 0 3px;
 }
 
 .handy-none,

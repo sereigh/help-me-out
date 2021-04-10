@@ -1,11 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import HandyIcon from '../HandyIcon';
 
 const ProfileCard = ({ user }) => (
   <div className="profile-card">
     <img className="avatar" src={user.photo} alt="avatar" />
-    <div>{user.name}</div>
-    <div>{`Current ZIP Code: ${user.zip}`}</div>
+    <div>
+      <span>
+        {user.name}
+        <HandyIcon score={user.handy} />
+      </span>
+    </div>
+    <div className="handy-score">{`Handy Score: ${user.handy}`}</div>
+    <div>{`ZIP Code: ${user.zip}`}</div>
   </div>
 );
 
