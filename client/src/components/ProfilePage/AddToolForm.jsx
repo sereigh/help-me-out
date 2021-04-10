@@ -45,7 +45,8 @@ class AddToolForm extends React.Component {
   }
 
   handleAddToolToToolList() {
-    const { user_id, tool_name, tool_photos, help } = this.state;
+    const {user_id} = this.props;
+    const { tool_name, tool_photos, help } = this.state;
     let newUserToolObj = {
       tool_name: tool_name,
       tool_photos: tool_photos,
@@ -66,7 +67,6 @@ class AddToolForm extends React.Component {
     const { tool_photos } = this.state;
     return (
       <div>
-        <form>
           Tool Name:{" "}
         <input type="text" name="tool_name" onChange={this.handleGetFields} />
         <br />
@@ -80,7 +80,7 @@ class AddToolForm extends React.Component {
         Need Help: <input type="checkbox" onChange={this.handleToggleHelp} />
         <br />
         <button onClick={this.handleAddToolToToolList}>Add Tool(s)</button>
-        <button onClick={toggleAddToolForm}>Cancel</button></form>
+        <button onClick={toggleAddToolForm}>Cancel</button>
       </div>
     );
   }
