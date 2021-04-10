@@ -26,7 +26,6 @@ class UserProject extends React.Component {
       project,
       user_id,
       handleGetTargetName,
-      handleDeleteItem,
       handleAddItem,
     } = this.props;
     const { showProjectEditDelete } = this.state;
@@ -58,7 +57,6 @@ class UserProject extends React.Component {
             user_id={user_id}
             formattedDate={formattedDate}
             handleGetTargetName={handleGetTargetName}
-            handleDeleteItem={handleDeleteItem}
             handleAddItem={handleAddItem}
             toggleProjectEditDelete={this.toggleProjectEditDelete}
           />

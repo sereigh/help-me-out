@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import EditPhotoDisplay from "./EditPhotoDisplay";
+import hf from './helperFunctions';
 
 class EditDeleteUserTool extends React.Component {
   constructor(props) {
@@ -24,7 +25,6 @@ class EditDeleteUserTool extends React.Component {
   }
 
   handleGetFields(e) {
-    const { tool_name, tool_photos, help } = this.state;
     this.setState({ [e.target.name]: e.target.value });
   }
 
@@ -32,12 +32,12 @@ class EditDeleteUserTool extends React.Component {
     const { handleAddItem } = this.props;
     const { tool_photo, tool_photos } = this.state;
     this.setState({ tool_photos: handleAddItem(tool_photo, tool_photos) });
+
   }
 
   handleDeleteFromToolPhotos(target) {
-    const { handleDeleteItem } = this.props;
     const { tool_photos } = this.state;
-    this.setState({ tool_photos: handleDeleteItem(target, tool_photos) });
+    this.setState({ tool_photos: hf.handleDeleteItem(target, tool_photos) });
   }
 
   handleToggleHelp() {
@@ -78,7 +78,7 @@ class EditDeleteUserTool extends React.Component {
   }
 
   render() {
-    const { tool, toggleToolEditDelete, handleGetTargetName } = this.props;
+    const { tool, toggleToolEditDelete} = this.props;
     const { tool_photos, tool_name, help } = this.state;
     return (
       <div>
@@ -89,10 +89,10 @@ class EditDeleteUserTool extends React.Component {
           value={tool_name}
           onChange={this.handleGetFields}
         />
-        {tool_photos.length > 0 && (
+        {tool_photos !== [] && (
           <EditPhotoDisplay
+            key={tool_photos}
             photos={tool_photos}
-            handleGetTargetName={handleGetTargetName}
             deleteFunction={this.handleDeleteFromToolPhotos}
           />
         )}
