@@ -29,22 +29,10 @@ class FeedContainer extends Component {
       }
     };
 
-    const { user, currentFilter, data } = this.props;
-    let title = '';
-
-    if (currentFilter === 'home') {
-      title = 'Home';
-    } else if (currentFilter === 'giveHelp') {
-      title = 'Give Help';
-    } else if (currentFilter === 'getHelp') {
-      title = 'Get Help';
-    } else if (currentFilter === 'favorites') {
-      title = 'Favorites';
-    }
+    const { user, data } = this.props;
 
     return (
       <div className="feed">
-        <div className="feed-title">{title}</div>
         <div className="feed-container">
           {data.map((item) => (
             <div key={item._id}>
@@ -80,7 +68,6 @@ FeedContainer.propTypes = {
     })),
     favorites: PropTypes.objectOf(PropTypes.bool),
   }).isRequired,
-  currentFilter: PropTypes.string.isRequired,
   data: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.shape({
       tool_name: PropTypes.string,
