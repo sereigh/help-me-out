@@ -1,5 +1,6 @@
 @use '../components/MainPage/mainpage';
 @use '../components/ProfilePage/profilepage';
+@use '../components/LandingPage/landingpage';
 
 $main-color: rgb(255, 240, 212);
 $main-hover-color: rgba(255, 240, 212, 0.747);
@@ -38,7 +39,6 @@ button {
   height: 30px;
   width: auto;
 }
-
 
 body button {
   border: 1px solid $accent-color;
@@ -93,7 +93,9 @@ nav button:hover {
   padding-right: 10px;
 }
 
-.navbar-right button, .navbar-right span, .navbar-right div {
+.navbar-right button,
+.navbar-right span,
+.navbar-right div {
   margin-left: 15px;
 }
 
@@ -105,7 +107,8 @@ nav button:hover {
   transform: translateY(2px);
 }
 
-.navbar-right span img:hover, .page-title:hover {
+.navbar-right span img:hover,
+.page-title:hover {
   cursor: pointer;
 }
 
@@ -130,15 +133,23 @@ nav button:hover {
 }
 
 // Handy Status Icon
-.handy-none, .handy-bronze, .handy-silver, .handy-gold, .handy-platinum {
+.handy-none,
+.handy-bronze,
+.handy-silver,
+.handy-gold,
+.handy-platinum {
   width: 30px;
   height: 30px;
   border-radius: 30px;
-  background-image: radial-gradient(rgba(255, 255, 255, 1) 55%, rgba(255, 255, 255, 0) 45%);
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 1) 55%,
+    rgba(255, 255, 255, 0) 45%
+  );
   font-size: 30px;
 }
 
-.handy-none, .handy-bronze {
+.handy-none,
+.handy-bronze {
   color: rgb(132, 88, 27);
 }
 
@@ -162,7 +173,7 @@ nav button:hover {
   min-height: 400px;
   min-width: 270px;
   opacity: 0;
-  animation: .1s ease-out .7s 1 forwards loadInbox;
+  animation: 0.1s ease-out 0.7s 1 forwards loadInbox;
   position: relative;
   margin: auto;
 }
@@ -173,7 +184,7 @@ nav button:hover {
   font-size: 1vw;
   text-align: center;
   margin-top: 200px;
-  animation: 0s ease-in .6s 1 forwards load;
+  animation: 0s ease-in 0.6s 1 forwards load;
 }
 
 // Chat Box
@@ -184,7 +195,7 @@ nav button:hover {
   // bottom: 0vh;
   animation: .4s ease-out .4s 1 forwards loadChat;
   overflow: hidden;
-  transition: all .4s;
+  transition: all 0.4s;
   z-index: 100;
 }
 
@@ -237,6 +248,6 @@ nav button:hover {
   height: 300px;
   border-radius: 20px;
   opacity: 0;
-  animation: .1s ease-out .1s 1 forwards loadInbox;
+  animation: 0.1s ease-out 0.1s 1 forwards loadInbox;
   margin-top: 40px;
 }

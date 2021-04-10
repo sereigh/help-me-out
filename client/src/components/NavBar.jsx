@@ -31,7 +31,7 @@ const NavBar = ({
     )}
     {auth && (
       <nav>
-        <div className="page-title">Help Me Out!</div>
+        <span>Help Me Out!</span>
         <span className="navbar-right">
           <button
             type="button"
@@ -65,9 +65,9 @@ const NavBar = ({
             onKeyPress={() => history.push('/profile')}
             tabIndex={0}
           >
-            <img className="nav-avatar" src={avatar} alt="avatar" />
+            <img src={avatar} alt="avatar" />
           </span>
-          <span className="handy-score">{`Handy Score: ${score}`}</span>
+          <span>{`Handy Score: ${score}`}</span>
           <HandyIcon score={score} />
           <button
             type="button"

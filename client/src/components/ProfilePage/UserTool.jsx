@@ -19,7 +19,6 @@ class UserTool extends React.Component {
       tool,
       user_id,
       handleGetTargetName,
-      handleDeleteItem,
       handleAddItem,
     } = this.props;
     const { showToolEditDelete } = this.state;
@@ -41,7 +40,6 @@ class UserTool extends React.Component {
             tool={tool}
             toggleToolEditDelete={this.toggleToolEditDelete}
             handleGetTargetName={handleGetTargetName}
-            handleDeleteItem={handleDeleteItem}
             handleAddItem={handleAddItem}
           />
         )}

@@ -9,7 +9,6 @@ const UserProjects = (props) => {
     toggleAddProjectForm,
     showAddProjectForm,
     handleGetTargetName,
-    handleDeleteItem,
     handleAddItem,
   } = props;
   return (
@@ -20,7 +19,6 @@ const UserProjects = (props) => {
           project={project}
           user_id={user_id}
           handleGetTargetName={handleGetTargetName}
-          handleDeleteItem={handleDeleteItem}
           handleAddItem={handleAddItem}
         />
       ))}
@@ -33,7 +31,6 @@ const UserProjects = (props) => {
           toggleAddProjectForm={toggleAddProjectForm}
           user_id={user_id}
           handleGetTargetName={handleGetTargetName}
-          handleDeleteItem={handleDeleteItem}
           handleAddItem={handleAddItem}
         />
       )}
