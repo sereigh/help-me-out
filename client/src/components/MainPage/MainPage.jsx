@@ -106,10 +106,10 @@ class MainPage extends React.Component {
       <div className="main-page">
         <div className="main-page-left">
           <ProfileCard user={user} />
-          <FilterButtons handleFilter={this.handleFilter} />
+          <FilterButtons currentFilter={currentFilter} handleFilter={this.handleFilter} />
           <div className="chatbox-container" id="chatbox-mount" />
         </div>
-        <FeedContainer user={user} currentFilter={currentFilter} data={displayedData} />
+        <FeedContainer user={user} data={displayedData} />
       </div>
     );
   }

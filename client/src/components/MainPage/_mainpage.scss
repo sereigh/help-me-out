@@ -64,9 +64,15 @@ $accent-hover-color: rgb(94, 11, 11);
 }
 
 /* FILTER BUTTONS */
-.filter-buttons button {
-  width: 100%;
-  margin-bottom: 10px;
+.filter{
+  border: none;
+  border-radius: 0;
+  width: 100.5%;
+}
+
+.selected {
+  color: $main-color;
+  background-color: $accent-color;
 }
 
 /* PROJECT CARD */
