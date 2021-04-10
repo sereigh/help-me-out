@@ -26,7 +26,7 @@ class UserTool extends React.Component {
       <div className="tool-card">
         {!showToolEditDelete && (
           <div>
-            <div>{tool.tool_name}</div>
+            <div>Tool Name: {tool.tool_name}</div>
             <PhotoDisplay photos={tool.tool_photos} />
             {tool.help ? <div>Need Help!</div> : <div>No Help</div>}
             <button onClick={this.toggleToolEditDelete}>

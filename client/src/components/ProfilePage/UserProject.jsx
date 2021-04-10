@@ -34,8 +34,8 @@ class UserProject extends React.Component {
       <div className="project-card user-project">
         {!showProjectEditDelete && (
           <div>
-            <div>{project.project_name}</div>
-            <div>{project.project_description}</div>
+            <div>Project Name: {project.project_name}</div>
+            <div>Project Description: {project.project_description}</div>
             <PhotoDisplay
               photos={project.project_photos}
               handleGetTargetName={handleGetTargetName}
