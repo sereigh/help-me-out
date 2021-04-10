@@ -16,12 +16,12 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
-  height: 45px;
+  height: 40px;
   background-color: $accent-color;
   color: $main-color;
   display: flex;
   justify-content: space-between;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
 }
 
 span {
@@ -92,23 +92,17 @@ nav button:hover {
   margin-left: 15px;
 }
 
-.handy-score {
-  transform: translateY(-7px);
-}
-
-.navbar-right div {
-  transform: translateY(2px);
-}
-
 .navbar-right span img:hover, .page-title:hover {
   cursor: pointer;
 }
 
 .nav-avatar {
-  width: 37px;
-  height: 37px;
-  object-fit: scale-down;
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  background-position: center;
   border-radius: 50%;
+  transform: translateY(6px);
 }
 
 // Google log in button
@@ -128,11 +122,11 @@ nav button:hover {
 
 // Handy Status Icon
 .handy-none, .handy-bronze, .handy-silver, .handy-gold, .handy-platinum {
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   border-radius: 30px;
   background-image: radial-gradient(rgba(255, 255, 255, 1) 55%, rgba(255, 255, 255, 0) 45%);
-  font-size: 30px;
+  font-size: 20px;
 }
 
 .handy-none, .handy-bronze {

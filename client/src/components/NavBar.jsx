@@ -12,7 +12,6 @@ const NavBar = ({
   history,
   inboxNotifier,
   avatar,
-  score,
   logout,
 }) => (
   <>
@@ -83,8 +82,6 @@ const NavBar = ({
           >
             <img className="nav-avatar" src={avatar} alt="avatar" />
           </span>
-          <span className="handy-score">{`Handy Score: ${score}`}</span>
-          <HandyIcon score={score} />
           <button
             type="button"
             onClick={() => {
