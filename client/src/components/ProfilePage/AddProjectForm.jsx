@@ -102,7 +102,6 @@ class AddProjectForm extends React.Component {
       project_photos: project_photos,
       needed_tools: needed_tools,
     };
-    console.log(newUserProjectObj);
     axios
       .post(`/users/${user_id}/projects`, newUserProjectObj)
       .then((response) => {
@@ -118,7 +117,7 @@ class AddProjectForm extends React.Component {
     const { needed_tools, project_photos } = this.state;
     return (
       <div>
-        Project Name:{" "}
+        <form> Project Name:{" "}
         <input
           type="text"
           name="project_name"
@@ -156,7 +155,7 @@ class AddProjectForm extends React.Component {
         Need Help?:{" "}
         <input type="checkbox" onChange={this.handleToggleNeedHelp} />
         <button onClick={this.handleSubmitNewProject}>Add Project</button>
-        <button onClick={toggleAddProjectForm}>Cancel</button>
+        <button onClick={toggleAddProjectForm}>Cancel</button></form>
       </div>
     );
   }

@@ -29,6 +29,7 @@ const UserInfo = (props) => {
           photo={photo}
           email={email}
           password={password}
+          toggleEditUserForm={toggleEditUserForm}
         />
       )}
     </div>

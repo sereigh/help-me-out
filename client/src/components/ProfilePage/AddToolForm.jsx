@@ -66,7 +66,8 @@ class AddToolForm extends React.Component {
     const { tool_photos } = this.state;
     return (
       <div>
-        Tool Name:{" "}
+        <form>
+          Tool Name:{" "}
         <input type="text" name="tool_name" onChange={this.handleGetFields} />
         {tool_photos.length > 0 && (
           <EditPhotoDisplay photos={tool_photos} deleteFunction={this.handleDeleteToolPhoto}/>
@@ -76,7 +77,7 @@ class AddToolForm extends React.Component {
         <button onClick={this.handleAddToolPhoto}>Add Tool Photo</button>
         Need Help: <input type="checkbox" onChange={this.handleToggleHelp} />
         <button onClick={this.handleAddToolToToolList}>Add Tool(s)</button>
-        <button onClick={toggleAddToolForm}>Cancel</button>
+        <button onClick={toggleAddToolForm}>Cancel</button></form>
       </div>
     );
   }

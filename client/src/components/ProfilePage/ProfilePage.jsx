@@ -1,15 +1,15 @@
-import React from "react";
-import UserProjects from "./UserProjects.jsx";
-import UserTools from "./UserTools.jsx";
-import UserInfo from "./UserInfo.jsx";
-import sampleUser from "../../../../server/database/data/sampleUser.json";
-// import postProjects from "../../../../server/routes/projects/postProjects";
-// import deleteProjects from "../../../../server/routes/projects/deleteProjects";
-// import putProjects from "../../../../server/routes/projects/putProjects";
-// import postTools from "../../../../server/routes/tools/postTools";
-// import deleteTools from "../../../../server/routes/tools/postTools";
-// import putTools from "../../../../server/routes/tools/putTools";
-// import putUsers from "../../../../server/routes/users/putUser";
+import React from 'react';
+import UserProjects from './UserProjects.jsx';
+import UserTools from './UserTools.jsx';
+import UserInfo from './UserInfo.jsx';
+import sampleUser from '../../../../server/database/data/sampleUser.json';
+// import postProjects from '../../../../server/routes/projects/postProjects';
+// import deleteProjects from '../../../../server/routes/projects/deleteProjects';
+// import putProjects from '../../../../server/routes/projects/putProjects';
+// import postTools from '../../../../server/routes/tools/postTools';
+// import deleteTools from '../../../../server/routes/tools/postTools';
+// import putTools from '../../../../server/routes/tools/putTools';
+// import putUsers from '../../../../server/routes/users/putUser';
 
 class ProfilePage extends React.Component {
   constructor(props) {
@@ -40,7 +40,6 @@ class ProfilePage extends React.Component {
     const { showAddToolForm } = this.state;
     this.setState({ showAddToolForm: !showAddToolForm });
   }
-  toggleHelp() {}
 
   render() {
     const {
@@ -59,17 +58,10 @@ class ProfilePage extends React.Component {
       showAddToolForm,
       showEditUserForm,
     } = this.state;
-    const handleGetTargetName = (e) => {debugger; e.target.name};
-    const handleAddItem = (itemToAdd, itemArray) => {
-      if (itemArray.indexOf(itemToAdd) === -1 && itemToAdd.length > 3) {
-        const revisedArray = itemArray.concat(itemToAdd);
-        return revisedArray;
-      }
-    };
 
     return (
-      <div id="user-profile">
-        <div className="user-info-pane">
+      <div id='user-profile'>
+        <div className='user-info-pane'>
           <UserInfo
             user_id={_id}
             name={name}
@@ -84,7 +76,7 @@ class ProfilePage extends React.Component {
             handleAddItem={handleAddItem}
           />
         </div>
-        <div className="user-feed">
+        <div className='user-feed'>
           <UserProjects
             user_id={_id}
             projects={projects}
