@@ -35,9 +35,9 @@ class FeedContainer extends Component {
       <div className="feed">
         <div className="feed-container">
           {data.map((item) => (
-            <div key={item._id}>
-              {item.tool_name ? <ToolCard user={user} tool={item} handleVote={handleVote}/> : <ProjectCard user={user} project={item} handleVote={handleVote} />}
-            </div>
+            item.tool_name
+              ? <ToolCard key={item._id} user={user} tool={item} handleVote={handleVote}/>
+              : <ProjectCard key={item._id} user={user} project={item} handleVote={handleVote} />
           ))}
         </div>
       </div>

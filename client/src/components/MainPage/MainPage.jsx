@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
-import sampleData from '../../../../server/database/data/sampleFeed.json';
+import sampleData from '../../../../server/database/data/samples/sampleFeed.json';
 
 import ProfileCard from './ProfileCard';
 import FilterButtons from './FilterButtons';
@@ -41,7 +41,7 @@ class MainPage extends React.Component {
     const { user } = this.props;
 
     axios.get(`/users/${user._id}/relevant`)
-      .then((results) => this.filterData(sampleData))
+      .then((results) => this.filterData(results.data))
       // eslint-disable-next-line no-console
       .catch((err) => console.log(err));
   }

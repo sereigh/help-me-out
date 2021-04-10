@@ -64,7 +64,7 @@ body button:hover {
 nav button {
   border: none;
   background-color: $accent-color;
-  color: white;
+  color: $main-color;
   transition: color 200ms;
 }
 
