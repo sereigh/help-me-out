@@ -1,4 +1,4 @@
-const db = require('../../index');
+const db = require("../../index");
 
 exports.grabRecentProjects = (cb) => {
   db.Project.find({})

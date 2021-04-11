@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
-import { withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import GoogleLogin from 'react-google-login';
-import HandyIcon from './HandyIcon';
+import React from "react";
+import { withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
+import GoogleLogin from "react-google-login";
+import HandyIcon from "./HandyIcon";
 
 const NavBar = ({
   auth,
@@ -21,7 +21,7 @@ const NavBar = ({
           type="button"
           className="page-title"
           onClick={() => {
-            history.push('/');
+            history.push("/");
           }}
         >
           Help Me Out!
@@ -42,7 +42,7 @@ const NavBar = ({
           type="button"
           className="page-title"
           onClick={() => {
-            history.push('/');
+            history.push("/");
           }}
         >
           Help Me Out!
@@ -51,7 +51,7 @@ const NavBar = ({
           <button
             type="button"
             onClick={() => {
-              history.push('/dashboard');
+              history.push("/dashboard");
             }}
           >
             Dashboard
@@ -60,7 +60,7 @@ const NavBar = ({
             type="button"
             id="inbox-notifier"
             onClick={() => {
-              history.push('/inbox');
+              history.push("/inbox");
             }}
           >
             Inbox
@@ -69,15 +69,15 @@ const NavBar = ({
           <button
             type="button"
             onClick={() => {
-              history.push('/account');
+              history.push("/account");
             }}
           >
             Account
           </button>
           <span
             role="button"
-            onClick={() => history.push('/account')}
-            onKeyPress={() => history.push('/account')}
+            onClick={() => history.push("/account")}
+            onKeyPress={() => history.push("/account")}
             tabIndex={0}
           >
             <img className="nav-avatar" src={avatar} alt="avatar" />

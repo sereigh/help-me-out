@@ -2,10 +2,14 @@
 /* eslint-disable no-console */
 /* eslint-disable no-plusplus */
 /* eslint-disable max-len */
-const { exec } = require('child_process');
-const { getAllIds } = require('./getAllIds');
-const { addRefs } = require('./addRefs');
-const { importUsers, importProjects, importTools } = require('./utility/imports');
+const { exec } = require("child_process");
+const { getAllIds } = require("./getAllIds");
+const { addRefs } = require("./addRefs");
+const {
+  importUsers,
+  importProjects,
+  importTools,
+} = require("./utility/imports");
 
 /*
 1) start mongod
@@ -22,7 +26,7 @@ const { importUsers, importProjects, importTools } = require('./utility/imports'
       if (stderr) return console.log(`Error running command: ${stderr}`);
     });
   }
-}());
+})();
 
 // get all _ids
 getAllIds((e, r) => {
@@ -32,5 +36,5 @@ getAllIds((e, r) => {
     if (err) return console.error(err);
     return console.log(res);
   });
-  return console.log('done');
+  return console.log("done");
 });

@@ -1,5 +1,6 @@
 exports.getIds = (model, cb) => {
-  model.find({})
+  model
+    .find({})
     .select({ _id: 1 })
     .sort({ zip: -1 })
     .exec((err, results) => {

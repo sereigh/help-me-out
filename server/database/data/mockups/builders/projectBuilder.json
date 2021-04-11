@@ -1,153 +1,109 @@
 {
   "bench": {
-    "img": [
-      "https://loremflickr.com/320/240/parkbench"
-    ],
+    "img": ["https://loremflickr.com/320/240/parkbench"],
     "needed_tools": "hammer|saw|drill|clamps",
     "project_names": "Simple Park Bench|All Wood Park Bench|Kigumi Park Bench|Classic Park Bench|Easy Park Bench|Amish Park Bench|Best Park Bench|Dead Simple Park Bench|Step-By-Step Park Bench|Building A Better Park Bench|How To Make A Park Bench|DIY Park Bench|Awesome Park Bench"
   },
   "barn-raising": {
-    "img": [
-      "https://loremflickr.com/320/240/barn"
-    ],
+    "img": ["https://loremflickr.com/320/240/barn"],
     "needed_tools": "ladder|framing square|axe|hammer",
     "project_names": "Simple Barn Raising|Classic Barn Raising|My first Barn Raising|First Ever Barn Raising|Easy Barn Raising|Amish Barn Raising|Dead Simple Barn Raising|Step-By-Step Barn Raising|Creative Barn Raising|Advanced Barn Raising"
   },
   "classic-car": {
-    "img": [
-      "https://loremflickr.com/320/240/classic,car"
-    ],
+    "img": ["https://loremflickr.com/320/240/classic,car"],
     "needed_tools": "wrench|grinder|jack|drill",
     "project_names": "Simple Classic Car Restoration|Complex Classic Car Restoration|My first Classic Car Restoration|First Ever Classic Car Restoration|Another Classic Car Restoration|Easy Classic Car Restoration|Dead Simple Classic Car Restoration|Step-By-Step Classic Car Restoration|Building A Better Classic Car|DIY Classic Car Restoration|Advanced Classic Car Restoration"
   },
   "camera": {
-    "img": [
-      "https://loremflickr.com/320/240/camera,repair"
-    ],
+    "img": ["https://loremflickr.com/320/240/camera,repair"],
     "needed_tools": "screwdriver|pliers|voltmeter",
     "project_names": "Simple Camera Repair|Classic Camera Repair|My first Camera Repair|First Ever Camera Repair|Easy Camera Repair|Step-By-Step Camera Repair|DIY Camera Repair|Advanced Camera Repair"
   },
   "garden": {
-    "img": [
-      "https://loremflickr.com/320/240/garden,plot"
-    ],
+    "img": ["https://loremflickr.com/320/240/garden,plot"],
     "needed_tools": "hoe|shears|shovel",
     "project_names": "Simple Garden|First Garden|All Wood Garden|My first Garden|Amish Garden|Best Garden|Dead Simple Garden|Building A Better Garden"
   },
   "flower-bed": {
-    "img": [
-      "https://loremflickr.com/320/240/flower,bed"
-    ],
+    "img": ["https://loremflickr.com/320/240/flower,bed"],
     "needed_tools": "trowel|hammer",
     "project_names": "How To Make A Flower Bed|First Ever Flower Bed"
   },
   "terrarium": {
-    "img": [
-      "https://loremflickr.com/320/240/terrarium"
-    ],
+    "img": ["https://loremflickr.com/320/240/terrarium"],
     "needed_tools": "pliers",
     "project_names": "DIY Terrarium|Step-By-Step Terrarium"
   },
   "lawn-care": {
-    "img": [
-      "https://loremflickr.com/320/240/lawn,care"
-    ],
+    "img": ["https://loremflickr.com/320/240/lawn,care"],
     "needed_tools": "lawnmower|weedeater|shears",
     "project_names": "Durable Lawn Care|Advanced Lawn Care|Easy Lawn Care"
   },
   "computer-repair": {
-    "img": [
-      "https://loremflickr.com/320/240/pc,repair"
-    ],
+    "img": ["https://loremflickr.com/320/240/pc,repair"],
     "needed_tools": "screwdriver|multi-tester",
     "project_names": "Easy Computer Repair|Dead Simple Computer Repair|Step-By-Step Computer Repair|Building A Better Computer|DIY Computer Repair|Advanced Computer Repair"
   },
   "dock": {
-    "img": [
-      "https://loremflickr.com/320/240/dock,wooden"
-    ],
+    "img": ["https://loremflickr.com/320/240/dock,wooden"],
     "needed_tools": "hammer|saw",
     "project_names": "Simple Dock|All Wood Dock|Kigumi Dock|Best Dock|Building A Better Dock|DIY Dock|Awesome Dock|Durable Dock"
   },
   "bonsai": {
-    "img": [
-      "https://loremflickr.com/320/240/bonsai"
-    ],
+    "img": ["https://loremflickr.com/320/240/bonsai"],
     "needed_tools": "wire|pliers",
     "project_names": "Awesome Bonsai|Creative Bonsai|Classic Bonsai|"
   },
   "guitar-repair": {
-    "img": [
-      "https://loremflickr.com/320/240/guitar,repair"
-    ],
+    "img": ["https://loremflickr.com/320/240/guitar,repair"],
     "needed_tools": "pliers|wrench|screwdriver",
     "project_names": "Simple Guitar Repair|Complex Guitar Repair|First Guitar Repair|My first Guitar Repair|First Ever Guitar Repair|Easy Guitar Repair|Dead Simple Guitar Repair|Step-By-Step Guitar Repair|DIY Guitar Repair"
   },
   "ducttape-wallet": {
-    "img": [
-      "https://loremflickr.com/320/240/ducttape,wallet"
-    ],
+    "img": ["https://loremflickr.com/320/240/ducttape,wallet"],
     "needed_tools": "|",
     "project_names": "Another Ducttape Wallet|Best Ducttape Wallet|How To Make A Ducttape Wallet|DIY Ducttape Wallet|Awesome Ducttape Wallet|Creative Ducttape Wallet|Durable Ducttape Wallet"
   },
   "deck-box": {
-    "img": [
-      "https://loremflickr.com/320/240/deck-box"
-    ],
+    "img": ["https://loremflickr.com/320/240/deck-box"],
     "needed_tools": "hammer|saw",
     "project_names": "Simple Deck Box|First Deck Box|All Wood Deck Box|Kigumi Deck Box|Classic Deck Box|Easy Deck Box|Amish Deck Box|Step-By-Step Deck Box|How To Make A Deck Box|DIY Deck Box|Creative Deck Box|Durable Deck Box"
   },
   "clock-repair": {
-    "img": [
-      "https://loremflickr.com/320/240/clock,repair"
-    ],
+    "img": ["https://loremflickr.com/320/240/clock,repair"],
     "needed_tools": "file|pliers",
     "project_names": "Simple Clock Repair|Complex Clock Repair|First Clock Repair|My first Clock Repair|First Ever Clock Repair|Quick Clock Repair|Easy Clock Repair|Step-By-Step Clock Repair|DIY Clock Repair|Advanced Clock Repair"
   },
   "she-shed": {
-    "img": [
-      "https://loremflickr.com/320/240/sheshed"
-    ],
+    "img": ["https://loremflickr.com/320/240/sheshed"],
     "needed_tools": "hammer|saw|drill",
     "project_names": "Basic She Shed|My first She Shed|Best She Shed|Step-By-Step She Shed|Building A Better She Shed|How To Make A She Shed|DIY She Shed|Awesome She Shed|Creative She Shed"
   },
   "shelving": {
-    "img": [
-      "https://loremflickr.com/320/240/shelf,repair"
-    ],
+    "img": ["https://loremflickr.com/320/240/shelf,repair"],
     "needed_tools": "hammer|saw|drill",
     "project_names": "Simple Shelving|All Wood Shelving|Easy Shelving|Amish Shelving|Best Shelving|Dead Simple Shelving|Step-By-Step Shelving|Building A Better Shelving|How To Make A Shelving|DIY Shelving|Awesome Shelving|Creative Shelving|Durable Shelving|Advanced Shelving"
   },
   "speaker": {
-    "img": [
-      "https://loremflickr.com/320/240/speaker,repair"
-    ],
+    "img": ["https://loremflickr.com/320/240/speaker,repair"],
     "needed_tools": "pliers|wire|voltmeter",
     "project_names": "Simple Speaker Repair|Complex Speaker Repair|Easy Speaker Repair|Dead Simple Speaker Repair|Step-By-Step Speaker Repair|DIY Speaker Repair|Advanced Speaker Repair"
   },
   "birdhouse": {
-    "img": [
-      "https://loremflickr.com/320/240/bird-house"
-    ],
+    "img": ["https://loremflickr.com/320/240/bird-house"],
     "needed_tools": "drill|hammer",
     "project_names": "First Bird House|Classic Bird House|Another Bird House|Basic Bird House|Simple Bird House|Step-By-Step Bird House|How To Make A Bird House|DIY Bird House|Awesome Bird House|Creative Bird House|"
   },
   "wooden": {
-    "img": [
-      "https://loremflickr.com/320/240/wood,repair"
-    ],
+    "img": ["https://loremflickr.com/320/240/wood,repair"],
     "project_names": "Shed|Out Building|Frame|Play House|Garden Shed|Tree House|Bar Top|Outdoor Furniture|Home Construction|Home DIY|Community Gazebo|Picnic Table|Habitat For Humanity Project|Repairs|General Repairs|Home Repairs|Honey-Do List"
   },
   "electronics": {
-    "img": [
-      "https://loremflickr.com/320/240/wiring,repair"
-    ],
+    "img": ["https://loremflickr.com/320/240/wiring,repair"],
     "project_names": "Re-wiring|Bad Filaments|Electronics Repair|Electric Repairs|Sockets|Replacement Job|Electricians Nightmare|It's Electric!|Trying Not To Get Electricuted"
   },
   "random": {
-    "img": [
-      "https://loremflickr.com/320/240/general,repair"
-    ],
+    "img": ["https://loremflickr.com/320/240/general,repair"],
     "project_names": "My Project|Helping Out|Gut Job|On The Job|It Has Begun!|Getting Started|Construction|Construction Zone|From The Ground Up|Ground Zero|Lending A Hand"
   }
 }

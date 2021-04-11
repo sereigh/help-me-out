@@ -26,7 +26,9 @@ const UserInfo = (props) => {
       <div>{`ZIP Code: ${zip}`}</div>
       <div>{email}</div>
       {!showEditUserForm && (
-        <button className="edit-user-info-button" onClick={toggleEditUserForm}>Edit Profile</button>
+        <button className="edit-user-info-button" onClick={toggleEditUserForm}>
+          Edit Profile
+        </button>
       )}
       {showEditUserForm && (
         <EditUserInfo

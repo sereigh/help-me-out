@@ -1,4 +1,4 @@
-const db = require('../../index');
+const db = require("../../index");
 
 exports.addProjectPhotos = (project, user, update, cb) => {
   db.Project.findByIdAndUpdate(
@@ -8,6 +8,6 @@ exports.addProjectPhotos = (project, user, update, cb) => {
     (err, result) => {
       if (err) return cb(err, null);
       return cb(null, result);
-    },
+    }
   ).exec();
 };

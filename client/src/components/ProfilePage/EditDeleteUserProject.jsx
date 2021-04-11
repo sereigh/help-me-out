@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import EditPhotoDisplay from "./EditPhotoDisplay";
-import hf from './helperFunctions';
+import hf from "./helperFunctions";
 
 class EditDeleteUserProject extends React.Component {
   constructor(props) {
@@ -92,9 +92,7 @@ class EditDeleteUserProject extends React.Component {
   }
 
   render() {
-    const {
-      toggleProjectEditDelete,
-    } = this.props;
+    const { toggleProjectEditDelete } = this.props;
     const {
       project_name,
       project_description,

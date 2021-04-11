@@ -1,4 +1,4 @@
-const db = require('../../index');
+const db = require("../../index");
 
 exports.reportUser = (user, update, cb) => {
   db.User.findByIdAndUpdate(
@@ -8,6 +8,6 @@ exports.reportUser = (user, update, cb) => {
     (err, result) => {
       if (err) return cb(err, null);
       return cb(null, result);
-    },
+    }
   );
 };

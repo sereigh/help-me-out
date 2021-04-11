@@ -1,7 +1,7 @@
 import React from "react";
-import hf from './helperFunctions';
+import hf from "./helperFunctions";
 
-const EditPhotoDisplay = ({ photos, deleteFunction}) => {
+const EditPhotoDisplay = ({ photos, deleteFunction }) => {
   return (
     <div>
       {photos.map((photo, index) => {

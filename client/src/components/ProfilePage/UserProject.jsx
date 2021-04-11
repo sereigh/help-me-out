@@ -22,12 +22,7 @@ class UserProject extends React.Component {
   }
 
   render() {
-    const {
-      project,
-      user_id,
-      handleGetTargetName,
-      handleAddItem,
-    } = this.props;
+    const { project, user_id, handleGetTargetName, handleAddItem } = this.props;
     const { showProjectEditDelete } = this.state;
     const formattedDate = this.formattedDate(project.createdAt);
     return (

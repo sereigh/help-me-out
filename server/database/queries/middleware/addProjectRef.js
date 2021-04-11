@@ -1,9 +1,9 @@
-const db = require('../../index');
+const db = require("../../index");
 
 exports.addProjectRef = (user, project) => {
   db.User.findByIdAndUpdate(
     { _id: user },
     { $push: { projects: project } },
-    { upsert: true },
+    { upsert: true }
   ).exec();
 };

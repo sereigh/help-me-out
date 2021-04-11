@@ -1,98 +1,85 @@
 [
   {
-      "zip": 38397,
-      "photo": "https://picsum.photos/200",
-      "handy": 30,
-      "report": 0,
-      "tools": [
-          "606cdd49976fe4d9c0288e3b"
-      ],
-      "projects": [
-          "606ce0bf976fe4d9c0288e47",
-          "606ce0ec976fe4d9c0288e48",
-          "606ce10b976fe4d9c0288e49"
-      ],
-      "_id": "606cd9f2976fe4d9c0288e2c",
-      "favorites": [],
-      "name": "Candace Iskowitz",
-      "password": "2811b630cfb2f",
-      "createdAt": "2021-04-06T22:00:18.253Z",
-      "updatedAt": "2021-04-06T22:30:35.987Z",
-      "__v": 0
+    "zip": 38397,
+    "photo": "https://picsum.photos/200",
+    "handy": 30,
+    "report": 0,
+    "tools": ["606cdd49976fe4d9c0288e3b"],
+    "projects": [
+      "606ce0bf976fe4d9c0288e47",
+      "606ce0ec976fe4d9c0288e48",
+      "606ce10b976fe4d9c0288e49"
+    ],
+    "_id": "606cd9f2976fe4d9c0288e2c",
+    "favorites": [],
+    "name": "Candace Iskowitz",
+    "password": "2811b630cfb2f",
+    "createdAt": "2021-04-06T22:00:18.253Z",
+    "updatedAt": "2021-04-06T22:30:35.987Z",
+    "__v": 0
   },
   {
-      "zip": 38397,
-      "photo": "https://picsum.photos/200",
-      "handy": 20,
-      "report": 0,
-      "tools": [],
-      "projects": [
-          "606cddd0976fe4d9c0288e3c",
-          "606cddff976fe4d9c0288e3d"
-      ],
-      "_id": "606cd9c7976fe4d9c0288e2b",
-      "favorites": [],
-      "name": "Marcus Martinez",
-      "password": "9b475a3ccf08f00",
-      "createdAt": "2021-04-06T21:59:35.391Z",
-      "updatedAt": "2021-04-06T22:17:35.072Z",
-      "__v": 0
+    "zip": 38397,
+    "photo": "https://picsum.photos/200",
+    "handy": 20,
+    "report": 0,
+    "tools": [],
+    "projects": ["606cddd0976fe4d9c0288e3c", "606cddff976fe4d9c0288e3d"],
+    "_id": "606cd9c7976fe4d9c0288e2b",
+    "favorites": [],
+    "name": "Marcus Martinez",
+    "password": "9b475a3ccf08f00",
+    "createdAt": "2021-04-06T21:59:35.391Z",
+    "updatedAt": "2021-04-06T22:17:35.072Z",
+    "__v": 0
   },
   {
-      "zip": 37255,
-      "photo": "https://picsum.photos/200",
-      "handy": 10,
-      "report": 0,
-      "tools": [
-          "606cdcc8976fe4d9c0288e38",
-          "606cdcd8976fe4d9c0288e39",
-          "606cdcfd976fe4d9c0288e3a"
-      ],
-      "projects": [
-          "606cdfe6976fe4d9c0288e3e",
-          "606cdffb976fe4d9c0288e3f"
-      ],
-      "_id": "606cda23976fe4d9c0288e2d",
-      "favorites": [],
-      "name": "Andre Phillips",
-      "password": "f8db73c284c12a92",
-      "createdAt": "2021-04-06T22:01:07.510Z",
-      "updatedAt": "2021-04-06T22:26:03.835Z",
-      "__v": 0
+    "zip": 37255,
+    "photo": "https://picsum.photos/200",
+    "handy": 10,
+    "report": 0,
+    "tools": [
+      "606cdcc8976fe4d9c0288e38",
+      "606cdcd8976fe4d9c0288e39",
+      "606cdcfd976fe4d9c0288e3a"
+    ],
+    "projects": ["606cdfe6976fe4d9c0288e3e", "606cdffb976fe4d9c0288e3f"],
+    "_id": "606cda23976fe4d9c0288e2d",
+    "favorites": [],
+    "name": "Andre Phillips",
+    "password": "f8db73c284c12a92",
+    "createdAt": "2021-04-06T22:01:07.510Z",
+    "updatedAt": "2021-04-06T22:26:03.835Z",
+    "__v": 0
   },
   {
-      "zip": 38397,
-      "photo": "https://picsum.photos/200",
-      "handy": 10,
-      "report": 0,
-      "tools": [
-          "606cdc73976fe4d9c0288e37"
-      ],
-      "projects": [
-          "606ce13d976fe4d9c0288e4a",
-          "606ce152976fe4d9c0288e4b"
-      ],
-      "_id": "606cda47976fe4d9c0288e2e",
-      "favorites": [],
-      "name": "Nora Ruiz",
-      "password": "cf5159715357",
-      "createdAt": "2021-04-06T22:01:43.545Z",
-      "updatedAt": "2021-04-06T22:31:46.348Z",
-      "__v": 0
+    "zip": 38397,
+    "photo": "https://picsum.photos/200",
+    "handy": 10,
+    "report": 0,
+    "tools": ["606cdc73976fe4d9c0288e37"],
+    "projects": ["606ce13d976fe4d9c0288e4a", "606ce152976fe4d9c0288e4b"],
+    "_id": "606cda47976fe4d9c0288e2e",
+    "favorites": [],
+    "name": "Nora Ruiz",
+    "password": "cf5159715357",
+    "createdAt": "2021-04-06T22:01:43.545Z",
+    "updatedAt": "2021-04-06T22:31:46.348Z",
+    "__v": 0
   },
   {
-      "zip": 37255,
-      "photo": "https://picsum.photos/200",
-      "handy": 5,
-      "report": 0,
-      "tools": [],
-      "projects": [],
-      "_id": "606cdadd976fe4d9c0288e31",
-      "favorites": [],
-      "name": "Phillip Waterson",
-      "password": "326b94d4530d405",
-      "createdAt": "2021-04-06T22:04:13.722Z",
-      "updatedAt": "2021-04-06T22:04:13.722Z",
-      "__v": 0
+    "zip": 37255,
+    "photo": "https://picsum.photos/200",
+    "handy": 5,
+    "report": 0,
+    "tools": [],
+    "projects": [],
+    "_id": "606cdadd976fe4d9c0288e31",
+    "favorites": [],
+    "name": "Phillip Waterson",
+    "password": "326b94d4530d405",
+    "createdAt": "2021-04-06T22:04:13.722Z",
+    "updatedAt": "2021-04-06T22:04:13.722Z",
+    "__v": 0
   }
 ]
