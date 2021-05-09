@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   CarouselProvider,
   Slider,
@@ -6,9 +6,9 @@ import {
   ButtonNext,
   Image,
   Slide,
-} from 'pure-react-carousel';
-import ProjectModal from './ProjectModal';
-import 'pure-react-carousel/dist/react-carousel.es.css';
+} from "pure-react-carousel";
+import ProjectModal from "./ProjectModal";
+import "pure-react-carousel/dist/react-carousel.es.css";
 
 const LPProjects = ({ projects, onClick }) => (
   <div className="tmProjectsContainer">

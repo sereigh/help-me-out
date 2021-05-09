@@ -2,8 +2,8 @@ import React from "react";
 import UserProjects from "./UserProjects.jsx";
 import UserTools from "./UserTools.jsx";
 import UserInfo from "./UserInfo.jsx";
-import MiniMap from './MiniMap';
-import Inbox from '../Inbox';
+import MiniMap from "./MiniMap";
+import Inbox from "../Inbox";
 import sampleUser from "../../../../server/database/data/samples/sampleUser.json";
 
 class ProfilePage extends React.Component {
@@ -62,8 +62,8 @@ class ProfilePage extends React.Component {
     };
 
     return (
-      <div id='user-profile'>
-        <div className='user-info-pane'>
+      <div id="user-profile">
+        <div className="user-info-pane">
           <UserInfo
             user_id={_id}
             name={name}
@@ -80,9 +80,10 @@ class ProfilePage extends React.Component {
           <MiniMap zipcode={zip} />
         </div>
         <div className="user-feed">
-          {showInbox
-            ? <Inbox />
-            : <>
+          {showInbox ? (
+            <Inbox />
+          ) : (
+            <>
               <UserProjects
                 user_id={_id}
                 projects={projects}
@@ -99,7 +100,8 @@ class ProfilePage extends React.Component {
                 handleGetTargetName={handleGetTargetName}
                 handleAddItem={handleAddItem}
               />
-            </>}
+            </>
+          )}
         </div>
       </div>
     );

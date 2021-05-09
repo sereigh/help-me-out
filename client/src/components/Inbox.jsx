@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 class Inbox extends React.Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class Inbox extends React.Component {
     return (
       <>
         <div className="inbox-loading">Loading Inbox...</div>
-        <div className="inbox-container" ref={(c) => this.container = c} />
+        <div className="inbox-container" ref={(c) => (this.container = c)} />
       </>
     );
   }

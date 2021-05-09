@@ -1,5 +1,5 @@
-import React from 'react';
-import GoogleLogin from 'react-google-login';
+import React from "react";
+import GoogleLogin from "react-google-login";
 
 class SignUp extends React.Component {
   constructor(props) {
@@ -9,11 +9,7 @@ class SignUp extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        Sign Up
-      </div>
-    );
+    return <div>Sign Up</div>;
   }
 }
 

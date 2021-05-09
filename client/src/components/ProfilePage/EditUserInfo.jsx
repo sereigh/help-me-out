@@ -49,44 +49,48 @@ class EditUserInfo extends React.Component {
       <div className="edit-user-info-form">
         <form>
           Full Name:{" "}
-        <input
-          type="text"
-          name="name"
-          value={name}
-          onChange={this.handleGetFields}
-        />
-        Zip Code:{" "}
-        <input
-          type="text"
-          name="zip"
-          value={zip}
-          onChange={this.handleGetFields}
-        />
-        Photo:{" "}
-        <input
-          type="text"
-          name="photo"
-          value={photo}
-          onChange={this.handleGetFields}
-        />
-        Email:{" "}
-        <input
-          type="text"
-          name="email"
-          value={email}
-          onChange={this.handleGetFields}
-        />
-        Password:{" "}
-        <input
-          type="text"
-          name="password"
-          value={password}
-          onChange={this.handleGetFields}
-        />
-        <button onClick={this.handleSubmitUserInfo}>Submit User Info</button>
-        <button onClick={() => {
-          toggleEditUserForm();
-        }}>Cancel</button>
+          <input
+            type="text"
+            name="name"
+            value={name}
+            onChange={this.handleGetFields}
+          />
+          Zip Code:{" "}
+          <input
+            type="text"
+            name="zip"
+            value={zip}
+            onChange={this.handleGetFields}
+          />
+          Photo:{" "}
+          <input
+            type="text"
+            name="photo"
+            value={photo}
+            onChange={this.handleGetFields}
+          />
+          Email:{" "}
+          <input
+            type="text"
+            name="email"
+            value={email}
+            onChange={this.handleGetFields}
+          />
+          Password:{" "}
+          <input
+            type="text"
+            name="password"
+            value={password}
+            onChange={this.handleGetFields}
+          />
+          <button onClick={this.handleSubmitUserInfo}>Submit User Info</button>
+          <button
+            onClick={() => {
+              toggleEditUserForm();
+            }}
+          >
+            Cancel
+          </button>
         </form>
       </div>
     );

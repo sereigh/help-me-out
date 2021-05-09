@@ -1,8 +1,8 @@
 import React from "react";
 import axios from "axios";
 import ProjectToolList from "./ProjectToolList";
-import EditPhotoDisplay from './EditPhotoDisplay';
-import hf from './helperFunctions';
+import EditPhotoDisplay from "./EditPhotoDisplay";
+import hf from "./helperFunctions";
 
 class AddProjectForm extends React.Component {
   constructor(props) {
@@ -42,7 +42,7 @@ class AddProjectForm extends React.Component {
   }
 
   handleAddToolToProjectToolList(e) {
-    e.preventDefault()
+    e.preventDefault();
     const { needed_tool, needed_tools } = this.state;
     if (needed_tools.indexOf(needed_tool) === -1 && needed_tool.length > 1) {
       const revisedTools = needed_tools.concat(needed_tool);
@@ -82,14 +82,13 @@ class AddProjectForm extends React.Component {
   }
 
   handleDeleteFromProjectPhotos(photoToDelete) {
-
     const { project_photos } = this.state;
     const alteredPhotoList = hf.handleDeleteItem(photoToDelete, project_photos);
     this.setState({ project_photos: alteredPhotoList });
   }
 
   handleSubmitNewProject() {
-    const {user_id} = this.props;
+    const { user_id } = this.props;
     const {
       project_name,
       project_description,
@@ -115,11 +114,11 @@ class AddProjectForm extends React.Component {
   }
 
   render() {
-    const { toggleAddProjectForm} = this.props;
+    const { toggleAddProjectForm } = this.props;
     const { needed_tools, project_photos } = this.state;
     return (
       <div>
-         Project Name:{" "}
+        Project Name:{" "}
         <input
           type="text"
           name="project_name"
@@ -150,14 +149,18 @@ class AddProjectForm extends React.Component {
           type="text"
           name="project_photo"
           onChange={this.handleGetFields}
-          />
+        />
         <button onClick={this.handleAddPhotoToProjectPhotoList}>
           Add Photo
         </button>
         <br />
-          {project_photos !== [] > 0 && (
-            <EditPhotoDisplay key={project_photos} photos={project_photos} deleteFunction={this.handleDeleteFromProjectPhotos}/>
-          )}
+        {project_photos !== [] > 0 && (
+          <EditPhotoDisplay
+            key={project_photos}
+            photos={project_photos}
+            deleteFunction={this.handleDeleteFromProjectPhotos}
+          />
+        )}
         Need Help?:{" "}
         <input type="checkbox" onChange={this.handleToggleNeedHelp} />
         <br />

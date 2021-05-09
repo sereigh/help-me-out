@@ -1,4 +1,4 @@
-const db = require('../../index');
+const db = require("../../index");
 
 exports.updateFavorites = (user, favorite, cb) => {
   db.User.findByIdAndUpdate(
@@ -8,6 +8,6 @@ exports.updateFavorites = (user, favorite, cb) => {
     (err, result) => {
       if (err) return cb(err, null);
       return cb(null, result);
-    },
+    }
   );
 };

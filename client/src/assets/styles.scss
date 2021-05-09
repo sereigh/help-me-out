@@ -144,7 +144,10 @@ nav button:hover {
   width: 18px;
   height: 18px;
   border-radius: 30px;
-  background-image: radial-gradient(rgba(255, 255, 255, 1) 55%, rgba(255, 255, 255, 0) 45%);
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 1) 55%,
+    rgba(255, 255, 255, 0) 45%
+  );
   font-size: 18px;
   margin: 0 3px;
 }
@@ -194,7 +197,7 @@ nav button:hover {
   position: fixed;
   right: 2.5vw;
   bottom: 0;
-  animation: .4s ease-out 0s 1 loadChat;
+  animation: 0.4s ease-out 0s 1 loadChat;
   overflow: hidden;
   transition: all 0.4s;
   z-index: 100;

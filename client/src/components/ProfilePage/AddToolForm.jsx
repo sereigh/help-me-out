@@ -1,8 +1,8 @@
 import React from "react";
 import axios from "axios";
 import AddToolFormToolPhotos from "./AddToolFormToolPhotos";
-import EditPhotoDisplay from './EditPhotoDisplay';
-import hf from './helperFunctions';
+import EditPhotoDisplay from "./EditPhotoDisplay";
+import hf from "./helperFunctions";
 
 class AddToolForm extends React.Component {
   constructor(props) {
@@ -33,7 +33,7 @@ class AddToolForm extends React.Component {
 
   handleAddToolPhoto() {
     const { tool_photo, tool_photos } = this.state;
-    this.setState({tool_photos: hf.handleAddItem(tool_photo, tool_photos)})
+    this.setState({ tool_photos: hf.handleAddItem(tool_photo, tool_photos) });
     let inputField = document.querySelector('input[name="tool_photo"]');
     inputField.value = "";
   }
@@ -45,7 +45,7 @@ class AddToolForm extends React.Component {
   }
 
   handleAddToolToToolList() {
-    const {user_id} = this.props;
+    const { user_id } = this.props;
     const { tool_name, tool_photos, help } = this.state;
     let newUserToolObj = {
       tool_name: tool_name,
@@ -67,7 +67,7 @@ class AddToolForm extends React.Component {
     const { tool_photos } = this.state;
     return (
       <div>
-          Tool Name:{" "}
+        Tool Name:{" "}
         <input type="text" name="tool_name" onChange={this.handleGetFields} />
         <br />
         Tool Photo:{" "}
@@ -75,7 +75,10 @@ class AddToolForm extends React.Component {
         <button onClick={this.handleAddToolPhoto}>Add Tool Photo</button>
         <br />
         {tool_photos.length > 0 && (
-          <EditPhotoDisplay photos={tool_photos} deleteFunction={this.handleDeleteToolPhoto}/>
+          <EditPhotoDisplay
+            photos={tool_photos}
+            deleteFunction={this.handleDeleteToolPhoto}
+          />
         )}
         Need Help: <input type="checkbox" onChange={this.handleToggleHelp} />
         <br />

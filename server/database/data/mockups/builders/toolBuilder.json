@@ -6,14 +6,10 @@
     ]
   },
   "pliers": {
-    "img": [
-      "https://loremflickr.com/320/240/pliers,tool"
-    ]
+    "img": ["https://loremflickr.com/320/240/pliers,tool"]
   },
   "file": {
-    "img": [
-      "https://loremflickr.com/320/240/metal,file,tool"
-    ]
+    "img": ["https://loremflickr.com/320/240/metal,file,tool"]
   },
   "saw": {
     "img": [
@@ -33,9 +29,7 @@
     ]
   },
   "multitester": {
-    "img": [
-      "https://loremflickr.com/320/240/multi-tester,tool"
-    ]
+    "img": ["https://loremflickr.com/320/240/multi-tester,tool"]
   },
   "wire": {
     "img": [
@@ -50,14 +44,10 @@
     ]
   },
   "weedeater": {
-    "img": [
-      "https://loremflickr.com/320/240/weedeater,power-tool"
-    ]
+    "img": ["https://loremflickr.com/320/240/weedeater,power-tool"]
   },
   "shears": {
-    "img": [
-      "https://loremflickr.com/320/240/shears,tool"
-    ]
+    "img": ["https://loremflickr.com/320/240/shears,tool"]
   },
   "trowel": {
     "img": [
@@ -66,39 +56,25 @@
     ]
   },
   "shovel": {
-    "img": [
-      "https://loremflickr.com/320/240/shovel,tool"
-    ]
+    "img": ["https://loremflickr.com/320/240/shovel,tool"]
   },
   "hoe": {
-    "img": [
-      "https://loremflickr.com/320/240/hoe,tool"
-    ]
+    "img": ["https://loremflickr.com/320/240/hoe,tool"]
   },
   "voltmeter": {
-    "img": [
-      "https://loremflickr.com/320/240/voltmeter,tool"
-    ]
+    "img": ["https://loremflickr.com/320/240/voltmeter,tool"]
   },
   "wrench": {
-    "img": [
-      "https://loremflickr.com/320/240/wrench,tool"
-    ]
+    "img": ["https://loremflickr.com/320/240/wrench,tool"]
   },
   "grinder": {
-    "img": [
-      "https://loremflickr.com/320/240/grinder,tool"
-    ]
+    "img": ["https://loremflickr.com/320/240/grinder,tool"]
   },
   "jack": {
-    "img": [
-      "https://loremflickr.com/320/240/car,jack,tool"
-    ]
+    "img": ["https://loremflickr.com/320/240/car,jack,tool"]
   },
   "drill": {
-    "img": [
-      "https://loremflickr.com/320/240/drill,power-tool"
-    ]
+    "img": ["https://loremflickr.com/320/240/drill,power-tool"]
   },
   "ladder": {
     "img": [
@@ -107,23 +83,15 @@
     ]
   },
   "framingsquare": {
-    "img": [
-      "https://loremflickr.com/320/240/square,ruler,metal"
-    ]
+    "img": ["https://loremflickr.com/320/240/square,ruler,metal"]
   },
   "axe": {
-    "img": [
-      "https://loremflickr.com/320/240/axe,metal,tool"
-    ]
+    "img": ["https://loremflickr.com/320/240/axe,metal,tool"]
   },
   "clamps": {
-    "img": [
-      "https://loremflickr.com/320/240/clamp,metal,tool"
-    ]
+    "img": ["https://loremflickr.com/320/240/clamp,metal,tool"]
   },
   "ducttape": {
-    "img": [
-      "https://loremflickr.com/320/240/gorilla,tape"
-    ]
+    "img": ["https://loremflickr.com/320/240/gorilla,tape"]
   }
 }

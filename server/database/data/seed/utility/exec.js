@@ -5,5 +5,6 @@
 exports.exec = (fn, num) => {
   fn();
   if (!num) return;
-  --num; exec(fn, num);
+  --num;
+  exec(fn, num);
 };

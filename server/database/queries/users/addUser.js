@@ -1,4 +1,4 @@
-const db = require('../../index');
+const db = require("../../index");
 
 exports.addUser = (user, cb) => {
   db.User(user).save((err, result) => {
