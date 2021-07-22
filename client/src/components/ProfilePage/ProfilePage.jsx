@@ -36,22 +36,10 @@ class ProfilePage extends React.Component {
   }
 
   render() {
-    const {
-      _id,
-      name,
-      photo,
-      zip,
-      handy,
-      tools,
-      projects,
-      password,
-      email,
-    } = this.props.user;
-    const {
-      showAddProjectForm,
-      showAddToolForm,
-      showEditUserForm,
-    } = this.state;
+    const { _id, name, photo, zip, handy, tools, projects, password, email } =
+      this.props.user;
+    const { showAddProjectForm, showAddToolForm, showEditUserForm } =
+      this.state;
     const { showInbox } = this.props;
     const handleGetTargetName = (e) => e.target.name;
     const handleAddItem = (itemToAdd, itemArray) => {

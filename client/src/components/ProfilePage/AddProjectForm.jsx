@@ -18,18 +18,14 @@ class AddProjectForm extends React.Component {
     };
     this.handleGetFields = this.handleGetFields.bind(this);
     this.handleToggleNeedHelp = this.handleToggleNeedHelp.bind(this);
-    this.handleAddToolToProjectToolList = this.handleAddToolToProjectToolList.bind(
-      this
-    );
-    this.handleAddPhotoToProjectPhotoList = this.handleAddPhotoToProjectPhotoList.bind(
-      this
-    );
-    this.handleDeleteFromProjectToolList = this.handleDeleteFromProjectToolList.bind(
-      this
-    );
-    this.handleDeleteFromProjectPhotos = this.handleDeleteFromProjectPhotos.bind(
-      this
-    );
+    this.handleAddToolToProjectToolList =
+      this.handleAddToolToProjectToolList.bind(this);
+    this.handleAddPhotoToProjectPhotoList =
+      this.handleAddPhotoToProjectPhotoList.bind(this);
+    this.handleDeleteFromProjectToolList =
+      this.handleDeleteFromProjectToolList.bind(this);
+    this.handleDeleteFromProjectPhotos =
+      this.handleDeleteFromProjectPhotos.bind(this);
     this.handleSubmitNewProject = this.handleSubmitNewProject.bind(this);
   }
 

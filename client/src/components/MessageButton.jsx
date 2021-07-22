@@ -76,9 +76,8 @@ class MessageButton extends React.Component {
         }
 
         const conversationId = Talk.oneOnOneId(me, other);
-        const conversation = window.talkSession.getOrCreateConversation(
-          conversationId
-        );
+        const conversation =
+          window.talkSession.getOrCreateConversation(conversationId);
 
         conversation.setParticipant(me);
         conversation.setParticipant(other);
