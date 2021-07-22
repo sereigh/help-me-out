@@ -16,9 +16,8 @@ class EditDeleteUserTool extends React.Component {
 
     this.handleGetFields = this.handleGetFields.bind(this);
     this.handleAddToToolPhotoList = this.handleAddToToolPhotoList.bind(this);
-    this.handleDeleteFromToolPhotos = this.handleDeleteFromToolPhotos.bind(
-      this
-    );
+    this.handleDeleteFromToolPhotos =
+      this.handleDeleteFromToolPhotos.bind(this);
     this.handleToggleHelp = this.handleToggleHelp.bind(this);
     this.saveChanges = this.saveChanges.bind(this);
     this.deleteTool = this.deleteTool.bind(this);
