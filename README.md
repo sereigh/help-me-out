@@ -5,7 +5,7 @@
 #### Table of Contents
 
 - [Help Me Out!](#Project-Catwalk)
-  - [Technoligies](#Technologies)
+  - [Technologies](#Technologies)
   - [Development](#Development)
   - [Installation](#Installation)
   - [Operation](#Operation)

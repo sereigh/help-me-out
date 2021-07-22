@@ -1,68 +1,64 @@
 {
-    "handy": 15,
-    "report": 0,
-    "tools": [
-        {
-            "tool_photos": [
-                "https://picsum.photos/200/300",
-                "https://picsum.photos/200/300",
-                "https://picsum.photos/200/300"
-            ],
-            "help": true,
-            "_id": "606a68e9753c36beebe3fc53",
-            "tool_name": "crowbar",
-            "tool_owner": "606a63cc6bd5acac70c9f6df",
-            "createdAt": "2021-04-02T17:12:20.397Z",
-            "updatedAt": "2021-04-02T17:15:20.397Z",
-            "__v": 0
-        }
-    ],
-    "projects": [
-        {
-            "project_photos": [
-                "https://picsum.photos/200/300"
-            ],
-            "_id": "606a64dc118a9bb0232158cc",
-            "project_name": "Door Jam",
-            "project_description": "by and to for",
-            "needed_tools": [
-                "hammer"
-            ],
-            "help": true,
-            "project_owner": "606a63cc6bd5acac70c9f6df",
-            "createdAt": "2021-04-02T17:13:20.397Z",
-            "updatedAt": "2021-04-02T17:13:20.397Z",
-            "__v": 0
-        },
-        {
-            "project_photos": [
-                "https://picsum.photos/200/300",
-                "https://picsum.photos/200/300",
-                "https://picsum.photos/200/300",
-                "https://picsum.photos/200/300",
-                "https://picsum.photos/200/300"
-            ],
-            "_id": "606a6559868452b20a4102a6",
-            "project_name": "Platform Bed",
-            "project_description": "great some to",
-            "help": false,
-            "project_owner": "606a63cc6bd5acac70c9f6df",
-            "createdAt": "2021-04-01T17:12:20.397Z",
-            "updatedAt": "2021-04-02T17:15:20.397Z",
-            "__v": 0
-        }
-    ],
-    "favorites": {
-        "606ce192976fe4d9c0288e4d": true,
-        "606ce180976fe4d9c0288e4c": true
+  "handy": 15,
+  "report": 0,
+  "tools": [
+    {
+      "tool_photos": [
+        "https://picsum.photos/200/300",
+        "https://picsum.photos/200/300",
+        "https://picsum.photos/200/300"
+      ],
+      "help": true,
+      "_id": "606a68e9753c36beebe3fc53",
+      "tool_name": "crowbar",
+      "tool_owner": "606a63cc6bd5acac70c9f6df",
+      "createdAt": "2021-04-02T17:12:20.397Z",
+      "updatedAt": "2021-04-02T17:15:20.397Z",
+      "__v": 0
+    }
+  ],
+  "projects": [
+    {
+      "project_photos": ["https://picsum.photos/200/300"],
+      "_id": "606a64dc118a9bb0232158cc",
+      "project_name": "Door Jam",
+      "project_description": "by and to for",
+      "needed_tools": ["hammer"],
+      "help": true,
+      "project_owner": "606a63cc6bd5acac70c9f6df",
+      "createdAt": "2021-04-02T17:13:20.397Z",
+      "updatedAt": "2021-04-02T17:13:20.397Z",
+      "__v": 0
     },
-    "_id": "606a63cc6bd5acac70c9f6df",
-    "name": "Phillip Waterson",
-    "zip": 37130,
-    "email": "1234abc@gmail.com",
-    "password": "326b94d4530d405",
-    "photo": "https://picsum.photos/200",
-    "createdAt": "2021-04-02T17:12:20.397Z",
-    "updatedAt": "2021-04-02T17:15:20.397Z",
-    "__v": 0
+    {
+      "project_photos": [
+        "https://picsum.photos/200/300",
+        "https://picsum.photos/200/300",
+        "https://picsum.photos/200/300",
+        "https://picsum.photos/200/300",
+        "https://picsum.photos/200/300"
+      ],
+      "_id": "606a6559868452b20a4102a6",
+      "project_name": "Platform Bed",
+      "project_description": "great some to",
+      "help": false,
+      "project_owner": "606a63cc6bd5acac70c9f6df",
+      "createdAt": "2021-04-01T17:12:20.397Z",
+      "updatedAt": "2021-04-02T17:15:20.397Z",
+      "__v": 0
+    }
+  ],
+  "favorites": {
+    "606ce192976fe4d9c0288e4d": true,
+    "606ce180976fe4d9c0288e4c": true
+  },
+  "_id": "606a63cc6bd5acac70c9f6df",
+  "name": "Phillip Waterson",
+  "zip": 37130,
+  "email": "1234abc@gmail.com",
+  "password": "326b94d4530d405",
+  "photo": "https://picsum.photos/200",
+  "createdAt": "2021-04-02T17:12:20.397Z",
+  "updatedAt": "2021-04-02T17:15:20.397Z",
+  "__v": 0
 }

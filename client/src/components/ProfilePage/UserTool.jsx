@@ -15,12 +15,7 @@ class UserTool extends React.Component {
     this.setState({ showToolEditDelete: !showToolEditDelete });
   }
   render() {
-    const {
-      tool,
-      user_id,
-      handleGetTargetName,
-      handleAddItem,
-    } = this.props;
+    const { tool, user_id, handleGetTargetName, handleAddItem } = this.props;
     const { showToolEditDelete } = this.state;
     return (
       <div className="tool-card">

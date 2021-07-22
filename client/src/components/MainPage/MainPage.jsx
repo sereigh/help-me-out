@@ -1,21 +1,21 @@
 /* eslint-disable no-underscore-dangle */
-import React from 'react';
-import PropTypes from 'prop-types';
-import axios from 'axios';
+import React from "react";
+import PropTypes from "prop-types";
+import axios from "axios";
 
-import sampleData from '../../../../server/database/data/samples/sampleFeed.json';
+import sampleData from "../../../../server/database/data/samples/sampleFeed.json";
 
-import ProfileCard from './ProfileCard';
-import FilterButtons from './FilterButtons';
-import FeedContainer from './FeedContainer';
-import MiniMap from '../ProfilePage/MiniMap';
+import ProfileCard from "./ProfileCard";
+import FilterButtons from "./FilterButtons";
+import FeedContainer from "./FeedContainer";
+import MiniMap from "../ProfilePage/MiniMap";
 
 class MainPage extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      currentFilter: 'home',
+      currentFilter: "home",
       home: [],
       projects: [],
       tools: [],
@@ -40,7 +40,8 @@ class MainPage extends React.Component {
   getRelevantInfo() {
     const { user } = this.props;
 
-    axios.get(`/users/${user._id}/relevant`)
+    axios
+      .get(`/users/${user._id}/relevant`)
       .then((results) => this.filterData(results.data))
       // eslint-disable-next-line no-console
       .catch((err) => console.log(err));
@@ -74,32 +75,32 @@ class MainPage extends React.Component {
 
     this.setState({
       home: home.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)),
-      projects: projects.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)),
-      tools: tools.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)),
-      favorites: favorites.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)),
+      projects: projects.sort(
+        (a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)
+      ),
+      tools: tools.sort(
+        (a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)
+      ),
+      favorites: favorites.sort(
+        (a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)
+      ),
     });
   }
 
   render() {
     const { user } = this.props;
 
-    const {
-      currentFilter,
-      home,
-      projects,
-      tools,
-      favorites,
-    } = this.state;
+    const { currentFilter, home, projects, tools, favorites } = this.state;
 
     let displayedData = [];
 
-    if (currentFilter === 'home') {
+    if (currentFilter === "home") {
       displayedData = home;
-    } else if (currentFilter === 'giveHelp') {
+    } else if (currentFilter === "giveHelp") {
       displayedData = projects;
-    } else if (currentFilter === 'getHelp') {
+    } else if (currentFilter === "getHelp") {
       displayedData = tools;
-    } else if (currentFilter === 'favorites') {
+    } else if (currentFilter === "favorites") {
       displayedData = favorites;
     }
 
@@ -107,7 +108,10 @@ class MainPage extends React.Component {
       <div className="main-page">
         <div className="main-page-left">
           <ProfileCard user={user} />
-          <FilterButtons currentFilter={currentFilter} handleFilter={this.handleFilter} />
+          <FilterButtons
+            currentFilter={currentFilter}
+            handleFilter={this.handleFilter}
+          />
           <MiniMap zipcode={user.zip} />
         </div>
         <FeedContainer user={user} data={displayedData} />
@@ -125,19 +129,23 @@ MainPage.propTypes = {
     photo: PropTypes.string,
     handy: PropTypes.number.isRequired,
     report: PropTypes.number.isRequired,
-    tools: PropTypes.arrayOf(PropTypes.shape({
-      tool_name: PropTypes.string,
-      tool_photos: PropTypes.arrayOf(PropTypes.string),
-      tool_owner: PropTypes.string,
-      help: PropTypes.bool,
-    })),
-    projects: PropTypes.arrayOf(PropTypes.shape({
-      project_name: PropTypes.string.isRequired,
-      project_description: PropTypes.string,
-      project_owner: PropTypes.string.isRequired,
-      help: PropTypes.bool.isRequired,
-      project_photos: PropTypes.arrayOf(PropTypes.string),
-    })),
+    tools: PropTypes.arrayOf(
+      PropTypes.shape({
+        tool_name: PropTypes.string,
+        tool_photos: PropTypes.arrayOf(PropTypes.string),
+        tool_owner: PropTypes.string,
+        help: PropTypes.bool,
+      })
+    ),
+    projects: PropTypes.arrayOf(
+      PropTypes.shape({
+        project_name: PropTypes.string.isRequired,
+        project_description: PropTypes.string,
+        project_owner: PropTypes.string.isRequired,
+        help: PropTypes.bool.isRequired,
+        project_photos: PropTypes.arrayOf(PropTypes.string),
+      })
+    ),
     favorites: PropTypes.objectOf(PropTypes.bool),
   }).isRequired,
 };

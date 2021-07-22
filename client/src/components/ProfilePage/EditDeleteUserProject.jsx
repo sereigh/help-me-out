@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import EditPhotoDisplay from "./EditPhotoDisplay";
-import hf from './helperFunctions';
+import hf from "./helperFunctions";
 
 class EditDeleteUserProject extends React.Component {
   constructor(props) {
@@ -16,9 +16,8 @@ class EditDeleteUserProject extends React.Component {
 
     this.handleGetFields = this.handleGetFields.bind(this);
     this.handleAddToPhotoList = this.handleAddToPhotoList.bind(this);
-    this.handleDeleteFromProjectPhotos = this.handleDeleteFromProjectPhotos.bind(
-      this
-    );
+    this.handleDeleteFromProjectPhotos =
+      this.handleDeleteFromProjectPhotos.bind(this);
     this.handleToggleHelp = this.handleToggleHelp.bind(this);
     this.saveChanges = this.saveChanges.bind(this);
     this.deleteProject = this.deleteProject.bind(this);
@@ -92,15 +91,9 @@ class EditDeleteUserProject extends React.Component {
   }
 
   render() {
-    const {
-      toggleProjectEditDelete,
-    } = this.props;
-    const {
-      project_name,
-      project_description,
-      project_photos,
-      help,
-    } = this.state;
+    const { toggleProjectEditDelete } = this.props;
+    const { project_name, project_description, project_photos, help } =
+      this.state;
     return (
       <div>
         Project Name:{" "}

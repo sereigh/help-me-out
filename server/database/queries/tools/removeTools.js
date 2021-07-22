@@ -1,4 +1,4 @@
-const db = require('../../index');
+const db = require("../../index");
 
 exports.removeTools = (tool, user, cb) => {
   db.Tool.findByIdAndDelete(
@@ -6,6 +6,6 @@ exports.removeTools = (tool, user, cb) => {
     (err, result) => {
       if (err) return cb(err, null);
       return cb(null, result);
-    },
+    }
   );
 };

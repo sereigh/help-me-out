@@ -1,11 +1,16 @@
-const db = require('../../index.js');
+const db = require("../../index.js");
 
 exports.updateProjects = (project, user, update, cb) => {
   db.Project.findByIdAndUpdate(
     { _id: project, where: { $ref: user } },
-    update, { new: true },
+    update,
+    { new: true },
     (err, result) => {
-      if (err) { cb(err, null); } else { cb(null, result); }
-    },
+      if (err) {
+        cb(err, null);
+      } else {
+        cb(null, result);
+      }
+    }
   );
 };

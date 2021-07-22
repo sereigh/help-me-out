@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import HandyIcon from '../HandyIcon';
+import React from "react";
+import PropTypes from "prop-types";
+import HandyIcon from "../HandyIcon";
 
 const ProfileCard = ({ user }) => (
   <div className="profile-card">
@@ -24,19 +24,23 @@ ProfileCard.propTypes = {
     photo: PropTypes.string,
     handy: PropTypes.number.isRequired,
     report: PropTypes.number.isRequired,
-    tools: PropTypes.arrayOf(PropTypes.shape({
-      tool_name: PropTypes.string,
-      tool_photos: PropTypes.arrayOf(PropTypes.string),
-      tool_owner: PropTypes.string,
-      help: PropTypes.bool,
-    })),
-    projects: PropTypes.arrayOf(PropTypes.shape({
-      project_name: PropTypes.string.isRequired,
-      project_description: PropTypes.string,
-      project_owner: PropTypes.string.isRequired,
-      help: PropTypes.bool.isRequired,
-      project_photos: PropTypes.arrayOf(PropTypes.string),
-    })),
+    tools: PropTypes.arrayOf(
+      PropTypes.shape({
+        tool_name: PropTypes.string,
+        tool_photos: PropTypes.arrayOf(PropTypes.string),
+        tool_owner: PropTypes.string,
+        help: PropTypes.bool,
+      })
+    ),
+    projects: PropTypes.arrayOf(
+      PropTypes.shape({
+        project_name: PropTypes.string.isRequired,
+        project_description: PropTypes.string,
+        project_owner: PropTypes.string.isRequired,
+        help: PropTypes.bool.isRequired,
+        project_photos: PropTypes.arrayOf(PropTypes.string),
+      })
+    ),
     favorites: PropTypes.objectOf(PropTypes.bool),
   }).isRequired,
 };

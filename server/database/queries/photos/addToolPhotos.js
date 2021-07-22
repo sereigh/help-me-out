@@ -1,4 +1,4 @@
-const db = require('../../index');
+const db = require("../../index");
 
 exports.addToolPhotos = (tool, user, update, cb) => {
   db.Tool.findByIdAndUpdate(
@@ -8,6 +8,6 @@ exports.addToolPhotos = (tool, user, update, cb) => {
     (err, result) => {
       if (err) return cb(err, null);
       return cb(null, result);
-    },
+    }
   ).exec();
 };

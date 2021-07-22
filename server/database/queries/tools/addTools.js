@@ -1,4 +1,4 @@
-const db = require('../../index');
+const db = require("../../index");
 
 exports.addTools = (tool, cb) => {
   db.Tool(tool).save((err, result) => {

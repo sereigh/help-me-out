@@ -1,5 +1,5 @@
-const { getHelp } = require('./getHelp');
-const { giveHelp } = require('./giveHelp');
+const { getHelp } = require("./getHelp");
+const { giveHelp } = require("./giveHelp");
 
 exports.grabSiteMatches = (filter, cb) => {
   const matches = {};

@@ -1,11 +1,9 @@
-const db = require('../../index');
+const db = require("../../index");
 
 exports.getHelp = (neededTools, userZip, cb) => {
-  db.Tool.find(
-    { tool_name: neededTools },
-  )
+  db.Tool.find({ tool_name: neededTools })
     .populate({
-      path: 'tool_owner',
+      path: "tool_owner",
       where: { zip: userZip },
       select: {
         name: 1,

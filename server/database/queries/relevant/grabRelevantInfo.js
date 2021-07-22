@@ -1,5 +1,5 @@
-const { grabUserParams } = require('./grabUserParams');
-const { grabSiteMatches } = require('./grabSiteMatches');
+const { grabUserParams } = require("./grabUserParams");
+const { grabSiteMatches } = require("./grabSiteMatches");
 
 exports.grabRelevantInfo = (user, cb) => {
   grabUserParams(user, (err, result) => {

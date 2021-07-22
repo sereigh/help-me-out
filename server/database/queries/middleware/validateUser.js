@@ -1,6 +1,6 @@
-const { addUser } = require('../users/addUser');
-const { grabUser } = require('../users/grabUser');
-const { validateEmail } = require('./validateEmail');
+const { addUser } = require("../users/addUser");
+const { grabUser } = require("../users/grabUser");
+const { validateEmail } = require("./validateEmail");
 
 exports.validateUser = (user, email, cb) => {
   validateEmail(email, (err, result) => {

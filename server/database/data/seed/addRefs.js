@@ -2,11 +2,11 @@
 /* eslint-disable no-shadow */
 /* eslint-disable no-plusplus */
 /* eslint-disable no-param-reassign */
-const { addToolRef } = require('../../queries/middleware/addToolRef');
-const { addProjectRef } = require('../../queries/middleware/addProjectRef');
-const { addNeeds } = require('../../queries/projects/addNeeds');
+const { addToolRef } = require("../../queries/middleware/addToolRef");
+const { addProjectRef } = require("../../queries/middleware/addProjectRef");
+const { addNeeds } = require("../../queries/projects/addNeeds");
 // const { distributeTools } = require('./utility/distributeTools');
-const { indexOf } = require('./utility/indexOf');
+const { indexOf } = require("./utility/indexOf");
 
 exports.addRefs = (users, projects, tools, cb) => {
   for (let i = 0; i < users.length; i++) {
@@ -48,5 +48,5 @@ exports.addRefs = (users, projects, tools, cb) => {
   for (let i = 0; i < users.length; i++) {
     addNeeds(projects[indexOf(projects)], tools[indexOf(tools)]);
   }
-  return cb(null, 'fin');
+  return cb(null, "fin");
 };

@@ -1,7 +1,7 @@
 /* eslint-disable consistent-return */
 /* eslint-disable no-underscore-dangle */
-const db = require('../../index');
-const { getIds } = require('./getUserIds');
+const db = require("../../index");
+const { getIds } = require("./getUserIds");
 
 const filterIds = (docs) => docs.map((doc) => doc._id);
 

@@ -1,20 +1,20 @@
-import React from 'react';
-import LPProjects from './LPProjects';
-import LPExperts from './LPExperts';
-import sampleExp from '../../../../server/database/data/samples/sampleTopExperts.json';
-import sampleProj from '../../../../server/database/data/samples/sampleRecentProjects.json';
-import sampleUser from '../../../../server/database/data/samples/sampleUser.json';
+import React from "react";
+import LPProjects from "./LPProjects";
+import LPExperts from "./LPExperts";
+import sampleExp from "../../../../server/database/data/samples/sampleTopExperts.json";
+import sampleProj from "../../../../server/database/data/samples/sampleRecentProjects.json";
+import sampleUser from "../../../../server/database/data/samples/sampleUser.json";
 
 class LandingPage extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { experts: sampleExp, projects: sampleProj, loginText: '' };
+    this.state = { experts: sampleExp, projects: sampleProj, loginText: "" };
     this.onClick = this.onClick.bind(this);
   }
 
   onClick() {
-    this.setState({ loginText: 'Sign Up or Login to see more' });
+    this.setState({ loginText: "Sign Up or Login to see more" });
   }
 
   render() {
