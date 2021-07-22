@@ -92,8 +92,13 @@ class EditDeleteUserProject extends React.Component {
 
   render() {
     const { toggleProjectEditDelete } = this.props;
-    const { project_name, project_description, project_photos, help } =
-      this.state;
+    const {
+      project_name,
+      project_description,
+      project_photos,
+      help,
+    } = this.state;
+
     return (
       <div>
         Project Name:{" "}
